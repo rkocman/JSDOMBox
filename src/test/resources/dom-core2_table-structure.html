@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>DOM Level 2 Core - Table structure</title>
+	</head>
+	<body>
+		<h1>Table example</h1>
+		
+		<table>
+			<tr>
+				<th>Title</th>
+				<td>1</td>
+			</tr>
+		</table>
+		
+		<span>Result:</span><br>
+		<span>Correct: TABLE #text TBODY TR #text TH #text #text TD #text #text #text</span>
+		
+		<script>
+			// Desired result:
+			// TABLE #text TBODY TR #text TH #text #text TD #text #text #text
+		
+		  	function recursiveNames(tag)
+		  	{
+		  		var span = document.getElementsByTagName("span").item(0);
+		  		span.firstChild.data += " " + tag.nodeName;
+		  		
+		  		if (!tag.hasChildNodes()) return;
+		  		
+		  		var children = tag.childNodes;
+		  		for (var i = 0; i < children.length; i++) {
+		  			recursiveNames(children.item(i));
+		  		}
+		  	}
+		  	
+		  	var table = document.getElementsByTagName("table").item(0);
+		  	recursiveNames(table);
+		</script>
+	</body>
+</html>

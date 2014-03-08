@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>DOM Level 2 Core - Square bracket notation</title>
+	</head>
+	<body>
+		<h2 id="t1">Test 1 - FAIL</h2>
+		<h3 style="display:none;">Test 2 - FAIL</h3>
+		
+		<script>
+			// Desired result:
+			// Test 1 - OK
+			// Test 2 - OK
+			
+			// Test 1
+			var h2 = document.getElementsByTagName("H2")[0];
+			h2.firstChild.data = "Test 1 - ";
+			document.getElementById("t1").firstChild.data += "OK";
+			
+			// Test 2
+			var h3 = document.getElementsByTagName("h3")[0];
+			h3.attributes[0].value = "";
+			h3.firstChild.data = "Test 2 - OK";
+		</script>
+	</body>
+</html>

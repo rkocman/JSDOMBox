@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>DOM Level 2 Core - Constants</title>
+	</head>
+	<body>
+		<span>Node.TEXT_NODE == 3: </span><strong>FAIL</strong><br>
+		<span>Node.DOCUMENT_FRAGMENT_NODE = 11: </span><strong>FAIL</strong><br>
+		<span>document.TEXT_NODE == 3: </span><strong>FAIL</strong><br>
+		<span>document.DOCUMENT_FRAGMENT_NODE == 11: </span><strong>FAIL</strong><br>
+		<span>DOMException.NOT_FOUND_ERR == 8: </span><strong>FAIL</strong><br>
+		<span>DOMException.NAMESPACE_ERR == 14: </span><strong>FAIL</strong><br>
+		
+		<script>
+			// Desired result:
+			// all lines are changed to OK
+		
+			var strongs = document.getElementsByTagName("StRong");
+			
+			if (Node.TEXT_NODE == 3) {
+				strongs.item(0).firstChild.data = "OK";
+			}
+			if (Node.DOCUMENT_FRAGMENT_NODE = 11) {
+				strongs.item(1).firstChild.data = "OK";
+			}
+			if (document.TEXT_NODE == 3) {
+				strongs.item(2).firstChild.data = "OK";
+			}
+			if (document.DOCUMENT_FRAGMENT_NODE == 11) {
+				strongs.item(3).firstChild.data = "OK";
+			}
+			if (DOMException.NOT_FOUND_ERR == 8) {
+				strongs.item(4).firstChild.data = "OK";
+			}
+			if (DOMException.NAMESPACE_ERR == 14) {
+				strongs.item(5).firstChild.data = "OK";
+			}
+		</script>
+	</body>
+</html>

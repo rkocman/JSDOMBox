@@ -1,0 +1,14 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.sonatype.oss</groupId>
+    <artifactId>oss-parent</artifactId>
+    <version>7</version>
+  </parent>
+  <groupId>net.sf.cssbox</groupId>
+  <artifactId>jsdombox</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>JSDOMBox</name>
+  <description>JSDOMBox is an experimental extension for CSSBox.
+It adds the ability to execute JavaScript and dynamically manipulate with DOM content.</description>
+</project>

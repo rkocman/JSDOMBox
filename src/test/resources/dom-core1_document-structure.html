@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>DOM Level 1 Core - Document structure</title>
+	</head>
+	<body>
+		<span>Result:</span><br>
+		<span>FF27: #document html HTML HEAD #text TITLE #text #text #text BODY #text SPAN #text BR #text SPAN #text BR #text SPAN #text #text SCRIPT #text</span><br>
+		<span>IE8: #document #comment HTML HEAD TITLE BODY SPAN #text BR SPAN #text BR SPAN #text SCRIPT</span>
+		
+		<script>
+			// Desired result:
+			// Should be cca similar
+			
+			function recursiveNames(tag)
+		  	{
+		  		var span = document.getElementsByTagName("span").item(0);
+		  		span.firstChild.data += " " + tag.nodeName;
+		  		
+		  		if (!tag.hasChildNodes()) return;
+		  		
+		  		var children = tag.childNodes;
+		  		for (var i = 0; i < children.length; i++) {
+		  			recursiveNames(children.item(i));
+		  		}
+		  	}
+		  	
+		  	recursiveNames(window.document);
+		</script>
+	</body>
+</html>

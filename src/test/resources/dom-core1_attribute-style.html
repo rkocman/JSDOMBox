@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>DOM Level 1 Core - Attribute style</title>
+	</head>
+	<body>
+		<h1 StYlE="color:red;">Red H1 - FAIL</h1>
+		<h2 style="color:red;text-align:center;">Red H2 - FAIL</h2>
+		
+		<script>
+			// Desired result:
+			// H1 should be green
+			// H2 should be black
+		
+		  	allh1 = document.getElementsByTagName("h1");
+		  	h1 = allh1.item(0);
+		  	h1attr = h1.attributes;
+		  	style = h1attr.getNamedItem("style");
+		  	style.value = "color:green;";
+		  	h1.lastChild.data = "Green H1 ?";
+		  	
+		  	h2 = window.document.getElementsByTagName("h2").item(0);
+		  	h2attr = h2.attributes;
+		  	h2attr.removeNamedItem("STYLE");
+		  	h2.firstChild.data = "Black H2 ?";
+		</script>
+	</body>
+</html>
