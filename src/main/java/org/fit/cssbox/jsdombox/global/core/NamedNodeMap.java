@@ -55,6 +55,7 @@ public class NamedNodeMap extends JSAdapter
 		Object result = source.item(index);
 		return iaf.create(result, JSAdapterType.NODE);
 	}
+	// TODO square bracket access
 	
 	public int getLength()
 	{

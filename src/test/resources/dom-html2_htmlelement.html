@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>DOM Level 2 HTML - HTMLElement</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	</head>
+	<body>
+		<h1 id="iH1" class="cH1" title="TH1" lang="En" dir="RtL">
+			HTMLElement
+		</h1>
+		<strong>Test 1:</strong><br>
+		<span id="pid">id (correct: iH1): </span><br>
+		<span id="pclass">class (correct: cH1): </span><br>
+		<span id="ptitle">title (correct: TH1): </span><br>
+		<span id="plang">lang (correct: En): </span><br>
+		<span id="pdir">dir (correct: rtl): </span><br>
+		<span id="pdir2">dir 2nd (correct: RtL): </span><br><br>
+		<strong>Test 2:</strong><br>
+		<span id="2pid">id (correct: nothing): </span><br>
+		<span id="2pclass">class (correct: nothing): </span><br>
+		<span id="2ptitle">title (correct: nothing): </span><br>
+		<span id="2plang">lang (correct: nothing): </span><br>
+		<span id="2pdir">dir (correct: nothing): </span><br>
+		<span id="2pdir2">dir 2nd (correct: nothing or null): </span>
+		
+		<script>
+			// Desired result:
+			// Test 1:
+			// id (correct: ih1): ih1
+			// class (correct: ch1): ch1
+			// title (correct: TH1): TH1
+			// lang (correct: en): en
+			// dir (correct: rtl): rtl
+			// dir 2nd (correct: RtL): RtL
+			// Test 2:
+			// id (correct: nothing): 
+			// class (correct: nothing): 
+			// title (correct: nothing): 
+			// lang (correct: nothing): 
+			// dir (correct: nothing): 
+			// dir 2nd (correct: nothing or null):  
+			
+			h1 = document.getElementsByTagName("H1").item(0);
+			document.getElementById("pid").firstChild.data += h1.id;
+			document.getElementById("pclass").firstChild.data += h1.className;
+			document.getElementById("ptitle").firstChild.data += h1.title;
+			document.getElementById("plang").firstChild.data += h1.lang;
+			document.getElementById("pdir").firstChild.data += h1.dir;
+			document.getElementById("pdir2").firstChild.data += h1.getAttribute("dir");
+			
+			p = document.getElementsByTagName("strong").item(0);
+			document.getElementById("2pid").firstChild.data += p.id;
+			document.getElementById("2pclass").firstChild.data += p.className;
+			document.getElementById("2ptitle").firstChild.data += p.title;
+			document.getElementById("2plang").firstChild.data += p.lang;
+			document.getElementById("2pdir").firstChild.data += p.dir;
+			document.getElementById("2pdir2").firstChild.data += p.getAttribute("dir");
+		</script>
+	</body>
+</html>

@@ -33,12 +33,8 @@ public class DOMImplementation extends JSAdapter
 	
 	public boolean hasFuture(String feature, String version)
 	{
+		// XML 1.0 (not supported)
 		// HTML 1.0 (not supported)
-//		if (feature.compareToIgnoreCase("HTML") == 0) {
-//			if (version == null || version.isEmpty() || 
-//		        version.compareToIgnoreCase("1.0") == 0)
-//				return true;
-//		}
 		
 		// Core 2.0
 		if (feature.compareToIgnoreCase("Core") == 0) {
@@ -46,6 +42,16 @@ public class DOMImplementation extends JSAdapter
 		        version.compareToIgnoreCase("2.0") == 0)
 				return true;
 		}
+		
+		// HTML 2.0
+		if (feature.compareToIgnoreCase("HTML") == 0) {
+			if (version == null || version.isEmpty() || 
+		        version.compareToIgnoreCase("2.0") == 0)
+				return true;
+		}
+		
+		// XML 2.0 (not supported)
+		// XHTML 2.0 (not supported)
 		
 		return false;
 	}

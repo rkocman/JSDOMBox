@@ -70,11 +70,14 @@ public class SimpleExample extends javax.swing.JFrame
 			
 			// 0 - Document
 			//document += "dom-core1_basic-usage.html";
-			document += "dom-core1_attribute-style.html";
+			//document += "dom-core1_attribute-style.html";
 			//document += "dom-core1_document-structure.html";
 			//document += "dom-core2_constants.html";
 			//document += "dom-core2_table-structure.html";
 			//document += "dom-core2_square-bracket-notation.html"; // (not working)
+			//document += "dom-html2_name-size.html";
+			//document += "dom-html2_htmlelement.html";
+			document += "dom-html2_specific-htmlelement.html";
 			
 			// 1 - Get input document
 			String basePath = new File(document).getAbsolutePath();

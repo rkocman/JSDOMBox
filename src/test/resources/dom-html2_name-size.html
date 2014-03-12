@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>DOM Level 2 HTML - Name size</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	</head>
+	<body>
+		<h1 Id="h1" onClick="document" lang="en">
+			Name size test (order doesn't matter)
+		</h1>
+		<span>Result:</span><br>
+		<span>Correct: H1 lang onclick id</span>
+	
+		<script>
+			// Desired result (order doesn't matter):
+			// H1 lang onclick id
+			
+			var h1 = document.getElementsByTagName("h1").item(0);
+			var h1attr = h1.attributes;
+			var result = document.getElementsByTagName("span").item(0).firstChild;
+			
+			result.data += " " + h1.tagName;
+			for (var i = 0; i < h1attr.length; i++) {
+				result.data += " " + h1attr.item(i).name;
+			}
+		</script>
+	</body>
+</html>

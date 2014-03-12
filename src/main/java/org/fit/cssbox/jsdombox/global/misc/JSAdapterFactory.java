@@ -6,6 +6,7 @@
 package org.fit.cssbox.jsdombox.global.misc;
 
 import org.fit.cssbox.jsdombox.global.core.*;
+import org.fit.cssbox.jsdombox.global.html.*;
 import org.fit.cssbox.jsdombox.js.JSAnalyzer;
 
 /**
@@ -46,6 +47,21 @@ public class JSAdapterFactory implements IJSAdapterFactory
 		
 		
 		
+		// HTML Interfaces
+		
+		if (source instanceof org.w3c.dom.Element) {
+			switch (((org.w3c.dom.Element) source).getTagName()) {
+			// Interface HTMLHtmlElement
+			case "html":
+				return new HTMLHtmlElement((org.w3c.dom.Element) source, this);
+			// Interface HTMLElement	
+			default:
+				return new HTMLElement((org.w3c.dom.Element) source, this);
+			}
+		}
+		
+		
+		
 		// Core interfaces
 		
 		// Interface DOMImplementation
@@ -58,9 +74,6 @@ public class JSAdapterFactory implements IJSAdapterFactory
 		if (source instanceof org.w3c.dom.DocumentFragment)
 			return new DocumentFragment((org.w3c.dom.DocumentFragment) source, this);
 		
-		// Interface Element
-		if (source instanceof org.w3c.dom.Element)
-			return new Element((org.w3c.dom.Element) source, this);
 		// Interface Attr
 		if (source instanceof org.w3c.dom.Attr)
 			return new Attr((org.w3c.dom.Attr) source, this);

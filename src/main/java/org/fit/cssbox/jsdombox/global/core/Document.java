@@ -8,6 +8,7 @@ package org.fit.cssbox.jsdombox.global.core;
 import org.fit.cssbox.jsdombox.global.misc.IJSAdapterFactory;
 import org.fit.cssbox.jsdombox.global.misc.JSAdapter;
 import org.fit.cssbox.jsdombox.global.misc.JSAdapterType;
+import org.fit.cssbox.jsdombox.global.util.DOMTraversal;
 import org.w3c.dom.DOMException;
 
 /**
@@ -132,7 +133,8 @@ public class Document extends Node
 	
 	public JSAdapter getElementById(String elementId)
 	{
-		Object result = source.getElementById(elementId);
+		String attr = iaf.innerNameFormat("id");
+		Object result = DOMTraversal.getNodeByUniqueAttrValue(source, attr, elementId);
 		return iaf.create(result, JSAdapterType.ELEMENT);
 	}
 	
