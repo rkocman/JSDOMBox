@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html version="-//W3C//DTD HTML 4.01 Transitional//EN" lang="en">
-	<head>
+	<head profile="http://localhost/">
 		<title>DOM Level 2 HTML - Specific HTMLElement</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	</head>
@@ -8,15 +8,37 @@
 		<strong>Test 1 - HTMLHtmlElement:</strong><br>
 		<span id="t11">Result: </span><br>
 		<span>Correct: -//W3C//DTD HTML 4.01 Transitional//EN</span><br>
-		<span id="t12">lang (correct: en): </span><br><br>
+		<span id="t12">lang (correct: en): </span><br>
+		<span id="t13">Result: </span><br>
+		<span>Correct: -//W3C//DTD HTML 4.01//EN</span><br><br>
+		
+		<strong>Test 2 - HTMLHeadElement:</strong><br>
+		<span id="t21">profile (correct: http://localhost/ or undefined): </span><br>
+		<span id="t22">random (correct: undefined): </span><br>
+		<span id="t23">profile new (correct: http://localhost/new/): </span><br><br>
 		
 		<script>
 			// Desired result:
-			// -//W3C//DTD HTML 4.01 Transitional//EN
+			// Test 1:
+			// Result: -//W3C//DTD HTML 4.01 Transitional//EN
+			// lang (correct: en): en
+			// Result: -//W3C//DTD HTML 4.01//EN
+			// Test 2:
+			// profile (correct: http://localhost/ or undefined): http://localhost/
+			// random (correct: undefined): undefined
+			// profile new (correct: http://localhost/new/): http://localhost/new/
 			
 			var html = document.getElementsByTagName("HTML").item(0);
 			document.getElementById("t11").firstChild.data += html.version;
 			document.getElementById("t12").firstChild.data += html.lang;
+			html.version = "-//W3C//DTD HTML 4.01//EN";
+			document.getElementById("t13").firstChild.data += html.version;
+			
+			var head = document.getElementsByTagName("head").item(0);
+			document.getElementById("t21").firstChild.data += head.profile;
+			document.getElementById("t22").firstChild.data += head.random;
+			head.profile = "http://localhost/new/";
+			document.getElementById("t23").firstChild.data += head.profile;
 		</script>
 	</body>
 </html>

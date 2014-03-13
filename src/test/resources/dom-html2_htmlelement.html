@@ -21,15 +21,22 @@
 		<span id="2ptitle">title (correct: nothing): </span><br>
 		<span id="2plang">lang (correct: nothing): </span><br>
 		<span id="2pdir">dir (correct: nothing): </span><br>
-		<span id="2pdir2">dir 2nd (correct: nothing or null): </span>
+		<span id="2pdir2">dir 2nd (correct: nothing or null): </span><br><br>
+		<strong>Test 3:</strong><br>
+		<span id="3pid">id (correct: iH1): </span><br>
+		<span id="3pclass">class (correct: cH1): </span><br>
+		<span id="3ptitle">title (correct: TH1): </span><br>
+		<span id="3plang">lang (correct: En): </span><br>
+		<span id="3pdir">dir (correct: ltr): </span><br>
+		<span id="3pdir2">dir 2nd (correct: LtR): </span>
 		
 		<script>
 			// Desired result:
 			// Test 1:
-			// id (correct: ih1): ih1
-			// class (correct: ch1): ch1
+			// id (correct: iH1): iH1
+			// class (correct: cH1): cH1
 			// title (correct: TH1): TH1
-			// lang (correct: en): en
+			// lang (correct: En): En
 			// dir (correct: rtl): rtl
 			// dir 2nd (correct: RtL): RtL
 			// Test 2:
@@ -38,7 +45,14 @@
 			// title (correct: nothing): 
 			// lang (correct: nothing): 
 			// dir (correct: nothing): 
-			// dir 2nd (correct: nothing or null):  
+			// dir 2nd (correct: nothing or null):
+			// Test 3:
+			// id (correct: iH1): iH1
+			// class (correct: cH1): cH1
+			// title (correct: TH1): TH1
+			// lang (correct: En): En
+			// dir (correct: ltl): ltl
+			// dir 2nd (correct: LtR): LtR
 			
 			h1 = document.getElementsByTagName("H1").item(0);
 			document.getElementById("pid").firstChild.data += h1.id;
@@ -55,6 +69,19 @@
 			document.getElementById("2plang").firstChild.data += p.lang;
 			document.getElementById("2pdir").firstChild.data += p.dir;
 			document.getElementById("2pdir2").firstChild.data += p.getAttribute("dir");
+			
+			strong = document.getElementsByTagName("strong").item(2);
+			strong.id = "iH1";
+			strong.className = "cH1";
+			strong.title = "TH1";
+			strong.lang = "En";
+			strong.dir = "LtR";
+			document.getElementById("3pid").firstChild.data += strong.id;
+			document.getElementById("3pclass").firstChild.data += strong.className;
+			document.getElementById("3ptitle").firstChild.data += strong.title;
+			document.getElementById("3plang").firstChild.data += strong.lang;
+			document.getElementById("3pdir").firstChild.data += strong.dir;
+			document.getElementById("3pdir2").firstChild.data += strong.getAttribute("dir");
 		</script>
 	</body>
 </html>

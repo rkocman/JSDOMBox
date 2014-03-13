@@ -19,7 +19,7 @@ public class DOMTraversal
 	 * @param dom DOM tree
 	 * @param attr Attribute name
 	 * @param value Unique value
-	 * @return
+	 * @return Node or null
 	 */
 	public static Node getNodeByUniqueAttrValue(Node dom, String attr, String value)
 	{

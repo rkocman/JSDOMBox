@@ -50,11 +50,15 @@ public class JSAdapterFactory implements IJSAdapterFactory
 		// HTML Interfaces
 		
 		if (source instanceof org.w3c.dom.Element) {
-			switch (((org.w3c.dom.Element) source).getTagName()) {
+			switch (((org.w3c.dom.Element) source).getTagName()) {		
 			// Interface HTMLHtmlElement
 			case "html":
 				return new HTMLHtmlElement((org.w3c.dom.Element) source, this);
-			// Interface HTMLElement	
+			// Interface HTMLHeadElement
+			case "head":
+				return new HTMLHeadElement((org.w3c.dom.Element) source, this);
+			
+			// Interface HTMLElement
 			default:
 				return new HTMLElement((org.w3c.dom.Element) source, this);
 			}

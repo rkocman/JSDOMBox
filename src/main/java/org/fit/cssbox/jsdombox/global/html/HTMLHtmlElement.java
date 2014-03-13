@@ -27,5 +27,10 @@ public class HTMLHtmlElement extends HTMLElement
 		String attr = iaf.innerNameFormat("version");
 		return source.getAttribute(attr);
 	}
+	public void setVersion(String version)
+	{
+		String attr = iaf.innerNameFormat("version");
+		source.setAttribute(attr, version);
+	}
 	
 }
