@@ -38,7 +38,11 @@
 		<span id="t362">rel new (correct: Stylesheet): </span><br>
 		<span id="t372">rev new (correct: StyleSheet): </span><br>
 		<span id="t382">target new (correct: _Blank): </span><br>
-		<span id="t392">type new (correct: Text/css): </span><br>
+		<span id="t392">type new (correct: Text/css): </span><br><br>
+		
+		<strong>Test 4 - HTMLTitleElement:</strong><br>
+		<span id="t41">text (correct: DOM Level 2 HTML - Specific HTMLElement): </span><br>
+		<span id="t42">text new (correct: DOM Level 2 HTML - Specific HTMLElement [new]): </span>
 		
 		<script type="text/javascript">
 			// Desired result:
@@ -50,6 +54,27 @@
 			// profile (correct: http://localhost/ or undefined): http://localhost/
 			// random (correct: undefined): undefined
 			// profile new (correct: http://localhost/new/): http://localhost/new/
+			// Test 3:
+			// disabled (correct: false): false
+			// charset (correct: ISO-2022-JP): ISO-2022-JP
+			// href (correct: http://localhost/): http://localhost/
+			// hreflang (correct: En): En
+			// media (correct: PrINT): PrINT
+			// rel (correct: Stylesheet): Stylesheet
+			// rev (correct: StyleSheet): StyleSheet
+			// target (correct: _Blank): _Blank
+			// type (correct: Text/css): Text/css
+			// charset new (correct: ISO-2022-JP): ISO-2022-JP
+			// href new (correct: http://localhost/): http://localhost/
+			// hreflang new (correct: En): En
+			// media new (correct: PrINT): PrINT
+			// rel new (correct: Stylesheet): Stylesheet
+			// rev new (correct: StyleSheet): StyleSheet
+			// target new (correct: _Blank): _Blank
+			// type new (correct: Text/css): Text/css
+			// Test 4:
+			// title (correct: DOM Level 2 HTML - Specific HTMLElement): DOM Level 2 HTML - Specific HTMLElement
+			// title new (correct: DOM Level 2 HTML - Specific HTMLElement [new]): DOM Level 2 HTML - Specific HTMLElement [new]
 			
 			var html = document.getElementsByTagName("HTML").item(0);
 			document.getElementById("t11").firstChild.data += html.version;
@@ -91,6 +116,11 @@
 			document.getElementById("t372").firstChild.data += link2.rev;
 			document.getElementById("t382").firstChild.data += link2.target;
 			document.getElementById("t392").firstChild.data += link2.type;
+			
+			var title = document.getElementsByTagName("title").item(0);
+			document.getElementById("t41").firstChild.data += title.text;
+			title.text += " [new]";
+			document.getElementById("t42").firstChild.data += title.text;
 		</script>
 	</body>
 </html>

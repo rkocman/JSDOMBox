@@ -62,6 +62,9 @@ public class DefaultCSSBoxFactory extends JSAdapterFactory
 			// Interface HTMLLinkElement
 			case "link":
 				return new HTMLLinkElement((org.w3c.dom.Element) source, this);
+			// Interface HTMLTitleElement
+			case "title":
+				return new HTMLTitleElement((org.w3c.dom.Element) source, this);
 			
 			// Interface HTMLElement
 			default:
