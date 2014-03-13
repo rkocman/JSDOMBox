@@ -5,7 +5,7 @@
 
 package org.fit.cssbox.jsdombox.global.core;
 
-import org.fit.cssbox.jsdombox.global.misc.IJSAdapterFactory;
+import org.fit.cssbox.jsdombox.global.misc.JSAdapterFactory;
 import org.fit.cssbox.jsdombox.global.misc.JSAdapter;
 import org.w3c.dom.DOMException;
 
@@ -18,9 +18,9 @@ public class DOMImplementation extends JSAdapter
 {
 	protected org.w3c.dom.DOMImplementation source;
 	
-	public DOMImplementation(org.w3c.dom.DOMImplementation source, IJSAdapterFactory iaf)
+	public DOMImplementation(org.w3c.dom.DOMImplementation source, JSAdapterFactory jsaf)
 	{
-		super(source, iaf);
+		super(source, jsaf);
 		this.source = source;
 	}
 

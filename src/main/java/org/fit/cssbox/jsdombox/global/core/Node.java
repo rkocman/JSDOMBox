@@ -5,7 +5,7 @@
 
 package org.fit.cssbox.jsdombox.global.core;
 
-import org.fit.cssbox.jsdombox.global.misc.IJSAdapterFactory;
+import org.fit.cssbox.jsdombox.global.misc.JSAdapterFactory;
 import org.fit.cssbox.jsdombox.global.misc.JSAdapter;
 import org.fit.cssbox.jsdombox.global.misc.JSAdapterType;
 
@@ -18,9 +18,9 @@ public class Node extends JSAdapter
 {
 	protected org.w3c.dom.Node source;
 	
-	public Node(org.w3c.dom.Node source, IJSAdapterFactory iaf)
+	public Node(org.w3c.dom.Node source, JSAdapterFactory jsaf)
 	{
-		super(source, iaf);
+		super(source, jsaf);
 		this.source = source;
 	}
 	
@@ -67,43 +67,43 @@ public class Node extends JSAdapter
 	public JSAdapter getParentNode()
 	{
 		Object result = source.getParentNode();
-		return iaf.create(result, JSAdapterType.NODE);
+		return jsaf.create(result, JSAdapterType.NODE);
 	}
 	
 	public JSAdapter getChildNodes()
 	{
 		Object result = source.getChildNodes();
-		return iaf.create(result, JSAdapterType.NODE_LIST);
+		return jsaf.create(result, JSAdapterType.NODE_LIST);
 	}
 	
 	public JSAdapter getFirstChild()
 	{
 		Object result = source.getFirstChild();
-		return iaf.create(result, JSAdapterType.NODE);
+		return jsaf.create(result, JSAdapterType.NODE);
 	}
 	
 	public JSAdapter getLastChild()
 	{
 		Object result = source.getLastChild();
-		return iaf.create(result, JSAdapterType.NODE);
+		return jsaf.create(result, JSAdapterType.NODE);
 	}
 	
 	public JSAdapter getPreviousSibling()
 	{
 		Object result = source.getPreviousSibling();
-		return iaf.create(result, JSAdapterType.NODE);
+		return jsaf.create(result, JSAdapterType.NODE);
 	}
 	
 	public JSAdapter getNextSibling()
 	{
 		Object result = source.getNextSibling();
-		return iaf.create(result, JSAdapterType.NODE);
+		return jsaf.create(result, JSAdapterType.NODE);
 	}
 	
 	public JSAdapter getAttributes()
 	{
 		Object result = source.getAttributes();
-		return iaf.create(result, JSAdapterType.NAMED_NODE_MAP);
+		return jsaf.create(result, JSAdapterType.NAMED_NODE_MAP);
 	}
 	
 	// modified: public JSAdapter getOwnerDocument()
@@ -111,29 +111,29 @@ public class Node extends JSAdapter
 	public JSAdapter insertBefore(Node newChild, Node refChild)
 	{
 		Object result = source.insertBefore(newChild.source, refChild.source);
-		iaf.recomputeStyles();
-		return iaf.create(result, JSAdapterType.NODE);
+		jsaf.recomputeStyles();
+		return jsaf.create(result, JSAdapterType.NODE);
 	}
 	
 	public JSAdapter replaceChild(Node newChild, Node oldChild)
 	{
 		Object result = source.replaceChild(newChild.source, oldChild.source);
-		iaf.recomputeStyles();
-		return iaf.create(result, JSAdapterType.NODE);
+		jsaf.recomputeStyles();
+		return jsaf.create(result, JSAdapterType.NODE);
 	}
 	
 	public JSAdapter removeChild(Node oldChild)
 	{
 		Object result = source.removeChild(oldChild.source);
-		iaf.recomputeStyles();
-		return iaf.create(result, JSAdapterType.NODE);
+		jsaf.recomputeStyles();
+		return jsaf.create(result, JSAdapterType.NODE);
 	}
 	
 	public JSAdapter appendChild(Node newChild)
 	{
 		Object result = source.appendChild(newChild.source);
-		iaf.recomputeStyles();
-		return iaf.create(result, JSAdapterType.NODE);
+		jsaf.recomputeStyles();
+		return jsaf.create(result, JSAdapterType.NODE);
 	}
 	
 	public boolean hasChildNodes()
@@ -144,7 +144,7 @@ public class Node extends JSAdapter
 	public JSAdapter cloneNode(boolean deep)
 	{
 		Object result = source.cloneNode(deep);
-		return iaf.create(result, JSAdapterType.NODE);
+		return jsaf.create(result, JSAdapterType.NODE);
 	}
 	
 	
@@ -153,7 +153,7 @@ public class Node extends JSAdapter
 	public JSAdapter getOwnerDocument()
 	{
 		Object result = source.getOwnerDocument();
-		return iaf.create(result, JSAdapterType.DOCUMENT);
+		return jsaf.create(result, JSAdapterType.DOCUMENT);
 	}
 	
 	public void normalize()
@@ -163,7 +163,7 @@ public class Node extends JSAdapter
 	
 	public boolean isSupported(String feature, String version)
 	{
-		DOMImplementation domi = new DOMImplementation(null, iaf);
+		DOMImplementation domi = new DOMImplementation(null, jsaf);
 		return domi.hasFuture(feature, version);
 	}
 	

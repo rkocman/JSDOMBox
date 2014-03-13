@@ -12,12 +12,12 @@ package org.fit.cssbox.jsdombox.global.misc;
 public class JSAdapter 
 {	
 	protected Object source;
-	protected IJSAdapterFactory iaf;
+	protected JSAdapterFactory jsaf;
 	
-	public JSAdapter(Object source, IJSAdapterFactory iaf)
+	public JSAdapter(Object source, JSAdapterFactory jsaf)
 	{
 		this.source = source;
-		this.iaf = iaf;
+		this.jsaf = jsaf;
 	}
 	
 }

@@ -5,7 +5,7 @@
 
 package org.fit.cssbox.jsdombox.global.core;
 
-import org.fit.cssbox.jsdombox.global.misc.IJSAdapterFactory;
+import org.fit.cssbox.jsdombox.global.misc.JSAdapterFactory;
 import org.fit.cssbox.jsdombox.global.misc.JSAdapter;
 import org.fit.cssbox.jsdombox.global.misc.JSAdapterType;
 import org.w3c.dom.DOMException;
@@ -19,9 +19,9 @@ public class Element extends Node
 {
 	protected org.w3c.dom.Element source;
 	
-	public Element(org.w3c.dom.Element source, IJSAdapterFactory iaf)
+	public Element(org.w3c.dom.Element source, JSAdapterFactory jsaf)
 	{
-		super(source, iaf);
+		super(source, jsaf);
 		this.source = source;
 	}
 	
@@ -35,50 +35,50 @@ public class Element extends Node
 	
 	public String getAttribute(String name)
 	{
-		String convName = iaf.innerNameFormat(name);
+		String convName = jsaf.innerNameFormat(name);
 		return source.getAttribute(convName);
 	}
 	
 	public void setAttribute(String name, String value)
 	{
-		String convName = iaf.innerNameFormat(name);
+		String convName = jsaf.innerNameFormat(name);
 		source.setAttribute(convName, value);
-		iaf.recomputeStyles();
+		jsaf.recomputeStyles();
 	}
 	
 	public void removeAttribute(String name)
 	{
-		String convName = iaf.innerNameFormat(name);
+		String convName = jsaf.innerNameFormat(name);
 		source.removeAttribute(convName);
-		iaf.recomputeStyles();
+		jsaf.recomputeStyles();
 	}
 	
 	public JSAdapter getAttributeNode(String name)
 	{
-		String convName = iaf.innerNameFormat(name);
+		String convName = jsaf.innerNameFormat(name);
 		Object result = source.getAttributeNode(convName);
-		return iaf.create(result, JSAdapterType.ATTR);
+		return jsaf.create(result, JSAdapterType.ATTR);
 	}
 	
 	public JSAdapter setAttributeNode(Attr newAttr)
 	{
 		Object result = source.setAttributeNode(newAttr.source);
-		iaf.recomputeStyles();
-		return iaf.create(result, JSAdapterType.ATTR);
+		jsaf.recomputeStyles();
+		return jsaf.create(result, JSAdapterType.ATTR);
 	}
 	
 	public JSAdapter removeAttributeNode(Attr oldAttr)
 	{
 		Object result = source.removeAttributeNode(oldAttr.source);
-		iaf.recomputeStyles();
-		return iaf.create(result, JSAdapterType.ATTR);
+		jsaf.recomputeStyles();
+		return jsaf.create(result, JSAdapterType.ATTR);
 	}
 	
 	public JSAdapter getElementsByTagName(String name)
 	{
-		String convName = iaf.innerNameFormat(name);
+		String convName = jsaf.innerNameFormat(name);
 		Object result = source.getElementsByTagName(convName);
-		return iaf.create(result, JSAdapterType.ELEMENT);
+		return jsaf.create(result, JSAdapterType.ELEMENT);
 	}
 	
 	// moved: public void normalize()
@@ -124,7 +124,7 @@ public class Element extends Node
 	
 	public boolean hasAttribute(String name)
 	{
-		String convName = iaf.innerNameFormat(name);
+		String convName = jsaf.innerNameFormat(name);
 		return source.hasAttribute(convName);
 	}
 	

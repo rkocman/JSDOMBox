@@ -5,7 +5,7 @@
 
 package org.fit.cssbox.jsdombox.global.core;
 
-import org.fit.cssbox.jsdombox.global.misc.IJSAdapterFactory;
+import org.fit.cssbox.jsdombox.global.misc.JSAdapterFactory;
 
 /**
  * DOM Interface CharacterData Adapter
@@ -16,9 +16,9 @@ public class CharacterData extends Node
 {
 	protected org.w3c.dom.CharacterData source;
 	
-	public CharacterData(org.w3c.dom.CharacterData source, IJSAdapterFactory iaf)
+	public CharacterData(org.w3c.dom.CharacterData source, JSAdapterFactory jsaf)
 	{
-		super(source, iaf);
+		super(source, jsaf);
 		this.source = source;
 	}
 
@@ -32,7 +32,7 @@ public class CharacterData extends Node
 	public void setData(String data)
 	{
 		source.setData(data);
-		iaf.recomputeStyles();
+		jsaf.recomputeStyles();
 	}
 	
 	public int getLength()
@@ -48,25 +48,25 @@ public class CharacterData extends Node
 	public void appendData(String arg)
 	{
 		source.appendData(arg);
-		iaf.recomputeStyles();
+		jsaf.recomputeStyles();
 	}
 	
 	public void insertData(int offset, String arg)
 	{
 		source.insertData(offset, arg);
-		iaf.recomputeStyles();
+		jsaf.recomputeStyles();
 	}
 	
 	public void deleteData(int offset, int count)
 	{
 		source.deleteData(offset, count);
-		iaf.recomputeStyles();
+		jsaf.recomputeStyles();
 	}
 	
 	public void replaceData(int offset, int count, String arg)
 	{
 		source.replaceData(offset, count, arg);
-		iaf.recomputeStyles();
+		jsaf.recomputeStyles();
 	}
 	
 	

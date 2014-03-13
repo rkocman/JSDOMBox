@@ -5,7 +5,7 @@
 
 package org.fit.cssbox.jsdombox.global.core;
 
-import org.fit.cssbox.jsdombox.global.misc.IJSAdapterFactory;
+import org.fit.cssbox.jsdombox.global.misc.JSAdapterFactory;
 import org.fit.cssbox.jsdombox.global.misc.JSAdapter;
 import org.fit.cssbox.jsdombox.global.misc.JSAdapterType;
 
@@ -18,9 +18,9 @@ public class Text extends CharacterData
 {
 	protected org.w3c.dom.Text source;
 	
-	public Text(org.w3c.dom.Text source, IJSAdapterFactory iaf)
+	public Text(org.w3c.dom.Text source, JSAdapterFactory jsaf)
 	{
-		super(source, iaf);
+		super(source, jsaf);
 		this.source = source;
 	}
 	
@@ -30,7 +30,7 @@ public class Text extends CharacterData
 	public JSAdapter splitText(int offset)
 	{
 		Object result = source.splitText(offset);
-		return iaf.create(result, JSAdapterType.TEXT);
+		return jsaf.create(result, JSAdapterType.TEXT);
 	}
 	
 	

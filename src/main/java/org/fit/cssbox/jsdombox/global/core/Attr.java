@@ -5,7 +5,7 @@
 
 package org.fit.cssbox.jsdombox.global.core;
 
-import org.fit.cssbox.jsdombox.global.misc.IJSAdapterFactory;
+import org.fit.cssbox.jsdombox.global.misc.JSAdapterFactory;
 import org.fit.cssbox.jsdombox.global.misc.JSAdapter;
 import org.fit.cssbox.jsdombox.global.misc.JSAdapterType;
 
@@ -18,9 +18,9 @@ public class Attr extends Node
 {
 	protected org.w3c.dom.Attr source;
 	
-	public Attr(org.w3c.dom.Attr source, IJSAdapterFactory iaf)
+	public Attr(org.w3c.dom.Attr source, JSAdapterFactory jsaf)
 	{
-		super(source, iaf);
+		super(source, jsaf);
 		this.source = source;
 	}
 	
@@ -44,7 +44,7 @@ public class Attr extends Node
 	public void setValue(String value)
 	{
 		source.setValue(value);
-		iaf.recomputeStyles();
+		jsaf.recomputeStyles();
 	}
 	
 	
@@ -53,7 +53,7 @@ public class Attr extends Node
 	public JSAdapter getOwnerElement()
 	{
 		Object result = source.getOwnerElement();
-		return iaf.create(result, JSAdapterType.ELEMENT);
+		return jsaf.create(result, JSAdapterType.ELEMENT);
 	}
 	
 }

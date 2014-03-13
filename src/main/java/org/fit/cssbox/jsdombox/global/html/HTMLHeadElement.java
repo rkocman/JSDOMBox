@@ -5,7 +5,7 @@
 
 package org.fit.cssbox.jsdombox.global.html;
 
-import org.fit.cssbox.jsdombox.global.misc.IJSAdapterFactory;
+import org.fit.cssbox.jsdombox.global.misc.JSAdapterFactory;
 
 /**
  * DOM Interface HTMLHeadElement Adapter
@@ -14,9 +14,9 @@ import org.fit.cssbox.jsdombox.global.misc.IJSAdapterFactory;
  */
 public class HTMLHeadElement extends HTMLElement 
 {
-	public HTMLHeadElement(org.w3c.dom.Element source, IJSAdapterFactory iaf)
+	public HTMLHeadElement(org.w3c.dom.Element source, JSAdapterFactory jsaf)
 	{
-		super(source, iaf);
+		super(source, jsaf);
 	}
 
 	
@@ -24,12 +24,12 @@ public class HTMLHeadElement extends HTMLElement
 	
 	public String getProfile()
 	{
-		String attr = iaf.innerNameFormat("profile");
+		String attr = jsaf.innerNameFormat("profile");
 		return source.getAttribute(attr);
 	}
 	public void setProfile(String profile)
 	{
-		String attr = iaf.innerNameFormat("profile");
+		String attr = jsaf.innerNameFormat("profile");
 		source.setAttribute(attr, profile);
 	}
 	

@@ -5,7 +5,7 @@
 
 package org.fit.cssbox.jsdombox.global.core;
 
-import org.fit.cssbox.jsdombox.global.misc.IJSAdapterFactory;
+import org.fit.cssbox.jsdombox.global.misc.JSAdapterFactory;
 import org.fit.cssbox.jsdombox.global.misc.JSAdapter;
 import org.fit.cssbox.jsdombox.global.misc.JSAdapterType;
 import org.w3c.dom.DOMException;
@@ -19,9 +19,9 @@ public class NamedNodeMap extends JSAdapter
 {
 	protected org.w3c.dom.NamedNodeMap source;
 	
-	public NamedNodeMap(org.w3c.dom.NamedNodeMap source, IJSAdapterFactory iaf)
+	public NamedNodeMap(org.w3c.dom.NamedNodeMap source, JSAdapterFactory jsaf)
 	{
-		super(source, iaf);
+		super(source, jsaf);
 		this.source = source;
 	}
 	
@@ -30,30 +30,30 @@ public class NamedNodeMap extends JSAdapter
 	
 	public JSAdapter getNamedItem(String name)
 	{
-		String convName = iaf.innerNameFormat(name);
+		String convName = jsaf.innerNameFormat(name);
 		Object result = source.getNamedItem(convName);
-		return iaf.create(result, JSAdapterType.NODE);
+		return jsaf.create(result, JSAdapterType.NODE);
 	}
 	
 	public JSAdapter setNamedItem(Node arg)
 	{
 		Object result = source.setNamedItem(arg.source);
-		iaf.recomputeStyles();
-		return iaf.create(result, JSAdapterType.NODE);
+		jsaf.recomputeStyles();
+		return jsaf.create(result, JSAdapterType.NODE);
 	}
 	
 	public JSAdapter removeNamedItem(String name)
 	{
-		String convName = iaf.innerNameFormat(name);
+		String convName = jsaf.innerNameFormat(name);
 		Object result = source.removeNamedItem(convName);
-		iaf.recomputeStyles();
-		return iaf.create(result, JSAdapterType.NODE);
+		jsaf.recomputeStyles();
+		return jsaf.create(result, JSAdapterType.NODE);
 	}
 	
 	public JSAdapter item(int index)
 	{
 		Object result = source.item(index);
-		return iaf.create(result, JSAdapterType.NODE);
+		return jsaf.create(result, JSAdapterType.NODE);
 	}
 	// TODO square bracket access
 	

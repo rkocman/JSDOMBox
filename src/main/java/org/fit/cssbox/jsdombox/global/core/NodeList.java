@@ -5,7 +5,7 @@
 
 package org.fit.cssbox.jsdombox.global.core;
 
-import org.fit.cssbox.jsdombox.global.misc.IJSAdapterFactory;
+import org.fit.cssbox.jsdombox.global.misc.JSAdapterFactory;
 import org.fit.cssbox.jsdombox.global.misc.JSAdapter;
 import org.fit.cssbox.jsdombox.global.misc.JSAdapterType;
 
@@ -18,9 +18,9 @@ public class NodeList extends JSAdapter
 {
 	protected org.w3c.dom.NodeList source;
 	
-	public NodeList(org.w3c.dom.NodeList source, IJSAdapterFactory iaf)
+	public NodeList(org.w3c.dom.NodeList source, JSAdapterFactory jsaf)
 	{
-		super(source, iaf);
+		super(source, jsaf);
 		this.source = source;
 	}
 	
@@ -30,7 +30,7 @@ public class NodeList extends JSAdapter
 	public JSAdapter item(int index)
 	{
 		Object result = source.item(index);
-		return iaf.create(result, JSAdapterType.NODE);
+		return jsaf.create(result, JSAdapterType.NODE);
 	}
 	// TODO square bracket access
 	

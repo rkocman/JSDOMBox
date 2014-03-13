@@ -5,7 +5,7 @@
 
 package org.fit.cssbox.jsdombox.global.core;
 
-import org.fit.cssbox.jsdombox.global.misc.IJSAdapterFactory;
+import org.fit.cssbox.jsdombox.global.misc.JSAdapterFactory;
 
 /**
  * DOM Interface Comment Adapter
@@ -16,9 +16,9 @@ public class Comment extends CharacterData
 {
 	protected org.w3c.dom.Comment source;
 	
-	public Comment(org.w3c.dom.Comment source, IJSAdapterFactory iaf)
+	public Comment(org.w3c.dom.Comment source, JSAdapterFactory jsaf)
 	{
-		super(source, iaf);
+		super(source, jsaf);
 		this.source = source;
 	}
 	

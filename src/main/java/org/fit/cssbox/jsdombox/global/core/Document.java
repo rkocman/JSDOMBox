@@ -5,7 +5,7 @@
 
 package org.fit.cssbox.jsdombox.global.core;
 
-import org.fit.cssbox.jsdombox.global.misc.IJSAdapterFactory;
+import org.fit.cssbox.jsdombox.global.misc.JSAdapterFactory;
 import org.fit.cssbox.jsdombox.global.misc.JSAdapter;
 import org.fit.cssbox.jsdombox.global.misc.JSAdapterType;
 import org.fit.cssbox.jsdombox.global.util.DOMTraversal;
@@ -20,8 +20,8 @@ public class Document extends Node
 {
 	public org.w3c.dom.Document source;
 	
-	public Document(org.w3c.dom.Document source, IJSAdapterFactory iaf) {
-		super(source, iaf);
+	public Document(org.w3c.dom.Document source, JSAdapterFactory jsaf) {
+		super(source, jsaf);
 		this.source = source;
 	}
 	
@@ -37,38 +37,38 @@ public class Document extends Node
 	public JSAdapter getImplementation()
 	{
 		Object result = source.getImplementation();
-		return iaf.create(result, JSAdapterType.DOM_IMPLEMENTATION);
+		return jsaf.create(result, JSAdapterType.DOM_IMPLEMENTATION);
 	}	
 	
 	public JSAdapter getDocumentElement()
 	{
 		Object result = source.getDocumentElement();
-		return iaf.create(result, JSAdapterType.ELEMENT);
+		return jsaf.create(result, JSAdapterType.ELEMENT);
 	}
 	
 	public JSAdapter createElement(String tagName)
 	{
-		String convName = iaf.innerNameFormat(tagName);
+		String convName = jsaf.innerNameFormat(tagName);
 		Object result = source.createElement(convName);
-		return iaf.create(result, JSAdapterType.ELEMENT);
+		return jsaf.create(result, JSAdapterType.ELEMENT);
 	}
 	
 	public JSAdapter createDocumentFragment()
 	{
 		Object result = source.createDocumentFragment();
-		return iaf.create(result, JSAdapterType.DOCUMENT_FRAGMENT);
+		return jsaf.create(result, JSAdapterType.DOCUMENT_FRAGMENT);
 	}
 	
 	public JSAdapter createTextNode(String data)
 	{
 		Object result = source.createTextNode(data);
-		return iaf.create(result, JSAdapterType.TEXT);
+		return jsaf.create(result, JSAdapterType.TEXT);
 	}
 	
 	public JSAdapter createComment(String data)
 	{
 		Object result = source.createComment(data);
-		return iaf.create(result, JSAdapterType.COMMENT);
+		return jsaf.create(result, JSAdapterType.COMMENT);
 	}
 	
 	public JSAdapter createCDATASection(String data)
@@ -85,9 +85,9 @@ public class Document extends Node
 	
 	public JSAdapter createAttribute(String name)
 	{
-		String convName = iaf.innerNameFormat(name);
+		String convName = jsaf.innerNameFormat(name);
 		Object result = source.createAttribute(convName);
-		return iaf.create(result, JSAdapterType.ATTR);
+		return jsaf.create(result, JSAdapterType.ATTR);
 	}
 	
 	public JSAdapter createEntityReference(String name)
@@ -98,9 +98,9 @@ public class Document extends Node
 	
 	public JSAdapter getElementsByTagName(String tagname)
 	{
-		String convName = iaf.innerNameFormat(tagname);
+		String convName = jsaf.innerNameFormat(tagname);
 		Object result = source.getElementsByTagName(convName);
-		return iaf.create(result, JSAdapterType.NODE_LIST);
+		return jsaf.create(result, JSAdapterType.NODE_LIST);
 	}
 	
 	
@@ -109,7 +109,7 @@ public class Document extends Node
 	public JSAdapter importNode(Node importedNode, boolean deep)
 	{
 		Object result = source.importNode(importedNode.source, deep);
-		return iaf.create(result, JSAdapterType.NODE);
+		return jsaf.create(result, JSAdapterType.NODE);
 	}
 	
 	public JSAdapter createElementNS(String namespaceURI, String qualifiedName)
@@ -126,16 +126,16 @@ public class Document extends Node
 	
 	public JSAdapter getElementsByTagNameNS(String namespaceURI, String localName)
 	{
-		String convName = iaf.innerNameFormat(localName);
+		String convName = jsaf.innerNameFormat(localName);
 		Object result = source.getElementsByTagNameNS(namespaceURI, convName);
-		return iaf.create(result, JSAdapterType.NODE_LIST);
+		return jsaf.create(result, JSAdapterType.NODE_LIST);
 	}
 	
 	public JSAdapter getElementById(String elementId)
 	{
-		String attr = iaf.innerNameFormat("id");
+		String attr = jsaf.innerNameFormat("id");
 		Object result = DOMTraversal.getNodeByUniqueAttrValue(source, attr, elementId);
-		return iaf.create(result, JSAdapterType.ELEMENT);
+		return jsaf.create(result, JSAdapterType.ELEMENT);
 	}
 	
 }

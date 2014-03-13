@@ -3,6 +3,10 @@
 	<head profile="http://localhost/">
 		<title>DOM Level 2 HTML - Specific HTMLElement</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<link rel="Stylesheet" type="Text/css" href="http://localhost/" 
+			hreflang="En" charset="ISO-2022-JP" media="PrINT" 
+			rev="StyleSheet" target="_Blank">
+		<link>
 	</head>
 	<body>
 		<strong>Test 1 - HTMLHtmlElement:</strong><br>
@@ -17,7 +21,26 @@
 		<span id="t22">random (correct: undefined): </span><br>
 		<span id="t23">profile new (correct: http://localhost/new/): </span><br><br>
 		
-		<script>
+		<strong>Test 3 - HTMLLinkElement:</strong><br>
+		<span id="t31">disabled (correct: false): </span><br>
+		<span id="t32">charset (correct: ISO-2022-JP): </span><br>
+		<span id="t33">href (correct: http://localhost/): </span><br>
+		<span id="t34">hreflang (correct: En): </span><br>
+		<span id="t35">media (correct: PrINT): </span><br>
+		<span id="t36">rel (correct: Stylesheet): </span><br>
+		<span id="t37">rev (correct: StyleSheet): </span><br>
+		<span id="t38">target (correct: _Blank): </span><br>
+		<span id="t39">type (correct: Text/css): </span><br>
+		<span id="t322">charset new (correct: ISO-2022-JP): </span><br>
+		<span id="t332">href new (correct: http://localhost/): </span><br>
+		<span id="t342">hreflang new (correct: En): </span><br>
+		<span id="t352">media new (correct: PrINT): </span><br>
+		<span id="t362">rel new (correct: Stylesheet): </span><br>
+		<span id="t372">rev new (correct: StyleSheet): </span><br>
+		<span id="t382">target new (correct: _Blank): </span><br>
+		<span id="t392">type new (correct: Text/css): </span><br>
+		
+		<script type="text/javascript">
 			// Desired result:
 			// Test 1:
 			// Result: -//W3C//DTD HTML 4.01 Transitional//EN
@@ -39,6 +62,35 @@
 			document.getElementById("t22").firstChild.data += head.random;
 			head.profile = "http://localhost/new/";
 			document.getElementById("t23").firstChild.data += head.profile;
+			
+			var link = document.getElementsByTagName("link").item(0);
+			document.getElementById("t31").firstChild.data += link.disabled;
+			document.getElementById("t32").firstChild.data += link.charset;
+			document.getElementById("t33").firstChild.data += link.href;
+			document.getElementById("t34").firstChild.data += link.hreflang;
+			document.getElementById("t35").firstChild.data += link.media;
+			document.getElementById("t36").firstChild.data += link.rel;
+			document.getElementById("t37").firstChild.data += link.rev;
+			document.getElementById("t38").firstChild.data += link.target;
+			document.getElementById("t39").firstChild.data += link.type;
+			var link2 = document.getElementsByTagName("link").item(1);
+			link2.disabled = true;
+			link2.charset = "ISO-2022-JP";
+			link2.href = "http://localhost/";
+			link2.hreflang = "En";
+			link2.media = "PrINT";
+			link2.rel = "Stylesheet";
+			link2.rev = "StyleSheet";
+			link2.target = "_Blank";
+			link2.type = "Text/css";
+			document.getElementById("t322").firstChild.data += link2.charset;
+			document.getElementById("t332").firstChild.data += link2.href;
+			document.getElementById("t342").firstChild.data += link2.hreflang;
+			document.getElementById("t352").firstChild.data += link2.media;
+			document.getElementById("t362").firstChild.data += link2.rel;
+			document.getElementById("t372").firstChild.data += link2.rev;
+			document.getElementById("t382").firstChild.data += link2.target;
+			document.getElementById("t392").firstChild.data += link2.type;
 		</script>
 	</body>
 </html>

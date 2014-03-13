@@ -5,7 +5,7 @@
 
 package org.fit.cssbox.jsdombox.global.html;
 
-import org.fit.cssbox.jsdombox.global.misc.IJSAdapterFactory;
+import org.fit.cssbox.jsdombox.global.misc.JSAdapterFactory;
 
 /**
  * DOM Interface HTMLHtmlElement Adapter
@@ -14,9 +14,9 @@ import org.fit.cssbox.jsdombox.global.misc.IJSAdapterFactory;
  */
 public class HTMLHtmlElement extends HTMLElement
 {
-	public HTMLHtmlElement(org.w3c.dom.Element source, IJSAdapterFactory iaf)
+	public HTMLHtmlElement(org.w3c.dom.Element source, JSAdapterFactory jsaf)
 	{
-		super(source, iaf);
+		super(source, jsaf);
 	}
 	
 	
@@ -24,12 +24,12 @@ public class HTMLHtmlElement extends HTMLElement
 	
 	public String getVersion()
 	{
-		String attr = iaf.innerNameFormat("version");
+		String attr = jsaf.innerNameFormat("version");
 		return source.getAttribute(attr);
 	}
 	public void setVersion(String version)
 	{
-		String attr = iaf.innerNameFormat("version");
+		String attr = jsaf.innerNameFormat("version");
 		source.setAttribute(attr, version);
 	}
 	

@@ -14,6 +14,8 @@ import javax.script.ScriptEngineManager;
 import javax.script.SimpleBindings;
 
 import org.fit.cssbox.css.DOMAnalyzer;
+import org.fit.cssbox.jsdombox.event.EmptyHTMLListener;
+import org.fit.cssbox.jsdombox.event.HTMLListener;
 import org.fit.cssbox.jsdombox.global.core.Document;
 import org.fit.cssbox.jsdombox.global.misc.*;
 import org.w3c.dom.Element;
@@ -49,7 +51,8 @@ public class JSAnalyzer
 		engine = manager.getEngineByName("js");
 		
 		// JS Interface
-		IJSAdapterFactory af = new JSAdapterFactory(this);
+		HTMLListener htmlListener = new EmptyHTMLListener();
+		JSAdapterFactory af = new DefaultCSSBoxFactory(this, htmlListener);
 		window = new Window();
 		document = (Document) af.create(doc, JSAdapterType.DOCUMENT);
 		window.document = document;

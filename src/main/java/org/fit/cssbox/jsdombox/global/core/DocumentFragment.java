@@ -5,7 +5,7 @@
 
 package org.fit.cssbox.jsdombox.global.core;
 
-import org.fit.cssbox.jsdombox.global.misc.IJSAdapterFactory;
+import org.fit.cssbox.jsdombox.global.misc.JSAdapterFactory;
 
 /**
  * DOM Interface DocumentFragment Adapter
@@ -16,9 +16,9 @@ public class DocumentFragment extends Node
 {
 	protected org.w3c.dom.DocumentFragment source;
 	
-	public DocumentFragment(org.w3c.dom.DocumentFragment source, IJSAdapterFactory iaf)
+	public DocumentFragment(org.w3c.dom.DocumentFragment source, JSAdapterFactory jsaf)
 	{
-		super(source, iaf);
+		super(source, jsaf);
 		this.source = source;
 	}
 	
