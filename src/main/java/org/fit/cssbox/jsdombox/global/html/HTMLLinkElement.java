@@ -24,11 +24,11 @@ public class HTMLLinkElement extends HTMLElement
 	
 	public boolean getDisabled()
 	{
-		return jsaf.htmlEvent.link_getDisabled();
+		return jsaf.htmlEvent.link_getDisabled(source);
 	}
 	public void setDisabled(boolean disabled)
 	{
-		jsaf.htmlEvent.link_setDisabled(disabled);
+		jsaf.htmlEvent.link_setDisabled(source, disabled);
 		jsaf.recomputeStyles();
 	}
 	
@@ -111,6 +111,7 @@ public class HTMLLinkElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("target");
 		source.setAttribute(attr, target);
+		jsaf.recomputeStyles();
 	}
 	
 	public String getType()

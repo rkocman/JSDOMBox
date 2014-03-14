@@ -1,0 +1,256 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html version="-//W3C//DTD HTML 4.01 Transitional//EN" lang="en">
+	<head profile="http://localhost/">
+		<title>DOM Level 2 HTML - Global HTMLElements</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<link rel="Stylesheet" type="Text/css" href="http://localhost/" 
+			hreflang="En" charset="ISO-2022-JP" media="PrINT" 
+			rev="StyleSheet" target="_Blank">
+		<link>
+		<META scheme="ISBN"  name="identifier" content="0001">
+		<BASE href="http://Localhost/" target="Dynamic">
+		<STYLE type="text/css" media="screen">
+		   strong {font-size:110%}
+		</STYLE>
+	</head>
+	<body bgColor="gray" background="Img.jpg" text="white" 
+		link="green" alink="yellow" vlink="green">
+		
+		<strong>Test 1 - HTMLHtmlElement:</strong><br>
+		<span id="t11">Result: </span><br>
+		<span>Correct: -//W3C//DTD HTML 4.01 Transitional//EN</span><br>
+		<span id="t12">lang (correct: en): </span><br>
+		<span id="t13">Result: </span><br>
+		<span>Correct: -//W3C//DTD HTML 4.01//EN</span><br><br>
+		
+		<strong>Test 2 - HTMLHeadElement:</strong><br>
+		<span id="t21">profile (correct: http://localhost/ or undefined): </span><br>
+		<span id="t22">random (correct: undefined): </span><br>
+		<span id="t23">profile new (correct: http://localhost/new/): </span><br><br>
+		
+		<strong>Test 3 - HTMLLinkElement:</strong><br>
+		<span id="t31">disabled (correct: false): </span><br>
+		<span id="t32">charset (correct: ISO-2022-JP): </span><br>
+		<span id="t33">href (correct: http://localhost/): </span><br>
+		<span id="t34">hreflang (correct: En): </span><br>
+		<span id="t35">media (correct: PrINT): </span><br>
+		<span id="t36">rel (correct: Stylesheet): </span><br>
+		<span id="t37">rev (correct: StyleSheet): </span><br>
+		<span id="t38">target (correct: _Blank): </span><br>
+		<span id="t39">type (correct: Text/css): </span><br>
+		<span id="t322">charset new (correct: ISO-2022-JP): </span><br>
+		<span id="t332">href new (correct: http://localhost/): </span><br>
+		<span id="t342">hreflang new (correct: En): </span><br>
+		<span id="t352">media new (correct: PrINT): </span><br>
+		<span id="t362">rel new (correct: Stylesheet): </span><br>
+		<span id="t372">rev new (correct: StyleSheet): </span><br>
+		<span id="t382">target new (correct: _Blank): </span><br>
+		<span id="t392">type new (correct: Text/css): </span><br><br>
+		
+		<strong>Test 4 - HTMLTitleElement:</strong><br>
+		<span id="t41">text (correct: DOM Level 2 HTML - Global HTMLElements): </span><br>
+		<span id="t42">text new (correct: DOM Level 2 HTML - Global HTMLElements [new]): </span><br><br>
+		
+		<strong>Test 5 - HTMLMetaElement:</strong><br>
+		<span id="t51">content (correct: 0001): </span><br>
+		<span id="t52">http-equiv (correct: Content-Type): </span><br>
+		<span id="t53">name (correct: identifier): </span><br>
+		<span id="t54">scheme (correct: ISBN): </span><br>
+		<span id="t512">content new (correct: 0010): </span><br>
+		<span id="t522">http-equiv new (correct: content-Type): </span><br>
+		<span id="t532">name new (correct: Identifier): </span><br>
+		<span id="t542">scheme new (correct: ISBN2): </span><br><br>
+		
+		<strong>Test 6 - HTMLBaseElement:</strong><br>
+		<span id="t61">href (correct: http://Localhost/): </span><br>
+		<span id="t62">target (correct: Dynamic): </span><br>
+		<span id="t612">href new (correct: http://Localhost/new/): </span><br>
+		<span id="t622">target new (correct: Dynamic2): </span><br><br>
+		
+		<strong>Test 7 - HTMLStyleElement:</strong><br>
+		<span id="t71">disabled (correct: false): </span><br>
+		<span id="t72">media (correct: screen): </span><br>
+		<span id="t73">type (correct: text/css): </span><br>
+		<span id="t722">media new (correct: Screen): </span><br>
+		<span id="t732">type new (correct: Text/css): </span><br><br>
+		
+		<strong>Test 8 - HTMLBodyElement: </strong><a href="#">empty link</a><br>
+		<span id="t81">alink (correct: yellow): </span><br>
+		<span id="t82">background (correct: Img.jpg): </span><br>
+		<span id="t83">bgcolor (correct: gray): </span><br>
+		<span id="t84">link (correct: green): </span><br>
+		<span id="t85">text (correct: white): </span><br>
+		<span id="t86">vlink (correct: green): </span><br>
+		<span id="t812">alink new (correct: Red): </span><br>
+		<span id="t822">background new (correct: Img2.jpg): </span><br>
+		<span id="t832">bgcolor new (correct: White): </span><br>
+		<span id="t842">link new (correct: Blue): </span><br>
+		<span id="t852">text new (correct: Black): </span><br>
+		<span id="t862">vlink new (correct: Purple): </span>
+		
+		<script type="text/javascript">
+			// Desired result:
+			// Test 1:
+			// Result: -//W3C//DTD HTML 4.01 Transitional//EN
+			// lang (correct: en): en
+			// Result: -//W3C//DTD HTML 4.01//EN
+			// Test 2:
+			// profile (correct: http://localhost/ or undefined): http://localhost/
+			// random (correct: undefined): undefined
+			// profile new (correct: http://localhost/new/): http://localhost/new/
+			// Test 3:
+			// disabled (correct: false): false
+			// charset (correct: ISO-2022-JP): ISO-2022-JP
+			// href (correct: http://localhost/): http://localhost/
+			// hreflang (correct: En): En
+			// media (correct: PrINT): PrINT
+			// rel (correct: Stylesheet): Stylesheet
+			// rev (correct: StyleSheet): StyleSheet
+			// target (correct: _Blank): _Blank
+			// type (correct: Text/css): Text/css
+			// charset new (correct: ISO-2022-JP): ISO-2022-JP
+			// href new (correct: http://localhost/): http://localhost/
+			// hreflang new (correct: En): En
+			// media new (correct: PrINT): PrINT
+			// rel new (correct: Stylesheet): Stylesheet
+			// rev new (correct: StyleSheet): StyleSheet
+			// target new (correct: _Blank): _Blank
+			// type new (correct: Text/css): Text/css
+			// Test 4:
+			// title (correct: DOM Level 2 HTML - Global HTMLElements): DOM Level 2 HTML - Global HTMLElements
+			// title new (correct: DOM Level 2 HTML - Global HTMLElements [new]): DOM Level 2 HTML - Global HTMLElements [new]
+			// Test 5:
+			// content (correct: 0001): 0001
+			// http-equiv (correct: Content-Type): Content-Type
+			// name (correct: identifier): identifier
+			// scheme (correct: ISBN): ISBN
+			// content new (correct: 0010): 0010
+			// http-equiv new (correct: content-Type): content-type
+			// name new (correct: Identifier): Identifier
+			// scheme new (correct: ISBN2): ISBN2
+			// Test 6:
+			// href (correct: http://Localhost/): http://localhost/
+			// target (correct: Dynamic): Dynamic
+			// href new (correct: http://Localhost/new/): http://localhost/new/
+			// target new (correct: Dynamic2): Dynamic2
+			// Test 7:
+			// disabled (correct: false): false
+			// media (correct: screen): screen
+			// type (correct: text/css): text/css
+			// media new (correct: Screen): Screen
+			// type new (correct: Text/css): Text/css
+			// Test 8:
+			// alink (correct: yellow): yellow
+			// background (correct: Img.jpg): Img.jpg
+			// bgcolor (correct: gray): gray
+			// link (correct: green): green
+			// text (correct: white): white
+			// vlink (correct: green): green
+			// alink new (correct: Red): Red
+			// background new (correct: Img2.jpg): Img2.jpg
+			// bgcolor new (correct: White): White
+			// link new (correct: Blue): Blue
+			// text new (correct: Black): Black
+			// vlink new (correct: Purple): Purple
+			
+			var html = document.getElementsByTagName("HTML").item(0);
+			document.getElementById("t11").firstChild.data += html.version;
+			document.getElementById("t12").firstChild.data += html.lang;
+			html.version = "-//W3C//DTD HTML 4.01//EN";
+			document.getElementById("t13").firstChild.data += html.version;
+			
+			var head = document.getElementsByTagName("head").item(0);
+			document.getElementById("t21").firstChild.data += head.profile;
+			document.getElementById("t22").firstChild.data += head.random;
+			head.profile = "http://localhost/new/";
+			document.getElementById("t23").firstChild.data += head.profile;
+			
+			var link = document.getElementsByTagName("link").item(0);
+			document.getElementById("t31").firstChild.data += link.disabled;
+			document.getElementById("t32").firstChild.data += link.charset;
+			document.getElementById("t33").firstChild.data += link.href;
+			document.getElementById("t34").firstChild.data += link.hreflang;
+			document.getElementById("t35").firstChild.data += link.media;
+			document.getElementById("t36").firstChild.data += link.rel;
+			document.getElementById("t37").firstChild.data += link.rev;
+			document.getElementById("t38").firstChild.data += link.target;
+			document.getElementById("t39").firstChild.data += link.type;
+			var link2 = document.getElementsByTagName("link").item(1);
+			link2.disabled = true;
+			link2.charset = "ISO-2022-JP";
+			link2.href = "http://localhost/";
+			link2.hreflang = "En";
+			link2.media = "PrINT";
+			link2.rel = "Stylesheet";
+			link2.rev = "StyleSheet";
+			link2.target = "_Blank";
+			link2.type = "Text/css";
+			document.getElementById("t322").firstChild.data += link2.charset;
+			document.getElementById("t332").firstChild.data += link2.href;
+			document.getElementById("t342").firstChild.data += link2.hreflang;
+			document.getElementById("t352").firstChild.data += link2.media;
+			document.getElementById("t362").firstChild.data += link2.rel;
+			document.getElementById("t372").firstChild.data += link2.rev;
+			document.getElementById("t382").firstChild.data += link2.target;
+			document.getElementById("t392").firstChild.data += link2.type;
+			
+			var title = document.getElementsByTagName("title").item(0);
+			document.getElementById("t41").firstChild.data += title.text;
+			title.text += " [new]";
+			document.getElementById("t42").firstChild.data += title.text;
+			
+			var meta1 = document.getElementsByTagName("meta").item(0);
+			var meta2 = document.getElementsByTagName("meta").item(1);
+			document.getElementById("t51").firstChild.data += meta2.content;
+			document.getElementById("t52").firstChild.data += meta1.httpEquiv;
+			document.getElementById("t53").firstChild.data += meta2.name;
+			document.getElementById("t54").firstChild.data += meta2.scheme;
+			meta2.content = "0010";
+			meta1.httpEquiv = "content-type";
+			meta2.name = "Identifier";
+			meta2.scheme = "ISBN2";
+			document.getElementById("t512").firstChild.data += meta2.content;
+			document.getElementById("t522").firstChild.data += meta1.httpEquiv;
+			document.getElementById("t532").firstChild.data += meta2.name;
+			document.getElementById("t542").firstChild.data += meta2.scheme;
+			
+			var base = document.getElementsByTagName("base").item(0);
+			document.getElementById("t61").firstChild.data += base.href;
+			document.getElementById("t62").firstChild.data += base.target;
+			base.href += "new/";
+			base.target += 2;
+			document.getElementById("t612").firstChild.data += base.href;
+			document.getElementById("t622").firstChild.data += base.target;
+			
+			var style = document.getElementsByTagName("style").item(0);
+			document.getElementById("t71").firstChild.data += style.disabled;
+			document.getElementById("t72").firstChild.data += style.media;
+			document.getElementById("t73").firstChild.data += style.type;
+			style.disabled = true;
+			style.media = "Screen";
+			style.type = "Text/css";
+			document.getElementById("t722").firstChild.data += style.media;
+			document.getElementById("t732").firstChild.data += style.type;
+			
+			var body = document.getElementsByTagName("body").item(0);
+			document.getElementById("t81").firstChild.data += body.aLink;
+			document.getElementById("t82").firstChild.data += body.background;
+			document.getElementById("t83").firstChild.data += body.bgColor;
+			document.getElementById("t84").firstChild.data += body.link;
+			document.getElementById("t85").firstChild.data += body.text;
+			document.getElementById("t86").firstChild.data += body.vLink;
+			body.aLink = "Red";
+			body.background = "Img2.jpg";
+			body.bgColor = "White";
+			body.link = "Blue";
+			body.text = "Black";
+			body.vLink = "Purple";
+			document.getElementById("t812").firstChild.data += body.aLink;
+			document.getElementById("t822").firstChild.data += body.background;
+			document.getElementById("t832").firstChild.data += body.bgColor;
+			document.getElementById("t842").firstChild.data += body.link;
+			document.getElementById("t852").firstChild.data += body.text;
+			document.getElementById("t862").firstChild.data += body.vLink;
+		</script>
+	</body>
+</html>

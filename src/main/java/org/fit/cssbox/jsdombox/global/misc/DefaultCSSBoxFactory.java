@@ -65,6 +65,18 @@ public class DefaultCSSBoxFactory extends JSAdapterFactory
 			// Interface HTMLTitleElement
 			case "title":
 				return new HTMLTitleElement((org.w3c.dom.Element) source, this);
+			// Interface HTMLMetaElement
+			case "meta":
+				return new HTMLMetaElement((org.w3c.dom.Element) source, this);
+			// Interface HTMLBaseElement
+			case "base":
+				return new HTMLBaseElement((org.w3c.dom.Element) source, this);
+			// Interface HTMLStyleElement
+			case "style":
+				return new HTMLStyleElement((org.w3c.dom.Element) source, this);
+			// Interface HTMLBodyElement
+			case "body":
+				return new HTMLBodyElement((org.w3c.dom.Element) source, this);
 			
 			// Interface HTMLElement
 			default:

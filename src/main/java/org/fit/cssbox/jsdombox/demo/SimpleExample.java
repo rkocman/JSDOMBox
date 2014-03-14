@@ -77,7 +77,7 @@ public class SimpleExample extends javax.swing.JFrame
 			//document += "dom-core2_square-bracket-notation.html"; // (not working)
 			//document += "dom-html2_name-size.html";
 			//document += "dom-html2_htmlelement.html";
-			document += "dom-html2_specific-htmlelement.html";
+			document += "dom-html2_global-htmlelements.html";
 			
 			// 1 - Get input document
 			String basePath = new File(document).getAbsolutePath();
