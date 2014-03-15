@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>DOM Level 2 HTML - Content HTMLElements</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	</head>
+	<body>
+		
+		<strong>Test 1 - HTMLUListElement:</strong><br>
+		<span id="t11">compact (correct: true): </span><br>
+		<span id="t12">type (correct: Square): </span><br>
+		<span id="t112">compact new (correct: true | nothing): </span><br>
+		<span id="t122">compact new2 (correct: false): </span><br>
+		<span id="t132">type new (correct: Circle): </span>
+		
+		<h2>Test content</h2>
+		<ul compact type="Square"></ul>
+		<ul></ul>
+	
+		<script>
+			// Desired result:
+			// Test 1:
+			// compact (correct: true): true
+			// type (correct: Square): Square
+			// compact new (correct: true | nothing): true |
+			// compact new2 (correct: false): false
+			// type new (correct: Circle): Circle
+			
+			var ul1 = document.getElementsByTagName("ul").item(0);
+			var ul2 = document.getElementsByTagName("ul").item(1);
+			document.getElementById("t11").firstChild.data += ul1.compact;
+			document.getElementById("t12").firstChild.data += ul1.type;
+			ul2.compact = true;
+			ul1.compact = false;
+			ul2.type = "Circle";
+			document.getElementById("t112").firstChild.data += ul2.compact + " | ";
+			document.getElementById("t112").firstChild.data += ul2.getAttribute("compact");
+			document.getElementById("t122").firstChild.data += ul1.compact;
+			document.getElementById("t132").firstChild.data += ul2.type;
+		</script>
+	</body>
+</html>
