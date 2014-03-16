@@ -80,6 +80,9 @@ public class DefaultCSSBoxFactory extends JSAdapterFactory
 			// Interface HTMLUListElement
 			case "ul":
 				return new HTMLUListElement((org.w3c.dom.Element) source, this);
+			// Interface HTMLOListElement
+			case "ol":
+				return new HTMLOListElement((org.w3c.dom.Element) source, this);
 			
 			// Interface HTMLElement
 			default:

@@ -9,13 +9,28 @@
 		<strong>Test 1 - HTMLUListElement:</strong><br>
 		<span id="t11">compact (correct: true): </span><br>
 		<span id="t12">type (correct: Square): </span><br>
+		<span id="t13">type2 (correct: nothing): </span><br>
 		<span id="t112">compact new (correct: true | nothing): </span><br>
 		<span id="t122">compact new2 (correct: false): </span><br>
-		<span id="t132">type new (correct: Circle): </span>
+		<span id="t132">type new (correct: Circle): </span><br><br>
+		
+		<strong>Test 2 - HTMLOListElement:</strong><br>
+		<span id="t21">compact (correct: true): </span><br>
+		<span id="t22">start (correct: 2): </span><br>
+		<span id="t23">start2 (correct: 1): </span><br>
+		<span id="t26">start3 (correct: nothing): </span><br>
+		<span id="t24">type (correct: A): </span><br>
+		<span id="t25">type2 (correct: nothing): </span><br>
+		<span id="t212">compact new (correct: true): </span><br>
+		<span id="t222">compact new2 (correct: false): </span><br>
+		<span id="t232">start new (correct: 3): </span><br>
+		<span id="t242">type new (correct: 1): </span><br>
 		
 		<h2>Test content</h2>
 		<ul compact type="Square"></ul>
 		<ul></ul>
+		<ol compact type="A" start="2"></ol>
+		<ol start=""></ol>
 	
 		<script>
 			// Desired result:
@@ -25,11 +40,23 @@
 			// compact new (correct: true | nothing): true |
 			// compact new2 (correct: false): false
 			// type new (correct: Circle): Circle
+			// Test 2:
+			// compact (correct: true): true
+			// start (correct: 2): 2
+			// start2 (correct: 1): 1
+			// start3 (correct: nothing):
+			// type (correct: A): A
+			// type2 (correct: nothing):
+			// compact new (correct: true): true
+			// compact new2 (correct: false): false
+			// start new (correct: 3): 3
+			// type new (correct: 1): 1
 			
 			var ul1 = document.getElementsByTagName("ul").item(0);
 			var ul2 = document.getElementsByTagName("ul").item(1);
 			document.getElementById("t11").firstChild.data += ul1.compact;
 			document.getElementById("t12").firstChild.data += ul1.type;
+			document.getElementById("t13").firstChild.data += ul2.type;
 			ul2.compact = true;
 			ul1.compact = false;
 			ul2.type = "Circle";
@@ -37,6 +64,23 @@
 			document.getElementById("t112").firstChild.data += ul2.getAttribute("compact");
 			document.getElementById("t122").firstChild.data += ul1.compact;
 			document.getElementById("t132").firstChild.data += ul2.type;
+			
+			var ol1 = document.getElementsByTagName("ol").item(0);
+			var ol2 = document.getElementsByTagName("ol").item(1);
+			document.getElementById("t21").firstChild.data += ol1.compact;
+			document.getElementById("t22").firstChild.data += ol1.start;
+			document.getElementById("t23").firstChild.data += ol2.start;
+			document.getElementById("t26").firstChild.data += ol2.getAttribute("start");
+			document.getElementById("t24").firstChild.data += ol1.type;
+			document.getElementById("t25").firstChild.data += ol2.type;
+			ol2.compact = true;
+			ol1.compact = false;
+			ol2.start = 3;
+			ol2.type = 1;
+			document.getElementById("t212").firstChild.data += ol2.compact;
+			document.getElementById("t222").firstChild.data += ol1.compact;
+			document.getElementById("t232").firstChild.data += ol2.start;
+			document.getElementById("t242").firstChild.data += ol2.type;
 		</script>
 	</body>
 </html>
