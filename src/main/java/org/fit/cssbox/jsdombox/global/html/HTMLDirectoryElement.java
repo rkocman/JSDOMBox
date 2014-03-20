@@ -1,5 +1,5 @@
 /*
- * HTMLUListElement.java
+ * HTMLDirectoryElement.java
  * Copyright (c) Radim Kocman
  */
 
@@ -8,13 +8,13 @@ package org.fit.cssbox.jsdombox.global.html;
 import org.fit.cssbox.jsdombox.global.misc.JSAdapterFactory;
 
 /**
- * DOM Interface HTMLUListElement Adapter
+ * DOM Interface HTMLDirectoryElement Adapter
  * 
  * @author Radim Kocman
  */
-public class HTMLUListElement extends HTMLElement
+public class HTMLDirectoryElement extends HTMLElement
 {
-	public HTMLUListElement(org.w3c.dom.Element source, JSAdapterFactory jsaf)
+	public HTMLDirectoryElement(org.w3c.dom.Element source, JSAdapterFactory jsaf)
 	{
 		super(source, jsaf);
 	}
@@ -31,18 +31,6 @@ public class HTMLUListElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("compact");
 		setBooleanAttribute(attr, compact);
-		jsaf.recomputeStyles();
-	}
-	
-	public String getType()
-	{
-		String attr = jsaf.innerNameFormat("type");
-		return source.getAttribute(attr);
-	}
-	public void setType(String type)
-	{
-		String attr = jsaf.innerNameFormat("type");
-		source.setAttribute(attr, type);
 		jsaf.recomputeStyles();
 	}
 	

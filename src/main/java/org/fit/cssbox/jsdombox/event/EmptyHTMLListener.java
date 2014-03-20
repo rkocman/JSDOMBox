@@ -8,7 +8,7 @@ package org.fit.cssbox.jsdombox.event;
 import org.w3c.dom.Node;
 
 /**
- * Empty placeholder implementation of HTMLListener 
+ * Empty placeholder implementation of the HTMLListener 
  * 
  * @author Radim Kocman
  */

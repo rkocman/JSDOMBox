@@ -8,20 +8,20 @@ package org.fit.cssbox.jsdombox.event;
 import org.w3c.dom.Node;
 
 /**
- * Common interface for receiving HTML events from JSDOMBox
+ * Common interface for receiving HTML events from the JSDOMBox
  * 
  * @author Radim Kocman
  */
 public interface HTMLListener
 {
 	/**
-	 * Getter for HTMLLinkElement attribute disabled
+	 * Getter for the HTMLLinkElement attribute disabled
 	 * @param node Source Node of HTML Link Element
 	 * @return Disabled value: true/false
 	 */
 	public boolean link_getDisabled(Node node);
 	/**
-	 * Setter for HTMLLinkElement attribute disabled
+	 * Setter for the HTMLLinkElement attribute disabled
 	 * @param node Source Node of HTML Link Element
 	 * @param disabled New value for attribute disabled
 	 */
@@ -29,13 +29,13 @@ public interface HTMLListener
 	
 	
 	/**
-	 * Getter for HTMLStyleElement attribute disabled
+	 * Getter for the HTMLStyleElement attribute disabled
 	 * @param node Source Node of HTML Style Element
 	 * @return Disabled value: true/false
 	 */
 	public boolean style_getDisabled(Node node);
 	/**
-	 * Setter for HTMLStyleElement attribute disabled
+	 * Setter for the HTMLStyleElement attribute disabled
 	 * @param node Source Node of HTML Style Element
 	 * @param disabled New value for attribute disabled
 	 */

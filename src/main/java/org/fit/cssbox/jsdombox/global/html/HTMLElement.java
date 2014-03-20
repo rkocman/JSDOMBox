@@ -20,6 +20,47 @@ public class HTMLElement extends Element
 		super(source, jsaf);
 	}
 	
+	/**
+	 * Gets the parsed integer value from the attribute 
+	 * @param attr Attribute name
+	 * @param defaultInt Default value for the attribute
+	 * @return Parsed integer value
+	 */
+	protected int getIntegerAttribute(String attr, int defaultInt)
+	{
+		int result = defaultInt;
+		
+		try {
+			String value = source.getAttribute(attr);
+			result = Integer.parseInt(value.trim());
+		} catch (NumberFormatException e) {}
+		
+		return result;
+	}
+	
+	/**
+	 * Sets the integer attribute
+	 * @param attr Attribute name
+	 * @param value Attribute value
+	 */
+	protected void setIntegerAttribute(String attr, int value)
+	{
+		source.setAttribute(attr, String.valueOf(value));
+	}
+	
+	/**
+	 * Sets the boolean attribute
+	 * @param attr Attribute name
+	 * @param value Attribute value
+	 */
+	protected void setBooleanAttribute(String attr, boolean value)
+	{
+		if (value)
+			source.setAttribute(attr, "");
+		else
+			source.removeAttribute(attr);
+	}
+	
 	
 	// DOM Level 2 HTML Implementation
 	

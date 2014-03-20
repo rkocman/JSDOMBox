@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>DOM Level 2 HTML - List HTMLElements</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<style>
+			html {
+				font-family: Arial, sans-serif;
+				font-size: 14px;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<strong>Test 1 - HTMLUListElement:</strong><br>
+		<span id="t11">compact (correct: true): </span><br>
+		<span id="t12">type (correct: Square): </span><br>
+		<span id="t13">type2 (correct: nothing): </span><br>
+		<span id="t112">compact new (correct: true | nothing): </span><br>
+		<span id="t122">compact new2 (correct: false): </span><br>
+		<span id="t132">type new (correct: Circle): </span><br><br>
+		
+		<strong>Test 2 - HTMLOListElement:</strong><br>
+		<span id="t21">compact (correct: true): </span><br>
+		<span id="t22">start (correct: 2): </span><br>
+		<span id="t23">start2 (correct: 1): </span><br>
+		<span id="t26">start3 (correct: nothing): </span><br>
+		<span id="t24">type (correct: A): </span><br>
+		<span id="t25">type2 (correct: nothing): </span><br>
+		<span id="t212">compact new (correct: true): </span><br>
+		<span id="t222">compact new2 (correct: false): </span><br>
+		<span id="t232">start new (correct: 3): </span><br>
+		<span id="t242">type new (correct: 1): </span><br><br>
+		
+		<strong>Test 3 - HTMLDListElement:</strong><br>
+		<span id="t31">compact (correct: true): </span><br>
+		<span id="t312">compact new (correct: true): </span><br>
+		<span id="t322">compact new2 (correct: false): </span><br><br>
+		
+		<strong>Test 4 - HTMLDirectoryElement:</strong><br>
+		<span id="t41">compact (correct: true): </span><br>
+		<span id="t412">compact new (correct: true): </span><br>
+		<span id="t422">compact new2 (correct: false): </span><br><br>
+		
+		<strong>Test 5 - HTMLMenuElement:</strong><br>
+		<span id="t51">compact (correct: true): </span><br>
+		<span id="t512">compact new (correct: true): </span><br>
+		<span id="t522">compact new2 (correct: false): </span><br><br>
+		
+		<strong>Test 6 - HTMLLIElement:</strong><br>
+		<span id="t61">type (correct: nothing): </span><br>
+		<span id="t62">value (correct: 0): </span><br>
+		<span id="t63">type2 (correct: Circle): </span><br>
+		<span id="t64">value2 (correct: 1): </span><br>
+		<span id="t612">type new (correct: disc): </span><br>
+		<span id="t622">value new (correct: 3): </span><br><br>
+		
+		<h2>Test content</h2>
+		<ul compact type="Square">
+			<li>test1</li>
+			<li type="Circle">test2</li>
+		</ul>
+		<ul>
+			<li>test3</li>
+			<li>test4</li>
+		</ul>
+		<ol compact type="A" start="2">
+			<li>test1</li>
+			<li>test2</li>
+		</ol>
+		<ol start="">
+			<li>test3</li>
+			<li type="a" value="  1">test4</li>
+		</ol>
+		<dl compact></dl>
+		<dl></dl>
+		<dir compact></dir>
+		<dir></dir>
+		<menu compact>
+			<li>test1</li>
+			<li>test2</li>
+		</menu>
+		<menu>
+			<li>test3</li>
+			<li>test4</li>
+		</menu>
+	
+		<script>
+			// Desired result:
+			// Test 1:
+			// compact (correct: true): true
+			// type (correct: Square): Square
+			// compact new (correct: true | nothing): true |
+			// compact new2 (correct: false): false
+			// type new (correct: Circle): Circle
+			// Test 2:
+			// compact (correct: true): true
+			// start (correct: 2): 2
+			// start2 (correct: 1): 1
+			// start3 (correct: nothing):
+			// type (correct: A): A
+			// type2 (correct: nothing):
+			// compact new (correct: true): true
+			// compact new2 (correct: false): false
+			// start new (correct: 3): 3
+			// type new (correct: 1): 1
+			// Test 3:
+			// compact (correct: true): true
+			// compact new (correct: true): true
+			// compact new2 (correct: false): false
+			// Test 4:
+			// compact (correct: true): true
+			// compact new (correct: true): true
+			// compact new2 (correct: false): false
+			// Test 5:
+			// compact (correct: true): true
+			// compact new (correct: true): true
+			// compact new2 (correct: false): false
+			// Test 6:
+			// type (correct: nothing):
+			// value (correct: 0): 0
+			// type2 (correct: Circle): Circle
+			// value2 (correct: 1): 1
+			// type new (correct: disc): disc
+			// value new (correct: 3): 3
+			
+			var ul1 = document.getElementsByTagName("ul").item(0);
+			var ul2 = document.getElementsByTagName("ul").item(1);
+			document.getElementById("t11").firstChild.data += ul1.compact;
+			document.getElementById("t12").firstChild.data += ul1.type;
+			document.getElementById("t13").firstChild.data += ul2.type;
+			ul2.compact = true;
+			ul1.compact = false;
+			ul2.type = "Circle";
+			document.getElementById("t112").firstChild.data += ul2.compact + " | ";
+			document.getElementById("t112").firstChild.data += ul2.getAttribute("compact");
+			document.getElementById("t122").firstChild.data += ul1.compact;
+			document.getElementById("t132").firstChild.data += ul2.type;
+			
+			var ol1 = document.getElementsByTagName("ol").item(0);
+			var ol2 = document.getElementsByTagName("ol").item(1);
+			document.getElementById("t21").firstChild.data += ol1.compact;
+			document.getElementById("t22").firstChild.data += ol1.start;
+			document.getElementById("t23").firstChild.data += ol2.start;
+			document.getElementById("t26").firstChild.data += ol2.getAttribute("start");
+			document.getElementById("t24").firstChild.data += ol1.type;
+			document.getElementById("t25").firstChild.data += ol2.type;
+			ol2.compact = true;
+			ol1.compact = false;
+			ol2.start = 3;
+			ol2.type = 1;
+			document.getElementById("t212").firstChild.data += ol2.compact;
+			document.getElementById("t222").firstChild.data += ol1.compact;
+			document.getElementById("t232").firstChild.data += ol2.start;
+			document.getElementById("t242").firstChild.data += ol2.type;
+			
+			var dl1 = document.getElementsByTagName("dl").item(0);
+			var dl2 = document.getElementsByTagName("dl").item(1);
+			document.getElementById("t31").firstChild.data += dl1.compact;
+			dl2.compact = true;
+			dl1.compact = false;
+			document.getElementById("t312").firstChild.data += dl2.compact;
+			document.getElementById("t322").firstChild.data += dl1.compact;
+			
+			var dir1 = document.getElementsByTagName("dir").item(0);
+			var dir2 = document.getElementsByTagName("dir").item(1);
+			document.getElementById("t41").firstChild.data += dir1.compact;
+			dir2.compact = true;
+			dir1.compact = false;
+			document.getElementById("t412").firstChild.data += dir2.compact;
+			document.getElementById("t422").firstChild.data += dir1.compact;
+			
+			var menu1 = document.getElementsByTagName("menu").item(0);
+			var menu2 = document.getElementsByTagName("menu").item(1);
+			document.getElementById("t51").firstChild.data += menu1.compact;
+			menu2.compact = true;
+			menu1.compact = false;
+			document.getElementById("t512").firstChild.data += menu2.compact;
+			document.getElementById("t522").firstChild.data += menu1.compact;
+			
+			var li1 = document.getElementsByTagName("li").item(0);
+			var li2 = document.getElementsByTagName("li").item(1);
+			var li3 = document.getElementsByTagName("li").item(7);
+			var li4 = document.getElementsByTagName("li").item(8);
+			var li5 = document.getElementsByTagName("li").item(5);
+			document.getElementById("t61").firstChild.data += li1.type;
+			document.getElementById("t62").firstChild.data += li5.value;
+			document.getElementById("t63").firstChild.data += li2.type;
+			document.getElementById("t64").firstChild.data += li3.value;
+			li4.type = "disc";
+			li4.value= 3;
+			document.getElementById("t612").firstChild.data += li4.type;
+			document.getElementById("t622").firstChild.data += li4.value;
+		</script>
+	</body>
+</html>

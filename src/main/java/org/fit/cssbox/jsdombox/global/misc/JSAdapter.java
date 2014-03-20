@@ -7,6 +7,7 @@ package org.fit.cssbox.jsdombox.global.misc;
 
 /**
  * Base JS Adapter Class
+ * 
  * @author Radim Kocman
  */
 public class JSAdapter 

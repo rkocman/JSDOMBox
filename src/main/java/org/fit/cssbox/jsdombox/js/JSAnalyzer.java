@@ -73,7 +73,7 @@ public class JSAnalyzer
 	}
 	
 	/**
-	 * Recomputes CSS in CSSBox
+	 * Recomputes CSS in the CSSBox
 	 */
 	public void recomputeStyles()
 	{

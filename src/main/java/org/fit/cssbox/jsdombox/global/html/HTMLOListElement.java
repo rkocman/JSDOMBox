@@ -30,29 +30,19 @@ public class HTMLOListElement extends HTMLElement
 	public void setCompact(boolean compact)
 	{
 		String attr = jsaf.innerNameFormat("compact");
-		if (compact)
-			source.setAttribute(attr, "");
-		else
-			source.removeAttribute(attr);
+		setBooleanAttribute(attr, compact);
 		jsaf.recomputeStyles();
 	}
 	
 	public int getStart()
 	{
 		String attr = jsaf.innerNameFormat("start");
-		int result = 1;
-		
-		try {
-			String start = source.getAttribute(attr);
-			result = Integer.parseInt(start.trim());
-		} catch (NumberFormatException e) {}
-		
-		return result;
+		return getIntegerAttribute(attr, 1);
 	}
 	public void setStart(int start)
 	{
 		String attr = jsaf.innerNameFormat("start");
-		source.setAttribute(attr, String.valueOf(start));
+		setIntegerAttribute(attr, start);
 		jsaf.recomputeStyles();
 	}
 	

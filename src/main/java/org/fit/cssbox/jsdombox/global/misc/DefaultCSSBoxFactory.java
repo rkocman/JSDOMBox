@@ -11,7 +11,7 @@ import org.fit.cssbox.jsdombox.global.html.*;
 import org.fit.cssbox.jsdombox.js.JSAnalyzer;
 
 /**
- * Default JS Adapter Factory for CSSBox DOM
+ * Default JS Adapter Factory for the CSSBox DOM
  * 
  * @author Radim Kocman
  */
@@ -83,6 +83,34 @@ public class DefaultCSSBoxFactory extends JSAdapterFactory
 			// Interface HTMLOListElement
 			case "ol":
 				return new HTMLOListElement((org.w3c.dom.Element) source, this);
+			// Interface HTMLDListElement
+			case "dl":
+				return new HTMLDListElement((org.w3c.dom.Element) source, this);
+			// Interface HTMLDirectoryElement
+			case "dir":
+				return new HTMLDirectoryElement((org.w3c.dom.Element) source, this);
+			// Interface HTMLMenuElement
+			case "menu":
+				return new HTMLMenuElement((org.w3c.dom.Element) source, this);
+			// Interface HTMLLIElement
+			case "li":
+				return new HTMLLIElement((org.w3c.dom.Element) source, this);
+			// Interface HTMLDivElement
+			case "div":
+				return new HTMLDivElement((org.w3c.dom.Element) source, this);
+			// Interface HTMLParagraphElement
+			case "p":
+				return new HTMLParagraphElement((org.w3c.dom.Element) source, this);
+			// Interface HTMLHeadingElement
+			case "h1": case "h2": case "h3":
+			case "h4": case "h5": case "h6":
+				return new HTMLHeadingElement((org.w3c.dom.Element) source, this);
+			// Interface HTMLQuoteElement
+			case "q": case "blockquote":
+				return new HTMLQuoteElement((org.w3c.dom.Element) source, this);
+			// Interface HTMLPreElement
+			case "pre":
+				return new HTMLPreElement((org.w3c.dom.Element) source, this);
 			
 			// Interface HTMLElement
 			default:
@@ -121,13 +149,13 @@ public class DefaultCSSBoxFactory extends JSAdapterFactory
 		
 		
 		
-		// Fall-back to Base Adapter
+		// Fall-back to the Base Adapter
 		System.err.println("*** JavaScript Adapter Factory fall-back");
 		return new JSAdapter(source, this);
 	}
 	
 	/**
-	 * Recomputes CSS in CSSBox
+	 * Recomputes CSS in the CSSBox
 	 */
 	public void recomputeStyles()
 	{
@@ -135,7 +163,7 @@ public class DefaultCSSBoxFactory extends JSAdapterFactory
 	}
 	
 	/**
-	 * Converts names into inner DOM format (lowercase)
+	 * Converts names into the inner DOM format (lowercase)
 	 */
 	public String innerNameFormat(String name)
 	{

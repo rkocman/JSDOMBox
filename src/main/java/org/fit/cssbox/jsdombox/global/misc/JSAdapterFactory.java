@@ -20,7 +20,7 @@ public abstract class JSAdapterFactory
 	public HTMLListener htmlEvent;
 	
 	/**
-	 * Creates appropriate JS adapter for Java DOM object
+	 * Creates appropriate JS adapter for the Java DOM object
 	 * @param source Java DOM object
 	 * @param type JSAdapter type
 	 * @return Initialized JS adapter
@@ -28,12 +28,12 @@ public abstract class JSAdapterFactory
 	public abstract JSAdapter create(Object source, JSAdapterType type);
 	
 	/**
-	 * Recomputes CSS in CSSBox
+	 * Recomputes CSS in the CSSBox
 	 */
 	public abstract void recomputeStyles();
 	
 	/**
-	 * Converts names into inner DOM format
+	 * Converts names into the inner DOM format
 	 */
 	public abstract String innerNameFormat(String name);
 	

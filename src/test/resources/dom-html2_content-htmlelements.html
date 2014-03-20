@@ -3,84 +3,115 @@
 	<head>
 		<title>DOM Level 2 HTML - Content HTMLElements</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<style>
+			html {
+				font-family: Arial, sans-serif;
+				font-size: 14px;
+			}
+		</style>
 	</head>
 	<body>
 		
-		<strong>Test 1 - HTMLUListElement:</strong><br>
-		<span id="t11">compact (correct: true): </span><br>
-		<span id="t12">type (correct: Square): </span><br>
-		<span id="t13">type2 (correct: nothing): </span><br>
-		<span id="t112">compact new (correct: true | nothing): </span><br>
-		<span id="t122">compact new2 (correct: false): </span><br>
-		<span id="t132">type new (correct: Circle): </span><br><br>
+		<strong>Test 1 - HTMLDivElement:</strong><br>
+		<span id="t11">align (correct: nothing): </span><br>
+		<span id="t12">align2 (correct: Right): </span><br>
+		<span id="t112">align new (correct: left): </span><br><br>
 		
-		<strong>Test 2 - HTMLOListElement:</strong><br>
-		<span id="t21">compact (correct: true): </span><br>
-		<span id="t22">start (correct: 2): </span><br>
-		<span id="t23">start2 (correct: 1): </span><br>
-		<span id="t26">start3 (correct: nothing): </span><br>
-		<span id="t24">type (correct: A): </span><br>
-		<span id="t25">type2 (correct: nothing): </span><br>
-		<span id="t212">compact new (correct: true): </span><br>
-		<span id="t222">compact new2 (correct: false): </span><br>
-		<span id="t232">start new (correct: 3): </span><br>
-		<span id="t242">type new (correct: 1): </span><br>
+		<strong>Test 2 - HTMLParagraphElement:</strong><br>
+		<span id="t21">align (correct: nothing): </span><br>
+		<span id="t22">align2 (correct: Right): </span><br>
+		<span id="t212">align new (correct: center): </span><br><br>
+		
+		<strong>Test 3 - HTMLHeadingElement:</strong><br>
+		<span id="t31">align (correct: nothing): </span><br>
+		<span id="t32">align2 (correct: Right): </span><br>
+		<span id="t312">align new (correct: right): </span><br><br>
+		
+		<strong>Test 4 - HTMLQuoteElement:</strong><br>
+		<span id="t41">cite (correct: nothing): </span><br>
+		<span id="t42">cite2 (correct: http://localhost/): </span><br>
+		<span id="t412">cite new (correct: http://localhost/2/): </span><br><br>
+		
+		<strong>Test 5 - HTMLPreElement:</strong><br>
+		<span id="t51">width (correct: 0): </span><br>
+		<span id="t52">width2 (correct: 200): </span><br>
+		<span id="t512">width new (correct: 250): </span><br><br>
 		
 		<h2>Test content</h2>
-		<ul compact type="Square"></ul>
-		<ul></ul>
-		<ol compact type="A" start="2"></ol>
-		<ol start=""></ol>
+		<div></div>
+		<div align="Right"></div>
+		<p></p>
+		<p align="Right"></p>
+		<h1></h1>
+		<h2 align="Right"></h2>
+		<h6></h6>
+		<q>Some quote</q>
+		<BLOCKQUOTE cite="http://localhost/">Another quote</BLOCKQUOTE>
+		<pre></pre>
+		<pre width="200">
+			Some 
+				preformatted 
+					text
+		</pre>
 	
 		<script>
 			// Desired result:
 			// Test 1:
-			// compact (correct: true): true
-			// type (correct: Square): Square
-			// compact new (correct: true | nothing): true |
-			// compact new2 (correct: false): false
-			// type new (correct: Circle): Circle
+			// align (correct: nothing):
+			// align2 (correct: Right): Right
+			// align new (correct: left): left
 			// Test 2:
-			// compact (correct: true): true
-			// start (correct: 2): 2
-			// start2 (correct: 1): 1
-			// start3 (correct: nothing):
-			// type (correct: A): A
-			// type2 (correct: nothing):
-			// compact new (correct: true): true
-			// compact new2 (correct: false): false
-			// start new (correct: 3): 3
-			// type new (correct: 1): 1
+			// align (correct: nothing):
+			// align2 (correct: Right): Right
+			// align new (correct: center): center
+			// Test 3:
+			// align (correct: nothing):
+			// align2 (correct: Right): Right
+			// align new (correct: right): right
+			// Test 4:
+			// cite (correct: nothing):
+			// cite2 (correct: http://localhost/): http://localhost/
+			// cite new (correct: http://localhost/2/): http://localhost/2/
+			// Test 5:
+			// width (correct: 0): 0
+			// width2 (correct: 200): 200
+			// width new (correct: 250): 250
 			
-			var ul1 = document.getElementsByTagName("ul").item(0);
-			var ul2 = document.getElementsByTagName("ul").item(1);
-			document.getElementById("t11").firstChild.data += ul1.compact;
-			document.getElementById("t12").firstChild.data += ul1.type;
-			document.getElementById("t13").firstChild.data += ul2.type;
-			ul2.compact = true;
-			ul1.compact = false;
-			ul2.type = "Circle";
-			document.getElementById("t112").firstChild.data += ul2.compact + " | ";
-			document.getElementById("t112").firstChild.data += ul2.getAttribute("compact");
-			document.getElementById("t122").firstChild.data += ul1.compact;
-			document.getElementById("t132").firstChild.data += ul2.type;
+			var div1 = document.getElementsByTagName("div").item(0);
+			var div2 = document.getElementsByTagName("div").item(1);
+			document.getElementById("t11").firstChild.data += div1.align;
+			document.getElementById("t12").firstChild.data += div2.align;
+			div1.align = "left";
+			document.getElementById("t112").firstChild.data += div1.align;
 			
-			var ol1 = document.getElementsByTagName("ol").item(0);
-			var ol2 = document.getElementsByTagName("ol").item(1);
-			document.getElementById("t21").firstChild.data += ol1.compact;
-			document.getElementById("t22").firstChild.data += ol1.start;
-			document.getElementById("t23").firstChild.data += ol2.start;
-			document.getElementById("t26").firstChild.data += ol2.getAttribute("start");
-			document.getElementById("t24").firstChild.data += ol1.type;
-			document.getElementById("t25").firstChild.data += ol2.type;
-			ol2.compact = true;
-			ol1.compact = false;
-			ol2.start = 3;
-			ol2.type = 1;
-			document.getElementById("t212").firstChild.data += ol2.compact;
-			document.getElementById("t222").firstChild.data += ol1.compact;
-			document.getElementById("t232").firstChild.data += ol2.start;
-			document.getElementById("t242").firstChild.data += ol2.type;
+			var p1 = document.getElementsByTagName("p").item(0);
+			var p2 = document.getElementsByTagName("p").item(1);
+			document.getElementById("t21").firstChild.data += p1.align;
+			document.getElementById("t22").firstChild.data += p2.align;
+			p1.align = "center";
+			document.getElementById("t212").firstChild.data += p1.align;
+			
+			var h1 = document.getElementsByTagName("h1").item(0);
+			var h2 = document.getElementsByTagName("h2").item(1);
+			var h6 = document.getElementsByTagName("h6").item(0);
+			document.getElementById("t31").firstChild.data += h1.align;
+			document.getElementById("t32").firstChild.data += h2.align;
+			h6.align = "right";
+			document.getElementById("t312").firstChild.data += h6.align;
+			
+			var q1 = document.getElementsByTagName("q").item(0);
+			var q2 = document.getElementsByTagName("BlockqUote").item(0);
+			document.getElementById("t41").firstChild.data += q1.cite;
+			document.getElementById("t42").firstChild.data += q2.cite;
+			q2.cite += "2/";
+			document.getElementById("t412").firstChild.data += q2.cite;
+			
+			var pre1 = document.getElementsByTagName("pre").item(0);
+			var pre2 = document.getElementsByTagName("pre").item(1);
+			document.getElementById("t51").firstChild.data += pre1.width;
+			document.getElementById("t52").firstChild.data += pre2.width;
+			pre1.width = 250;
+			document.getElementById("t512").firstChild.data += pre1.width;
 		</script>
 	</body>
 </html>

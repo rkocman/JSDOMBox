@@ -1,5 +1,5 @@
 /*
- * HTMLUListElement.java
+ * HTMLLIElement.java
  * Copyright (c) Radim Kocman
  */
 
@@ -8,31 +8,19 @@ package org.fit.cssbox.jsdombox.global.html;
 import org.fit.cssbox.jsdombox.global.misc.JSAdapterFactory;
 
 /**
- * DOM Interface HTMLUListElement Adapter
+ * DOM Interface HTMLLIElement Adapter
  * 
  * @author Radim Kocman
  */
-public class HTMLUListElement extends HTMLElement
+public class HTMLLIElement extends HTMLElement
 {
-	public HTMLUListElement(org.w3c.dom.Element source, JSAdapterFactory jsaf)
+	public HTMLLIElement(org.w3c.dom.Element source, JSAdapterFactory jsaf)
 	{
 		super(source, jsaf);
 	}
 	
 	
 	// DOM Level 2 HTML Implementation
-	
-	public boolean getCompact()
-	{
-		String attr = jsaf.innerNameFormat("compact");
-		return source.hasAttribute(attr);
-	}
-	public void setCompact(boolean compact)
-	{
-		String attr = jsaf.innerNameFormat("compact");
-		setBooleanAttribute(attr, compact);
-		jsaf.recomputeStyles();
-	}
 	
 	public String getType()
 	{
@@ -43,6 +31,18 @@ public class HTMLUListElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("type");
 		source.setAttribute(attr, type);
+		jsaf.recomputeStyles();
+	}
+	
+	public int getValue()
+	{
+		String attr = jsaf.innerNameFormat("value");
+		return getIntegerAttribute(attr, 0);
+	}
+	public void setValue(int value)
+	{
+		String attr = jsaf.innerNameFormat("value");
+		setIntegerAttribute(attr, value);
 		jsaf.recomputeStyles();
 	}
 	
