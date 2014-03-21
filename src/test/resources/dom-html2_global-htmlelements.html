@@ -12,6 +12,7 @@
 		<STYLE type="text/css" media="screen">
 		   strong {font-size:110%}
 		</STYLE>
+		<basefont color="gray" face="Verdana">
 	</head>
 	<body bgColor="gray" background="Img.jpg" text="white" 
 		link="green" alink="yellow" vlink="green">
@@ -86,7 +87,15 @@
 		<span id="t832">bgcolor new (correct: White): </span><br>
 		<span id="t842">link new (correct: Blue): </span><br>
 		<span id="t852">text new (correct: Black): </span><br>
-		<span id="t862">vlink new (correct: Purple): </span>
+		<span id="t862">vlink new (correct: Purple): </span><br><br>
+		
+		<strong>Test 9 - HTMLBaseFontElement: </strong><br>
+		<span id="t91">color (correct: gray): </span><br>
+		<span id="t92">face (correct: Verdana): </span><br>
+		<span id="t93">size (correct: 3): </span><br>
+		<span id="t912">color new (correct: Black): </span><br>
+		<span id="t922">face new (correct: Arial): </span><br>
+		<span id="t932">size new (correct: 4): </span>
 		
 		<script type="text/javascript">
 			// Desired result:
@@ -152,6 +161,13 @@
 			// link new (correct: Blue): Blue
 			// text new (correct: Black): Black
 			// vlink new (correct: Purple): Purple
+			// Test 9
+			// color (correct: gray): gray
+			// face (correct: Verdana): Verdana
+			// size (correct: 3): 3
+			// color new (correct: Black): Black
+			// face new (correct: Arial): Arial
+			// size new (correct: 4): 4
 			
 			var html = document.getElementsByTagName("HTML").item(0);
 			document.getElementById("t11").firstChild.data += html.version;
@@ -251,6 +267,17 @@
 			document.getElementById("t842").firstChild.data += body.link;
 			document.getElementById("t852").firstChild.data += body.text;
 			document.getElementById("t862").firstChild.data += body.vLink;
+			
+			var bf = document.getElementsByTagName("basefont").item(0);
+			document.getElementById("t91").firstChild.data += bf.color;
+			document.getElementById("t92").firstChild.data += bf.face;
+			document.getElementById("t93").firstChild.data += bf.size;
+			bf.color = "Black";
+			bf.face = "Arial";
+			bf.size = 4;
+			document.getElementById("t912").firstChild.data += bf.color;
+			document.getElementById("t922").firstChild.data += bf.face;
+			document.getElementById("t932").firstChild.data += bf.size;
 		</script>
 	</body>
 </html>

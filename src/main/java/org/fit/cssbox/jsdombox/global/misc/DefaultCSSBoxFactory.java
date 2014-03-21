@@ -111,6 +111,21 @@ public class DefaultCSSBoxFactory extends JSAdapterFactory
 			// Interface HTMLPreElement
 			case "pre":
 				return new HTMLPreElement((org.w3c.dom.Element) source, this);
+			// Interface HTMLBRElement
+			case "br":
+				return new HTMLBRElement((org.w3c.dom.Element) source, this);
+			// Interface HTMLBaseFontElement
+			case "basefont":
+				return new HTMLBaseFontElement((org.w3c.dom.Element) source, this);
+			// Interface HTMLFontElement
+			case "font":
+				return new HTMLFontElement((org.w3c.dom.Element) source, this);
+			// Interface HTMLHRElement
+			case "hr":
+				return new HTMLHRElement((org.w3c.dom.Element) source, this);
+			// Interface HTMLModElement
+			case "ins": case "del":
+				return new HTMLModElement((org.w3c.dom.Element) source, this);
 			
 			// Interface HTMLElement
 			default:

@@ -34,8 +34,40 @@
 		
 		<strong>Test 5 - HTMLPreElement:</strong><br>
 		<span id="t51">width (correct: 0): </span><br>
-		<span id="t52">width2 (correct: 200): </span><br>
-		<span id="t512">width new (correct: 250): </span><br><br>
+		<span id="t52">width2 (correct: 100): </span><br>
+		<span id="t512">width new (correct: 120): </span><br><br>
+		
+		<strong>Test 6 - HTMLBRElement:</strong><br>
+		<span id="t61">clear (correct: nothing): </span><br>
+		<span id="t62">clear2 (correct: Left): </span><br>
+		<span id="t612">clear new (correct: ALL): </span><br><br>
+		
+		<strong>Test 7 - HTMLFontElement: </strong><br>
+		<span id="t71">color (correct: Green): </span><br>
+		<span id="t72">face (correct: Verdana): </span><br>
+		<span id="t73">size (correct: +1): </span><br>
+		<span id="t74">size2 (correct: nothing): </span><br>
+		<span id="t712">color new (correct: Blue): </span><br>
+		<span id="t722">face new (correct: Arial): </span><br>
+		<span id="t732">size new (correct: 4): </span><br><br>
+		
+		<strong>Test 8 - HTMLHRElement: </strong><br>
+		<span id="t81">align (correct: Right): </span><br>
+		<span id="t82">noShade (correct: true): </span><br>
+		<span id="t83">size (correct: 4): </span><br>
+		<span id="t84">width (correct: 200): </span><br>
+		<span id="t85">size2 (correct: nothing): </span><br>
+		<span id="t86">width2 (correct: nothing): </span><br>
+		<span id="t812">align new (correct: Left): </span><br>
+		<span id="t822">noShade new (correct: true): </span><br>
+		<span id="t832">size new (correct: 5): </span><br>
+		<span id="t842">width new (correct: 100): </span><br><br>
+		
+		<strong>Test 9 - HTMLModElement: </strong><br>
+		<span id="t91">cite (correct: http://localhost/): </span><br>
+		<span id="t92">dateTime (correct: 2014-03-21T16:30:03Z): </span><br>
+		<span id="t912">cite new (correct: http://localhost/2/): </span><br>
+		<span id="t922">dateTime new (correct: 2015-03-21T16:30:03Z): </span><br><br>
 		
 		<h2>Test content</h2>
 		<div></div>
@@ -48,11 +80,23 @@
 		<q>Some quote</q>
 		<BLOCKQUOTE cite="http://localhost/">Another quote</BLOCKQUOTE>
 		<pre></pre>
-		<pre width="200">
+		<pre width="100">
 			Some 
 				preformatted 
 					text
 		</pre>
+		<br id="br1">
+		<br id="br2" clear="Left">
+		<font>font1</font>
+		<font face="Verdana" color="Green" size="+1">font2</font>
+		<hr>
+		<hr>
+		<hr align="Right" noShade size=4 width="200">
+		<p>
+			My favorite test color is 
+			<del cite="http://localhost/" datetime="2014-03-21T16:30:03Z">red</del> 
+			<ins>green</ins>
+		</p> 
 	
 		<script>
 			// Desired result:
@@ -74,8 +118,36 @@
 			// cite new (correct: http://localhost/2/): http://localhost/2/
 			// Test 5:
 			// width (correct: 0): 0
-			// width2 (correct: 200): 200
-			// width new (correct: 250): 250
+			// width2 (correct: 100): 100
+			// width new (correct: 120): 120
+			// Test 6:
+			// clear (correct: nothing):
+			// clear2 (correct: Left): Left
+			// clear new (correct: ALL): ALL
+			// Test 7:
+			// color (correct: Green): Green
+			// face (correct: Verdana): Verdana
+			// size (correct: +1): +1
+			// size2 (correct: nothing):
+			// color new (correct: Blue): Blue
+			// face new (correct: Arial): Arial
+			// size new (correct: 4): 4
+			// Test 8:
+			// align (correct: Right): Right
+			// noShade (correct: true): true
+			// size (correct: 4): 4
+			// width (correct:  200): 200
+			// size2 (correct: nothing):
+			// width2 (correct: nothing):
+			// align new (correct: Left): Left
+			// noShade new (correct: true): true
+			// size new (correct: 5): 5
+			// width new (correct: 100): 100
+			// Test 9:
+			// cite (correct: http://localhost/): http://localhost/
+			// dateTime (correct: 2014-03-21T16:30:03Z): 2014-03-21T16:30:03Z
+			// cite new (correct: http://localhost/2/): http://localhost/2/
+			// dateTime new (correct: 2015-03-21T16:30:03Z): 2015-03-21T16:30:03Z
 			
 			var div1 = document.getElementsByTagName("div").item(0);
 			var div2 = document.getElementsByTagName("div").item(1);
@@ -110,8 +182,54 @@
 			var pre2 = document.getElementsByTagName("pre").item(1);
 			document.getElementById("t51").firstChild.data += pre1.width;
 			document.getElementById("t52").firstChild.data += pre2.width;
-			pre1.width = 250;
+			pre1.width = 120;
 			document.getElementById("t512").firstChild.data += pre1.width;
+			
+			var br1 = document.getElementById("br1");
+			var br2 = document.getElementById("br2");
+			document.getElementById("t61").firstChild.data += br1.clear;
+			document.getElementById("t62").firstChild.data += br2.clear;
+			br1.clear = "ALL";
+			document.getElementById("t612").firstChild.data += br1.clear;
+			
+			var font1 = document.getElementsByTagName("font").item(0);
+			var font2 = document.getElementsByTagName("font").item(1);
+			document.getElementById("t71").firstChild.data += font2.color;
+			document.getElementById("t72").firstChild.data += font2.face;
+			document.getElementById("t73").firstChild.data += font2.size;
+			document.getElementById("t74").firstChild.data += font1.size;
+			font1.color = "Blue";
+			font1.face="Arial";
+			font1.size = 4;
+			document.getElementById("t712").firstChild.data += font1.color;
+			document.getElementById("t722").firstChild.data += font1.face;
+			document.getElementById("t732").firstChild.data += font1.size;
+			
+			var hr1 = document.getElementsByTagName("hr").item(0);
+			var hr2 = document.getElementsByTagName("hr").item(2);
+			document.getElementById("t81").firstChild.data += hr2.align;
+			document.getElementById("t82").firstChild.data += hr2.noShade;
+			document.getElementById("t83").firstChild.data += hr2.size;
+			document.getElementById("t84").firstChild.data += hr2.width;
+			document.getElementById("t85").firstChild.data += hr1.size;
+			document.getElementById("t86").firstChild.data += hr1.width;
+			hr1.align="Left";
+			hr1.noShade = true;
+			hr1.size = 5;
+			hr1.width = "100";
+			document.getElementById("t812").firstChild.data += hr1.align;
+			document.getElementById("t822").firstChild.data += hr1.noShade;
+			document.getElementById("t832").firstChild.data += hr1.size;
+			document.getElementById("t842").firstChild.data += hr1.width;
+			
+			var ins = document.getElementsByTagName("ins").item(0);
+			var del = document.getElementsByTagName("del").item(0);
+			document.getElementById("t91").firstChild.data += del.cite;
+			document.getElementById("t92").firstChild.data += del.dateTime;
+			ins.cite = "http://localhost/2/";
+			ins.dateTime = "2015-03-21T16:30:03Z";
+			document.getElementById("t912").firstChild.data += ins.cite;
+			document.getElementById("t922").firstChild.data += ins.dateTime;
 		</script>
 	</body>
 </html>
