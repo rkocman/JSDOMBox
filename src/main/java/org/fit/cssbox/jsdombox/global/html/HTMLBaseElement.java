@@ -25,12 +25,14 @@ public class HTMLBaseElement extends HTMLElement
 	public String getHref()
 	{
 		String attr = jsaf.innerNameFormat("href");
-		return source.getAttribute(attr);
+		String path = source.getAttribute(attr);
+		return jsaf.htmlUri.getAbsolutePath(path, false);
 	}
 	public void setHref(String href)
 	{
 		String attr = jsaf.innerNameFormat("href");
 		source.setAttribute(attr, href);
+		jsaf.htmlUri.recomputeHtmlBasePath();
 	}
 	
 	public String getTarget()

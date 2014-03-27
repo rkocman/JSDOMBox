@@ -5,6 +5,7 @@
 
 package org.fit.cssbox.jsdombox.js;
 
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,23 +29,27 @@ import org.w3c.dom.NodeList;
  */
 public class JSAnalyzer 
 {
-	private DOMAnalyzer da;
-	private ScriptEngine engine;
+	protected DOMAnalyzer da;
+	protected org.w3c.dom.Document doc;
+	protected URL basePath;
+	protected ScriptEngine engine;
 	
 	// Global objects
-	private Window window;
-	private Document document;
-	private PrototypeDOMException pDOMException;
-	private PrototypeNode pNode;
+	protected Window window;
+	protected Document document;
+	protected PrototypeDOMException pDOMException;
+	protected PrototypeNode pNode;
 	
 	/**
 	 * Creates a new JS analyzer
 	 * @param da  Initialized CSSBox analyzer 
 	 * @param doc The document to be analyzed
 	 */
-	public JSAnalyzer(DOMAnalyzer da, org.w3c.dom.Document doc)
+	public JSAnalyzer(DOMAnalyzer da, org.w3c.dom.Document doc, URL basePath)
 	{
 		this.da = da;
+		this.doc = doc;
+		this.basePath = basePath;
 		
 		// JS Engine
 		ScriptEngineManager manager = new ScriptEngineManager();
@@ -52,7 +57,7 @@ public class JSAnalyzer
 		
 		// JS Interface
 		HTMLListener htmlListener = new EmptyHTMLListener();
-		JSAdapterFactory af = new DefaultCSSBoxFactory(this, htmlListener);
+		JSAdapterFactory af = new DefaultCSSBoxFactory(this, doc, basePath, htmlListener);
 		window = new Window();
 		document = (Document) af.create(doc, JSAdapterType.DOCUMENT);
 		window.document = document;

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>DOM Level 2 HTML - URI Format</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<style>
+			html {
+				font-family: Arial, sans-serif;
+				font-size: 14px;
+			}
+		</style>
+		<link href="#">
+		<base href="http://absolute/">
+	</head>
+	<body background="test.jpg">
+		
+		<strong>Test 1 - Basic Anchor Test:</strong><br>
+		<span id="t11">test.jpg (correct: absolute path): </span><br>
+		<span id="t12">/test.jpg (correct: absolute path): </span><br>
+		<span id="t13">./test.jpg (correct: absolute path): </span><br>
+		<span id="t14"># (correct: absolute path): </span><br>
+		<span id="t15">http://localhost/ (correct: absolute path): </span><br>
+		<span id="t112">test.jpg (correct: relative path): </span><br>
+		<span id="t122">/test.jpg (correct: relative path): </span><br>
+		<span id="t132">./test.jpg (correct: relative path): </span><br>
+		<span id="t142"># (correct: relative path): </span><br>
+		<span id="t152">http://localhost/ (correct: absolute path): </span><br><br>
+		
+		<strong>Test 2 - Spaces (should be converted to %20):</strong><br>
+		<span id="t21">with spaces.jpg (correct: absolute path): </span><br>
+		<span id="t22">/with spaces.jpg (correct: absolute path): </span><br>
+		<span id="t23">./with spaces.jpg (correct: absolute path): </span><br>
+		<span id="t24">http://localhost/with spaces.jpg (correct: absolute path): </span><br>
+		<span id="t25">with%20spaces.jpg (correct: absolute path): </span><br><br>
+		
+		<strong>Test 3 - Specific elements:</strong><br>
+		<span id="t31">HTMLLinkElement.href="#" (correct: absolute path): </span><br>
+		<span id="t32">HTMLBodyElement.background="test.jpg" (correct: relative path): </span><br>
+		<span id="t33">HTMLQuoteElement.cite="#" (correct: absolute path): </span><br>
+		<span id="t34">HTMLModElement.cite="#" (correct: absolute path): </span><br>
+		<br>
+		
+		<strong>Test 4 - Rebase:</strong><br>
+		<span id="t41">old anchor (correct: absolute path): </span><br>
+		<span id="t42">new anchor (correct: absolute path + 2/): </span><br><br>
+		
+		<strong>Test 5 - Href change:</strong><br>
+		<span id="t51">hž\ &.html (correct: abs + h%C5%BE%5C%20&.html): </span><br>
+		<span id="t52">hž\ &.html/2/ (correct: abs + h%C5%BE%5C%20&.html/2/): </span><br>
+		<span id="t53">DOM Core (correct: abs + h%C5%BE%5C%20&.html/2/): </span><br>
+		
+		
+		
+		<h2>Test content</h2>
+		<a href="test.jpg">a1</a>
+		<a href="/test.jpg">a2</a>
+		<a href="./test.jpg">a3</a>
+		<a href="#">a4</a>
+		<a href="http://localhost/">a5</a>
+		
+		<a id="a21" href="with spaces.jpg">a6</a>
+		<a id="a22" href="/with spaces.jpg">a7</a>
+		<a id="a23" href="./with spaces.jpg">a8</a>
+		<a id="a24" href="http://localhost/with spaces.jpg">a9</a>
+		<a id="a25" href="with%20spaces.jpg">a12</a>
+		
+		<a id="a41" href="test.jpg">a10</a>
+		
+		<a id="a51" href="hž\ &.html">a11</a>
+		
+		<q cite="#">cite</q>
+		
+		<ins cite="#">ins</ins>
+		
+		<script>
+			// Desired result:
+			// relative or absolute path
+			
+			var a1 = document.getElementsByTagName("a").item(0);
+			var a2 = document.getElementsByTagName("a").item(1);
+			var a3 = document.getElementsByTagName("a").item(2);
+			var a4 = document.getElementsByTagName("a").item(3);
+			var a5 = document.getElementsByTagName("a").item(4);
+			document.getElementById("t11").firstChild.data += a1.href;
+			document.getElementById("t12").firstChild.data += a2.href;
+			document.getElementById("t13").firstChild.data += a3.href;
+			document.getElementById("t14").firstChild.data += a4.href;
+			document.getElementById("t15").firstChild.data += a5.href;
+			document.getElementById("t112").firstChild.data += a1.getAttribute("href");
+			document.getElementById("t122").firstChild.data += a2.getAttribute("href");
+			document.getElementById("t132").firstChild.data += a3.getAttribute("href");
+			document.getElementById("t142").firstChild.data += a4.getAttribute("href");
+			document.getElementById("t152").firstChild.data += a5.getAttribute("href");
+			
+			a21 = document.getElementById("a21");
+			a22 = document.getElementById("a22");
+			a23 = document.getElementById("a23");
+			a24 = document.getElementById("a24");
+			a25 = document.getElementById("a25");
+			document.getElementById("t21").firstChild.data += a21.href;
+			document.getElementById("t22").firstChild.data += a22.href;
+			document.getElementById("t23").firstChild.data += a23.href;
+			document.getElementById("t24").firstChild.data += a24.href;
+			document.getElementById("t25").firstChild.data += a25.href;
+			
+			var link = document.getElementsByTagName("link").item(0);
+			document.getElementById("t31").firstChild.data += link.href;
+			var body = document.getElementsByTagName("body").item(0);
+			document.getElementById("t32").firstChild.data += body.background;
+			var q = document.getElementsByTagName("q").item(0);
+			document.getElementById("t33").firstChild.data += q.cite;
+			var ins = document.getElementsByTagName("ins").item(0);
+			document.getElementById("t34").firstChild.data += ins.cite;
+			
+			a41 = document.getElementById("a41");
+			base = document.getElementsByTagName("base").item(0);
+			document.getElementById("t41").firstChild.data += a41.href;
+			base.href += "2/";
+			document.getElementById("t42").firstChild.data += a41.href;
+			
+			a51 = document.getElementById("a51");
+			document.getElementById("t51").firstChild.data += a51.href;
+			a51.href += "/2/";
+			document.getElementById("t52").firstChild.data += a51.href;
+			document.getElementById("t53").firstChild.data += a51.getAttribute("href");
+		</script>
+	</body>
+</html>

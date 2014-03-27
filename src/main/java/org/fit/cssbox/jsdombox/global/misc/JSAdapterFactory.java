@@ -6,6 +6,7 @@
 package org.fit.cssbox.jsdombox.global.misc;
 
 import org.fit.cssbox.jsdombox.event.HTMLListener;
+import org.fit.cssbox.jsdombox.global.util.HTMLURI;
 
 /**
  * Basic abstract class for the JS Adapter Factories 
@@ -20,6 +21,11 @@ public abstract class JSAdapterFactory
 	public HTMLListener htmlEvent;
 	
 	/**
+	 * Class for manipulation with the HTML URIs
+	 */
+	public HTMLURI htmlUri;
+	
+	/**
 	 * Creates appropriate JS adapter for the Java DOM object
 	 * @param source Java DOM object
 	 * @param type JSAdapter type
@@ -28,13 +34,14 @@ public abstract class JSAdapterFactory
 	public abstract JSAdapter create(Object source, JSAdapterType type);
 	
 	/**
-	 * Recomputes CSS in the CSSBox
-	 */
-	public abstract void recomputeStyles();
-	
-	/**
 	 * Converts names into the inner DOM format
 	 */
 	public abstract String innerNameFormat(String name);
+	
+	
+	/**
+	 * Recomputes CSS in the CSSBox
+	 */
+	public abstract void recomputeStyles();
 	
 }

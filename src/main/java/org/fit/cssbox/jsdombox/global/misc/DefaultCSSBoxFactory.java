@@ -5,9 +5,12 @@
 
 package org.fit.cssbox.jsdombox.global.misc;
 
+import java.net.URL;
+
 import org.fit.cssbox.jsdombox.event.HTMLListener;
 import org.fit.cssbox.jsdombox.global.core.*;
 import org.fit.cssbox.jsdombox.global.html.*;
+import org.fit.cssbox.jsdombox.global.util.HTMLURI;
 import org.fit.cssbox.jsdombox.js.JSAnalyzer;
 
 /**
@@ -19,10 +22,13 @@ public class DefaultCSSBoxFactory extends JSAdapterFactory
 {
 	protected JSAnalyzer jsa;
 	
-	public DefaultCSSBoxFactory(JSAnalyzer jsa, HTMLListener htmlListener)
-	{
+	public DefaultCSSBoxFactory(
+			JSAnalyzer jsa, org.w3c.dom.Document doc, URL basePath,
+			HTMLListener htmlListener
+	) {
 		this.jsa = jsa;
 		this.htmlEvent = htmlListener;
+		this.htmlUri = new HTMLURI(this, doc, basePath);
 	}
 
 	/**
@@ -129,6 +135,9 @@ public class DefaultCSSBoxFactory extends JSAdapterFactory
 			// Interface HTMLAnchorElement
 			case "a":
 				return new HTMLAnchorElement((org.w3c.dom.Element) source, this);
+			// Interface HTMLImageElement
+			case "img":
+				return new HTMLImageElement((org.w3c.dom.Element) source, this);
 			
 			// Interface HTMLElement
 			default:
@@ -173,14 +182,6 @@ public class DefaultCSSBoxFactory extends JSAdapterFactory
 	}
 	
 	/**
-	 * Recomputes CSS in the CSSBox
-	 */
-	public void recomputeStyles()
-	{
-		jsa.recomputeStyles();
-	}
-	
-	/**
 	 * Converts names into the inner DOM format (lowercase)
 	 */
 	public String innerNameFormat(String name)
@@ -188,4 +189,13 @@ public class DefaultCSSBoxFactory extends JSAdapterFactory
 		return name.toLowerCase();
 	}
 	
+
+	/**
+	 * Recomputes CSS in the CSSBox
+	 */
+	public void recomputeStyles()
+	{
+		jsa.recomputeStyles();
+	}
+
 }

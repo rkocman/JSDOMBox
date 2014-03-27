@@ -46,7 +46,8 @@ public class HTMLLinkElement extends HTMLElement
 	public String getHref()
 	{
 		String attr = jsaf.innerNameFormat("href");
-		return source.getAttribute(attr);
+		String path = source.getAttribute(attr);
+		return jsaf.htmlUri.getAbsolutePath(path);
 	}
 	public void setHref(String href)
 	{

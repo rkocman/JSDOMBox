@@ -79,7 +79,8 @@ public class SimpleExample extends javax.swing.JFrame
 			//document += "dom-html2_htmlelement.html";
 			//document += "dom-html2_global-htmlelements.html";
 			//document += "dom-html2_list-htmlelements.html";
-			document += "dom-html2_content-htmlelements.html";
+			//document += "dom-html2_content-htmlelements.html";
+			document += "dom-html2_uri-format.html";
 			
 			// 1 - Get input document
 			String basePath = new File(document).getAbsolutePath();
@@ -102,7 +103,7 @@ public class SimpleExample extends javax.swing.JFrame
             da.getStyleSheets();
 			
 			// 4 (new) - Execute JavaScript
-            JSAnalyzer jsa = new JSAnalyzer(da, doc);
+            JSAnalyzer jsa = new JSAnalyzer(da, doc, docSource.getURL());
             jsa.run();
             
             // 3 (bypass) - Recompute styles
