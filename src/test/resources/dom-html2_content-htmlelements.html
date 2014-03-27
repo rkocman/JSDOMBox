@@ -69,6 +69,33 @@
 		<span id="t912">cite new (correct: http://localhost/2/): </span><br>
 		<span id="t922">dateTime new (correct: 2015-03-21T16:30:03Z): </span><br><br>
 		
+		<strong>Test 10 - HTMLAnchorElement: </strong><br>
+		<span id="t101">accessKey (correct: C): </span><br>
+		<span id="t102">charset (correct: UTF-8): </span><br>
+		<span id="t103">coords (correct: 0,0,82,126): </span><br>
+		<span id="t104">href (correct: http://localhost/): </span><br>
+		<span id="t105">hreflang (correct: En): </span><br>
+		<span id="t106">name (correct: A1): </span><br>
+		<span id="t107">rel (correct: Nofollow): </span><br>
+		<span id="t108">rev (correct: Nofollow): </span><br>
+		<span id="t109">shape (correct: Rect): </span><br>
+		<span id="t1010">tabIndex (correct: 10): </span><br>
+		<span id="t1011">tabIndex2 (correct: 0): </span><br>
+		<span id="t1012">target (correct: _Blank): </span><br>
+		<span id="t1013">type (correct: Text/html): </span><br>
+		<span id="t10102">accessKey new (correct: A): </span><br>
+		<span id="t10202">charset new (correct: cmp1250): </span><br>
+		<span id="t10302">coords new (correct: 100,0,82,126): </span><br>
+		<span id="t10402">href new (correct: http://localhost/2/): </span><br>
+		<span id="t10502">hreflang new (correct: cs): </span><br>
+		<span id="t10602">name new (correct: A2): </span><br>
+		<span id="t10702">rel new (correct: License): </span><br>
+		<span id="t10802">rev new (correct: License): </span><br>
+		<span id="t10902">shape new (correct: Circle): </span><br>
+		<span id="t101002">tabIndex new (correct: 20): </span><br>
+		<span id="t101202">target new (correct: _Self): </span><br>
+		<span id="t101302">type new (correct: Text/csv): </span><br><br>		
+		
 		<h2>Test content</h2>
 		<div></div>
 		<div align="Right"></div>
@@ -96,7 +123,12 @@
 			My favorite test color is 
 			<del cite="http://localhost/" datetime="2014-03-21T16:30:03Z">red</del> 
 			<ins>green</ins>
-		</p> 
+		</p>
+		<a accesskey="C" charset="UTF-8" coords="0,0,82,126" href="http://localhost/"
+			hreflang="En" name="A1" rel="Nofollow" rev="Nofollow"
+			shape="Rect" tabindex=" 10" target="_Blank" type="Text/html" 
+			>anchor1</a>
+		<a>anchor2</a>
 	
 		<script>
 			// Desired result:
@@ -148,6 +180,32 @@
 			// dateTime (correct: 2014-03-21T16:30:03Z): 2014-03-21T16:30:03Z
 			// cite new (correct: http://localhost/2/): http://localhost/2/
 			// dateTime new (correct: 2015-03-21T16:30:03Z): 2015-03-21T16:30:03Z
+			// Test 10:
+			// accessKey (correct: C): C
+			// charset (correct: UTF-8): UTF-8
+			// coords (correct: 0,0,82,126): 0,0,82,126
+			// href (correct: http://localhost/): http://localhost/
+			// hreflang (correct: En): En
+			// name (correct: A1): A1
+			// rel (correct: Nofollow): Nofollow
+			// rev (correct: Nofollow): Nofollow
+			// shape (correct: Rect): Rect
+			// tabIndex (correct: 10): 10
+			// tabIndex2 (correct: 0): 0
+			// target (correct: _Blank): _Blank
+			// type (correct: Text/html): Text/html
+			// accessKey new (correct: A): A
+			// charset new (correct: cmp1250): cmp1250
+			// coords new (correct: 100,0,82,126): 100,0,82,126
+			// href new (correct: http://localhost/2/): http://localhost/2/
+			// hreflang new (correct: cs): cs
+			// name new (correct: A2): A2
+			// rel new (correct: License): License
+			// rev new (correct: License): License
+			// shape new (correct: Circle): Circle
+			// tabIndex new (correct: 20): 20
+			// target new (correct: _Self): _Self
+			// type new (correct: Text/csv): Text/csv
 			
 			var div1 = document.getElementsByTagName("div").item(0);
 			var div2 = document.getElementsByTagName("div").item(1);
@@ -230,6 +288,48 @@
 			ins.dateTime = "2015-03-21T16:30:03Z";
 			document.getElementById("t912").firstChild.data += ins.cite;
 			document.getElementById("t922").firstChild.data += ins.dateTime;
+			
+			var a1 = document.getElementsByTagName("a").item(0);
+			var a2 = document.getElementsByTagName("a").item(1);
+			document.getElementById("t101").firstChild.data += a1.accessKey;
+			document.getElementById("t102").firstChild.data += a1.charset;
+			document.getElementById("t103").firstChild.data += a1.coords;
+			document.getElementById("t104").firstChild.data += a1.href;
+			document.getElementById("t105").firstChild.data += a1.hreflang;
+			document.getElementById("t106").firstChild.data += a1.name;
+			document.getElementById("t107").firstChild.data += a1.rel;
+			document.getElementById("t108").firstChild.data += a1.rev;
+			document.getElementById("t109").firstChild.data += a1.shape;
+			document.getElementById("t1010").firstChild.data += a1.tabIndex;
+			document.getElementById("t1011").firstChild.data += a2.tabIndex;
+			document.getElementById("t1012").firstChild.data += a1.target;
+			document.getElementById("t1013").firstChild.data += a1.type;
+			a2.accessKey = "A";
+			a2.charset = "cmp1250";
+			a2.coords = "100,0,82,126";
+			a2.href = "http://localhost/2/";
+			a2.hreflang = "cs";
+			a2.name = "A2";
+			a2.rel = "License";
+			a2.rev = "License";
+			a2.shape = "Circle";
+			a2.tabIndex = 20;
+			a2.target = "_Self";
+			a2.type = "Text/csv";
+			a2.blur();
+			a2.focus();
+			document.getElementById("t10102").firstChild.data += a2.accessKey;
+			document.getElementById("t10202").firstChild.data += a2.charset;
+			document.getElementById("t10302").firstChild.data += a2.coords;
+			document.getElementById("t10402").firstChild.data += a2.href;
+			document.getElementById("t10502").firstChild.data += a2.hreflang;
+			document.getElementById("t10602").firstChild.data += a2.name;
+			document.getElementById("t10702").firstChild.data += a2.rel;
+			document.getElementById("t10802").firstChild.data += a2.rev;
+			document.getElementById("t10902").firstChild.data += a2.shape;
+			document.getElementById("t101002").firstChild.data += a2.tabIndex;
+			document.getElementById("t101202").firstChild.data += a2.target;
+			document.getElementById("t101302").firstChild.data += a2.type;
 		</script>
 	</body>
 </html>

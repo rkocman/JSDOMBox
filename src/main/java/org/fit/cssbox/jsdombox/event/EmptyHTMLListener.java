@@ -20,4 +20,7 @@ public class EmptyHTMLListener implements HTMLListener
 	public boolean style_getDisabled(Node node) {return false;}
 	public void style_setDisabled(Node node, boolean disabled) {}
 	
+	public void anchor_blur(Node node) {}
+	public void anchor_focus(Node node) {}
+	
 }

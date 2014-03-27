@@ -126,6 +126,9 @@ public class DefaultCSSBoxFactory extends JSAdapterFactory
 			// Interface HTMLModElement
 			case "ins": case "del":
 				return new HTMLModElement((org.w3c.dom.Element) source, this);
+			// Interface HTMLAnchorElement
+			case "a":
+				return new HTMLAnchorElement((org.w3c.dom.Element) source, this);
 			
 			// Interface HTMLElement
 			default:

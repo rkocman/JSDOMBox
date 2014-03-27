@@ -16,29 +16,41 @@ public interface HTMLListener
 {
 	/**
 	 * Getter for the HTMLLinkElement attribute disabled
-	 * @param node Source Node of HTML Link Element
+	 * @param node Source Node of the HTML Link Element
 	 * @return Disabled value: true/false
 	 */
 	public boolean link_getDisabled(Node node);
 	/**
 	 * Setter for the HTMLLinkElement attribute disabled
-	 * @param node Source Node of HTML Link Element
-	 * @param disabled New value for attribute disabled
+	 * @param node Source Node of the HTML Link Element
+	 * @param disabled New value for the attribute disabled
 	 */
 	public void link_setDisabled(Node node, boolean disabled);
 	
 	
 	/**
 	 * Getter for the HTMLStyleElement attribute disabled
-	 * @param node Source Node of HTML Style Element
+	 * @param node Source Node of the HTML Style Element
 	 * @return Disabled value: true/false
 	 */
 	public boolean style_getDisabled(Node node);
 	/**
 	 * Setter for the HTMLStyleElement attribute disabled
-	 * @param node Source Node of HTML Style Element
-	 * @param disabled New value for attribute disabled
+	 * @param node Source Node of the HTML Style Element
+	 * @param disabled New value for the attribute disabled
 	 */
 	public void style_setDisabled(Node node, boolean disabled);
+	
+	
+	/**
+	 * Removes keyboard focus from the HTMLAnchorElement
+	 * @param node Source Node of the HTML Anchor Element
+	 */
+	public void anchor_blur(Node node);
+	/**
+	 * Gives keyboard focus to the HTMLAnchorElement
+	 * @param node Source Node of the HTML Anchor Element
+	 */
+	public void anchor_focus(Node node);
 	
 }
