@@ -45,12 +45,29 @@
 		<span id="t11202">width new (correct: 50): </span><br>
 		<br>
 		
+		<strong>Test 2 - HTMLParamElement:</strong><br>
+		<span id="t21">name (correct: Init): </span><br>
+		<span id="t22">type (correct: Image/gif): </span><br>
+		<span id="t23">value (correct: Test.gif): </span><br>
+		<span id="t24">valueType (correct: Ref): </span><br>
+		<span id="t212">name new (correct: Init2): </span><br>
+		<span id="t222">type new (correct: text/Html): </span><br>
+		<span id="t232">value new (correct: Test2): </span><br>
+		<span id="t242">valueType new (correct: Data): </span><br>
+		<br>
+		
 		<h2>Test content</h2>
 		<img name="Test" align="Middle" alt="Text" border=" 5a" height="40"
 			hspace="10" ismap longdesc="http://localhost/W3s.txt" 
 			src="http://localhost/w3html.gif" usemap="#Planetmap" 
 			vspace=" 10" width="40">
 		<img src="http://www.fit.vutbr.cz/images/logo_fit.png">
+		
+		<object>
+			<param name="Init" value="Test.gif"
+				valuetype="Ref" type="Image/gif">
+			<param>
+		</object>
 		
 		<script>
 			// Desired result:
@@ -85,6 +102,15 @@
 			// useMap new (correct: #Planetmap2): #Planetmap2
 			// vspace new (correct: 20): 20
 			// width new (correct: 50): 50
+			// Test 2:
+			// name (correct: Init): Init
+			// type (correct: Image/gif): Image/gif
+			// value (correct: Test.gif): Test.gif
+			// valueType (correct: Ref): Ref
+			// name new (correct: Init2): init2
+			// type new (correct: text/Html): text/Html
+			// value new (correct: Test2): Test2
+			// valueType new (correct: Data): Data
 			
 			var img1 = document.getElementsByTagName("img").item(0);
 			var img2 = document.getElementsByTagName("img").item(1);
@@ -130,6 +156,21 @@
 			document.getElementById("t11002").firstChild.data += img1.useMap;
 			document.getElementById("t11102").firstChild.data += img1.vspace;
 			document.getElementById("t11202").firstChild.data += img1.width;
+			
+			var param1 = document.getElementsByTagName("param").item(0);
+			var param2 = document.getElementsByTagName("param").item(1);
+			document.getElementById("t21").firstChild.data += param1.name;
+			document.getElementById("t22").firstChild.data += param1.type;
+			document.getElementById("t23").firstChild.data += param1.value;
+			document.getElementById("t24").firstChild.data += param1.valueType;
+			param2.name = "init2";
+			param2.type = "text/Html";
+			param2.value = "Test2";
+			param2.valueType = "Data";
+			document.getElementById("t212").firstChild.data += param2.name;
+			document.getElementById("t222").firstChild.data += param2.type;
+			document.getElementById("t232").firstChild.data += param2.value;
+			document.getElementById("t242").firstChild.data += param2.valueType;
 		</script>
 	</body>
 </html>
