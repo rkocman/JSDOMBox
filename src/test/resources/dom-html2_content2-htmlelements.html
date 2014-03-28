@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>DOM Level 2 HTML - Content2 HTMLElements</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<style>
+			html {
+				font-family: Arial, sans-serif;
+				font-size: 14px;
+			}
+		</style>
+	</head>
+	<body>
+	
+		<strong>Test 1 - HTMLImageElement:</strong><br>
+		<span id="t11">name (correct: Test): </span><br>
+		<span id="t12">align (correct: Middle): </span><br>
+		<span id="t13">alt (correct: Text): </span><br>
+		<span id="t14">border (correct: 5a): </span><br>
+		<span id="t15">border2 (correct: nothing): </span><br>
+		<span id="t16">height (correct: 40): </span><br>
+		<span id="t17">height2 (correct: 0 or the image size): </span><br>
+		<span id="t18">hspace (correct: 10): </span><br>
+		<span id="t19">hspace2 (correct: 0): </span><br>
+		<span id="t110">isMap (correct: true): </span><br>
+		<span id="t111">isMap2 (correct: false): </span><br>
+		<span id="t112">longDesc (correct: http://localhost/W3s.txt): </span><br>
+		<span id="t113">src (correct: http://localhost/w3html.gif): </span><br>
+		<span id="t114">useMap (correct: #Planetmap): </span><br>
+		<span id="t115">vspace (correct: 10): </span><br>
+		<span id="t116">vspace2 (correct: 0): </span><br>
+		<span id="t117">width (correct: 40): </span><br>
+		<span id="t118">width2 (correct: 0 or the image size): </span><br>
+		<span id="t1102">name new (correct: Test2): </span><br>
+		<span id="t1202">align new (correct: Left): </span><br>
+		<span id="t1302">alt new (correct: Text2): </span><br>
+		<span id="t1402">border new (correct: 5b): </span><br>
+		<span id="t1502">height mew (correct: 50): </span><br>
+		<span id="t1602">hspace new (correct: 20): </span><br>
+		<span id="t1702">isMap new (correct: false): </span><br>
+		<span id="t1802">longDesc new (correct: http://localhost/W3s2.txt): </span><br>
+		<span id="t1902">src new (correct: http://localhost/w3html2.gif): </span><br>
+		<span id="t11002">useMap new (correct: #Planetmap2): </span><br>
+		<span id="t11102">vspace new (correct: 20): </span><br>
+		<span id="t11202">width new (correct: 50): </span><br>
+		<br>
+		
+		<h2>Test content</h2>
+		<img name="Test" align="Middle" alt="Text" border=" 5a" height="40"
+			hspace="10" ismap longdesc="http://localhost/W3s.txt" 
+			src="http://localhost/w3html.gif" usemap="#Planetmap" 
+			vspace=" 10" width="40">
+		<img src="http://www.fit.vutbr.cz/images/logo_fit.png">
+		
+		<script>
+			// Desired result:
+			// Test 1:
+			// name (correct: Test): Test
+			// align (correct: Middle): Middle
+			// alt (correct: Text): Text
+			// border (correct: 5a): 5a
+			// border2 (correct: nothing):
+			// height (correct: 40): 40
+			// height2 (correct: 0 or the image size): 100
+			// hspace (correct: 10): 10
+			// hspace2 (correct: 0): 0
+			// isMap (correct: true): true
+			// isMap2 (correct: false): false
+			// longDesc (correct: http://localhost/W3s.txt): http://localhost/W3s.txt
+			// src (correct: http://localhost/w3html.gif): http://localhost/w3html.gif
+			// useMap (correct: #Planetmap): #Planetmap
+			// vspace (correct: 10): 10
+			// vspace2 (correct: 0): 0
+			// width (correct: 40): 40
+			// width2 (correct: 0 or the image size): 211
+			// name new (correct: Test2): Test2
+			// align new (correct: Left): Left
+			// alt new (correct: Text2): Text2
+			// border new (correct: 5b): 5b
+			// height mew (correct: 50): 50
+			// hspace new (correct: 20): 20
+			// isMap new (correct: false): false
+			// longDesc new (correct: http://localhost/W3s2.txt): http://localhost/W32s.txt
+			// src new (correct: http://localhost/w3html2.gif): http://localhost/W3html2.gif
+			// useMap new (correct: #Planetmap2): #Planetmap2
+			// vspace new (correct: 20): 20
+			// width new (correct: 50): 50
+			
+			var img1 = document.getElementsByTagName("img").item(0);
+			var img2 = document.getElementsByTagName("img").item(1);
+			document.getElementById("t11").firstChild.data += img1.name;
+			document.getElementById("t12").firstChild.data += img1.align;
+			document.getElementById("t13").firstChild.data += img1.alt;
+			document.getElementById("t14").firstChild.data += img1.border;
+			document.getElementById("t15").firstChild.data += img2.border;
+			document.getElementById("t16").firstChild.data += img1.height;
+			document.getElementById("t17").firstChild.data += img2.height;
+			document.getElementById("t18").firstChild.data += img1.hspace;
+			document.getElementById("t19").firstChild.data += img2.hspace;
+			document.getElementById("t110").firstChild.data += img1.isMap;
+			document.getElementById("t111").firstChild.data += img2.isMap;
+			document.getElementById("t112").firstChild.data += img1.longDesc;
+			document.getElementById("t113").firstChild.data += img1.src;
+			document.getElementById("t114").firstChild.data += img1.useMap;
+			document.getElementById("t115").firstChild.data += img1.vspace;
+			document.getElementById("t116").firstChild.data += img2.vspace;
+			document.getElementById("t117").firstChild.data += img1.width;
+			document.getElementById("t118").firstChild.data += img2.width;
+			img1.name = "Test2";
+			img1.align = "Left";
+			img1.alt = "Text2";
+			img1.border = "5b";
+			img1.height="50";
+			img1.hspace = 20;
+			img1.isMap = false;
+			img1.longDesc = "http://localhost/W32s.txt";
+			img1.src = "http://localhost/W3html2.gif";
+			img1.useMap = "#Planetmap2";
+			img1.vspace = 20;
+			img1.width = 50;
+			document.getElementById("t1102").firstChild.data += img1.name;
+			document.getElementById("t1202").firstChild.data += img1.align;
+			document.getElementById("t1302").firstChild.data += img1.alt;
+			document.getElementById("t1402").firstChild.data += img1.border;
+			document.getElementById("t1502").firstChild.data += img1.height;
+			document.getElementById("t1602").firstChild.data += img1.hspace;
+			document.getElementById("t1702").firstChild.data += img1.isMap;
+			document.getElementById("t1802").firstChild.data += img1.longDesc;
+			document.getElementById("t1902").firstChild.data += img1.src;
+			document.getElementById("t11002").firstChild.data += img1.useMap;
+			document.getElementById("t11102").firstChild.data += img1.vspace;
+			document.getElementById("t11202").firstChild.data += img1.width;
+		</script>
+	</body>
+</html>

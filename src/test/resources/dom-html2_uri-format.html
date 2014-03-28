@@ -38,6 +38,8 @@
 		<span id="t32">HTMLBodyElement.background="test.jpg" (correct: relative path): </span><br>
 		<span id="t33">HTMLQuoteElement.cite="#" (correct: absolute path): </span><br>
 		<span id="t34">HTMLModElement.cite="#" (correct: absolute path): </span><br>
+		<span id="t35">HTMLImageElement.longDesc="#" (correct: absolute path): </span><br>
+		<span id="t36">HTMLImageElement.src="#" (correct: absolute path): </span><br>
 		<br>
 		
 		<strong>Test 4 - Rebase:</strong><br>
@@ -48,8 +50,6 @@
 		<span id="t51">hž\ &.html (correct: abs + h%C5%BE%5C%20&.html): </span><br>
 		<span id="t52">hž\ &.html/2/ (correct: abs + h%C5%BE%5C%20&.html/2/): </span><br>
 		<span id="t53">DOM Core (correct: abs + h%C5%BE%5C%20&.html/2/): </span><br>
-		
-		
 		
 		<h2>Test content</h2>
 		<a href="test.jpg">a1</a>
@@ -71,6 +71,8 @@
 		<q cite="#">cite</q>
 		
 		<ins cite="#">ins</ins>
+		
+		<img src="#" longDesc = "#">
 		
 		<script>
 			// Desired result:
@@ -111,6 +113,9 @@
 			document.getElementById("t33").firstChild.data += q.cite;
 			var ins = document.getElementsByTagName("ins").item(0);
 			document.getElementById("t34").firstChild.data += ins.cite;
+			var img = document.getElementsByTagName("img").item(0);
+			document.getElementById("t35").firstChild.data += img.longDesc;
+			document.getElementById("t36").firstChild.data += img.src;
 			
 			a41 = document.getElementById("a41");
 			base = document.getElementsByTagName("base").item(0);

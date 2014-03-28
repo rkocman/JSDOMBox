@@ -81,6 +81,7 @@ public class SimpleExample extends javax.swing.JFrame
 			//document += "dom-html2_list-htmlelements.html";
 			//document += "dom-html2_content-htmlelements.html";
 			document += "dom-html2_uri-format.html";
+			//document += "dom-html2_content2-htmlelements.html";
 			
 			// 1 - Get input document
 			String basePath = new File(document).getAbsolutePath();
