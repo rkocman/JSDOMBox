@@ -40,6 +40,8 @@
 		<span id="t34">HTMLModElement.cite="#" (correct: absolute path): </span><br>
 		<span id="t35">HTMLImageElement.longDesc="#" (correct: absolute path): </span><br>
 		<span id="t36">HTMLImageElement.src="#" (correct: absolute path): </span><br>
+		<span id="t37">HTMLAppletElement.codeBase="#" (correct: absolute path): </span><br>
+		<span id="t38">HTMLAppletElement.object="#" (correct: absolute path): </span><br>
 		<br>
 		
 		<strong>Test 4 - Rebase:</strong><br>
@@ -73,6 +75,9 @@
 		<ins cite="#">ins</ins>
 		
 		<img src="#" longDesc = "#">
+		
+		<br>
+		<applet codeBase="#" object="#"></applet>
 		
 		<script>
 			// Desired result:
@@ -116,6 +121,9 @@
 			var img = document.getElementsByTagName("img").item(0);
 			document.getElementById("t35").firstChild.data += img.longDesc;
 			document.getElementById("t36").firstChild.data += img.src;
+			var applet = document.getElementsByTagName("applet").item(0);
+			document.getElementById("t37").firstChild.data += applet.codeBase;
+			document.getElementById("t38").firstChild.data += applet.object;
 			
 			a41 = document.getElementById("a41");
 			base = document.getElementsByTagName("base").item(0);

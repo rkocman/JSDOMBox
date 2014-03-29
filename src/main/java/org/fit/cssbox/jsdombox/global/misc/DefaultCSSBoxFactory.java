@@ -141,6 +141,9 @@ public class DefaultCSSBoxFactory extends JSAdapterFactory
 			// Interface HTMLParamElement
 			case "param":
 				return new HTMLParamElement((org.w3c.dom.Element) source, this);
+			// Interface HTMLAppletElement
+			case "applet":
+				return new HTMLAppletElement((org.w3c.dom.Element) source, this);
 			
 			// Interface HTMLElement
 			default:

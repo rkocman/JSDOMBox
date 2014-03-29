@@ -56,6 +56,35 @@
 		<span id="t242">valueType new (correct: Data): </span><br>
 		<br>
 		
+		<strong>Test 3 - HTMLAppletElement:</strong><br>
+		<span id="t31">align (correct: Middle): </span><br>
+		<span id="t32">alt (correct: Applet1): </span><br>
+		<span id="t33">archive (correct: Archive1): </span><br>
+		<span id="t34">code (correct: Code1): </span><br>
+		<span id="t35">codeBase (correct: http://localhost/Cb1): </span><br>
+		<span id="t36">height (correct: 40): </span><br>
+		<span id="t37">height2 (correct: nothing): </span><br>
+		<span id="t38">hspace (correct: 10): </span><br>
+		<span id="t39">hspace2 (correct: 0): </span><br>
+		<span id="t310">name (correct: An1): </span><br>
+		<span id="t311">object (correct: http://localhost/Object1): </span><br>
+		<span id="t312">vspace (correct: 10): </span><br>
+		<span id="t313">vspace2 (correct: 0): </span><br>
+		<span id="t314">width (correct: 40): </span><br>
+		<span id="t315">width2 (correct: nothing): </span><br>
+		<span id="t3102">align (correct: Left): </span><br>
+		<span id="t3202">alt (correct: Applet2): </span><br>
+		<span id="t3302">archive (correct: Archive2): </span><br>
+		<span id="t3402">code (correct: Code2): </span><br>
+		<span id="t3502">codeBase (correct: http://localhost/Cb2): </span><br>
+		<span id="t3602">height (correct: 45): </span><br>
+		<span id="t3702">hspace (correct: 15): </span><br>
+		<span id="t3802">name (correct: An2): </span><br>
+		<span id="t3902">object (correct: http://localhost/Object2): </span><br>
+		<span id="t31002">vspace (correct: 20): </span><br>
+		<span id="t31102">width (correct: 50): </span><br>
+		<br>
+		
 		<h2>Test content</h2>
 		<img name="Test" align="Middle" alt="Text" border=" 5a" height="40"
 			hspace="10" ismap longdesc="http://localhost/W3s.txt" 
@@ -68,6 +97,17 @@
 				valuetype="Ref" type="Image/gif">
 			<param>
 		</object>
+		
+		<br>
+		<applet align="Middle" alt="Applet1" archive="Archive1" 
+			class="Class1" code="Code1" codeBase="http://localhost/Cb1" 
+			height="40"	hspace="10" name="An1" 
+			object="http://localhost/Object1" vspace="10" width="40" >
+			Applet 1
+		</applet>
+		<applet>
+			Applet 2
+		</applet> 
 		
 		<script>
 			// Desired result:
@@ -111,6 +151,33 @@
 			// type new (correct: text/Html): text/Html
 			// value new (correct: Test2): Test2
 			// valueType new (correct: Data): Data
+			// Test 3:
+			// align (correct: Middle): Middle
+			// alt (correct: Applet1): Applet1
+			// archive (correct: Archive1): Archive1
+			// code (correct: Code1): Code1
+			// codeBase (correct: http://localhost/Cb1): http://localhost/Cb1
+			// height (correct: 40): 40
+			// height2 (correct: nothing):
+			// hspace (correct: 10): 10
+			// hspace2 (correct: 0): 0
+			// name (correct: An1): An1
+			// object (correct: http://localhost/Object1): http://localhost/Object1
+			// vspace (correct: 10): 10
+			// vspace2 (correct: 0): 0
+			// width (correct: 40): 40
+			// width2 (correct: nothing):
+			// align (correct: Left): Left
+			// alt (correct: Applet2): Applet2
+			// archive (correct: Archive2): Archive2
+			// code (correct: Code2): Code2
+			// codeBase (correct: http://localhost/Cb2): http://localhost/Cb2
+			// height (correct: 45): 45
+			// hspace (correct: 15): 15
+			// name (correct: An2): An2
+			// object (correct: http://localhost/Object2): http://localhost/Object2
+			// vspace (correct: 20): 20
+			// width (correct: 50): 50
 			
 			var img1 = document.getElementsByTagName("img").item(0);
 			var img2 = document.getElementsByTagName("img").item(1);
@@ -171,6 +238,46 @@
 			document.getElementById("t222").firstChild.data += param2.type;
 			document.getElementById("t232").firstChild.data += param2.value;
 			document.getElementById("t242").firstChild.data += param2.valueType;
+			
+			var applet1 = document.getElementsByTagName("applet").item(0);
+			var applet2 = document.getElementsByTagName("applet").item(1);
+			document.getElementById("t31").firstChild.data += applet1.align;
+			document.getElementById("t32").firstChild.data += applet1.alt;
+			document.getElementById("t33").firstChild.data += applet1.archive;
+			document.getElementById("t34").firstChild.data += applet1.code;
+			document.getElementById("t35").firstChild.data += applet1.codeBase;
+			document.getElementById("t36").firstChild.data += applet1.height;
+			document.getElementById("t37").firstChild.data += applet2.height;
+			document.getElementById("t38").firstChild.data += applet1.hspace;
+			document.getElementById("t39").firstChild.data += applet2.hspace;
+			document.getElementById("t310").firstChild.data += applet1.name;
+			document.getElementById("t311").firstChild.data += applet1.object;
+			document.getElementById("t312").firstChild.data += applet1.vspace;
+			document.getElementById("t313").firstChild.data += applet2.vspace;
+			document.getElementById("t314").firstChild.data += applet1.width;
+			document.getElementById("t315").firstChild.data += applet2.width;
+			applet2.align = "Left";
+			applet2.alt = "Applet2";
+			applet2.archive = "Archive2";
+			applet2.code = "Code2";
+			applet2.codeBase = "http://localhost/Cb2";
+			applet2.height = "45";
+			applet2.hspace = "15";
+			applet2.name = "An2";
+			applet2.object = "http://localhost/Object2";
+			applet2.vspace = "20";
+			applet2.width = "50";
+			document.getElementById("t3102").firstChild.data += applet2.align;
+			document.getElementById("t3202").firstChild.data += applet2.alt;
+			document.getElementById("t3302").firstChild.data += applet2.archive;
+			document.getElementById("t3402").firstChild.data += applet2.code;
+			document.getElementById("t3502").firstChild.data += applet2.codeBase;
+			document.getElementById("t3602").firstChild.data += applet2.height;
+			document.getElementById("t3702").firstChild.data += applet2.hspace;
+			document.getElementById("t3802").firstChild.data += applet2.name;
+			document.getElementById("t3902").firstChild.data += applet2.object;
+			document.getElementById("t31002").firstChild.data += applet2.vspace;
+			document.getElementById("t31102").firstChild.data += applet2.width;
 		</script>
 	</body>
 </html>
