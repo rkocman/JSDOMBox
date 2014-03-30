@@ -42,6 +42,7 @@
 		<span id="t36">HTMLImageElement.src="#" (correct: absolute path): </span><br>
 		<span id="t37">HTMLAppletElement.codeBase="#" (correct: absolute path): </span><br>
 		<span id="t38">HTMLAppletElement.object="#" (correct: absolute path): </span><br>
+		<span id="t39">HTMLAreaElement.href="#" (correct: absolute path): </span><br>
 		<br>
 		
 		<strong>Test 4 - Rebase:</strong><br>
@@ -78,6 +79,11 @@
 		
 		<br>
 		<applet codeBase="#" object="#"></applet>
+		
+		<br>
+		<map name="Mn1">
+			<area href="#">
+		</map>
 		
 		<script>
 			// Desired result:
@@ -124,6 +130,8 @@
 			var applet = document.getElementsByTagName("applet").item(0);
 			document.getElementById("t37").firstChild.data += applet.codeBase;
 			document.getElementById("t38").firstChild.data += applet.object;
+			var area = document.getElementsByTagName("area").item(0);
+			document.getElementById("t39").firstChild.data += area.href;
 			
 			a41 = document.getElementById("a41");
 			base = document.getElementsByTagName("base").item(0);

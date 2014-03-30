@@ -85,6 +85,28 @@
 		<span id="t31102">width (correct: 50): </span><br>
 		<br>
 		
+		<strong>Test 4 - HTMLAreaElement:</strong><br>
+		<span id="t41">accessKey (correct: A): </span><br>
+		<span id="t42">alt (correct: Alt1): </span><br>
+		<span id="t43">coords (correct: 10,10,10): </span><br>
+		<span id="t44">href (correct: http://localhost/Href1): </span><br>
+		<span id="t45">noHref (correct: true): </span><br>
+		<span id="t46">noHref2 (correct: false): </span><br>
+		<span id="t47">shape (correct: Circle): </span><br>
+		<span id="t48">shape2 (correct: nothing): </span><br>
+		<span id="t49">tabIndex (correct: 10): </span><br>
+		<span id="t410">tabIndex2 (correct: 0): </span><br>
+		<span id="t411">target (correct: _Blank): </span><br>
+		<span id="t4102">accessKey (correct: B): </span><br>
+		<span id="t4202">alt (correct: Alt2): </span><br>
+		<span id="t4302">coords (correct: 20,20,20): </span><br>
+		<span id="t4402">href (correct: http://localhost/Href2): </span><br>
+		<span id="t4502">noHref (correct: true): </span><br>
+		<span id="t4602">shape (correct: Poly): </span><br>
+		<span id="t4702">tabIndex (correct: 20): </span><br>
+		<span id="t4802">target (correct: _Self): </span><br>
+		<br>
+		
 		<h2>Test content</h2>
 		<img name="Test" align="Middle" alt="Text" border=" 5a" height="40"
 			hspace="10" ismap longdesc="http://localhost/W3s.txt" 
@@ -107,7 +129,15 @@
 		</applet>
 		<applet>
 			Applet 2
-		</applet> 
+		</applet>
+		
+		<br>
+		<map name="Mn1">
+			<area accesskey="A" alt="Alt1" coords="10,10,10" 
+				href="http://localhost/Href1" noHref shape="Circle"
+				tabIndex="10" target="_Blank">
+			<area>
+		</map>
 		
 		<script>
 			// Desired result:
@@ -178,6 +208,26 @@
 			// object (correct: http://localhost/Object2): http://localhost/Object2
 			// vspace (correct: 20): 20
 			// width (correct: 50): 50
+			// Test 4:
+			// accessKey (correct: A): A
+			// alt (correct: Alt1): Alt1
+			// coords (correct: 10,10,10): 10,10,10
+			// href (correct: http://localhost/Href1): http://localhost/Href1
+			// noHref (correct: true): true
+			// noHref2 (correct: false): false
+			// shape (correct: Circle): Circle
+			// shape2 (correct: nothing):
+			// tabIndex (correct: 10): 10
+			// tabIndex2 (correct: 0): 0
+			// target (correct: _Blank): _Blank
+			// accessKey (correct: B): B
+			// alt (correct: Alt2): Alt2
+			// coords (correct: 20,20,20): 20,20,20
+			// href (correct: http://localhost/Href2): http://localhost/Href2
+			// noHref (correct: true): true
+			// shape (correct: Poly): Poly
+			// tabIndex (correct: 20): 20
+			// target (correct: _Self): _Self
 			
 			var img1 = document.getElementsByTagName("img").item(0);
 			var img2 = document.getElementsByTagName("img").item(1);
@@ -278,6 +328,36 @@
 			document.getElementById("t3902").firstChild.data += applet2.object;
 			document.getElementById("t31002").firstChild.data += applet2.vspace;
 			document.getElementById("t31102").firstChild.data += applet2.width;
+			
+			var area1 = document.getElementsByTagName("area").item(0);
+			var area2 = document.getElementsByTagName("area").item(1);
+			document.getElementById("t41").firstChild.data += area1.accessKey;
+			document.getElementById("t42").firstChild.data += area1.alt;
+			document.getElementById("t43").firstChild.data += area1.coords;
+			document.getElementById("t44").firstChild.data += area1.href;
+			document.getElementById("t45").firstChild.data += area1.noHref;
+			document.getElementById("t46").firstChild.data += area2.noHref;
+			document.getElementById("t47").firstChild.data += area1.shape;
+			document.getElementById("t48").firstChild.data += area2.shape;
+			document.getElementById("t49").firstChild.data += area1.tabIndex;
+			document.getElementById("t410").firstChild.data += area2.tabIndex;
+			document.getElementById("t411").firstChild.data += area1.target;
+			area2.accessKey = "B";
+			area2.alt = "Alt2";
+			area2.coords = "20,20,20";
+			area2.href = "http://localhost/Href2";
+			area2.noHref = true;
+			area2.shape = "Poly";
+			area2.tabIndex = "20";
+			area2.target = "_Self";
+			document.getElementById("t4102").firstChild.data += area2.accessKey;
+			document.getElementById("t4202").firstChild.data += area2.alt;
+			document.getElementById("t4302").firstChild.data += area2.coords;
+			document.getElementById("t4402").firstChild.data += area2.href;
+			document.getElementById("t4502").firstChild.data += area2.noHref;
+			document.getElementById("t4602").firstChild.data += area2.shape;
+			document.getElementById("t4702").firstChild.data += area2.tabIndex;
+			document.getElementById("t4802").firstChild.data += area2.target;
 		</script>
 	</body>
 </html>

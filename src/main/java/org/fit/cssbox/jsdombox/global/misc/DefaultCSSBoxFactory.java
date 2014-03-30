@@ -144,6 +144,9 @@ public class DefaultCSSBoxFactory extends JSAdapterFactory
 			// Interface HTMLAppletElement
 			case "applet":
 				return new HTMLAppletElement((org.w3c.dom.Element) source, this);
+			// Interface HTMLAreaElement
+			case "area":
+				return new HTMLAreaElement((org.w3c.dom.Element) source, this);
 			
 			// Interface HTMLElement
 			default:
