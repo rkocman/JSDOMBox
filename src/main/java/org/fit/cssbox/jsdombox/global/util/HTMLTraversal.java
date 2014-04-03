@@ -63,7 +63,7 @@ public class HTMLTraversal
 	
 	
 	/**
-	 * Gets n-th specified tag in the DOM Node
+	 * Gets the n-th specified tag in the DOM Node
 	 * @param dom DOM tree
 	 * @param tags Array of relevant HTML tags
 	 * @param n Index of the tag (zero-based)
@@ -103,7 +103,7 @@ public class HTMLTraversal
 	
 	
 	/**
-	 * Gets specified named tag in the Node
+	 * Gets the specified named tag in the Node
 	 * @param dom DOM tree
 	 * @param tags Array of relevant HTML tags
 	 * @param name Name of the tag
@@ -147,6 +147,27 @@ public class HTMLTraversal
 			Node result = getNamedTag(node, tags, name, attr);
 			if (result != null)
 				return result;
+		}
+		
+		return null;
+	}
+	
+	
+	/**
+	 * Gets the parent tag of the Node
+	 * @param dom Source Node
+	 * @param tags Array of relevant HTML tags
+	 * @return Node or null
+	 */
+	public static Node getParentTag(Node dom, String[] tags)
+	{
+		Node node = dom.getParentNode();
+		
+		while (node != null) {
+			if (isSearchedTag(node, tags))
+				return node;
+			
+			node = node.getParentNode();
 		}
 		
 		return null;

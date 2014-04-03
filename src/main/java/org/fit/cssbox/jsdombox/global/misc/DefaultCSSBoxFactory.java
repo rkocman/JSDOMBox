@@ -138,6 +138,9 @@ public class DefaultCSSBoxFactory extends JSAdapterFactory
 			// Interface HTMLImageElement
 			case "img":
 				return new HTMLImageElement((org.w3c.dom.Element) source, this);
+			// Interface HTMLObjectElement
+			case "object":
+				return new HTMLObjectElement((org.w3c.dom.Element) source, this);
 			// Interface HTMLParamElement
 			case "param":
 				return new HTMLParamElement((org.w3c.dom.Element) source, this);

@@ -133,6 +133,50 @@
 		<span id="t6702">type new (correct: Not/existing2): </span><br>
 		<br>
 		
+		<strong>Test 7 - HTMLObjectElement:</strong><br>
+		<span id="t71">form (correct: null): </span><br>
+		<span id="t72">form2 (correct: FORM): </span><br>
+		<span id="t73">code (correct: http://localhost/Code1): </span><br>
+		<span id="t74">align (correct: Left): </span><br>
+		<span id="t75">archive (correct: Archive1): </span><br>
+		<span id="t76">border (correct: 1B): </span><br>
+		<span id="t77">codeBase (correct: http://localhost/Cb1): </span><br>
+		<span id="t78">codeType (correct: Codetype1): </span><br>
+		<span id="t79">data (correct: http://localhost/Data1): </span><br>
+		<span id="t710">declare (correct: true): </span><br>
+		<span id="t711">declare2 (correct: false): </span><br>
+		<span id="t712">height (correct: 5H): </span><br>
+		<span id="t713">hspace (correct: 5): </span><br>
+		<span id="t714">hspace2 (correct: 0): </span><br>
+		<span id="t715">name (correct: Name1): </span><br>
+		<span id="t716">standby (correct: S1): </span><br>
+		<span id="t717">tabIndex (correct: 3): </span><br>
+		<span id="t718">tabIndex2 (correct: 0 or -1): </span><br>
+		<span id="t719">type (correct: App/test): </span><br>
+		<span id="t720">useMap (correct: uM1): </span><br>
+		<span id="t721">vspace (correct: 6): </span><br>
+		<span id="t722">vspace2 (correct: 0): </span><br>
+		<span id="t723">width (correct: 6W): </span><br>
+		<span id="t724">contentDocument (correct: null): </span><br>
+		<span id="t7102">code new (correct: http://localhost/Code2): </span><br>
+		<span id="t7202">align new (correct: Right): </span><br>
+		<span id="t7302">archive new (correct: Archive2): </span><br>
+		<span id="t7402">border new (correct: 2B): </span><br>
+		<span id="t7502">codeBase new (correct: http://localhost/Cb2): </span><br>
+		<span id="t7602">codeType new (correct: Codetype2): </span><br>
+		<span id="t7702">data new (correct: http://localhost/Data2): </span><br>
+		<span id="t7802">declare new (correct: true): </span><br>
+		<span id="t7902">height new (correct: 6H): </span><br>
+		<span id="t71002">hspace new (correct: 6): </span><br>
+		<span id="t71102">name new (correct: Name2): </span><br>
+		<span id="t71202">standby new (correct: S2): </span><br>
+		<span id="t71302">tabIndex new (correct: 4): </span><br>
+		<span id="t71402">type new (correct: App/test2): </span><br>
+		<span id="t71502">useMap new (correct: uM2): </span><br>
+		<span id="t71602">vspace new (correct: 7): </span><br>
+		<span id="t71702">width new (correct: 7W): </span><br>
+		<br>
+		
 		<h2>Test content</h2>
 		<img name="Test" align="Middle" alt="Text" border=" 5a" height="40"
 			hspace="10" ismap longdesc="http://localhost/W3s.txt" 
@@ -175,6 +219,16 @@
 		<script charset="UTF-8" defer src="http://localhost/nothing" 
 			type="not/existing">//text1</script>
 		<script for="For2" event="Event2"></script>
+		
+		<object code="http://localhost/Code1" align="Left" 
+			archive="Archive1" border="1B" codeBase="http://localhost/Cb1"
+			codeType="Codetype1" data="http://localhost/Data1" declare 
+			height="5H" hspace="5" name="Name1" standby="S1" tabIndex="3"
+			type="App/test" useMap="uM1" vspace=" 6"
+			width="6W"></object>
+		<form>
+		<object></object>
+		</form>
 		
 		<script>
 			// Desired result:
@@ -287,6 +341,48 @@
 			// defer new (correct: true): true
 			// src new (correct: http://localhost/nothing2): http://localhost/nothing2
 			// type new (correct: Not/existing2): Not/existing2
+			// Test 7:
+			// form (correct: null): null
+			// form2 (correct: FORM): FORM
+			// code (correct: http://localhost/Code1): http://localhost/Code1
+			// align (correct: Left): Left
+			// archive (correct: Archive1): Archive1
+			// border (correct: 1B): 1B
+			// codeBase (correct: http://localhost/Cb1): http://localhost/Cb1
+			// codeType (correct: Codetype1): Codetype1
+			// data (correct: http://localhost/Data1): http://localhost/Data1
+			// declare (correct: true): true
+			// declare2 (correct: false): false
+			// height (correct: 5H): 5H
+			// hspace (correct: 5): 5
+			// hspace2 (correct: 0): 0
+			// name (correct: Name1): Name1
+			// standby (correct: S1): S1
+			// tabIndex (correct: 3): 3
+			// tabIndex2 (correct: 0 or -1): 0
+			// type (correct: App/test): App/test
+			// useMap (correct: uM1): uM1
+			// vspace (correct: 6): 6
+			// vspace2 (correct: 0): 0
+			// width (correct: 6W): 6W
+			// contentDocument (correct: null): null
+			// code new (correct: http://localhost/Code2): http://localhost/Code2
+			// align new (correct: Right): Right
+			// archive new (correct: Archive2): Archive2
+			// border new (correct: 2B): 2B
+			// codeBase new (correct: http://localhost/Cb2): http://localhost/Cb2
+			// codeType new (correct: Codetype2): CodeType2
+			// data new (correct: http://localhost/Data2): http://localhost/Data2
+			// declare new (correct: true): true
+			// height new (correct: 6H): 6H
+			// hspace new (correct: 6): 6
+			// name new (correct: Name2): Name2
+			// standby new (correct: S2): S2
+			// tabIndex new (correct: 4): 4
+			// type new (correct: App/test2): App/test2
+			// useMap new (correct: uM2): uM2
+			// vspace new (correct: 7): 7
+			// width new (correct: 7W): 7W
 			
 			var img1 = document.getElementsByTagName("img").item(0);
 			var img2 = document.getElementsByTagName("img").item(1);
@@ -453,6 +549,67 @@
 			document.getElementById("t6502").firstChild.data += script2.defer;
 			document.getElementById("t6602").firstChild.data += script2.src;
 			document.getElementById("t6702").firstChild.data += script2.type;
+			
+			var object1 = document.getElementsByTagName("object").item(1);
+			var object2 = document.getElementsByTagName("object").item(2);
+			document.getElementById("t71").firstChild.data += object1.form;
+			document.getElementById("t72").firstChild.data += object2.form.nodeName;
+			document.getElementById("t73").firstChild.data += object1.code;
+			document.getElementById("t74").firstChild.data += object1.align;
+			document.getElementById("t75").firstChild.data += object1.archive;
+			document.getElementById("t76").firstChild.data += object1.border;
+			document.getElementById("t77").firstChild.data += object1.codeBase;
+			document.getElementById("t78").firstChild.data += object1.codeType;
+			document.getElementById("t79").firstChild.data += object1.data;
+			document.getElementById("t710").firstChild.data += object1.declare;
+			document.getElementById("t711").firstChild.data += object2.declare;
+			document.getElementById("t712").firstChild.data += object1.height;
+			document.getElementById("t713").firstChild.data += object1.hspace;
+			document.getElementById("t714").firstChild.data += object2.hspace;
+			document.getElementById("t715").firstChild.data += object1.name;
+			document.getElementById("t716").firstChild.data += object1.standby;
+			document.getElementById("t717").firstChild.data += object1.tabIndex;
+			document.getElementById("t718").firstChild.data += object2.tabIndex;
+			document.getElementById("t719").firstChild.data += object1.type;
+			document.getElementById("t720").firstChild.data += object1.useMap;
+			document.getElementById("t721").firstChild.data += object1.vspace;
+			document.getElementById("t722").firstChild.data += object2.vspace;
+			document.getElementById("t723").firstChild.data += object1.width;
+			document.getElementById("t724").firstChild.data += object1.contentDocument;
+			object2.code = "http://localhost/Code2";
+			object2.align = "Right";
+			object2.archive = "Archive2";
+			object2.border = "2B";
+			object2.codeBase = "http://localhost/Cb2";
+			object2.codeType = "CodeType2";
+			object2.data = "http://localhost/Data2";
+			object2.declare = true;
+			object2.height = "6H";
+			object2.hspace = "6";
+			object2.name = "Name2";
+			object2.standby = "S2";
+			object2.tabIndex = "4";
+			object2.type = "App/test2";
+			object2.useMap = "uM2";
+			object2.vspace = "7";
+			object2.width = "7W";
+			document.getElementById("t7102").firstChild.data += object2.code;
+			document.getElementById("t7202").firstChild.data += object2.align;
+			document.getElementById("t7302").firstChild.data += object2.archive;
+			document.getElementById("t7402").firstChild.data += object2.border;
+			document.getElementById("t7502").firstChild.data += object2.codeBase;
+			document.getElementById("t7602").firstChild.data += object2.codeType;
+			document.getElementById("t7702").firstChild.data += object2.data;
+			document.getElementById("t7802").firstChild.data += object2.declare;
+			document.getElementById("t7902").firstChild.data += object2.height;
+			document.getElementById("t71002").firstChild.data += object2.hspace;
+			document.getElementById("t71102").firstChild.data += object2.name;
+			document.getElementById("t71202").firstChild.data += object2.standby;
+			document.getElementById("t71302").firstChild.data += object2.tabIndex;
+			document.getElementById("t71402").firstChild.data += object2.type;
+			document.getElementById("t71502").firstChild.data += object2.useMap;
+			document.getElementById("t71602").firstChild.data += object2.vspace;
+			document.getElementById("t71702").firstChild.data += object2.width;
 		</script>
 	</body>
 </html>
