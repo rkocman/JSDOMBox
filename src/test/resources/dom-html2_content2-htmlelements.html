@@ -107,6 +107,11 @@
 		<span id="t4802">target (correct: _Self): </span><br>
 		<br>
 		
+		<strong>Test 5 - HTMLMapElement:</strong><br>
+		<span id="t51">areas (correct: A B C D): </span><br>
+		<span id="t52">map (correct: Mn2): </span><br>
+		<span id="t53">map new (correct: Mn3): </span><br>
+		
 		<h2>Test content</h2>
 		<img name="Test" align="Middle" alt="Text" border=" 5a" height="40"
 			hspace="10" ismap longdesc="http://localhost/W3s.txt" 
@@ -137,6 +142,13 @@
 				href="http://localhost/Href1" noHref shape="Circle"
 				tabIndex="10" target="_Blank">
 			<area>
+		</map>
+		
+		<map name="Mn2">
+			<area accesskey="A">
+			<area accesskey="B">
+			<area accesskey="C">
+			<area accesskey="D">
 		</map>
 		
 		<script>
@@ -228,6 +240,10 @@
 			// shape (correct: Poly): Poly
 			// tabIndex (correct: 20): 20
 			// target (correct: _Self): _Self
+			// Test 5:
+			// areas (correct: A B C D): A B C D
+			// map (correct: Mn2): Mn2
+			// map new (correct: Mn3): Mn3
 			
 			var img1 = document.getElementsByTagName("img").item(0);
 			var img2 = document.getElementsByTagName("img").item(1);
@@ -358,6 +374,15 @@
 			document.getElementById("t4602").firstChild.data += area2.shape;
 			document.getElementById("t4702").firstChild.data += area2.tabIndex;
 			document.getElementById("t4802").firstChild.data += area2.target;
+			
+			var map = document.getElementsByTagName("map").item(1);
+			for(i = 0; i < map.areas.length; i++) {
+				document.getElementById("t51").firstChild.data += 
+					" " + map.areas.item(i).accessKey;
+			}
+			document.getElementById("t52").firstChild.data += map.name;
+			map.name = "Mn3";
+			document.getElementById("t53").firstChild.data += map.name;
 		</script>
 	</body>
 </html>
