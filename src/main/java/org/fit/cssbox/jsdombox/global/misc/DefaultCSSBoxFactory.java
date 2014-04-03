@@ -150,6 +150,9 @@ public class DefaultCSSBoxFactory extends JSAdapterFactory
 			// Interface HTMLAreaElement
 			case "area":
 				return new HTMLAreaElement((org.w3c.dom.Element) source, this);
+			// Interface HTMLScriptElement
+			case "script":
+				return new HTMLScriptElement((org.w3c.dom.Element) source, this);
 			
 			// Interface HTMLElement
 			default:

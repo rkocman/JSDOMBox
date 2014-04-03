@@ -43,6 +43,7 @@
 		<span id="t37">HTMLAppletElement.codeBase="#" (correct: absolute path): </span><br>
 		<span id="t38">HTMLAppletElement.object="#" (correct: absolute path): </span><br>
 		<span id="t39">HTMLAreaElement.href="#" (correct: absolute path): </span><br>
+		<span id="t310">HTMLScriptElement.src="#" (correct: absolute path): </span><br>
 		<br>
 		
 		<strong>Test 4 - Rebase:</strong><br>
@@ -84,6 +85,8 @@
 		<map name="Mn1">
 			<area href="#">
 		</map>
+		
+		<script src="#" type="nothing"></script>
 		
 		<script>
 			// Desired result:
@@ -132,6 +135,8 @@
 			document.getElementById("t38").firstChild.data += applet.object;
 			var area = document.getElementsByTagName("area").item(0);
 			document.getElementById("t39").firstChild.data += area.href;
+			var script = document.getElementsByTagName("script").item(0);
+			document.getElementById("t310").firstChild.data += script.src;
 			
 			a41 = document.getElementById("a41");
 			base = document.getElementsByTagName("base").item(0);

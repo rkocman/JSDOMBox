@@ -111,6 +111,27 @@
 		<span id="t51">areas (correct: A B C D): </span><br>
 		<span id="t52">map (correct: Mn2): </span><br>
 		<span id="t53">map new (correct: Mn3): </span><br>
+		<br>
+		
+		<strong>Test 6 - HTMLScriptElement:</strong><br>
+		<span id="t61">text (correct: //text1): </span><br>
+		<span id="t62">htmlFor (correct: nothing): </span><br>
+		<span id="t63">htmlFor2 (correct: For2): </span><br>
+		<span id="t64">event (correct: nothing): </span><br>
+		<span id="t65">event2 (correct: Event2): </span><br>
+		<span id="t66">charset (correct: UTF-8): </span><br>
+		<span id="t67">defer (correct: true): </span><br>
+		<span id="t68">defer (correct: false): </span><br>
+		<span id="t69">src (correct: http://localhost/nothing): </span><br>
+		<span id="t610">type (correct: not/existing): </span><br>
+		<span id="t6102">text new (correct: //Text2): </span><br>
+		<span id="t6202">htmlFor new (correct: For3): </span><br>
+		<span id="t6302">event new (correct: Event3): </span><br>
+		<span id="t6402">charset new (correct: UtF-8): </span><br>
+		<span id="t6502">defer new (correct: true): </span><br>
+		<span id="t6602">src new (correct: http://localhost/nothing2): </span><br>
+		<span id="t6702">type new (correct: Not/existing2): </span><br>
+		<br>
 		
 		<h2>Test content</h2>
 		<img name="Test" align="Middle" alt="Text" border=" 5a" height="40"
@@ -150,6 +171,10 @@
 			<area accesskey="C">
 			<area accesskey="D">
 		</map>
+		
+		<script charset="UTF-8" defer src="http://localhost/nothing" 
+			type="not/existing">//text1</script>
+		<script for="For2" event="Event2"></script>
 		
 		<script>
 			// Desired result:
@@ -244,6 +269,24 @@
 			// areas (correct: A B C D): A B C D
 			// map (correct: Mn2): Mn2
 			// map new (correct: Mn3): Mn3
+			// Test 6:
+			// text (correct: //text1): //text1
+			// htmlFor (correct: nothing):
+			// htmlFor2 (correct: For2): For2
+			// event (correct: nothing):
+			// event2 (correct: Event2): Event2
+			// charset (correct: UTF-8): UTF-8
+			// defer (correct: true): true
+			// defer (correct: false): false
+			// src (correct: http://localhost/nothing): http://localhost/nothing
+			// type (correct: not/existing): not/existing
+			// text new (correct: //Text2): //Text2
+			// htmlFor new (correct: For3): For3
+			// event new (correct: Event3): Event3
+			// charset new (correct: UtF-8): UtF-8
+			// defer new (correct: true): true
+			// src new (correct: http://localhost/nothing2): http://localhost/nothing2
+			// type new (correct: Not/existing2): Not/existing2
 			
 			var img1 = document.getElementsByTagName("img").item(0);
 			var img2 = document.getElementsByTagName("img").item(1);
@@ -383,6 +426,33 @@
 			document.getElementById("t52").firstChild.data += map.name;
 			map.name = "Mn3";
 			document.getElementById("t53").firstChild.data += map.name;
+			
+			var script1 = document.getElementsByTagName("script").item(0);
+			var script2 = document.getElementsByTagName("script").item(1);
+			document.getElementById("t61").firstChild.data += script1.text;
+			document.getElementById("t62").firstChild.data += script1.htmlFor;
+			document.getElementById("t63").firstChild.data += script2.htmlFor;
+			document.getElementById("t64").firstChild.data += script1.event;
+			document.getElementById("t65").firstChild.data += script2.event;
+			document.getElementById("t66").firstChild.data += script1.charset;
+			document.getElementById("t67").firstChild.data += script1.defer;
+			document.getElementById("t68").firstChild.data += script2.defer;
+			document.getElementById("t69").firstChild.data += script1.src;
+			document.getElementById("t610").firstChild.data += script1.type;
+			script2.text = "//Text2";
+			script2.htmlFor = "For3";
+			script2.event = "Event3";
+			script2.charset = "UtF-8";
+			script2.defer = true;
+			script2.src = "http://localhost/nothing2";
+			script2.type = "Not/existing2";
+			document.getElementById("t6102").firstChild.data += script2.text;
+			document.getElementById("t6202").firstChild.data += script2.htmlFor;
+			document.getElementById("t6302").firstChild.data += script2.event;
+			document.getElementById("t6402").firstChild.data += script2.charset;
+			document.getElementById("t6502").firstChild.data += script2.defer;
+			document.getElementById("t6602").firstChild.data += script2.src;
+			document.getElementById("t6702").firstChild.data += script2.type;
 		</script>
 	</body>
 </html>
