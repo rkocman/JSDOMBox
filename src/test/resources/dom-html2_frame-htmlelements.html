@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>DOM Level 2 HTML - Frame HTMLElements</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<style>
+			html {
+				font-family: Arial, sans-serif;
+				font-size: 14px;
+			}
+		</style>
+	</head>
+	<body>
+	
+		<strong style="color:red">Warning: This test uses an invalid html structure and does not work in web browsers</strong><br><br>
+		
+		<strong>Test 1 - HTMLFrameSetElement:</strong><br>
+		<span id="t11">cols (correct: 50%,*): </span><br>
+		<span id="t12">cols2 (correct: nothing): </span><br>
+		<span id="t13">rows (correct: 60%,*): </span><br>
+		<span id="t14">rows2 (correct: nothing): </span><br>
+		<span id="t112">cols new (correct: 55%,*): </span><br>
+		<span id="t122">rows new (correct: 65%,*): </span><br>
+		<br>
+		
+		<script>
+			// Desired result:
+			// Test 1:
+			// cols (correct: 50%,*):
+			// cols2 (correct: nothing):
+			// rows (correct: 60%,*):
+			// rows2 (correct: nothing):
+			// cols new (correct: 55%,*):
+			// rows new (correct: 65%,*): 
+			
+			var fs1 = document.getElementsByTagName("frameset").item(0);
+			var fs2 = document.getElementsByTagName("frameset").item(1);
+			document.getElementById("t11").firstChild.data += fs1.cols;
+			document.getElementById("t12").firstChild.data += fs2.cols;
+			document.getElementById("t13").firstChild.data += fs1.rows;
+			document.getElementById("t14").firstChild.data += fs2.rows;
+			fs2.cols = "55%,*";
+			fs2.rows = "65%,*";
+			document.getElementById("t112").firstChild.data += fs2.cols;
+			document.getElementById("t122").firstChild.data += fs2.rows;
+		</script>
+		
+		<h2>Test content</h2>
+		
+		<frameset cols="50%,*" rows="60%,*">
+			<frameset>
+			</frameset> 
+		</frameset>
+	
+	</body>
+</html>
