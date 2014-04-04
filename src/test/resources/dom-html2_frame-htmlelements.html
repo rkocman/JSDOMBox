@@ -23,15 +23,54 @@
 		<span id="t122">rows new (correct: 65%,*): </span><br>
 		<br>
 		
+		<strong>Test 2 - HTMLFrameElement:</strong><br>
+		<span id="t21">frameBorder (correct: FB1): </span><br>
+		<span id="t22">longDesc (correct: LD1): </span><br>
+		<span id="t23">marginHeight (correct: MH1): </span><br>
+		<span id="t24">marginWidth (correct: MW1): </span><br>
+		<span id="t25">name (correct: N1): </span><br>
+		<span id="t26">noResize (correct: true): </span><br>
+		<span id="t27">scrolling (correct: YES): </span><br>
+		<span id="t28">src (correct: abs + #): </span><br>
+		<span id="t29">contentDocument (correct: null): </span><br>
+		<span id="t212">frameBorder new (correct: FB2): </span><br>
+		<span id="t222">longDesc new (correct: LD2): </span><br>
+		<span id="t232">marginHeight new (correct: MH2): </span><br>
+		<span id="t242">marginWidth new (correct: MW2): </span><br>
+		<span id="t252">name new (correct: N2): </span><br>
+		<span id="t262">noResize new (correct: true): </span><br>
+		<span id="t272">scrolling new (correct: NO): </span><br>
+		<span id="t282">src new (correct: abs + #2): </span><br>
+		<br>
+		
 		<script>
 			// Desired result:
 			// Test 1:
-			// cols (correct: 50%,*):
+			// cols (correct: 50%,*): 50%,*
 			// cols2 (correct: nothing):
-			// rows (correct: 60%,*):
+			// rows (correct: 60%,*): 60%,*
 			// rows2 (correct: nothing):
-			// cols new (correct: 55%,*):
-			// rows new (correct: 65%,*): 
+			// cols new (correct: 60%,*): 60%,*
+			// rows new (correct: 65%,*): 65%,*
+			// Test 2:
+			// frameBorder (correct: FB1): FB1
+			// longDesc (correct: LD1): LD1
+			// marginHeight (correct: MH1): MH1
+			// marginWidth (correct: MW1): MW1
+			// name (correct: N1): N1
+			// noResize (correct: true): true
+			// scrolling (correct: YES): YES
+			// src (correct: abs + #): path
+			// contentDocument (correct: null): null
+			// frameBorder new (correct: FB2): FB2
+			// longDesc new (correct: LD2): LD2
+			// marginHeight new (correct: MH2): MH2
+			// marginWidth new (correct: MW2): MW2
+			// name new (correct: N2): N2
+			// noResize new (correct: true): true
+			// scrolling new (correct: NO): NO
+			// src new (correct: abs + #2): path
+			 
 			
 			var fs1 = document.getElementsByTagName("frameset").item(0);
 			var fs2 = document.getElementsByTagName("frameset").item(1);
@@ -43,12 +82,43 @@
 			fs2.rows = "65%,*";
 			document.getElementById("t112").firstChild.data += fs2.cols;
 			document.getElementById("t122").firstChild.data += fs2.rows;
+			
+			var f1 = document.getElementsByTagName("frame").item(0);
+			var f2 = document.getElementsByTagName("frame").item(1);
+			document.getElementById("t21").firstChild.data += f1.frameBorder;
+			document.getElementById("t22").firstChild.data += f1.longDesc;
+			document.getElementById("t23").firstChild.data += f1.marginHeight;
+			document.getElementById("t24").firstChild.data += f1.marginWidth;
+			document.getElementById("t25").firstChild.data += f1.name;
+			document.getElementById("t26").firstChild.data += f1.noResize;
+			document.getElementById("t27").firstChild.data += f1.scrolling;
+			document.getElementById("t28").firstChild.data += f1.src;
+			document.getElementById("t29").firstChild.data += f1.contentDocument;
+			f2.frameBorder = "FB2";
+			f2.longDesc = "LD2";
+			f2.marginWidth = "MW2";
+			f2.marginHeight = "MH2";
+			f2.name = "N2";
+			f2.noResize = true;
+			f2.scrolling = "NO";
+			f2.src = "#2";
+			document.getElementById("t212").firstChild.data += f2.frameBorder;
+			document.getElementById("t222").firstChild.data += f2.longDesc;
+			document.getElementById("t232").firstChild.data += f2.marginHeight;
+			document.getElementById("t242").firstChild.data += f2.marginWidth;
+			document.getElementById("t252").firstChild.data += f2.name;
+			document.getElementById("t262").firstChild.data += f2.noResize;
+			document.getElementById("t272").firstChild.data += f2.scrolling;
+			document.getElementById("t282").firstChild.data += f2.src;
 		</script>
 		
 		<h2>Test content</h2>
 		
 		<frameset cols="50%,*" rows="60%,*">
 			<frameset>
+				<frame frameborder="FB1" longdesc="LD1" marginHeight="MH1"
+					marginWidth="MW1" name="N1" noresize scrolling="YES" src="#">
+  				<frame>
 			</frameset> 
 		</frameset>
 	

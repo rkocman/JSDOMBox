@@ -159,6 +159,9 @@ public class DefaultCSSBoxFactory extends JSAdapterFactory
 			// Interface HTMLFrameSetElement
 			case "frameset":
 				return new HTMLFrameSetElement((org.w3c.dom.Element) source, this);
+			// Interface HTMLFrameElement
+			case "frame":
+				return new HTMLFrameElement((org.w3c.dom.Element) source, this);
 			
 			// Interface HTMLElement
 			default:
