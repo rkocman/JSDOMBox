@@ -47,6 +47,8 @@
 		<span id="t311">HTMLObjectElement.code="test" (correct: absolute path): </span><br>
 		<span id="t312">HTMLObjectElement.codeBase="test" (correct: absolute path): </span><br>
 		<span id="t313">HTMLObjectElement.data="test" (correct: absolute path): </span><br>
+		<span id="t314">HTMLIFrameElement.longDesc="test" (correct: absolute path): </span><br>
+		<span id="t315">HTMLIFrameElement.src="test" (correct: absolute path): </span><br>
 		<br>
 		
 		<strong>Test 4 - Rebase:</strong><br>
@@ -92,6 +94,9 @@
 		<script src="#" type="nothing"></script>
 		
 		<object code="test" codeBase="test" data="test"></object>
+		
+		<br>
+		<iframe longdesc="test" src="test"></iframe>
 		
 		<script>
 			// Desired result:
@@ -146,6 +151,9 @@
 			document.getElementById("t311").firstChild.data += object.code;
 			document.getElementById("t312").firstChild.data += object.codeBase;
 			document.getElementById("t313").firstChild.data += object.data;
+			var if1 = document.getElementsByTagName("iframe").item(0);
+			document.getElementById("t314").firstChild.data += if1.longDesc;
+			document.getElementById("t315").firstChild.data += if1.src;
 			
 			a41 = document.getElementById("a41");
 			base = document.getElementsByTagName("base").item(0);

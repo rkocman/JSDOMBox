@@ -177,6 +177,30 @@
 		<span id="t71702">width new (correct: 7W): </span><br>
 		<br>
 		
+		<strong>Test 8 - HTMLIFrameElement:</strong><br>
+		<span id="t81">align (correct: Left): </span><br>
+		<span id="t82">frameBorder (correct: 1FB): </span><br>
+		<span id="t83">height (correct: 5H): </span><br>
+		<span id="t84">longDesc (correct: http://localhost/LD1): </span><br>
+		<span id="t85">marginHeight (correct: 1MH): </span><br>
+		<span id="t86">marginWidth (correct: 1MW): </span><br>
+		<span id="t87">name (correct: IF1): </span><br>
+		<span id="t88">scrolling (correct: YES): </span><br>
+		<span id="t89">src (correct: http://localhost/test): </span><br>
+		<span id="t810">width (correct: 5W): </span><br>
+		<span id="t811">contentDocument (correct: null or object): </span><br>
+		<span id="t8102">align (correct: Right): </span><br>
+		<span id="t8202">frameBorder (correct: 2FB): </span><br>
+		<span id="t8302">height (correct: 6H): </span><br>
+		<span id="t8402">longDesc (correct: http://localhost/LD2): </span><br>
+		<span id="t8502">marginHeight (correct: 2MH): </span><br>
+		<span id="t8602">marginWidth (correct: 2MW): </span><br>
+		<span id="t8702">name (correct: IF2): </span><br>
+		<span id="t8802">scrolling (correct: NO): </span><br>
+		<span id="t8902">src (correct: http://localhost/test2): </span><br>
+		<span id="t81002">width (correct: 6W): </span><br>
+		<br>
+		
 		<h2>Test content</h2>
 		<img name="Test" align="Middle" alt="Text" border=" 5a" height="40"
 			hspace="10" ismap longdesc="http://localhost/W3s.txt" 
@@ -229,6 +253,13 @@
 		<form>
 		<object></object>
 		</form>
+		
+		<br>
+		<iframe align="Left" frameBorder="1FB" height="5H" 
+		longDesc="http://localhost/LD1" marginHeight="1MH" 
+		marginWidth="1MW" name="IF1" scrolling="YES"
+		src="http://localhost/test" width="5W"></iframe>
+		<iframe></iframe>
 		
 		<script>
 			// Desired result:
@@ -383,6 +414,28 @@
 			// useMap new (correct: uM2): uM2
 			// vspace new (correct: 7): 7
 			// width new (correct: 7W): 7W
+			// Test 8:
+			// align (correct: Left): Left
+			// frameBorder (correct: 1FB): 1FB
+			// height (correct: 5H): 5H
+			// longDesc (correct: http://localhost/LD1): http://localhost/LD1
+			// marginHeight (correct: 1MH): 1MH
+			// marginWidth (correct: 1MW): 1MW
+			// name (correct: IF1): IF1
+			// scrolling (correct: YES): YES
+			// src (correct: http://localhost/test): http://localhost/test
+			// width (correct: 5W): 5W
+			// contentDocument (correct: null or object): null
+			// align (correct: Right): Right
+			// frameBorder (correct: 2FB): 2FB
+			// height (correct: 6H): 6H
+			// longDesc (correct: http://localhost/LD2): http://localhost/LD2
+			// marginHeight (correct: 2MH): 2MH
+			// marginWidth (correct: 2MW): 2MW
+			// name (correct: IF2): IF2
+			// scrolling (correct: NO): NO
+			// src (correct: http://localhost/test2): http://localhost/test2
+			// width (correct: 6W): 6W
 			
 			var img1 = document.getElementsByTagName("img").item(0);
 			var img2 = document.getElementsByTagName("img").item(1);
@@ -610,6 +663,40 @@
 			document.getElementById("t71502").firstChild.data += object2.useMap;
 			document.getElementById("t71602").firstChild.data += object2.vspace;
 			document.getElementById("t71702").firstChild.data += object2.width;
+			
+			var if1 = document.getElementsByTagName("iframe").item(0);
+			var if2 = document.getElementsByTagName("iframe").item(1);
+			document.getElementById("t81").firstChild.data += if1.align;
+			document.getElementById("t82").firstChild.data += if1.frameBorder;
+			document.getElementById("t83").firstChild.data += if1.height;
+			document.getElementById("t84").firstChild.data += if1.longDesc;
+			document.getElementById("t85").firstChild.data += if1.marginHeight;
+			document.getElementById("t86").firstChild.data += if1.marginWidth;
+			document.getElementById("t87").firstChild.data += if1.name;
+			document.getElementById("t88").firstChild.data += if1.scrolling;
+			document.getElementById("t89").firstChild.data += if1.src;
+			document.getElementById("t810").firstChild.data += if1.width;
+			document.getElementById("t811").firstChild.data += if1.contentDocument;
+			if2.align = "Right";
+			if2.frameBorder = "2FB";
+			if2.height = "6H";
+			if2.longDesc = "http://localhost/LD2";
+			if2.marginHeight = "2MH";
+			if2.marginWidth = "2MW";
+			if2.name = "IF2";
+			if2.scrolling = "NO";
+			if2.src = "http://localhost/test2";
+			if2.width = "6W";
+			document.getElementById("t8102").firstChild.data += if2.align;
+			document.getElementById("t8202").firstChild.data += if2.frameBorder;
+			document.getElementById("t8302").firstChild.data += if2.height;
+			document.getElementById("t8402").firstChild.data += if2.longDesc;
+			document.getElementById("t8502").firstChild.data += if2.marginHeight;
+			document.getElementById("t8602").firstChild.data += if2.marginWidth;
+			document.getElementById("t8702").firstChild.data += if2.name;
+			document.getElementById("t8802").firstChild.data += if2.scrolling;
+			document.getElementById("t8902").firstChild.data += if2.src;
+			document.getElementById("t81002").firstChild.data += if2.width;
 		</script>
 	</body>
 </html>

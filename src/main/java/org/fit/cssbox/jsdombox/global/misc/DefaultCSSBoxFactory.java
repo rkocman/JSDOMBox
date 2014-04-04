@@ -162,6 +162,9 @@ public class DefaultCSSBoxFactory extends JSAdapterFactory
 			// Interface HTMLFrameElement
 			case "frame":
 				return new HTMLFrameElement((org.w3c.dom.Element) source, this);
+			// Interface HTMLIFrameElement
+			case "iframe":
+				return new HTMLIFrameElement((org.w3c.dom.Element) source, this);
 			
 			// Interface HTMLElement
 			default:

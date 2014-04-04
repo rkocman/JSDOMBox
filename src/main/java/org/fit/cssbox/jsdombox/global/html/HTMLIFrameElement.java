@@ -1,5 +1,5 @@
 /*
- * HTMLFrameElement.java
+ * HTMLIFrameElement.java
  * Copyright (c) Radim Kocman
  */
 
@@ -9,19 +9,31 @@ import org.fit.cssbox.jsdombox.global.misc.JSAdapter;
 import org.fit.cssbox.jsdombox.global.misc.JSAdapterFactory;
 
 /**
- * DOM Interface HTMLFrameElement Adapter
+ * DOM Interface HTMLIFrameElement Adapter
  * 
  * @author Radim Kocman
  */
-public class HTMLFrameElement extends HTMLElement
+public class HTMLIFrameElement extends HTMLElement
 {
-	public HTMLFrameElement(org.w3c.dom.Element source, JSAdapterFactory jsaf)
+	public HTMLIFrameElement(org.w3c.dom.Element source, JSAdapterFactory jsaf)
 	{
 		super(source, jsaf);
 	}
 	
 	
 	// DOM Level 2 HTML Implementation
+	
+	public String getAlign()
+	{
+		String attr = jsaf.innerNameFormat("align");
+		return source.getAttribute(attr);
+	}
+	public void setAlign(String align)
+	{
+		String attr = jsaf.innerNameFormat("align");
+		source.setAttribute(attr, align);
+		jsaf.recomputeStyles();
+	}
 	
 	public String getFrameBorder()
 	{
@@ -32,6 +44,19 @@ public class HTMLFrameElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("frameborder");
 		source.setAttribute(attr, frameBorder);
+		jsaf.recomputeStyles();
+	}
+	
+	public String getHeight()
+	{
+		String attr = jsaf.innerNameFormat("height");
+		return source.getAttribute(attr);
+	}
+	public void setHeight(String height)
+	{
+		String attr = jsaf.innerNameFormat("height");
+		source.setAttribute(attr, height);
+		jsaf.recomputeStyles();
 	}
 	
 	public String getLongDesc()
@@ -55,6 +80,7 @@ public class HTMLFrameElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("marginheight");
 		source.setAttribute(attr, marginHeight);
+		jsaf.recomputeStyles();
 	}
 	
 	public String getMarginWidth()
@@ -66,6 +92,7 @@ public class HTMLFrameElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("marginwidth");
 		source.setAttribute(attr, marginWidth);
+		jsaf.recomputeStyles();
 	}
 	
 	public String getName()
@@ -79,17 +106,6 @@ public class HTMLFrameElement extends HTMLElement
 		source.setAttribute(attr, name);
 	}
 	
-	public boolean getNoResize()
-	{
-		String attr = jsaf.innerNameFormat("noresize");
-		return source.hasAttribute(attr);
-	}
-	public void setNoResize(boolean noResize)
-	{
-		String attr = jsaf.innerNameFormat("noresize");
-		setBooleanAttribute(attr, noResize);
-	}
-	
 	public String getScrolling()
 	{
 		String attr = jsaf.innerNameFormat("scrolling");
@@ -99,6 +115,7 @@ public class HTMLFrameElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("scrolling");
 		source.setAttribute(attr, scrolling);
+		jsaf.recomputeStyles();
 	}
 	
 	public String getSrc()
@@ -111,6 +128,18 @@ public class HTMLFrameElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("src");
 		source.setAttribute(attr, src);
+	}
+	
+	public String getWidth()
+	{
+		String attr = jsaf.innerNameFormat("width");
+		return source.getAttribute(attr);
+	}
+	public void setWidth(String width)
+	{
+		String attr = jsaf.innerNameFormat("width");
+		source.setAttribute(attr, width);
+		jsaf.recomputeStyles();
 	}
 	
 	public JSAdapter getContentDocument()
