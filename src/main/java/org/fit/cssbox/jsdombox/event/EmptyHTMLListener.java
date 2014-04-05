@@ -23,4 +23,7 @@ public class EmptyHTMLListener implements HTMLListener
 	public void anchor_blur(Node node) {}
 	public void anchor_focus(Node node) {}
 	
+	public void form_submit(Node node) {}
+	public void form_reset(Node node) {}
+	
 }

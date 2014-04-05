@@ -83,6 +83,9 @@ public class DefaultCSSBoxFactory extends JSAdapterFactory
 			// Interface HTMLBodyElement
 			case "body":
 				return new HTMLBodyElement((org.w3c.dom.Element) source, this);
+			// Interface HTMLFormElement
+			case "form":
+				return new HTMLFormElement((org.w3c.dom.Element) source, this);
 			// Interface HTMLUListElement
 			case "ul":
 				return new HTMLUListElement((org.w3c.dom.Element) source, this);

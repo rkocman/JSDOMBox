@@ -53,4 +53,16 @@ public interface HTMLListener
 	 */
 	public void anchor_focus(Node node);
 	
+	
+	/**
+	 * Submits the HTMLFormElement
+	 * @param node Source Node of the HTML Form Element
+	 */
+	public void form_submit(Node node);
+	/**
+	 * Resets the HTMLFormElement
+	 * @param node Source Node of the HTML Form Element
+	 */
+	public void form_reset(Node node);
+	
 }

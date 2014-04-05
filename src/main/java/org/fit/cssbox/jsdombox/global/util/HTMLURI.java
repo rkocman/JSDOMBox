@@ -69,7 +69,7 @@ public class HTMLURI
 	/**
 	 * Gets the absolute path for the URI attribute
 	 * @param path Text of the URI attribute
-	 * @param html Should be used HTML base path? 
+	 * @param html Should be used the HTML base path? 
 	 * @return Converted absolute path
 	 */
 	public String getAbsolutePath(String path, boolean html)
@@ -85,6 +85,19 @@ public class HTMLURI
 		} catch (MalformedURLException | UnsupportedEncodingException e) {
 			return path;
 		}
+	}
+	
+	/**
+	 * Gets the absolute path for the URI attribute
+	 * @param path Text of the URI attribute
+	 * @param html Should be used the HTML base path?
+	 * @param keepEmpty Do not expand an empty path?
+	 * @return Converted absolute path
+	 */
+	public String getAbsolutePath(String path, boolean html, boolean keepEmpty)
+	{
+		if (keepEmpty && path.isEmpty()) return path;
+		return getAbsolutePath(path, html);
 	}
 	
 	/**

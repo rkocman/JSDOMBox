@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>DOM Level 2 HTML - Form HTMLElements</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<style>
+			html {
+				font-family: Arial, sans-serif;
+				font-size: 14px;
+			}
+		</style>
+	</head>
+	<body>
+	
+		<strong>Test 1 - HTMLFormElement:</strong><br>
+		<span id="t11">elements: </span><br>
+		<span><strong>correct: </strong> BUTTON INPUT SELECT TEXTAREA OBJECT FIELDSET INPUT</span><br>
+		<span id="t12">length (correct: 7): </span><br>
+		<span id="t13">name (correct: NF1): </span><br>
+		<span id="t14">acceptCharset (correct: ISO-8859-1): </span><br>
+		<span id="t15">action (correct: http://localhost/test): </span><br>
+		<span id="t16">enctype (correct: text/plain): </span><br>
+		<span id="t17">enctype2 (correct: application/x-www-form-urlencoded): </span><br>
+		<span id="t18">enctype3 (correct: application/x-www-form-urlencoded): </span><br>
+		<span id="t19">method (correct: get): </span><br>
+		<span id="t110">method2 (correct: get): </span><br>
+		<span id="t111">method3 (correct: get): </span><br>
+		<span id="t112">target (correct: _Blank): </span><br>
+		<span id="t1302">name new (correct: NF2): </span><br>
+		<span id="t1402">acceptCharset new (correct: ISO-8859-2): </span><br>
+		<span id="t1502">action new (correct: http://localhost/test2): </span><br>
+		<span id="t1602">enctype new (correct: multipart/form-data): </span><br>
+		<span id="t1702">method new (correct: post): </span><br>
+		<span id="t1802">target new (correct: _Parent): </span><br>
+		<br>
+	
+		<h2>Test content</h2>
+		<form id="F1" name="NF1" accept-charset="ISO-8859-1" 
+			action="http://localhost/test"
+			enctype="Text/Plain" method="Get" target="_Blank">
+			<button></button>
+			<input>
+			<select>
+				<optgroup label="Test">
+					<option>1</option>
+				</optgroup>
+			</select>
+			<textarea></textarea>
+			<object></object>
+			<label></label>
+			<fieldset>
+				<legend></legend>
+				<input>
+			</fieldset>
+		</form>
+		<form id="F2">
+		</form>
+		<form id="F3" enctype="test" method="test">
+		</form>
+	
+		<script>
+			// Desired result:
+			// Test 1:
+			// elements: BUTTON INPUT SELECT TEXTAREA OBJECT FIELDSET INPUT
+			// correct: BUTTON INPUT SELECT TEXTAREA OBJECT FIELDSET INPUT
+			// length (correct: 7): 7
+			// name (correct: NF1): NF1
+			// acceptCharset (correct: ISO-8859-1): ISO-8859-1
+			// action (correct: http://localhost/test): http://localhost/test
+			// enctype (correct: text/plain): text/plain
+			// enctype2 (correct: application/x-www-form-urlencoded): application/x-www-form-urlencoded
+			// enctype3 (correct: application/x-www-form-urlencoded): application/x-www-form-urlencoded
+			// method (correct: get): get
+			// method2 (correct: get): get
+			// method3 (correct: get): get
+			// target (correct: _Blank): _Blank
+			// name new (correct: NF2): NF2
+			// acceptCharset new (correct: ISO-8859-2): ISO-8859-2
+			// action new (correct: http://localhost/test2): http://localhost/test2
+			// enctype new (correct: multipart/form-data): multipart/form-data
+			// method new (correct: post): post
+			// target new (correct: _Parent): _Parent
+			
+			var f1 = document.getElementById("F1");
+			var f2 = document.getElementById("F2");
+			var f3 = document.getElementById("F3");
+			for(i = 0; i < f1.elements.length; i++) {
+				document.getElementById("t11").firstChild.data += 
+					" " + f1.elements.item(i).nodeName;
+			}
+			document.getElementById("t12").firstChild.data += f1.length;
+			document.getElementById("t13").firstChild.data += f1.name;
+			document.getElementById("t14").firstChild.data += f1.acceptCharset;
+			document.getElementById("t15").firstChild.data += f1.action;
+			document.getElementById("t16").firstChild.data += f1.enctype;
+			document.getElementById("t17").firstChild.data += f2.enctype;
+			document.getElementById("t18").firstChild.data += f3.enctype;
+			document.getElementById("t19").firstChild.data += f1.method;
+			document.getElementById("t110").firstChild.data += f2.method;
+			document.getElementById("t111").firstChild.data += f3.method;
+			document.getElementById("t112").firstChild.data += f1.target;
+			f2.name = "NF2";
+			f2.acceptCharset = "ISO-8859-2";
+			f2.action = "http://localhost/test2";
+			f2.enctype = "Multipart/form-data";
+			f2.method = "Post";
+			f2.target = "_Parent";
+			f1.reset();
+			//f1.submit();
+			document.getElementById("t1302").firstChild.data += f2.name;
+			document.getElementById("t1402").firstChild.data += f2.acceptCharset;
+			document.getElementById("t1502").firstChild.data += f2.action;
+			document.getElementById("t1602").firstChild.data += f2.enctype;
+			document.getElementById("t1702").firstChild.data += f2.method;
+			document.getElementById("t1802").firstChild.data += f2.target;
+		</script>
+	</body>
+</html>

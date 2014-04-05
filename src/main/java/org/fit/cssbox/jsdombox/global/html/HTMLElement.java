@@ -101,7 +101,11 @@ public class HTMLElement extends Element
 	public String getDir()
 	{
 		String attr = jsaf.innerNameFormat("dir");
-		return source.getAttribute(attr).toLowerCase();
+		switch (source.getAttribute(attr).toLowerCase()) {
+			default: return "";
+			case "ltr": return "ltr";
+			case "rtl": return "rtl";
+		}
 	}
 	public void setDir(String dir)
 	{

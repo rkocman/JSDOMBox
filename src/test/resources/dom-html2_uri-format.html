@@ -24,14 +24,16 @@
 		<span id="t122">/test.jpg (correct: relative path): </span><br>
 		<span id="t132">./test.jpg (correct: relative path): </span><br>
 		<span id="t142"># (correct: relative path): </span><br>
-		<span id="t152">http://localhost/ (correct: absolute path): </span><br><br>
+		<span id="t152">http://localhost/ (correct: absolute path): </span><br>
+		<br>
 		
 		<strong>Test 2 - Spaces (should be converted to %20):</strong><br>
 		<span id="t21">with spaces.jpg (correct: absolute path): </span><br>
 		<span id="t22">/with spaces.jpg (correct: absolute path): </span><br>
 		<span id="t23">./with spaces.jpg (correct: absolute path): </span><br>
 		<span id="t24">http://localhost/with spaces.jpg (correct: absolute path): </span><br>
-		<span id="t25">with%20spaces.jpg (correct: absolute path): </span><br><br>
+		<span id="t25">with%20spaces.jpg (correct: absolute path): </span><br>
+		<br>
 		
 		<strong>Test 3 - Specific elements:</strong><br>
 		<span id="t31">HTMLLinkElement.href="#" (correct: absolute path): </span><br>
@@ -49,16 +51,40 @@
 		<span id="t313">HTMLObjectElement.data="test" (correct: absolute path): </span><br>
 		<span id="t314">HTMLIFrameElement.longDesc="test" (correct: absolute path): </span><br>
 		<span id="t315">HTMLIFrameElement.src="test" (correct: absolute path): </span><br>
+		<span id="t316">HTMLFormElement.action="#" (correct: absolute path): </span><br>
 		<br>
 		
 		<strong>Test 4 - Rebase:</strong><br>
 		<span id="t41">old anchor (correct: absolute path): </span><br>
-		<span id="t42">new anchor (correct: absolute path + 2/): </span><br><br>
+		<span id="t42">new anchor (correct: absolute path + 2/): </span><br>
+		<br>
 		
 		<strong>Test 5 - Href change:</strong><br>
 		<span id="t51">hž\ &.html (correct: abs + h%C5%BE%5C%20&.html): </span><br>
 		<span id="t52">hž\ &.html/2/ (correct: abs + h%C5%BE%5C%20&.html/2/): </span><br>
 		<span id="t53">DOM Core (correct: abs + h%C5%BE%5C%20&.html/2/): </span><br>
+		<br>
+		
+		<strong>Test 6 - Empty URI:</strong><br>
+		<span id="t61">HTMLBaseElement.href="" (correct: abs |): </span><br>
+		<span id="t62">HTMLAnchorElement.href="" (correct: abs |): </span><br>
+		<span id="t63">HTMLLinkElement.href="" (correct: abs |): </span><br>
+		<span id="t64">HTMLBodyElement.background="" (correct: |): </span><br>
+		<span id="t65">HTMLQuoteElement.cite="" (correct: abs |): </span><br>
+		<span id="t66">HTMLModElement.cite="" (correct: abs |): </span><br>
+		<span id="t67">HTMLImageElement.longDesc="" (correct: abs |): </span><br>
+		<span id="t68">HTMLImageElement.src="" (correct: abs |): </span><br>
+		<span id="t69">HTMLAppletElement.codeBase="" (correct: abs |): </span><br>
+		<span id="t610">HTMLAppletElement.object="" (correct: abs |): </span><br>
+		<span id="t611">HTMLAreaElement.href="" (correct: abs |): </span><br>
+		<span id="t612">HTMLScriptElement.src="" (correct: abs |): </span><br>
+		<span id="t613">HTMLObjectElement.code="" (correct: abs |): </span><br>
+		<span id="t614">HTMLObjectElement.codeBase="" (correct: abs |): </span><br>
+		<span id="t615">HTMLObjectElement.data="" (correct: abs |): </span><br>
+		<span id="t616">HTMLIFrameElement.longDesc="" (correct: abs |): </span><br>
+		<span id="t617">HTMLIFrameElement.src="" (correct: abs |): </span><br>
+		<span id="t618">HTMLFormElement.action="" (correct: |): </span><br>
+		<span id="t619">HTMLFormElement.action=" " (correct: abs |): </span><br>
 		
 		<h2>Test content</h2>
 		<a href="test.jpg">a1</a>
@@ -97,6 +123,8 @@
 		
 		<br>
 		<iframe longdesc="test" src="test"></iframe>
+		
+		<form action="#"></form>
 		
 		<script>
 			// Desired result:
@@ -154,6 +182,8 @@
 			var if1 = document.getElementsByTagName("iframe").item(0);
 			document.getElementById("t314").firstChild.data += if1.longDesc;
 			document.getElementById("t315").firstChild.data += if1.src;
+			var form = document.getElementsByTagName("form").item(0);
+			document.getElementById("t316").firstChild.data += form.action;
 			
 			a41 = document.getElementById("a41");
 			base = document.getElementsByTagName("base").item(0);
@@ -166,6 +196,46 @@
 			a51.href += "/2/";
 			document.getElementById("t52").firstChild.data += a51.href;
 			document.getElementById("t53").firstChild.data += a51.getAttribute("href");
+			
+			base.href="";
+			document.getElementById("t61").firstChild.data += base.href+" |";
+			base.href = "http://absolute/";
+			a1.href="";
+			document.getElementById("t62").firstChild.data += a1.href+" |";
+			link.href="";
+			document.getElementById("t63").firstChild.data += link.href+" |";
+			body.background=" ";
+			document.getElementById("t64").firstChild.data += body.background+" |";
+			q.cite="";
+			document.getElementById("t65").firstChild.data += q.cite+" |";
+			ins.cite="";
+			document.getElementById("t66").firstChild.data += ins.cite+" |";
+			img.longDesc="";
+			document.getElementById("t67").firstChild.data += img.longDesc+" |";
+			img.src=""
+			document.getElementById("t68").firstChild.data += img.src+" |";
+			applet.codeBase="";
+			document.getElementById("t69").firstChild.data += applet.codeBase+" |";
+			applet.object="";
+			document.getElementById("t610").firstChild.data += applet.object+" |";
+			area.href="";
+			document.getElementById("t611").firstChild.data += area.href+" |";
+			script.src="";
+			document.getElementById("t612").firstChild.data += script.src+" |";
+			object.code="";
+			document.getElementById("t613").firstChild.data += object.code+" |";
+			object.codeBase
+			document.getElementById("t614").firstChild.data += object.codeBase+" |";
+			object.data="";
+			document.getElementById("t615").firstChild.data += object.data+" |";
+			if1.longDesc="";
+			document.getElementById("t616").firstChild.data += if1.longDesc+" |";
+			if1.src="";
+			document.getElementById("t617").firstChild.data += if1.src+" |";
+			form.action="";
+			document.getElementById("t618").firstChild.data += form.action+" |";
+			form.action=" ";
+			document.getElementById("t619").firstChild.data += form.action+" |";
 		</script>
 	</body>
 </html>

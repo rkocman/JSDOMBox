@@ -28,7 +28,10 @@
 		<span id="3ptitle">title (correct: TH1): </span><br>
 		<span id="3plang">lang (correct: En): </span><br>
 		<span id="3pdir">dir (correct: ltr): </span><br>
-		<span id="3pdir2">dir 2nd (correct: LtR): </span>
+		<span id="3pdir2">dir 2nd (correct: LtR): </span><br><br>
+		<strong>Test 4:</strong><br>
+		<span id="4pdir">dir (correct: nothing): </span><br>
+		<span id="4pdir2">dir 2nd (correct: LtR2): </span>
 		
 		<script>
 			// Desired result:
@@ -82,6 +85,10 @@
 			document.getElementById("3plang").firstChild.data += strong.lang;
 			document.getElementById("3pdir").firstChild.data += strong.dir;
 			document.getElementById("3pdir2").firstChild.data += strong.getAttribute("dir");
+			
+			strong.dir = "LtR2";
+			document.getElementById("4pdir").firstChild.data += strong.dir;
+			document.getElementById("4pdir2").firstChild.data += strong.getAttribute("dir");
 		</script>
 	</body>
 </html>
