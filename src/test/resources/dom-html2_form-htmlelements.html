@@ -156,6 +156,23 @@
 		<span id="t621">type (correct: textarea): </span><br>
 		<span id="t622">value (correct: nothing): </span><br>
 		<br>
+		
+		<strong>Test 7 - HTMLButtonElement:</strong><br>
+		<span id="t71">form (correct: FORM): </span><br>
+		<span id="t72">accessKey (correct: A): </span><br>
+		<span id="t73">accessKey new (correct: B): </span><br>
+		<span id="t74">disabled (correct: true): </span><br>
+		<span id="t75">disabled new (correct: false): </span><br>
+		<span id="t76">name (correct: BT1): </span><br>
+		<span id="t77">name new (correct: BT2): </span><br>
+		<span id="t78">tabIndex (correct: 5): </span><br>
+		<span id="t79">tabIndex2 (correct: 0): </span><br>
+		<span id="t710">tabIndex new (correct: 10): </span><br>
+		<span id="t711">type (correct: submit): </span><br>
+		<span id="t712">type2 (correct: reset): </span><br>
+		<span id="t713">value (correct: BTV1): </span><br>
+		<span id="t714">value new (correct: BTV2): </span><br>
+		<br>
 	
 		<h2>Test content</h2>
 		<form id="F1" name="NF1" accept-charset="ISO-8859-1" 
@@ -212,6 +229,9 @@
 			<textarea id="TA1" accessKey="A" cols="7" disabled
 				name="TA1" readOnly rows="9" tabIndex="5">Text1</textarea>
 			<textarea id="TA2"></textarea>
+			<button id="BT1" accessKey="A" disabled name="BT1" tabIndex="5"
+				value="BTV1" type="wrong">BTText</button>
+			<button id="BT2" type="Reset"></button>
 		</form>
 	
 		<script>
@@ -335,7 +355,7 @@
 			// cols (correct: 7): 7
 			// cols2 (correct: 20): 20
 			// cols new (correct: 14): 14
-			// disabled (correct: true): false
+			// disabled (correct: true): true
 			// disabled new (correct: false): false
 			// name (correct: TA1): TA1
 			// name new (correct: TA2): TA2
@@ -348,7 +368,22 @@
 			// tabIndex2 (correct: 0): 0
 			// tabIndex new (correct: 10): 10
 			// type (correct: textarea): textarea
-			// value (correct: nothing): Test
+			// value (correct: nothing): 
+			// Test 7:
+			// form (correct: FORM): FORM
+			// accessKey (correct: A): A
+			// accessKey new (correct: B): B
+			// disabled (correct: true): true
+			// disabled new (correct: false): false
+			// name (correct: BT1): BT1
+			// name new (correct: BT2): BT2
+			// tabIndex (correct: 5): 5
+			// tabIndex2 (correct: 0): 0
+			// tabIndex new (correct: 10): 10
+			// type (correct: submit): submit
+			// type2 (correct: reset): reset
+			// value (correct: BTV1): BTV1
+			// value new (correct: BTV2): BTV2
 			
 			var f1 = document.getElementById("F1");
 			var f2 = document.getElementById("F2");
@@ -576,6 +611,28 @@
 			ta1.blur();
 			ta1.focus();
 			ta1.select();
+			
+			var bt1 = document.getElementById("BT1");
+			var bt2 = document.getElementById("BT2");
+			document.getElementById("t71").firstChild.data += bt1.form.nodeName;
+			document.getElementById("t72").firstChild.data += bt1.accessKey;
+			bt1.accessKey = "B";
+			document.getElementById("t73").firstChild.data += bt1.accessKey;
+			document.getElementById("t74").firstChild.data += bt1.disabled;
+			bt1.disabled = false;
+			document.getElementById("t75").firstChild.data += bt1.disabled;
+			document.getElementById("t76").firstChild.data += bt1.name;
+			bt1.name = "BT2";
+			document.getElementById("t77").firstChild.data += bt1.name;
+			document.getElementById("t78").firstChild.data += bt1.tabIndex;
+			document.getElementById("t79").firstChild.data += bt2.tabIndex;
+			bt1.tabIndex = 10;
+			document.getElementById("t710").firstChild.data += bt1.tabIndex;
+			document.getElementById("t711").firstChild.data += bt1.type;
+			document.getElementById("t712").firstChild.data += bt2.type;
+			document.getElementById("t713").firstChild.data += bt1.value;
+			bt1.value = "BTV2";
+			document.getElementById("t714").firstChild.data += bt1.value;
 		</script>
 	</body>
 </html>
