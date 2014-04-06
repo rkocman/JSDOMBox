@@ -34,4 +34,13 @@ public class EmptyHTMLListener implements HTMLListener
 	public boolean option_getSelected(Node node) {return false;}
 	public void option_setSelected(Node node, boolean selected) {}
 	
+	public boolean input_getChecked(Node node) {return false;}
+	public void input_setChecked(Node node, boolean checked) {}
+	public String input_getValue(Node node) {return "";}
+	public void input_setValue(Node node, String value) {}
+	public void input_blur(Node node) {}
+	public void input_focus(Node node) {}
+	public void input_select(Node node) {}
+	public void input_click(Node node) {}
+	
 }

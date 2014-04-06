@@ -103,4 +103,52 @@ public interface HTMLListener
 	 */
 	public void option_setSelected(Node node, boolean selected);
 	
+	
+	/**
+	 * Gets the checked state of the HTMLInputElement
+	 * @param node Source Node of the HTML Input Element
+	 * @return true/false
+	 */
+	public boolean input_getChecked(Node node);
+	/**
+	 * Sets the checked state of the HTMLInputElement
+	 * @param node Source Node of the HTML Input Element
+	 * @param checked true/false
+	 */
+	public void input_setChecked(Node node, boolean checked);
+	/**
+	 * Gets the current value of the HTMLInputElement
+	 * For input types: text|file|password
+	 * @param node Source Node of the HTML Input Element
+	 * @return Current value
+	 */
+	public String input_getValue(Node node);
+	/**
+	 * Sets the current value of the HTMLInputElement
+	 * For input types: text|file|password
+	 * @param node Source Node of the HTML Input Element
+	 * @param value New value
+	 */
+	public void input_setValue(Node node, String value);
+	/**
+	 * Removes keyboard focus from the HTMLInputElement
+	 * @param node Source Node of the HTML Input Element
+	 */
+	public void input_blur(Node node);
+	/**
+	 * Gives keyboard focus to the HTMLInputElement
+	 * @param node Source Node of the HTML Input Element
+	 */
+	public void input_focus(Node node);
+	/**
+	 * Selects the content of the text area of the HTMLInputElement
+	 * @param node Source Node of the HTML Input Element
+	 */
+	public void input_select(Node node);
+	/**
+	 * Simulates a mouse-click on the HTMLInputElement
+	 * @param node Source Node of the HTML Input Element
+	 */
+	public void input_click(Node node);
+	
 }

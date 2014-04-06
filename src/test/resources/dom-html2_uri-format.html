@@ -52,6 +52,7 @@
 		<span id="t314">HTMLIFrameElement.longDesc="test" (correct: absolute path): </span><br>
 		<span id="t315">HTMLIFrameElement.src="test" (correct: absolute path): </span><br>
 		<span id="t316">HTMLFormElement.action="#" (correct: absolute path): </span><br>
+		<span id="t317">HTMLInputElement.src="#" (correct: absolute path): </span><br>
 		<br>
 		
 		<strong>Test 4 - Rebase:</strong><br>
@@ -85,6 +86,7 @@
 		<span id="t617">HTMLIFrameElement.src="" (correct: abs |): </span><br>
 		<span id="t618">HTMLFormElement.action="" (correct: |): </span><br>
 		<span id="t619">HTMLFormElement.action=" " (correct: abs |): </span><br>
+		<span id="t620">HTMLInputElement.src="" (correct: abs |): </span><br>
 		
 		<h2>Test content</h2>
 		<a href="test.jpg">a1</a>
@@ -124,7 +126,9 @@
 		<br>
 		<iframe longdesc="test" src="test"></iframe>
 		
-		<form action="#"></form>
+		<form action="#">
+			<input src="#">
+		</form>
 		
 		<script>
 			// Desired result:
@@ -184,6 +188,8 @@
 			document.getElementById("t315").firstChild.data += if1.src;
 			var form = document.getElementsByTagName("form").item(0);
 			document.getElementById("t316").firstChild.data += form.action;
+			var in1 = document.getElementsByTagName("input").item(0);
+			document.getElementById("t317").firstChild.data += in1.src;
 			
 			a41 = document.getElementById("a41");
 			base = document.getElementsByTagName("base").item(0);
@@ -236,6 +242,8 @@
 			document.getElementById("t618").firstChild.data += form.action+" |";
 			form.action=" ";
 			document.getElementById("t619").firstChild.data += form.action+" |";
+			in1.src="";
+			document.getElementById("t620").firstChild.data += in1.src+" |";
 		</script>
 	</body>
 </html>

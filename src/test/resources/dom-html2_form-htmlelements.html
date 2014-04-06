@@ -89,6 +89,48 @@
 		<span id="t427">add null (correct: 1 3 4): </span><br>
 		<span id="t428">add 1 (correct: 1 2 3 4): </span><br>
 		<br>
+		
+		<strong>Test 5 - HTMLInputElement:</strong><br>
+		<span id="t51">defaultValue (correct: D1): </span><br>
+		<span id="t52">defaultValue new (correct: D2): </span><br>
+		<span id="t53">defaultChecked (correct: true): </span><br>
+		<span id="t54">defaultChecked new (correct: false): </span><br>
+		<span id="t55">form (correct: FORM): </span><br>
+		<span id="t56">accept (correct: Image/*): </span><br>
+		<span id="t57">accept new (correct: text/*): </span><br>
+		<span id="t58">accessKey (correct: A): </span><br>
+		<span id="t59">accessKey new (correct: B): </span><br>
+		<span id="t510">align (correct: Left): </span><br>
+		<span id="t511">align new (correct: Right): </span><br>
+		<span id="t512">alt (correct: Alt1): </span><br>
+		<span id="t513">alt new (correct: Alt2): </span><br>
+		<span id="t514">checked (correct: false): </span><br>
+		<span id="t515">disabled (correct: true): </span><br>
+		<span id="t516">disabled new (correct: false): </span><br>
+		<span id="t517">maxLength (correct: 10): </span><br>
+		<span id="t518">maxLength2 (correct: -1): </span><br>
+		<span id="t519">maxLength new (correct: 15): </span><br>
+		<span id="t520">name (correct: N1): </span><br>
+		<span id="t521">name new (correct: N2): </span><br>
+		<span id="t522">readOnly (correct: true): </span><br>
+		<span id="t523">readOnly new (correct: false): </span><br>
+		<span id="t524">size (correct: 10): </span><br>
+		<span id="t525">size2 (correct: 20): </span><br>
+		<span id="t526">size new (correct: 15): </span><br>
+		<span id="t527">src (correct: http://localhost/): </span><br>
+		<span id="t528">src new (correct: http://localhost/2/): </span><br>
+		<span id="t529">tabIndex (correct: 5): </span><br>
+		<span id="t530">tabIndex2 (correct: 0): </span><br>
+		<span id="t531">tabIndex new (correct: 10): </span><br>
+		<span id="t532">type (correct: text): </span><br>
+		<span id="t533">type2 (correct: text): </span><br>
+		<span id="t534">type new (correct: submit): </span><br>
+		<span id="t535">useMap (correct: UM1): </span><br>
+		<span id="t536">useMap new (correct: UM2): </span><br>
+		<span id="t537">value (correct: nothing): </span><br>
+		<span id="t538">value2 (correct: BTN1): </span><br>
+		<span id="t539">value new (correct: BTN2): </span><br>
+		<br>
 	
 		<h2>Test content</h2>
 		<form id="F1" name="NF1" accept-charset="ISO-8859-1" 
@@ -133,6 +175,15 @@
 				</optgroup>
 				<option>3</option>
 			</select>
+		</form>
+		
+		<form>
+			<input id="IN1" value="D1" checked accept="Image/*"
+				accessKey="A" align="Left" alt="Alt1" disabled maxLength="10"
+				name="N1" readOnly size="10" src="http://localhost/"
+				tabIndex="5" type="Text" useMap="UM1">
+			<input id="IN2" type="Wrong">
+			<input id="IN3" type="button" value="BTN1">
 		</form>
 	
 		<script>
@@ -207,6 +258,46 @@
 			// remove after (correct: 1 3): 1 3
 			// add null (correct: 1 3 4): 1 3 4
 			// add 1 (correct: 1 2 3 4): 1 2 3 4
+			// Test 5:
+			// defaultValue (correct: D1): D1
+			// defaultValue new (correct: D2): D2
+			// defaultChecked (correct: true): true
+			// defaultChecked new (correct: false): false
+			// form (correct: FORM): FORM
+			// accept (correct: Image/*): Image/*
+			// accept new (correct: text/*): text/*
+			// accessKey (correct: A): A
+			// accessKey new (correct: B): B
+			// align (correct: Left): Left
+			// align new (correct: Right): Right
+			// alt (correct: Alt1): Alt1
+			// alt new (correct: Alt2): Alt2
+			// checked (correct: false): false
+			// disabled (correct: true): false
+			// disabled new (correct: false): false
+			// maxLength (correct: 10): 10
+			// maxLength2 (correct: -1): -1
+			// maxLength new (correct: 15): 15
+			// name (correct: N1): N1
+			// name new (correct: N2): N2
+			// readOnly (correct: true): true
+			// readOnly new (correct: false): false
+			// size (correct: 10): 10
+			// size2 (correct: 20): 20
+			// size new (correct: 15): 15
+			// src (correct: http://localhost/): http://localhost/
+			// src new (correct: http://localhost/2/): http://localhost/2/
+			// tabIndex (correct: 5): 5
+			// tabIndex2 (correct: 0): 0
+			// tabIndex new (correct: 10): 10
+			// type (correct: text): text
+			// type2 (correct: text): text
+			// type new (correct: submit): submit
+			// useMap (correct: UM1): UM1
+			// useMap new (correct: UM2): UM2
+			// value (correct: nothing):
+			// value2 (correct: BTN1): BTN1
+			// value new (correct: BTN2): BTN2
 			
 			var f1 = document.getElementById("F1");
 			var f2 = document.getElementById("F2");
@@ -332,6 +423,71 @@
 			opt2.value = "2";
 			s3.add(opt2, s3.options.item(1));
 			printOptions(s3, "t428");
+			
+			var in1 = document.getElementById("IN1");
+			var in2 = document.getElementById("IN2");
+			var in3 = document.getElementById("IN3");
+			document.getElementById("t51").firstChild.data += in1.defaultValue;
+			in1.defaultValue = "D2";
+			document.getElementById("t52").firstChild.data += in1.defaultValue;
+			document.getElementById("t53").firstChild.data += in1.defaultChecked;
+			in1.defaultChecked = false;
+			document.getElementById("t54").firstChild.data += in1.defaultChecked;
+			document.getElementById("t55").firstChild.data += in1.form.nodeName;
+			document.getElementById("t56").firstChild.data += in1.accept;
+			in1.accept = "text/*";
+			document.getElementById("t57").firstChild.data += in1.accept;
+			document.getElementById("t58").firstChild.data += in1.accessKey;
+			in1.accessKey = "B";
+			document.getElementById("t59").firstChild.data += in1.accessKey;
+			document.getElementById("t510").firstChild.data += in1.align;
+			in1.align = "Right";
+			document.getElementById("t511").firstChild.data += in1.align;
+			document.getElementById("t512").firstChild.data += in1.alt;
+			in1.alt = "Alt2";
+			document.getElementById("t513").firstChild.data += in1.alt;
+			document.getElementById("t514").firstChild.data += in2.checked;
+			in2.checked = true;
+			document.getElementById("t515").firstChild.data += in1.disabled;
+			in1.disabled = false;
+			document.getElementById("t516").firstChild.data += in1.disabled;
+			document.getElementById("t517").firstChild.data += in1.maxLength;
+			document.getElementById("t518").firstChild.data += in2.maxLength;
+			in1.maxLength = 15;
+			document.getElementById("t519").firstChild.data += in1.maxLength;
+			document.getElementById("t520").firstChild.data += in1.name;
+			in1.name = "N2";
+			document.getElementById("t521").firstChild.data += in1.name;
+			document.getElementById("t522").firstChild.data += in1.readOnly;
+			in1.readOnly = false;
+			document.getElementById("t523").firstChild.data += in1.readOnly;
+			document.getElementById("t524").firstChild.data += in1.size;
+			document.getElementById("t525").firstChild.data += in2.size;
+			in1.size = 15;
+			document.getElementById("t526").firstChild.data += in1.size;
+			document.getElementById("t527").firstChild.data += in1.src;
+			in1.src += "2/";
+			document.getElementById("t528").firstChild.data += in1.src;
+			document.getElementById("t529").firstChild.data += in1.tabIndex;
+			document.getElementById("t530").firstChild.data += in2.tabIndex;
+			in1.tabIndex = 10;
+			document.getElementById("t531").firstChild.data += in1.tabIndex;
+			document.getElementById("t532").firstChild.data += in1.type;
+			document.getElementById("t533").firstChild.data += in2.type;
+			in2.type="Submit";
+			document.getElementById("t534").firstChild.data += in2.type;
+			document.getElementById("t535").firstChild.data += in1.useMap;
+			in1.useMap="UM2";
+			document.getElementById("t536").firstChild.data += in1.useMap;
+			document.getElementById("t537").firstChild.data += in2.value;
+			document.getElementById("t538").firstChild.data += in3.value;
+			in1.value += "2";
+			in3.value = "BTN2";
+			document.getElementById("t539").firstChild.data += in3.value;
+			in3.blur();
+			in3.focus();
+			in3.select();
+			in3.click();
 		</script>
 	</body>
 </html>
