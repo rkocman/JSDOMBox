@@ -181,6 +181,10 @@
 		<span id="t84">htmlFor (correct: hF1): </span><br>
 		<span id="t85">htmlFor (correct: hF2): </span><br>
 		<br>
+		
+		<strong>Test 9 - HTMLFieldSetElement:</strong><br>
+		<span id="t91">form (correct: FORM): </span><br>
+		<br>
 	
 		<h2>Test content</h2>
 		<form id="F1" name="NF1" accept-charset="ISO-8859-1" 
@@ -241,6 +245,7 @@
 				value="BTV1" type="wrong">BTText</button>
 			<button id="BT2" type="Reset"></button>
 			<label id="LB1" accessKey="A" for="hF1"></label>
+			<fieldset id="FS1"></fieldset>
 		</form>
 	
 		<script>
@@ -399,6 +404,8 @@
 			// accessKey (correct: B): B
 			// htmlFor (correct: hF1): hF1
 			// htmlFor (correct: hF2): hF2
+			// Test 9:
+			// 
 			
 			var f1 = document.getElementById("F1");
 			var f2 = document.getElementById("F2");
@@ -657,6 +664,9 @@
 			document.getElementById("t84").firstChild.data += lb1.htmlFor;
 			lb1.htmlFor = "hF2";
 			document.getElementById("t85").firstChild.data += lb1.htmlFor;
+			
+			var fs1 = document.getElementById("FS1");
+			document.getElementById("t91").firstChild.data += fs1.form.nodeName;
 		</script>
 	</body>
 </html>
