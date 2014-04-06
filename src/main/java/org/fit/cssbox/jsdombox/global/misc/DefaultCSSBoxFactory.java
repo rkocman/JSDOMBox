@@ -110,6 +110,9 @@ public class DefaultCSSBoxFactory extends JSAdapterFactory
 			// Interface HTMLFieldSetElement
 			case "fieldset":
 				return new HTMLFieldSetElement((org.w3c.dom.Element) source, this);
+			// Interface HTMLLegendElement
+			case "legend":
+				return new HTMLLegendElement((org.w3c.dom.Element) source, this);
 			// Interface HTMLUListElement
 			case "ul":
 				return new HTMLUListElement((org.w3c.dom.Element) source, this);

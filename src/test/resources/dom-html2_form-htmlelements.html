@@ -185,6 +185,14 @@
 		<strong>Test 9 - HTMLFieldSetElement:</strong><br>
 		<span id="t91">form (correct: FORM): </span><br>
 		<br>
+		
+		<strong>Test 10 - HTMLLegendElement:</strong><br>
+		<span id="t101">form (correct: FORM): </span><br>
+		<span id="t102">accessKey (correct: A): </span><br>
+		<span id="t103">accessKey (correct: B): </span><br>
+		<span id="t104">align (correct: Left): </span><br>
+		<span id="t105">align new (correct: Right): </span><br>
+		<br>
 	
 		<h2>Test content</h2>
 		<form id="F1" name="NF1" accept-charset="ISO-8859-1" 
@@ -245,7 +253,9 @@
 				value="BTV1" type="wrong">BTText</button>
 			<button id="BT2" type="Reset"></button>
 			<label id="LB1" accessKey="A" for="hF1"></label>
-			<fieldset id="FS1"></fieldset>
+			<fieldset id="FS1">
+				<legend id="LE1" accessKey="A" align="Left">Test</legend>
+			</fieldset>
 		</form>
 	
 		<script>
@@ -405,7 +415,13 @@
 			// htmlFor (correct: hF1): hF1
 			// htmlFor (correct: hF2): hF2
 			// Test 9:
-			// 
+			// form (correct: FORM): FORM
+			// Test 10:
+			// form (correct: FORM): FORM
+			// accessKey (correct: A): A
+			// accessKey (correct: B): B
+			// align (correct: Left): Left
+			// align new (correct: Right): Right
 			
 			var f1 = document.getElementById("F1");
 			var f2 = document.getElementById("F2");
@@ -667,6 +683,15 @@
 			
 			var fs1 = document.getElementById("FS1");
 			document.getElementById("t91").firstChild.data += fs1.form.nodeName;
+			
+			var le1 = document.getElementById("LE1");
+			document.getElementById("t101").firstChild.data += le1.form.nodeName;
+			document.getElementById("t102").firstChild.data += le1.accessKey;
+			le1.accessKey = "B";
+			document.getElementById("t103").firstChild.data += le1.accessKey;
+			document.getElementById("t104").firstChild.data += le1.align;
+			le1.align = "Right";
+			document.getElementById("t105").firstChild.data += le1.align;
 		</script>
 	</body>
 </html>
