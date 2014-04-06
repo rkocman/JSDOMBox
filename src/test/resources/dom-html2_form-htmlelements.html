@@ -131,6 +131,31 @@
 		<span id="t538">value2 (correct: BTN1): </span><br>
 		<span id="t539">value new (correct: BTN2): </span><br>
 		<br>
+		
+		<strong>Test 6 - HTMLTextAreaElement:</strong><br>
+		<span id="t61">defaultValue (correct: Text1): </span><br>
+		<span id="t62">defaultValue new (correct: Text2): </span><br>
+		<span id="t63">form (correct: FORM): </span><br>
+		<span id="t64">accessKey (correct: A): </span><br>
+		<span id="t65">accessKey new (correct: B): </span><br>
+		<span id="t66">cols (correct: 7): </span><br>
+		<span id="t67">cols2 (correct: 20): </span><br>
+		<span id="t68">cols new (correct: 14): </span><br>
+		<span id="t69">disabled (correct: true): </span><br>
+		<span id="t610">disabled new (correct: false): </span><br>
+		<span id="t611">name (correct: TA1): </span><br>
+		<span id="t612">name new (correct: TA2): </span><br>
+		<span id="t613">readOnly (correct: true): </span><br>
+		<span id="t614">readOnly new (correct: false): </span><br>
+		<span id="t615">rows (correct: 9): </span><br>
+		<span id="t616">rows2 (correct: 2): </span><br>
+		<span id="t617">rows new (correct: 3): </span><br>
+		<span id="t618">tabIndex (correct: 5): </span><br>
+		<span id="t619">tabIndex2 (correct: 0): </span><br>
+		<span id="t620">tabIndex new (correct: 10): </span><br>
+		<span id="t621">type (correct: textarea): </span><br>
+		<span id="t622">value (correct: nothing): </span><br>
+		<br>
 	
 		<h2>Test content</h2>
 		<form id="F1" name="NF1" accept-charset="ISO-8859-1" 
@@ -184,6 +209,9 @@
 				tabIndex="5" type="Text" useMap="UM1">
 			<input id="IN2" type="Wrong">
 			<input id="IN3" type="button" value="BTN1">
+			<textarea id="TA1" accessKey="A" cols="7" disabled
+				name="TA1" readOnly rows="9" tabIndex="5">Text1</textarea>
+			<textarea id="TA2"></textarea>
 		</form>
 	
 		<script>
@@ -298,6 +326,29 @@
 			// value (correct: nothing):
 			// value2 (correct: BTN1): BTN1
 			// value new (correct: BTN2): BTN2
+			// Test 6:
+			// defaultValue (correct: Text1): Text1
+			// defaultValue new (correct: Text2): Text2
+			// form (correct: FORM): FORM
+			// accessKey (correct: A): A
+			// accessKey new (correct: B): B
+			// cols (correct: 7): 7
+			// cols2 (correct: 20): 20
+			// cols new (correct: 14): 14
+			// disabled (correct: true): false
+			// disabled new (correct: false): false
+			// name (correct: TA1): TA1
+			// name new (correct: TA2): TA2
+			// readOnly (correct: true): true
+			// readOnly new (correct: false): false
+			// rows (correct: 9): 9
+			// rows2 (correct: 2): 2
+			// rows new (correct: 3): 3
+			// tabIndex (correct: 5): 5
+			// tabIndex2 (correct: 0): 0
+			// tabIndex new (correct: 10): 10
+			// type (correct: textarea): textarea
+			// value (correct: nothing): Test
 			
 			var f1 = document.getElementById("F1");
 			var f2 = document.getElementById("F2");
@@ -488,6 +539,43 @@
 			in3.focus();
 			in3.select();
 			in3.click();
+			
+			var ta1 = document.getElementById("TA1");
+			var ta2 = document.getElementById("TA2");
+			document.getElementById("t61").firstChild.data += ta1.defaultValue;
+			ta1.defaultValue = "Text2";
+			document.getElementById("t62").firstChild.data += ta1.defaultValue;
+			document.getElementById("t63").firstChild.data += ta1.form.nodeName;
+			document.getElementById("t64").firstChild.data += ta1.accessKey;
+			ta1.accessKey = "B";
+			document.getElementById("t65").firstChild.data += ta1.accessKey;
+			document.getElementById("t66").firstChild.data += ta1.cols;
+			document.getElementById("t67").firstChild.data += ta2.cols;
+			ta1.cols = 14;
+			document.getElementById("t68").firstChild.data += ta1.cols;
+			document.getElementById("t69").firstChild.data += ta1.disabled;
+			ta1.disabled = false;
+			document.getElementById("t610").firstChild.data += ta1.disabled;
+			document.getElementById("t611").firstChild.data += ta1.name;
+			ta1.name = "TA2";
+			document.getElementById("t612").firstChild.data += ta1.name;
+			document.getElementById("t613").firstChild.data += ta1.readOnly;
+			ta1.readOnly = false;
+			document.getElementById("t614").firstChild.data += ta1.readOnly;
+			document.getElementById("t615").firstChild.data += ta1.rows;
+			document.getElementById("t616").firstChild.data += ta2.rows;
+			ta1.rows = 3;
+			document.getElementById("t617").firstChild.data += ta1.rows;
+			document.getElementById("t618").firstChild.data += ta1.tabIndex;
+			document.getElementById("t619").firstChild.data += ta2.tabIndex;
+			ta1.tabIndex = 10;
+			document.getElementById("t620").firstChild.data += ta1.tabIndex;
+			document.getElementById("t621").firstChild.data += ta1.type;
+			document.getElementById("t622").firstChild.data += ta2.value;
+			ta2.value="Test";
+			ta1.blur();
+			ta1.focus();
+			ta1.select();
 		</script>
 	</body>
 </html>

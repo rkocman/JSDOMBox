@@ -151,4 +151,33 @@ public interface HTMLListener
 	 */
 	public void input_click(Node node);
 	
+	
+	/**
+	 * Gets the current value of the HTMLTextAreaElement
+	 * @param node Source Node of the HTML Text Area Element
+	 * @return Current value
+	 */
+	public String textarea_getValue(Node node);
+	/**
+	 * Sets the current value of the HTMLTextAreaElement
+	 * @param node Source Node of the HTML Text Area Element
+	 * @param value New value
+	 */
+	public void textarea_setValue(Node node, String value);
+	/**
+	 * Removes keyboard focus from the HTMLTextAreaElement
+	 * @param node Source Node of the HTML Text Area Element
+	 */
+	public void textarea_blur(Node node);
+	/**
+	 * Gives keyboard focus to the HTMLTextAreaElement
+	 * @param node Source Node of the HTML Text Area Element
+	 */
+	public void textarea_focus(Node node);
+	/**
+	 * Selects the content of the HTMLTextAreaElement
+	 * @param node Source Node of the HTML Text Area Element
+	 */
+	public void textarea_select(Node node);
+	
 }

@@ -43,4 +43,10 @@ public class EmptyHTMLListener implements HTMLListener
 	public void input_select(Node node) {}
 	public void input_click(Node node) {}
 	
+	public String textarea_getValue(Node node) {return "";}
+	public void textarea_setValue(Node node, String value) {}
+	public void textarea_blur(Node node) {}
+	public void textarea_focus(Node node) {}
+	public void textarea_select(Node node) {}
+	
 }
