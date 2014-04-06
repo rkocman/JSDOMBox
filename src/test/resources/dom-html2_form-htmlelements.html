@@ -173,6 +173,14 @@
 		<span id="t713">value (correct: BTV1): </span><br>
 		<span id="t714">value new (correct: BTV2): </span><br>
 		<br>
+		
+		<strong>Test 8 - HTMLLabelElement:</strong><br>
+		<span id="t81">form (correct: FORM): </span><br>
+		<span id="t82">accessKey (correct: A): </span><br>
+		<span id="t83">accessKey (correct: B): </span><br>
+		<span id="t84">htmlFor (correct: hF1): </span><br>
+		<span id="t85">htmlFor (correct: hF2): </span><br>
+		<br>
 	
 		<h2>Test content</h2>
 		<form id="F1" name="NF1" accept-charset="ISO-8859-1" 
@@ -232,6 +240,7 @@
 			<button id="BT1" accessKey="A" disabled name="BT1" tabIndex="5"
 				value="BTV1" type="wrong">BTText</button>
 			<button id="BT2" type="Reset"></button>
+			<label id="LB1" accessKey="A" for="hF1"></label>
 		</form>
 	
 		<script>
@@ -384,6 +393,12 @@
 			// type2 (correct: reset): reset
 			// value (correct: BTV1): BTV1
 			// value new (correct: BTV2): BTV2
+			// Test 8:
+			// form (correct: FORM): FORM
+			// accessKey (correct: A): A
+			// accessKey (correct: B): B
+			// htmlFor (correct: hF1): hF1
+			// htmlFor (correct: hF2): hF2
 			
 			var f1 = document.getElementById("F1");
 			var f2 = document.getElementById("F2");
@@ -633,6 +648,15 @@
 			document.getElementById("t713").firstChild.data += bt1.value;
 			bt1.value = "BTV2";
 			document.getElementById("t714").firstChild.data += bt1.value;
+			
+			var lb1 = document.getElementById("LB1");
+			document.getElementById("t81").firstChild.data += lb1.form.nodeName;
+			document.getElementById("t82").firstChild.data += lb1.accessKey;
+			lb1.accessKey = "B";
+			document.getElementById("t83").firstChild.data += lb1.accessKey;
+			document.getElementById("t84").firstChild.data += lb1.htmlFor;
+			lb1.htmlFor = "hF2";
+			document.getElementById("t85").firstChild.data += lb1.htmlFor;
 		</script>
 	</body>
 </html>
