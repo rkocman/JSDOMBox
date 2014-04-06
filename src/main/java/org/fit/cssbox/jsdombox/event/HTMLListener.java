@@ -65,4 +65,42 @@ public interface HTMLListener
 	 */
 	public void form_reset(Node node);
 	
+	
+	/**
+	 * Gets the index of the selected option in the HTMLSelectElement
+	 * @param node Source Node of the HTML Select Element
+	 * @return Ordinal index (zero-based) or -1
+	 */
+	public int select_getSelectedIndex(Node node);
+	/**
+	 * Sets the index of the selected option in the HTMLSelectElement
+	 * @param node Source Node of the HTML Select Element
+	 * @param selectedIndex Ordinal index (zero-based) or -1
+	 */
+	public void select_setSelectedIndex(Node node, int selectedIndex);
+	/**
+	 * Removes keyboard focus from the HTMLSelectElement
+	 * @param node Source Node of the HTML Select Element
+	 */
+	public void select_blur(Node node);
+	/**
+	 * Gives keyboard focus to the HTMLSelectElement
+	 * @param node Source Node of the HTML Select Element
+	 */
+	public void select_focus(Node node);
+	
+	
+	/**
+	 * Gets the selection state of the HTMLOptionElement
+	 * @param node Source Node of the HTML Option Element
+	 * @return true/false
+	 */
+	public boolean option_getSelected(Node node);
+	/**
+	 * Sets the selection state of the HTMLOptionElement
+	 * @param node Source Node of the HTML Option Element
+	 * @param selected true/false
+	 */
+	public void option_setSelected(Node node, boolean selected);
+	
 }

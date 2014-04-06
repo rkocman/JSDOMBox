@@ -11,6 +11,13 @@ import org.w3c.dom.Node;
  */
 public class HTMLTraversal
 {
+	/** current position for the getNthTagInNode */
+	protected static int position;
+	
+	/** current index for the getIndexInParentTag */
+	protected static int index;
+	
+	
 	/**
 	 * Checks if this is a searched tag
 	 * @param node Tested Node
@@ -31,7 +38,7 @@ public class HTMLTraversal
 	
 	/**
 	 * Counts specified tags in the DOM Node
-	 * @param node DOM tree
+	 * @param dom DOM tree
 	 * @param tags Array of relevant HTML tags
 	 * @return Count of tags
 	 */
@@ -69,9 +76,9 @@ public class HTMLTraversal
 	 * @param n Index of the tag (zero-based)
 	 * @return Node or null
 	 */
-	protected static int position;
 	public static Node getNthTagInNode(Node dom, String[] tags, int n)
 	{
+		if (n < 0) return null;
 		position = 0;
 		
 		for (int i = 0; i < dom.getChildNodes().getLength(); i++) {
@@ -108,7 +115,7 @@ public class HTMLTraversal
 	 * @param tags Array of relevant HTML tags
 	 * @param name Name of the tag
 	 * @param jsaf JSAdapterFactory for the name format
-	 * @return
+	 * @return Node or null
 	 */
 	public static Node getNamedTagInNode(Node dom, String[] tags, String name, 
 			JSAdapterFactory jsaf)
@@ -171,6 +178,46 @@ public class HTMLTraversal
 		}
 		
 		return null;
+	}
+	
+	
+	/**
+	 * Gets the index of the Node in the parent tag
+	 * @param dom Source Node
+	 * @param tags Array of relevant HTML tags
+	 * @param parentTags Array of relevant parent HTML tags
+	 * @return Ordinal index (zero-based) or -1
+	 */
+	public static int getIndexInParentTag(Node dom, String[] tags, String[] parentTags)
+	{
+		Node parent = getParentTag(dom, parentTags);
+		if (parent == null) return -1;
+		
+		index = 0;
+		
+		for (int i = 0; i < parent.getChildNodes().getLength(); i++) {
+			Node node = parent.getChildNodes().item(i);
+			if (getIndex(dom, node, tags))
+				return index;
+		}
+		
+		return -1;
+	}
+	protected static boolean getIndex(Node source, Node dom, String[] tags)
+	{
+		if (isSearchedTag(dom, tags)) {
+			if (dom.isSameNode(source))
+				return true;
+			index++;
+		}
+		
+		for (int i = 0; i < dom.getChildNodes().getLength(); i++) {
+			Node node = dom.getChildNodes().item(i);
+			if (getIndex(source, node, tags))
+				return true;
+		}
+		
+		return false;
 	}
 	
 }

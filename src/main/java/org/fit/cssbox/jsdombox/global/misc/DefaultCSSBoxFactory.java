@@ -86,6 +86,15 @@ public class DefaultCSSBoxFactory extends JSAdapterFactory
 			// Interface HTMLFormElement
 			case "form":
 				return new HTMLFormElement((org.w3c.dom.Element) source, this);
+			// Interface HTMLSelectElement
+			case "select":
+				return new HTMLSelectElement((org.w3c.dom.Element) source, this);
+			// Interface HTMLOptGroupElement
+			case "optgroup":
+				return new HTMLOptGroupElement((org.w3c.dom.Element) source, this);
+			// Interface HTMLOptionElement
+			case "option":
+				return new HTMLOptionElement((org.w3c.dom.Element) source, this);
 			// Interface HTMLUListElement
 			case "ul":
 				return new HTMLUListElement((org.w3c.dom.Element) source, this);

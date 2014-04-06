@@ -6,7 +6,10 @@
 package org.fit.cssbox.jsdombox.global.html;
 
 import org.fit.cssbox.jsdombox.global.core.Element;
+import org.fit.cssbox.jsdombox.global.misc.JSAdapter;
 import org.fit.cssbox.jsdombox.global.misc.JSAdapterFactory;
+import org.fit.cssbox.jsdombox.global.misc.JSAdapterType;
+import org.fit.cssbox.jsdombox.global.util.HTMLTraversal;
 
 /**
  * DOM Interface HTMLElement Adapter
@@ -59,6 +62,17 @@ public class HTMLElement extends Element
 			source.setAttribute(attr, "");
 		else
 			source.removeAttribute(attr);
+	}
+	
+	/**
+	 * Gets the parent Form of the Node
+	 * @return JSAdapter or null
+	 */
+	protected JSAdapter getParentForm()
+	{
+		String attr = jsaf.innerNameFormat("form");
+		Object result = HTMLTraversal.getParentTag(source, new String[] {attr}); 
+		return jsaf.create(result, JSAdapterType.NODE);
 	}
 	
 	

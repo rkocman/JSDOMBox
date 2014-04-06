@@ -18,7 +18,7 @@ import org.w3c.dom.DOMException;
  */
 public class Document extends Node 
 {
-	public org.w3c.dom.Document source;
+	protected org.w3c.dom.Document source;
 	
 	public Document(org.w3c.dom.Document source, JSAdapterFactory jsaf) {
 		super(source, jsaf);

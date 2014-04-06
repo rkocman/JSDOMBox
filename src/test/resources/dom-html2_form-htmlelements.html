@@ -33,6 +33,62 @@
 		<span id="t1702">method new (correct: post): </span><br>
 		<span id="t1802">target new (correct: _Parent): </span><br>
 		<br>
+		
+		<strong>Test 2 - HTMLOptGroupElement:</strong><br>
+		<span id="t21">disabled (correct: false): </span><br>
+		<span id="t22">label (correct: OPTL1): </span><br>
+		<span id="t212">disabled new (correct: true): </span><br>
+		<span id="t222">label new (correct: OPTL2): </span><br>
+		<br>
+		
+		<strong>Test 3 - HTMLOptionElement:</strong><br>
+		<span id="t31">form (correct: FORM): </span><br>
+		<span id="t32">defaultSelected (correct: false): </span><br>
+		<span id="t33">text (correct: O2): </span><br>
+		<span id="t34">index (correct: 1): </span><br>
+		<span id="t39">index2 (correct: 2): </span><br>
+		<span id="t35">disabled (correct: false): </span><br>
+		<span id="t36">label (correct: LB1): </span><br>
+		<span id="t37">selected (correct: false): </span><br>
+		<span id="t38">value (correct: V1): </span><br>
+		<span id="t310">value empty (correct: empty): </span><br>
+		<span id="t311">value none (correct: 5): </span><br>
+		<span id="t322">defaultSelected new (correct: true): </span><br>
+		<span id="t352">disabled new (correct: true): </span><br>
+		<span id="t362">label new (correct: LB2): </span><br>
+		<span id="t382">value new (correct: V2): </span><br>
+		<br>
+		
+		<strong>Test 4 - HTMLSelectElement:</strong><br>
+		<span id="t41">type (correct: select-one): </span><br>
+		<span id="t42">type (correct: select-multiple): </span><br>
+		<span id="t43">selectedIndex (correct: -1): </span><br>
+		<span id="t44">selectedIndex new (correct: 1): </span><br>
+		<span id="t45">value (correct: V2): </span><br>
+		<span id="t46">value new (correct: V2 or empty): </span><br>
+		<span id="t47">length (correct: 5): </span><br>
+		<span id="t48">length new (correct: not supported or ok): </span><br>
+		<span id="t49">form (correct: FORM): </span><br>
+		<span id="t410">options (correct: 5): </span><br>
+		<span id="t411">disabled (correct: false): </span><br>
+		<span id="t412">disabled new (correct: true): </span><br>
+		<span id="t413">multiple (correct: false): </span><br>
+		<span id="t414">multiple2 (correct: true): </span><br>
+		<span id="t415">multiple new (correct: true): </span><br>
+		<span id="t416">name (correct: N1): </span><br>
+		<span id="t417">name new (correct: N2): </span><br>
+		<span id="t418">size (correct: 0): </span><br>
+		<span id="t419">size2 (correct: 0): </span><br>
+		<span id="t420">size3 (correct: 6): </span><br>
+		<span id="t421">size new (correct: 8): </span><br>
+		<span id="t422">tabIndex (correct: 0): </span><br>
+		<span id="t423">tabIndex2 (correct: 5): </span><br>
+		<span id="t424">tabIndex new (correct: 6): </span><br>
+		<span id="t425">remove before (correct: 1 2 3): </span><br>
+		<span id="t426">remove after (correct: 1 3): </span><br>
+		<span id="t427">add null (correct: 1 3 4): </span><br>
+		<span id="t428">add 1 (correct: 1 2 3 4): </span><br>
+		<br>
 	
 		<h2>Test content</h2>
 		<form id="F1" name="NF1" accept-charset="ISO-8859-1" 
@@ -58,6 +114,27 @@
 		<form id="F3" enctype="test" method="test">
 		</form>
 	
+		<form>
+			<select id="S1" name="N1">
+				<optgroup id="OPT1" label="OPTL1">
+				<option>1</option>
+				<option id="O1" value="V1" label="LB1">O2</option>
+				</optgroup>
+				<option id="O2">3</option>
+				<option id="O3" value="">4</option>
+				<option id="O4">5</option>
+			</select>
+			<select id="S2" multiple>
+			</select>
+			<select id="S3" size="6" tabIndex="5">
+				<option>1</option>
+				<optgroup value="test">
+				<option>2</option>
+				</optgroup>
+				<option>3</option>
+			</select>
+		</form>
+	
 		<script>
 			// Desired result:
 			// Test 1:
@@ -80,6 +157,56 @@
 			// enctype new (correct: multipart/form-data): multipart/form-data
 			// method new (correct: post): post
 			// target new (correct: _Parent): _Parent
+			// Test 2:
+			// disabled (correct: false): false
+			// label (correct: OPTL1): OPTL1
+			// disabled new (correct: true): true
+			// label new (correct: OPTL2): OPTL2
+			// Test 3:
+			// form (correct: FORM): FORM
+			// defaultSelected (correct: false): false
+			// text (correct: O2): O2
+			// index (correct: 1): 1
+			// index2 (correct: 2): 2
+			// disabled (correct: false): false
+			// label (correct: LB1): LB1
+			// selected (correct: false): false
+			// value (correct: V1): V1
+			// value empty (correct: empty):
+			// value none (correct: 5): 5
+			// defaultSelected new (correct: true): true
+			// disabled new (correct: true): true
+			// label new (correct: LB2): LB2
+			// value new (correct: V2): V2
+			// Test 4:
+			// type (correct: select-one): select-one
+			// type (correct: select-multiple): select-multiple
+			// selectedIndex (correct: -1): -1
+			// selectedIndex new (correct: 1): 1
+			// value (correct: V2): V2
+			// value new (correct: V2 or empty): V2
+			// length (correct: 5): 5
+			// length new (correct: not supported or ok): not supported
+			// form (correct: FORM): FORM
+			// options (correct: 5): 5
+			// disabled (correct: false): false
+			// disabled new (correct: true): true
+			// multiple (correct: false): false
+			// multiple2 (correct: true): true
+			// multiple new (correct: true): true
+			// name (correct: N1): N1
+			// name new (correct: N2): N2
+			// size (correct: 0): 0
+			// size2 (correct: 0): 0
+			// size3 (correct: 6): 6
+			// size new (correct: 8): 8
+			// tabIndex (correct: 0): 0
+			// tabIndex2 (correct: 5): 5
+			// tabIndex new (correct: 6): 6
+			// remove before (correct: 1 2 3): 1 2 3
+			// remove after (correct: 1 3): 1 3
+			// add null (correct: 1 3 4): 1 3 4
+			// add 1 (correct: 1 2 3 4): 1 2 3 4
 			
 			var f1 = document.getElementById("F1");
 			var f2 = document.getElementById("F2");
@@ -113,6 +240,98 @@
 			document.getElementById("t1602").firstChild.data += f2.enctype;
 			document.getElementById("t1702").firstChild.data += f2.method;
 			document.getElementById("t1802").firstChild.data += f2.target;
+			
+			var opt1 = document.getElementById("OPT1");
+			document.getElementById("t21").firstChild.data += opt1.disabled;
+			document.getElementById("t22").firstChild.data += opt1.label;
+			opt1.disabled = true;
+			opt1.label = "OPTL2";
+			document.getElementById("t212").firstChild.data += opt1.disabled;
+			document.getElementById("t222").firstChild.data += opt1.label;
+			
+			var o1 = document.getElementById("O1");
+			var o2 = document.getElementById("O2");
+			var o3 = document.getElementById("O3");
+			var o4 = document.getElementById("O4");
+			document.getElementById("t31").firstChild.data += o1.form.nodeName;
+			document.getElementById("t32").firstChild.data += o1.defaultSelected;
+			document.getElementById("t33").firstChild.data += o1.text;
+			document.getElementById("t34").firstChild.data += o1.index;
+			document.getElementById("t35").firstChild.data += o1.disabled;
+			document.getElementById("t36").firstChild.data += o1.label;
+			document.getElementById("t37").firstChild.data += o1.selected;
+			document.getElementById("t38").firstChild.data += o1.value;
+			document.getElementById("t39").firstChild.data += o2.index;
+			document.getElementById("t310").firstChild.data += o3.value;
+			document.getElementById("t311").firstChild.data += o4.value;
+			o1.defaultSelected = true;
+			o1.disabled = true;
+			o1.label = "LB2";
+			o1.value = "V2";
+			document.getElementById("t322").firstChild.data += o1.defaultSelected;
+			document.getElementById("t352").firstChild.data += o1.disabled;
+			document.getElementById("t362").firstChild.data += o1.label;
+			document.getElementById("t382").firstChild.data += o1.value;
+			
+			var s1 = document.getElementById("S1");
+			var s2 = document.getElementById("S2");
+			var s3 = document.getElementById("S3");
+			document.getElementById("t41").firstChild.data += s1.type;
+			document.getElementById("t42").firstChild.data += s2.type;
+			document.getElementById("t43").firstChild.data += s2.selectedIndex;
+			s1.selectedIndex = 1;
+			document.getElementById("t44").firstChild.data += s1.selectedIndex;
+			document.getElementById("t45").firstChild.data += s1.value;
+			s1.value = "V3";
+			document.getElementById("t46").firstChild.data += s1.value;
+			document.getElementById("t47").firstChild.data += s1.length;
+			try {
+				s1.length = 5;
+				document.getElementById("t48").firstChild.data += "ok";
+			} catch (e) {
+				document.getElementById("t48").firstChild.data += e.message;
+			}
+			document.getElementById("t49").firstChild.data += s1.form.nodeName;
+			document.getElementById("t410").firstChild.data += s1.options.length;
+			document.getElementById("t411").firstChild.data += s2.disabled;
+			s2.disabled = true;
+			document.getElementById("t412").firstChild.data += s2.disabled;
+			document.getElementById("t413").firstChild.data += s3.multiple;
+			document.getElementById("t414").firstChild.data += s2.multiple;
+			s3.multiple=true;
+			document.getElementById("t415").firstChild.data += s3.multiple;
+			document.getElementById("t416").firstChild.data += s1.name;
+			s1.name = "N2";
+			document.getElementById("t417").firstChild.data += s1.name;
+			document.getElementById("t418").firstChild.data += s1.size;
+			document.getElementById("t419").firstChild.data += s2.size;
+			document.getElementById("t420").firstChild.data += s3.size;
+			s3.size = 8;
+			document.getElementById("t421").firstChild.data += s3.size;
+			document.getElementById("t422").firstChild.data += s2.tabIndex;
+			document.getElementById("t423").firstChild.data += s3.tabIndex;
+			s3.tabIndex = 6;
+			document.getElementById("t424").firstChild.data += s3.tabIndex;
+			s1.blur();
+			s1.focus();
+			function printOptions(select, to) {
+				for(i = 0; i < select.options.length; i++) {
+					document.getElementById(to).firstChild.data += 
+						" " + select.options.item(i).value;
+				}
+			}
+			printOptions(s3, "t425");
+			s3.remove(1);
+			printOptions(s3, "t426");
+			var opt1 = document.createElement("option");
+			opt1.value = "4";
+			s3.add(opt1, null);
+			s3.add(opt1, null);
+			printOptions(s3, "t427");
+			var opt2 = document.createElement("option");
+			opt2.value = "2";
+			s3.add(opt2, s3.options.item(1));
+			printOptions(s3, "t428");
 		</script>
 	</body>
 </html>
