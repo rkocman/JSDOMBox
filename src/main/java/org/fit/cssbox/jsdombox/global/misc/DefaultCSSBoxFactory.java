@@ -77,6 +77,9 @@ public class DefaultCSSBoxFactory extends JSAdapterFactory
 			// Interface HTMLBaseElement
 			case "base":
 				return new HTMLBaseElement((org.w3c.dom.Element) source, this);
+			// Interface HTMLIsIndexElement
+			case "isindex":
+				return new HTMLIsIndexElement((org.w3c.dom.Element) source, this);
 			// Interface HTMLStyleElement
 			case "style":
 				return new HTMLStyleElement((org.w3c.dom.Element) source, this);

@@ -13,9 +13,13 @@
 		   strong {font-size:110%}
 		</STYLE>
 		<basefont color="gray" face="Verdana">
+		<isindex id="II1" />
 	</head>
 	<body bgColor="gray" background="Img.jpg" text="white" 
 		link="green" alink="yellow" vlink="green">
+		<form action="" id="form2">
+			<isindex id="II2" prompt="Some text" />
+		</form>
 		
 		<strong>Test 1 - HTMLHtmlElement:</strong><br>
 		<span id="t11">Result: </span><br>
@@ -89,13 +93,21 @@
 		<span id="t852">text new (correct: Black): </span><br>
 		<span id="t862">vlink new (correct: Purple): </span><br><br>
 		
-		<strong>Test 9 - HTMLBaseFontElement: </strong><br>
+		<strong>Test 9 - HTMLBaseFontElement (older IE only): </strong><br>
 		<span id="t91">color (correct: gray): </span><br>
 		<span id="t92">face (correct: Verdana): </span><br>
 		<span id="t93">size (correct: 3): </span><br>
 		<span id="t912">color new (correct: Black): </span><br>
 		<span id="t922">face new (correct: Arial): </span><br>
-		<span id="t932">size new (correct: 4): </span>
+		<span id="t932">size new (correct: 4): </span><br><br>
+		
+		<strong>Test 10 - HTMLIsIndexElement (older IE only): </strong><br>
+		<span id="t101">form (correct: null or object): </span><br>
+		<span id="t102">form2 (correct: form2): </span><br>
+		<span id="t103">form elements (correct: 0): </span><br>
+		<span id="t104">prompt (correct: nothing): </span><br>
+		<span id="t105">prompt2 (correct: Some text): </span><br>
+		<span id="t106">prompt new (correct: New text): </span><br>
 		
 		<script type="text/javascript">
 			// Desired result:
@@ -161,13 +173,21 @@
 			// link new (correct: Blue): Blue
 			// text new (correct: Black): Black
 			// vlink new (correct: Purple): Purple
-			// Test 9
+			// Test 9:
 			// color (correct: gray): gray
 			// face (correct: Verdana): Verdana
 			// size (correct: 3): 3
 			// color new (correct: Black): Black
 			// face new (correct: Arial): Arial
 			// size new (correct: 4): 4
+			// Test 10:
+			// form (correct: null or object): FORM
+			// form2 (correct: form2): form2
+			// form elements (correct: 0): 0
+			// prompt (correct: nothing): 
+			// prompt2 (correct: Some text): Some text
+			// prompt new (correct: New text): New text
+			
 			
 			var html = document.getElementsByTagName("HTML").item(0);
 			document.getElementById("t11").firstChild.data += html.version;
@@ -278,6 +298,16 @@
 			document.getElementById("t912").firstChild.data += bf.color;
 			document.getElementById("t922").firstChild.data += bf.face;
 			document.getElementById("t932").firstChild.data += bf.size;
+			
+			var ii1 = document.getElementById("II1");
+			var ii2 = document.getElementById("II2");
+			document.getElementById("t101").firstChild.data += ii1.form;
+			document.getElementById("t102").firstChild.data += ii2.form.id;
+			document.getElementById("t103").firstChild.data += ii2.form.length;
+			document.getElementById("t104").firstChild.data += ii1.prompt;
+			document.getElementById("t105").firstChild.data += ii2.prompt;
+			ii2.prompt = "New text";
+			document.getElementById("t106").firstChild.data += ii2.prompt;
 		</script>
 	</body>
 </html>
