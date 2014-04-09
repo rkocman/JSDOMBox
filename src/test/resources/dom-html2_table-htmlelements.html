@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>DOM Level 2 HTML - Table HTMLElements</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<style>
+			html {
+				font-family: Arial, sans-serif;
+				font-size: 14px;
+			}
+		</style>
+	</head>
+	<body>
+	
+		<strong>Test 1 - HTMLTableCellElement:</strong><br>
+		<span id="t11">cellIndex (correct: 3): </span><br>
+		<span id="t12">cellIndex2 (correct: 1): </span><br>
+		<span id="t13">cellIndex3 (correct: 5): </span><br>
+		<span id="t14">abbr (correct: ABBR1): </span><br>
+		<span id="t15">abbr new (correct: ABBR2): </span><br>
+		<span id="t16">align (correct: Left2): </span><br>
+		<span id="t17">align2 (correct: nothing): </span><br>
+		<span id="t18">align new (correct: Right): </span><br>
+		<span id="t19">axis (correct: AXIS1): </span><br>
+		<span id="t110">axis new (correct: AXIS2): </span><br>
+		<span id="t111">bgColor (correct: Red): </span><br>
+		<span id="t112">bgColor (correct: Green): </span><br>
+		<span id="t113">ch (correct: CHAR1): </span><br>
+		<span id="t114">ch new (correct: CHAR2): </span><br>
+		<span id="t115">chOff (correct: CHOFF1): </span><br>
+		<span id="t116">chOff new (correct: CHOFF2): </span><br>
+		<span id="t117">colSpan (correct: 2): </span><br>
+		<span id="t118">colSpan2 (correct: 1): </span><br>
+		<span id="t119">colSpan new (correct: 3): </span><br>
+		<span id="t120">headers (correct: H1): </span><br>
+		<span id="t121">headers new (correct: H2): </span><br>
+		<span id="t122">height (correct: 10H): </span><br>
+		<span id="t123">height new (correct: 20H): </span><br>
+		<span id="t124">noWrap (correct: false): </span><br>
+		<span id="t125">noWrap new (correct: true): </span><br>
+		<span id="t126">rowSpan (correct: 2): </span><br>
+		<span id="t127">rowSpan2 (correct: 1): </span><br>
+		<span id="t128">rowSpan new (correct: 3): </span><br>
+		<span id="t129">scope (correct: S1): </span><br>
+		<span id="t130">scopeNew (correct: S2): </span><br>
+		<span id="t131">vAlign (correct: Top1): </span><br>
+		<span id="t132">vAlign new (correct: Top2): </span><br>
+		<span id="t133">width (correct: 10W): </span><br>
+		<span id="t134">width new (correct: 20W): </span><br>
+		<br>
+	
+		<h2>Test content</h2>
+		
+		<table>
+			<tr>
+				<th></th>
+			 	<td></td>
+			 	<td></td>
+			 	<th id="TC1" abbr="ABBR1" align="Left2" axis="AXIS1" bgcolor="Red"
+			 		char="CHAR1" charOff="CHOFF1" colspan="2" headers="H1" height="10H" 
+			 		rowSpan="2" scope="S1" valign="Top1" width="10W"
+			 		>TC1</th>
+			 	<td></td>
+			 	<td id="TC3"></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td id="TC2">TC2</td>
+				<td></td>
+			</tr>
+		</table>
+	
+		<script>
+			// Desired result:
+			// Test 1:
+			// cellIndex (correct: 3): 3
+			// cellIndex2 (correct: 1): 1
+			// cellIndex3 (correct: 5): 5
+			// abbr (correct: ABBR1): ABBR1
+			// abbr new (correct: ABBR2): ABBR2
+			// align (correct: Left2): Left2
+			// align2 (correct: nothing):
+			// align new (correct: Right): Right
+			// axis (correct: AXIS1): AXIS1
+			// axis new (correct: AXIS2): AXIS2
+			// bgColor (correct: Red): Red
+			// bgColor (correct: Green): Green
+			// ch (correct: CHAR1): CHAR1
+			// ch new (correct: CHAR2): CHAR2
+			// chOff (correct: CHOFF1): CHOFF1
+			// chOff new (correct: CHOFF2): CHOFF2
+			// colSpan (correct: 2): 2
+			// colSpan2 (correct: 1): 1
+			// colSpan new (correct: 3): 3
+			// headers (correct: H1): H1
+			// headers new (correct: H2): H2
+			// height (correct: 10H): 10H
+			// height new (correct: 20H): 20H
+			// noWrap (correct: false): false
+			// noWrap new (correct: true): true
+			// rowSpan (correct: 2): 2
+			// rowSpan2 (correct: 1): 1
+			// rowSpan new (correct: 3): 3
+			// scope (correct: S1): S1
+			// scopeNew (correct: S2): S2
+			// vAlign (correct: Top1): Top1
+			// vAlign new (correct: Top2): Top2
+			// width (correct: 10W): 10W
+			// width new (correct: 20W): 20W
+			
+			var tc1 = document.getElementById("TC1");
+			var tc2 = document.getElementById("TC2");
+			var tc3 = document.getElementById("TC3");
+			document.getElementById("t11").firstChild.data += tc1.cellIndex;
+			document.getElementById("t12").firstChild.data += tc2.cellIndex;
+			document.getElementById("t13").firstChild.data += tc3.cellIndex;
+			document.getElementById("t14").firstChild.data += tc1.abbr;
+			tc1.abbr = "ABBR2";
+			document.getElementById("t15").firstChild.data += tc1.abbr;
+			document.getElementById("t16").firstChild.data += tc1.align;
+			document.getElementById("t17").firstChild.data += tc2.align;
+			tc1.align = "Right";
+			document.getElementById("t18").firstChild.data += tc1.align;
+			document.getElementById("t19").firstChild.data += tc1.axis;
+			tc1.axis = "AXIS2";
+			document.getElementById("t110").firstChild.data += tc1.axis;
+			document.getElementById("t111").firstChild.data += tc1.bgColor;
+			tc1.bgColor = "Green";
+			document.getElementById("t112").firstChild.data += tc1.bgColor;
+			document.getElementById("t113").firstChild.data += tc1.ch;
+			tc1.ch = "CHAR2";
+			document.getElementById("t114").firstChild.data += tc1.ch;
+			document.getElementById("t115").firstChild.data += tc1.chOff;
+			tc1.chOff = "CHOFF2";
+			document.getElementById("t116").firstChild.data += tc1.chOff;
+			document.getElementById("t117").firstChild.data += tc1.colSpan;
+			document.getElementById("t118").firstChild.data += tc2.colSpan;
+			tc1.colSpan = 3;
+			document.getElementById("t119").firstChild.data += tc1.colSpan;
+			document.getElementById("t120").firstChild.data += tc1.headers;
+			tc1.headers = "H2";
+			document.getElementById("t121").firstChild.data += tc1.headers;
+			document.getElementById("t122").firstChild.data += tc1.height;
+			tc1.height = "20H";
+			document.getElementById("t123").firstChild.data += tc1.height;
+			document.getElementById("t124").firstChild.data += tc1.noWrap;
+			tc1.noWrap = true;
+			document.getElementById("t125").firstChild.data += tc1.noWrap;
+			document.getElementById("t126").firstChild.data += tc1.rowSpan;
+			document.getElementById("t127").firstChild.data += tc2.rowSpan;
+			tc1.rowSpan = 3;
+			document.getElementById("t128").firstChild.data += tc1.rowSpan;
+			document.getElementById("t129").firstChild.data += tc1.scope;
+			tc1.scope = "S2";
+			document.getElementById("t130").firstChild.data += tc1.scope;
+			document.getElementById("t131").firstChild.data += tc1.vAlign;
+			tc1.vAlign = "Top2";
+			document.getElementById("t132").firstChild.data += tc1.vAlign;
+			document.getElementById("t133").firstChild.data += tc1.width;
+			tc1.width = "20W";
+			document.getElementById("t134").firstChild.data += tc1.width;
+		</script>
+	</body>
+</html>
