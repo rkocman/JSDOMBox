@@ -25,12 +25,14 @@ public class HTMLTableCellElement extends HTMLElement
 	
 	public int getCellIndex()
 	{
+		String table = jsaf.innerNameFormat("table");
 		String tr = jsaf.innerNameFormat("tr");
 		String th = jsaf.innerNameFormat("th");
 		String td = jsaf.innerNameFormat("td");
 		String[] tags = new String[] {th, td};
 		String[] parentTags = new String[] {tr};
-		return HTMLTraversal.getIndexInParentTag(source, tags, parentTags);
+		String[] skippedTags = new String[] {table};
+		return HTMLTraversal.getIndexInParentTag(source, tags, parentTags, skippedTags);
 	}
 	
 	public String getAbbr()

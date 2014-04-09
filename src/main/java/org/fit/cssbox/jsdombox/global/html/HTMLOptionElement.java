@@ -51,7 +51,8 @@ public class HTMLOptionElement extends HTMLElement
 		String option = jsaf.innerNameFormat("option");
 		String[] tags = new String[] {option};
 		String[] parentTags = new String[] {select};
-		return HTMLTraversal.getIndexInParentTag(source, tags, parentTags);
+		String[] skippedTags = new String[] {};
+		return HTMLTraversal.getIndexInParentTag(source, tags, parentTags, skippedTags);
 	}
 	
 	public boolean getDisabled()

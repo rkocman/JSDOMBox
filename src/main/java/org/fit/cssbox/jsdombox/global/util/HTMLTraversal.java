@@ -186,9 +186,11 @@ public class HTMLTraversal
 	 * @param dom Source Node
 	 * @param tags Array of relevant HTML tags
 	 * @param parentTags Array of relevant parent HTML tags
+	 * @param skippedTags Array of HTML tags that should be skipped
 	 * @return Ordinal index (zero-based) or -1
 	 */
-	public static int getIndexInParentTag(Node dom, String[] tags, String[] parentTags)
+	public static int getIndexInParentTag(Node dom, String[] tags, 
+			String[] parentTags, String[] skippedTags)
 	{
 		Node parent = getParentTag(dom, parentTags);
 		if (parent == null) return -1;
@@ -197,14 +199,18 @@ public class HTMLTraversal
 		
 		for (int i = 0; i < parent.getChildNodes().getLength(); i++) {
 			Node node = parent.getChildNodes().item(i);
-			if (getIndex(dom, node, tags))
+			if (getIndex(dom, node, tags, skippedTags))
 				return index;
 		}
 		
 		return -1;
 	}
-	protected static boolean getIndex(Node source, Node dom, String[] tags)
+	protected static boolean getIndex(Node source, Node dom, String[] tags, 
+			String[] skippedTags)
 	{
+		if (isSearchedTag(dom, skippedTags))
+			return false;
+		
 		if (isSearchedTag(dom, tags)) {
 			if (dom.isSameNode(source))
 				return true;
@@ -213,7 +219,7 @@ public class HTMLTraversal
 		
 		for (int i = 0; i < dom.getChildNodes().getLength(); i++) {
 			Node node = dom.getChildNodes().item(i);
-			if (getIndex(source, node, tags))
+			if (getIndex(source, node, tags, skippedTags))
 				return true;
 		}
 		
