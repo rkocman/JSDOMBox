@@ -31,7 +31,8 @@ public class HTMLFormElement extends HTMLElement
 		String[] tags = new String[] {
 			button, input, select, textarea, object, fieldset
 		};
-		elements = new HTMLCollection(source, jsaf, tags);
+		String[] skippedTags = new String[] {};
+		elements = new HTMLCollection(source, jsaf, tags, skippedTags);
 	}
 	
 	

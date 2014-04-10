@@ -24,7 +24,8 @@ public class HTMLMapElement extends HTMLElement
 		// Areas HTMLCollection
 		String area = jsaf.innerNameFormat("area");
 		String[] tags = new String[] {area};
-		areas = new HTMLCollection(source, jsaf, tags);
+		String[] skippedTags = new String[] {};
+		areas = new HTMLCollection(source, jsaf, tags, skippedTags);
 	}
 	
 	

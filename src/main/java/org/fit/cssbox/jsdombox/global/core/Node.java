@@ -24,6 +24,17 @@ public class Node extends JSAdapter
 		this.source = source;
 	}
 	
+	/**
+	 * Gets the source Node from the Node Adapter
+	 * @return Source Node
+	 */
+	protected org.w3c.dom.Node getSource(Node node)
+	{
+		if (node == null)
+			return null;
+		return node.source;
+	}
+	
 	
 	// DOM Level 1 Implementation
 	
@@ -110,28 +121,28 @@ public class Node extends JSAdapter
 	
 	public JSAdapter insertBefore(Node newChild, Node refChild)
 	{
-		Object result = source.insertBefore(newChild.source, refChild.source);
+		Object result = source.insertBefore(getSource(newChild), getSource(refChild));
 		jsaf.recomputeStyles();
 		return jsaf.create(result, JSAdapterType.NODE);
 	}
 	
 	public JSAdapter replaceChild(Node newChild, Node oldChild)
 	{
-		Object result = source.replaceChild(newChild.source, oldChild.source);
+		Object result = source.replaceChild(getSource(newChild), getSource(oldChild));
 		jsaf.recomputeStyles();
 		return jsaf.create(result, JSAdapterType.NODE);
 	}
 	
 	public JSAdapter removeChild(Node oldChild)
 	{
-		Object result = source.removeChild(oldChild.source);
+		Object result = source.removeChild(getSource(oldChild));
 		jsaf.recomputeStyles();
 		return jsaf.create(result, JSAdapterType.NODE);
 	}
 	
 	public JSAdapter appendChild(Node newChild)
 	{
-		Object result = source.appendChild(newChild.source);
+		Object result = source.appendChild(getSource(newChild));
 		jsaf.recomputeStyles();
 		return jsaf.create(result, JSAdapterType.NODE);
 	}

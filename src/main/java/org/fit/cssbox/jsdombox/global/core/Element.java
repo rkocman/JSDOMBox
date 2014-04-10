@@ -62,14 +62,14 @@ public class Element extends Node
 	
 	public JSAdapter setAttributeNode(Attr newAttr)
 	{
-		Object result = source.setAttributeNode(newAttr.source);
+		Object result = source.setAttributeNode((org.w3c.dom.Attr) getSource(newAttr));
 		jsaf.recomputeStyles();
 		return jsaf.create(result, JSAdapterType.ATTR);
 	}
 	
 	public JSAdapter removeAttributeNode(Attr oldAttr)
 	{
-		Object result = source.removeAttributeNode(oldAttr.source);
+		Object result = source.removeAttributeNode((org.w3c.dom.Attr) getSource(oldAttr));
 		jsaf.recomputeStyles();
 		return jsaf.create(result, JSAdapterType.ATTR);
 	}

@@ -25,6 +25,17 @@ public class NamedNodeMap extends JSAdapter
 		this.source = source;
 	}
 	
+	/**
+	 * Gets the source Node from the Node Adapter
+	 * @return Source Node
+	 */
+	protected org.w3c.dom.Node getSource(Node node)
+	{
+		if (node == null)
+			return null;
+		return node.source;
+	}
+	
 	
 	// DOM Level 1 Implementation
 	
@@ -37,7 +48,7 @@ public class NamedNodeMap extends JSAdapter
 	
 	public JSAdapter setNamedItem(Node arg)
 	{
-		Object result = source.setNamedItem(arg.source);
+		Object result = source.setNamedItem(getSource(arg));
 		jsaf.recomputeStyles();
 		return jsaf.create(result, JSAdapterType.NODE);
 	}

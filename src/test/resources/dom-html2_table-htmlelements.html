@@ -48,6 +48,42 @@
 		<span id="t133">width (correct: 10W): </span><br>
 		<span id="t134">width new (correct: 20W): </span><br>
 		<br>
+		
+		<strong>Test 2 - HTMLTableRowElement:</strong><br>
+		<span id="t21">rowIndex (correct: 13): </span><br>
+		<span id="t22">rowIndex2 (correct: 5): </span><br>
+		<span id="t23">rowIndex3 (correct: 1): </span><br>
+		<span id="t24">rowIndex4 (correct: 0): </span><br>
+		<span id="t25">rowIndex5 (correct: 10): </span><br>
+		<span id="t26">sectionRowIndex (correct: 1): </span><br>
+		<span id="t27">sectionRowIndex2 (correct: 2): </span><br>
+		<span id="t28">sectionRowIndex3 (correct: 1): </span><br>
+		<span id="t29">sectionRowIndex4 (correct: 0): </span><br>
+		<span id="t210">sectionRowIndex5 (correct: 1): </span><br>
+		<span id="t211">cells length (correct: 5): </span><br>
+		<span id="t212">cells tags (correct: TD TH TH TH TD): </span><br>
+		<span id="t213">align (correct: Left2): </span><br>
+		<span id="t214">align new (correct: Right): </span><br>
+		<span id="t215">bgColor (correct: Red): </span><br>
+		<span id="t216">bgColor new (correct: Green): </span><br>
+		<span id="t217">ch (correct: CHAR1): </span><br>
+		<span id="t218">ch new (correct: CHAR2): </span><br>
+		<span id="t219">chOff (correct: CHOFF1): </span><br>
+		<span id="t220">chOff new (correct: CHOFF2): </span><br>
+		<span id="t221">vAlign (correct: Top1): </span><br>
+		<span id="t222">vAlign new (correct: Top2): </span><br>
+		<span id="t223">insertCell -2 (correct: ERROR): </span><br>
+		<span id="t224">insertCell -1 (correct: TH TD): </span><br>
+		<span id="t225">insertCell 0 (correct: TD TH TD): </span><br>
+		<span id="t226">insertCell 3 (correct: TD TH TD TD): </span><br>
+		<span id="t227">insertCell 20 (correct: ERROR): </span><br>
+		<span id="t228">insertCell return (correct: TD): </span><br>
+		<span id="t229">deleteCell -2 (correct: ERROR): </span><br>
+		<span id="t230">deleteCell 5 (correct: ERROR): </span><br>
+		<span id="t231">deleteCell 4 (correct: TD TH TD TD): </span><br>
+		<span id="t232">deleteCell -1 (correct: TD TH): </span><br>
+		<span id="t233">deleteCell 0 (correct: TH): </span><br>
+		<br>
 	
 		<h2>Test content</h2>
 		
@@ -70,6 +106,49 @@
 				<td id="TC2">TC2</td>
 				<td></td>
 			</tr>
+		</table>
+		
+		<table>
+			<tfoot>
+				<tr><td>
+					<table><tr><td></td></tr></table>
+				</td></tr>
+				<tr id="TR1"><th></th></tr>
+				<tr><th></th></tr>
+			</tfoot>
+			<tbody>
+				<tr><td>
+					<table><tr><td></td></tr></table>
+				</td></tr>
+				<tr><td></td></tr>
+				<tr id="TR2"><th></th></tr>
+			</tbody>
+			<thead>
+				<tr><td>
+					<table><tr><td></td></tr></table>
+				</td></tr>
+				<tr id="TR3"><td></td></tr>
+				<tr><th></th></tr>
+			</thead>
+			<tbody>
+				<tr><td>
+					<table><tr id="TR4"><td></td></tr></table>
+				</td></tr>
+				<tr><td></td></tr>
+				<tr><th></th></tr>
+			</tbody>
+			<tr><td>
+				<table><tr><td></td></tr></table>
+			</td></tr>
+			<tr id="TR5" align="Left2" bgColor="Red" char="CHAR1" 
+				charOff="CHOFF1" valign="Top1">
+				<td><table><tr id="TR4"><td></td></tr></table></td>
+				<th></th>
+				<th></th>
+				<th></th>
+				<td></td>
+			</tr>
+			<tr><th></th></tr>
 		</table>
 	
 		<script>
@@ -109,6 +188,40 @@
 			// vAlign new (correct: Top2): Top2
 			// width (correct: 10W): 10W
 			// width new (correct: 20W): 20W
+			// Test 2:
+			// rowIndex (correct: 13): 13
+			// rowIndex2 (correct: 5): 5
+			// rowIndex3 (correct: 1): 1
+			// rowIndex4 (correct: 0): 0
+			// rowIndex5 (correct: 10): 10
+			// sectionRowIndex (correct: 1): 1
+			// sectionRowIndex2 (correct: 2): 2
+			// sectionRowIndex3 (correct: 1): 1
+			// sectionRowIndex4 (correct: 0): 0
+			// sectionRowIndex5 (correct: 1): 1
+			// cells length (correct: 5): 5
+			// cells tags (correct: TD TH TH TH TD): TD TH TH TH TD
+			// align (correct: Left2): Left2
+			// align new (correct: Right): Right
+			// bgColor (correct: Red): Red
+			// bgColor new (correct: Green): Green
+			// ch (correct: CHAR1): CHAR1
+			// ch new (correct: CHAR2): CHAR2
+			// chOff (correct: CHOFF1): CHOFF1
+			// chOff new (correct: CHOFF2): CHOFF2
+			// vAlign (correct: Top1): Top1
+			// vAlign new (correct: Top2): Top2
+			// insertCell -2 (correct: ERROR): ERROR
+			// insertCell -1 (correct: TH TD): TH TD
+			// insertCell 0 (correct: TD TH TD): TD TH TD
+			// insertCell 3 (correct: TD TH TD TD): TD TH TD TD
+			// insertCell 20 (correct: ERROR): ERROR
+			// insertCell return (correct: TD): TD
+			// deleteCell -2 (correct: ERROR): ERROR
+			// deleteCell 5 (correct: ERROR): ERROR
+			// deleteCell 4 (correct: TD TH TD TD): TD TH TD TD
+			// deleteCell -1 (correct: TD TH TD): TD TH TD
+			// deleteCell 0 (correct: TH TD): TH TD
 			
 			var tc1 = document.getElementById("TC1");
 			var tc2 = document.getElementById("TC2");
@@ -161,6 +274,86 @@
 			document.getElementById("t133").firstChild.data += tc1.width;
 			tc1.width = "20W";
 			document.getElementById("t134").firstChild.data += tc1.width;
+			
+			var tr1 = document.getElementById("TR1");
+			var tr2 = document.getElementById("TR2");
+			var tr3 = document.getElementById("TR3");
+			var tr4 = document.getElementById("TR4");
+			var tr5 = document.getElementById("TR5");
+			document.getElementById("t21").firstChild.data += tr1.rowIndex;
+			document.getElementById("t22").firstChild.data += tr2.rowIndex;
+			document.getElementById("t23").firstChild.data += tr3.rowIndex;
+			document.getElementById("t24").firstChild.data += tr4.rowIndex;
+			document.getElementById("t25").firstChild.data += tr5.rowIndex;
+			document.getElementById("t26").firstChild.data += tr1.sectionRowIndex;
+			document.getElementById("t27").firstChild.data += tr2.sectionRowIndex;
+			document.getElementById("t28").firstChild.data += tr3.sectionRowIndex;
+			document.getElementById("t29").firstChild.data += tr4.sectionRowIndex;
+			document.getElementById("t210").firstChild.data += tr5.sectionRowIndex;
+			document.getElementById("t211").firstChild.data += tr5.cells.length;
+			for (var i = 0; i < tr5.cells.length; i++) {
+				document.getElementById("t212").firstChild.data += " "+tr5.cells.item(i).tagName;
+			}
+			document.getElementById("t213").firstChild.data += tr5.align;
+			tr5.align = "Right";
+			document.getElementById("t214").firstChild.data += tr5.align;
+			document.getElementById("t215").firstChild.data += tr5.bgColor;
+			tr5.bgColor = "Green";
+			document.getElementById("t216").firstChild.data += tr5.bgColor;
+			document.getElementById("t217").firstChild.data += tr5.ch;
+			tr5.ch = "CHAR2";
+			document.getElementById("t218").firstChild.data += tr5.ch;
+			document.getElementById("t219").firstChild.data += tr5.chOff;
+			tr5.chOff = "CHOFF2";
+			document.getElementById("t220").firstChild.data += tr5.chOff;
+			document.getElementById("t221").firstChild.data += tr5.vAlign;
+			tr5.vAlign = "Top2";
+			document.getElementById("t222").firstChild.data += tr5.vAlign;
+			function printCells(tr, to) {
+				for (var i = 0; i < tr.cells.length; i++) {
+					document.getElementById(to).firstChild.data += 
+						" " + tr.cells.item(i).tagName;
+				}
+			}
+			try {
+				tr1.insertCell(-2);
+				document.getElementById("t223").firstChild.data += "OK";
+			} catch(e) {
+				document.getElementById("t223").firstChild.data += "ERROR";
+			}
+			tr1.insertCell(-1);
+			printCells(tr1,"t224");
+			tr1.insertCell(0);
+			printCells(tr1,"t225");
+			tr1.insertCell(3);
+			printCells(tr1,"t226");
+			try {
+				tr1.insertCell(30);
+				document.getElementById("t227").firstChild.data += "OK";
+			} catch(e) {
+				document.getElementById("t227").firstChild.data += "ERROR";
+			}
+			document.getElementById("t228").firstChild.data +=
+				tr1.insertCell(-1).tagName;
+			try {
+				tr1.deleteCell(-2);
+				document.getElementById("t229").firstChild.data += "OK";
+			} catch(e) {
+				document.getElementById("t229").firstChild.data += "ERROR";
+			}
+			try {
+				tr1.deleteCell(5);
+				document.getElementById("t230").firstChild.data += "OK";
+			} catch(e) {
+				document.getElementById("t230").firstChild.data += "ERROR";
+			}
+			tr1.deleteCell(4);
+			printCells(tr1,"t231");
+			tr1.deleteCell(-1);
+			tr1.deleteCell(-1);
+			printCells(tr1,"t232");
+			tr1.deleteCell(0);
+			printCells(tr1,"t233");
 		</script>
 	</body>
 </html>

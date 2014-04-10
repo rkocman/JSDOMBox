@@ -19,12 +19,15 @@ public class HTMLCollection extends JSAdapter
 {
 	protected org.w3c.dom.Node source;
 	protected String[] tags; // All relevant HTML tags for this collection
+	protected String[] skippedTags; // All HTML tags that should be skipped
 	
-	public HTMLCollection(org.w3c.dom.Node source, JSAdapterFactory jsaf, String[] tags)
+	public HTMLCollection(org.w3c.dom.Node source, JSAdapterFactory jsaf, 
+			String[] tags, String[] skippedTags)
 	{
 		super(source, jsaf);
 		this.source = source;
 		this.tags = tags;
+		this.skippedTags = skippedTags;
 	}
 	
 	
@@ -32,18 +35,18 @@ public class HTMLCollection extends JSAdapter
 	
 	public int getLength()
 	{
-		return HTMLTraversal.getCountOfTagsInNode(source, tags);
+		return HTMLTraversal.getCountOfTagsInNode(source, tags, skippedTags);
 	}
 	
 	public JSAdapter item(int index)
 	{
-		Object result = HTMLTraversal.getNthTagInNode(source, tags, index); 
+		Object result = HTMLTraversal.getNthTagInNode(source, tags, skippedTags, index); 
 		return jsaf.create(result, JSAdapterType.NODE);
 	}
 	
 	public JSAdapter namedItem(String name)
 	{
-		Object result = HTMLTraversal.getNamedTagInNode(source, tags, name, jsaf);
+		Object result = HTMLTraversal.getNamedTagInNode(source, tags, skippedTags, name, jsaf);
 		return jsaf.create(result, JSAdapterType.NODE);
 	}
 	

@@ -20,6 +20,7 @@ public class HTMLOptionsCollection extends JSAdapter
 {
 	protected org.w3c.dom.Node source;
 	protected String[] tags; // All relevant HTML tags for this collection
+	protected String[] skippedTags; // All HTML tags that should be skipped
 	
 	public HTMLOptionsCollection(org.w3c.dom.Node source, JSAdapterFactory jsaf)
 	{
@@ -28,13 +29,14 @@ public class HTMLOptionsCollection extends JSAdapter
 		
 		String option = jsaf.innerNameFormat("option");
 		this.tags = new String[] {option};
+		this.skippedTags = new String[] {};
 	}
 	
 	// DOM Level 2 HTML Implementation
 	
 	public int getLength()
 	{
-		return HTMLTraversal.getCountOfTagsInNode(source, tags);
+		return HTMLTraversal.getCountOfTagsInNode(source, tags, skippedTags);
 	}
 	public void setLength(int length)
 	{
@@ -44,13 +46,13 @@ public class HTMLOptionsCollection extends JSAdapter
 	
 	public JSAdapter item(int index)
 	{
-		Object result = HTMLTraversal.getNthTagInNode(source, tags, index); 
+		Object result = HTMLTraversal.getNthTagInNode(source, tags, skippedTags, index); 
 		return jsaf.create(result, JSAdapterType.NODE);
 	}
 	
 	public JSAdapter namedItem(String name)
 	{
-		Object result = HTMLTraversal.getNamedTagInNode(source, tags, name, jsaf);
+		Object result = HTMLTraversal.getNamedTagInNode(source, tags, skippedTags, name, jsaf);
 		return jsaf.create(result, JSAdapterType.NODE);
 	}
 	

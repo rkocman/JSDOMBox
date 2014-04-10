@@ -108,7 +108,7 @@ public class Document extends Node
 	
 	public JSAdapter importNode(Node importedNode, boolean deep)
 	{
-		Object result = source.importNode(importedNode.source, deep);
+		Object result = source.importNode(getSource(importedNode), deep);
 		return jsaf.create(result, JSAdapterType.NODE);
 	}
 	
