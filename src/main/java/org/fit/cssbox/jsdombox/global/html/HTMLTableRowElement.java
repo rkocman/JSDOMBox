@@ -123,7 +123,6 @@ public class HTMLTableRowElement extends HTMLElement
 	public JSAdapter insertCell(int index)
 	{
 		int length = cells.getLength();
-		
 		if (index < -1 || index > length)
 			throw new DOMException(DOMException.INDEX_SIZE_ERR, "insertCell invalid index");
 		

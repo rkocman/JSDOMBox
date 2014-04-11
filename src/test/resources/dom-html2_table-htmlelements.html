@@ -84,6 +84,31 @@
 		<span id="t232">deleteCell -1 (correct: TD TH): </span><br>
 		<span id="t233">deleteCell 0 (correct: TH): </span><br>
 		<br>
+		
+		<strong>Test 3 - HTMLTableSectionElement:</strong><br>
+		<span id="t31">align (correct: Left2): </span><br>
+		<span id="t32">align new (correct: Right): </span><br>
+		<span id="t33">ch (correct: CHAR1): </span><br>
+		<span id="t34">ch new (correct: CHAR2): </span><br>
+		<span id="t35">chOff (correct: CHOFF1): </span><br>
+		<span id="t36">chOff new (correct: CHOFF2): </span><br>
+		<span id="t37">vAlign (correct: Top1): </span><br>
+		<span id="t38">vAlign new (correct: Top2): </span><br>
+		<span id="t39">rows thead (correct: 3): </span><br>
+		<span id="t310">rows tbody (correct: 3): </span><br>
+		<span id="t311">rows tfoot (correct: 3): </span><br>
+		<span id="t312">insertRow -2 (correct: ERROR): </span><br>
+		<span id="t313">insertRow -1 (correct: 1 1 1 0): </span><br>
+		<span id="t314">insertRow 5 (correct: ERROR): </span><br>
+		<span id="t315">insertRow 4 (correct: 1 1 1 0 0): </span><br>
+		<span id="t316">insertRow 1 (correct: 1 0 1 1 0 0): </span><br>
+		<span id="t317">insertRow return (correct: TR): </span><br>
+		<span id="t318">deleteCell -2 (correct: ERROR): </span><br>
+		<span id="t319">deleteCell 7 (correct: ERROR): </span><br>
+		<span id="t320">deleteCell 6 (correct: 1 0 1 1 0 0): </span><br>
+		<span id="t321">deleteCell -1 (correct: 1 0 1 1 0): </span><br>
+		<span id="t322">deleteCell 2 (correct: 1 0 1 0): </span><br>
+		<br>
 	
 		<h2>Test content</h2>
 		
@@ -109,7 +134,7 @@
 		</table>
 		
 		<table>
-			<tfoot>
+			<tfoot id="TS3">
 				<tr><td>
 					<table><tr><td></td></tr></table>
 				</td></tr>
@@ -123,14 +148,15 @@
 				<tr><td></td></tr>
 				<tr id="TR2"><th></th></tr>
 			</tbody>
-			<thead>
+			<thead id="TS1" align="Left2" char="CHAR1" 
+				charOff="CHOFF1" valign="Top1">
 				<tr><td>
 					<table><tr><td></td></tr></table>
 				</td></tr>
 				<tr id="TR3"><td></td></tr>
 				<tr><th></th></tr>
 			</thead>
-			<tbody>
+			<tbody id="TS2">
 				<tr><td>
 					<table><tr id="TR4"><td></td></tr></table>
 				</td></tr>
@@ -222,6 +248,29 @@
 			// deleteCell 4 (correct: TD TH TD TD): TD TH TD TD
 			// deleteCell -1 (correct: TD TH TD): TD TH TD
 			// deleteCell 0 (correct: TH TD): TH TD
+			// Test 3:
+			// align (correct: Left2): Left2
+			// align new (correct: Right): Right
+			// ch (correct: CHAR1): CHAR1
+			// ch new (correct: CHAR2): CHAR2
+			// chOff (correct: CHOFF1): CHOFF1
+			// chOff new (correct: CHOFF2): CHOFF2
+			// vAlign (correct: Top1): Top1
+			// vAlign new (correct: Top2): Top2
+			// rows thead (correct: 3): 3
+			// rows tbody (correct: 3): 3
+			// rows tfoot (correct: 3): 3
+			// insertRow -2 (correct: ERROR): ERROR
+			// insertRow -1 (correct: 1 1 1 0): 1 1 1 0
+			// insertRow 5 (correct: ERROR): ERROR
+			// insertRow 4 (correct: 1 1 1 0 0): 1 1 1 0 0
+			// insertRow 1 (correct: 1 0 1 1 0 0): 1 0 1 1 0 0
+			// insertRow return (correct: TR): TR
+			// deleteCell -2 (correct: ERROR): ERROR
+			// deleteCell 7 (correct: ERROR): ERROR
+			// deleteCell 6 (correct: 1 0 1 1 0 0): 1 0 1 1 0 0
+			// deleteCell -1 (correct: 1 0 1 1 0): 1 0 1 1 0
+			// deleteCell 2 (correct: 1 0 1 0): 1 0 1 0
 			
 			var tc1 = document.getElementById("TC1");
 			var tc2 = document.getElementById("TC2");
@@ -354,6 +403,69 @@
 			printCells(tr1,"t232");
 			tr1.deleteCell(0);
 			printCells(tr1,"t233");
+			
+			var ts1 = document.getElementById("TS1");
+			var ts2 = document.getElementById("TS2");
+			var ts3 = document.getElementById("TS3");
+			document.getElementById("t31").firstChild.data += ts1.align;
+			ts1.align = "Right";
+			document.getElementById("t32").firstChild.data += ts1.align;
+			document.getElementById("t33").firstChild.data += ts1.ch;
+			ts1.ch = "CHAR2";
+			document.getElementById("t34").firstChild.data += ts1.ch;
+			document.getElementById("t35").firstChild.data += ts1.chOff;
+			ts1.chOff = "CHOFF2";
+			document.getElementById("t36").firstChild.data += ts1.chOff;
+			document.getElementById("t37").firstChild.data += ts1.vAlign;
+			ts1.vAlign = "Top2";
+			document.getElementById("t38").firstChild.data += ts1.vAlign;
+			document.getElementById("t39").firstChild.data += ts1.rows.length;
+			document.getElementById("t310").firstChild.data += ts2.rows.length;
+			document.getElementById("t311").firstChild.data += ts3.rows.length;
+			function printRows(ts, to) {
+				for (var i = 0; i < ts.rows.length; i++) {
+					document.getElementById(to).firstChild.data += 
+						" " + ts.rows.item(i).cells.length;
+				}
+			}
+			try {
+				ts1.insertRow(-2);
+				document.getElementById("t312").firstChild.data += "OK";
+			} catch(e) {
+				document.getElementById("t312").firstChild.data += "ERROR";
+			}
+			ts1.insertRow(-1);
+			printRows(ts1, "t313");
+			try {
+				ts1.insertRow(5);
+				document.getElementById("t314").firstChild.data += "OK";
+			} catch(e) {
+				document.getElementById("t314").firstChild.data += "ERROR";
+			}
+			ts1.insertRow(4);
+			printRows(ts1, "t315");
+			ts1.insertRow(1);
+			printRows(ts1, "t316");
+			document.getElementById("t317").firstChild.data += 
+				ts1.insertRow(-1).tagName;
+			try {
+				ts1.deleteRow(-2);
+				document.getElementById("t318").firstChild.data += "OK";
+			} catch(e) {
+				document.getElementById("t318").firstChild.data += "ERROR";
+			}
+			try {
+				ts1.deleteRow(7);
+				document.getElementById("t319").firstChild.data += "OK";
+			} catch(e) {
+				document.getElementById("t319").firstChild.data += "ERROR";
+			}
+			ts1.deleteRow(6);
+			printRows(ts1, "t320");
+			ts1.deleteRow(-1);
+			printRows(ts1, "t321");
+			ts1.deleteRow(2);
+			printRows(ts1, "t322");
 		</script>
 	</body>
 </html>
