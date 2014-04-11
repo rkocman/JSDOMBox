@@ -189,6 +189,9 @@ public class DefaultCSSBoxFactory extends JSAdapterFactory
 			// Interface HTMLScriptElement
 			case "script":
 				return new HTMLScriptElement((org.w3c.dom.Element) source, this);
+			// Interface HTMLTableCaptionElement
+			case "caption":
+				return new HTMLTableCaptionElement((org.w3c.dom.Element) source, this);
 			// Interface HTMLTableColElement
 			case "col": case "colgroup":
 				return new HTMLTableColElement((org.w3c.dom.Element) source, this);

@@ -129,6 +129,11 @@
 		<span id="t414">width (correct: 10W): </span><br>
 		<span id="t415">width new (correct: 20W): </span><br>
 		<br>
+		
+		<strong>Test 5 - HTMLTableCaptionElement:</strong><br>
+		<span id="t51">align (correct: Left2): </span><br>
+		<span id="t52">align new (correct: Right2): </span><br>
+		<br>
 	
 		<h2>Test content</h2>
 		
@@ -206,6 +211,7 @@
 				<td></td>
 			</tr>
 			<tr><th></th></tr>
+			<caption id="CAP1" align="Left2">Test Caption</caption>
 		</table>
 	
 		<script>
@@ -320,6 +326,9 @@
 			// vAlign new (correct: Top2): Top2
 			// width (correct: 10W): 10W
 			// width new (correct: 20W): 20W
+			// Test 5:
+			// align (correct: Left2): Left2
+			// align new (correct: Right2): Right2
 			
 			var tc1 = document.getElementById("TC1");
 			var tc2 = document.getElementById("TC2");
@@ -547,6 +556,11 @@
 			document.getElementById("t414").firstChild.data += c1.width;
 			c2.width = "20W";
 			document.getElementById("t415").firstChild.data += c2.width;
+			
+			var cap1 = document.getElementById("CAP1");
+			document.getElementById("t51").firstChild.data += cap1.align;
+			cap1.align = "Right2";
+			document.getElementById("t52").firstChild.data += cap1.align;
 		</script>
 	</body>
 </html>
