@@ -168,4 +168,12 @@ public class HTMLAnchorElement extends HTMLElement
 		jsaf.htmlEvent.anchor_focus(source);
 	}
 	
+	
+	// DOM Level 2 HTML - ECMAScript Language Binding
+	
+	public String toString()
+	{
+		return getHref();
+	}
+	
 }

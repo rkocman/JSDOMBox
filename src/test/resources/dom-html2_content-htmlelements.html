@@ -95,7 +95,8 @@
 		<span id="t10902">shape new (correct: Circle): </span><br>
 		<span id="t101002">tabIndex new (correct: 20): </span><br>
 		<span id="t101202">target new (correct: _Self): </span><br>
-		<span id="t101302">type new (correct: Text/csv): </span><br><br>		
+		<span id="t101302">type new (correct: Text/csv): </span><br>
+		<span id="t101402">toString (correct: http://localhost/2/): </span><br><br>	
 		
 		<h2>Test content</h2>
 		<div></div>
@@ -208,6 +209,7 @@
 			// tabIndex new (correct: 20): 20
 			// target new (correct: _Self): _Self
 			// type new (correct: Text/csv): Text/csv
+			// toString (correct: http://localhost/2/): http://localhost/2/
 			
 			var div1 = document.getElementsByTagName("div").item(0);
 			var div2 = document.getElementsByTagName("div").item(1);
@@ -334,6 +336,7 @@
 			document.getElementById("t101002").firstChild.data += a2.tabIndex;
 			document.getElementById("t101202").firstChild.data += a2.target;
 			document.getElementById("t101302").firstChild.data += a2.type;
+			document.getElementById("t101402").firstChild.data += a2;
 		</script>
 	</body>
 </html>
