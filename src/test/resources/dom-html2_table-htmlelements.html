@@ -47,6 +47,8 @@
 		<span id="t132">vAlign new (correct: Top2): </span><br>
 		<span id="t133">width (correct: 10W): </span><br>
 		<span id="t134">width new (correct: 20W): </span><br>
+		<span id="t135">colSpan -2 (correct: 1): </span><br>
+		<span id="t136">rowSpan -2 (correct: 1): </span><br>
 		<br>
 		
 		<strong>Test 2 - HTMLTableRowElement:</strong><br>
@@ -243,6 +245,8 @@
 			// vAlign new (correct: Top2): Top2
 			// width (correct: 10W): 10W
 			// width new (correct: 20W): 20W
+			// colSpan -2 (correct: 1): 1
+			// rowSpan -2 (correct: 1): 1
 			// Test 2:
 			// rowIndex (correct: 13): 13
 			// rowIndex2 (correct: 5): 5
@@ -368,6 +372,12 @@
 			document.getElementById("t133").firstChild.data += tc1.width;
 			tc1.width = "20W";
 			document.getElementById("t134").firstChild.data += tc1.width;
+			tc1.colSpan = "-2";
+			document.getElementById("t135").firstChild.data += tc1.colSpan;
+			tc1.rowSpan = "-2";
+			document.getElementById("t136").firstChild.data += tc1.rowSpan;
+			tc1.colSpan = "1";
+			tc1.rowSpan = "1";
 			
 			var tr1 = document.getElementById("TR1");
 			var tr2 = document.getElementById("TR2");

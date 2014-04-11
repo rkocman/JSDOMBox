@@ -71,7 +71,7 @@ public class HTMLImageElement extends HTMLElement
 	public int getHeight()
 	{
 		String attr = jsaf.innerNameFormat("height");
-		return getIntegerAttribute(attr, 0);
+		return getUnsignedAttribute(attr, 0);
 	}
 	public void setHeight(int height)
 	{
@@ -83,7 +83,7 @@ public class HTMLImageElement extends HTMLElement
 	public int getHspace()
 	{
 		String attr = jsaf.innerNameFormat("hspace");
-		return getIntegerAttribute(attr, 0);
+		return getUnsignedAttribute(attr, 0);
 	}
 	public void setHspace(int hspace)
 	{
@@ -143,7 +143,7 @@ public class HTMLImageElement extends HTMLElement
 	public int getVspace()
 	{
 		String attr = jsaf.innerNameFormat("vspace");
-		return getIntegerAttribute(attr, 0);
+		return getUnsignedAttribute(attr, 0);
 	}
 	public void setVspace(int vspace)
 	{
@@ -155,7 +155,7 @@ public class HTMLImageElement extends HTMLElement
 	public int getWidth()
 	{
 		String attr = jsaf.innerNameFormat("width");
-		return getIntegerAttribute(attr, 0);
+		return getUnsignedAttribute(attr, 0);
 	}
 	public void setWidth(int width)
 	{

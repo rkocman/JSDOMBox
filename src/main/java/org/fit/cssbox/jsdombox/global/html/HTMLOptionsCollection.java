@@ -49,11 +49,13 @@ public class HTMLOptionsCollection extends JSAdapter
 		Object result = HTMLTraversal.getNthTagInNode(source, tags, skippedTags, index); 
 		return jsaf.create(result, JSAdapterType.NODE);
 	}
+	// TODO square bracket access
 	
 	public JSAdapter namedItem(String name)
 	{
 		Object result = HTMLTraversal.getNamedTagInNode(source, tags, skippedTags, name, jsaf);
 		return jsaf.create(result, JSAdapterType.NODE);
 	}
+	// TODO square bracket access
 	
 }

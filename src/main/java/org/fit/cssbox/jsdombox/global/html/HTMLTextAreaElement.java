@@ -51,7 +51,7 @@ public class HTMLTextAreaElement extends HTMLElement
 	public int getCols()
 	{
 		String attr = jsaf.innerNameFormat("cols");
-		return getIntegerAttribute(attr, 20); // Default size 20 from the FF
+		return getUnsignedAttribute(attr, 20); // Default size 20 from the FF
 	}
 	public void setCols(int cols)
 	{
@@ -97,7 +97,7 @@ public class HTMLTextAreaElement extends HTMLElement
 	public int getRows()
 	{
 		String attr = jsaf.innerNameFormat("rows");
-		return getIntegerAttribute(attr, 2); // Default size 2 from the FF
+		return getUnsignedAttribute(attr, 2); // Default size 2 from the FF
 	}
 	public void setRows(int rows)
 	{

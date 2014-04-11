@@ -25,7 +25,7 @@ public class HTMLPreElement extends HTMLElement
 	public int getWidth()
 	{
 		String attr = jsaf.innerNameFormat("width");
-		return getIntegerAttribute(attr, 0);
+		return getUnsignedAttribute(attr, 0);
 	}
 	public void setWidth(int width) {
 		String attr = jsaf.innerNameFormat("width");

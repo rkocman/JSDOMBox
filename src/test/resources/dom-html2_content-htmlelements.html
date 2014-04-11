@@ -35,7 +35,8 @@
 		<strong>Test 5 - HTMLPreElement:</strong><br>
 		<span id="t51">width (correct: 0): </span><br>
 		<span id="t52">width2 (correct: 100): </span><br>
-		<span id="t512">width new (correct: 120): </span><br><br>
+		<span id="t512">width new (correct: 120): </span><br>
+		<span id="t522">width -2 (correct: 0): </span><br><br>
 		
 		<strong>Test 6 - HTMLBRElement:</strong><br>
 		<span id="t61">clear (correct: nothing): </span><br>
@@ -152,6 +153,7 @@
 			// width (correct: 0): 0
 			// width2 (correct: 100): 100
 			// width new (correct: 120): 120
+			// width -2 (correct: 0): 0
 			// Test 6:
 			// clear (correct: nothing):
 			// clear2 (correct: Left): Left
@@ -242,6 +244,8 @@
 			document.getElementById("t52").firstChild.data += pre2.width;
 			pre1.width = 120;
 			document.getElementById("t512").firstChild.data += pre1.width;
+			pre1.width = -2;
+			document.getElementById("t522").firstChild.data += pre1.width;
 			
 			var br1 = document.getElementById("br1");
 			var br2 = document.getElementById("br2");

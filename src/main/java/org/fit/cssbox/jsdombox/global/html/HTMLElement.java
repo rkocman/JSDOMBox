@@ -42,6 +42,18 @@ public class HTMLElement extends Element
 	}
 	
 	/**
+	 * Gets the parsed unsigned integer value form the attribute
+	 * @param attr Attribute name
+	 * @param defaultInt Default value for the attribute
+	 * @return Parsed unsigned integer value
+	 */
+	protected int getUnsignedAttribute(String attr, int defaultInt)
+	{
+		int result = getIntegerAttribute(attr, defaultInt);
+		return (result < 0)? defaultInt : result; 
+	}
+	
+	/**
 	 * Sets the integer attribute
 	 * @param attr Attribute name
 	 * @param value Attribute value

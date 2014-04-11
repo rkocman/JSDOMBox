@@ -108,7 +108,7 @@ public class HTMLTableCellElement extends HTMLElement
 	public int getColSpan()
 	{
 		String attr = jsaf.innerNameFormat("colspan");
-		return getIntegerAttribute(attr, 1);
+		return getUnsignedAttribute(attr, 1);
 	}
 	public void setColSpan(int colSpan)
 	{
@@ -155,7 +155,7 @@ public class HTMLTableCellElement extends HTMLElement
 	public int getRowSpan()
 	{
 		String attr = jsaf.innerNameFormat("rowspan");
-		return getIntegerAttribute(attr, 1);
+		return getUnsignedAttribute(attr, 1);
 	}
 	public void setRowSpan(int rowSpan)
 	{

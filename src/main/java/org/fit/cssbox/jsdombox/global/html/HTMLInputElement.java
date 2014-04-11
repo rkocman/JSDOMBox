@@ -152,7 +152,7 @@ public class HTMLInputElement extends HTMLElement
 	public int getSize()
 	{
 		String attr = jsaf.innerNameFormat("size");
-		return getIntegerAttribute(attr, 20); // Default size 20 from the FF
+		return getUnsignedAttribute(attr, 20); // Default size 20 from the FF
 	}
 	public void setSize(int size)
 	{

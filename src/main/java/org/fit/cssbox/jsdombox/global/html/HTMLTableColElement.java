@@ -62,7 +62,7 @@ public class HTMLTableColElement extends HTMLElement
 	public int getSpan()
 	{
 		String attr = jsaf.innerNameFormat("span");
-		return getIntegerAttribute(attr, 1);
+		return getUnsignedAttribute(attr, 1);
 	}
 	public void setSpan(int span)
 	{

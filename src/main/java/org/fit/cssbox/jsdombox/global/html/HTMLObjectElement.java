@@ -136,7 +136,7 @@ public class HTMLObjectElement extends HTMLElement
 	public int getHspace()
 	{
 		String attr = jsaf.innerNameFormat("hspace");
-		return getIntegerAttribute(attr, 0);
+		return getUnsignedAttribute(attr, 0);
 	}
 	public void setHspace(int hspace)
 	{
@@ -203,7 +203,7 @@ public class HTMLObjectElement extends HTMLElement
 	public int getVspace()
 	{
 		String attr = jsaf.innerNameFormat("vspace");
-		return getIntegerAttribute(attr, 0);
+		return getUnsignedAttribute(attr, 0);
 	}
 	public void setVspace(int vspace)
 	{

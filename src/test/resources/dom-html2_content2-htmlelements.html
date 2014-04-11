@@ -43,6 +43,10 @@
 		<span id="t11002">useMap new (correct: #Planetmap2): </span><br>
 		<span id="t11102">vspace new (correct: 20): </span><br>
 		<span id="t11202">width new (correct: 50): </span><br>
+		<span id="t11302">height -2 (correct: 0 or the image size): </span><br>
+		<span id="t11402">width -2 (correct: 0 or the image size): </span><br>
+		<span id="t11502">hspace -2 (correct: 0): </span><br>
+		<span id="t11602">vspace -2 (correct: 0): </span><br>
 		<br>
 		
 		<strong>Test 2 - HTMLParamElement:</strong><br>
@@ -294,6 +298,10 @@
 			// useMap new (correct: #Planetmap2): #Planetmap2
 			// vspace new (correct: 20): 20
 			// width new (correct: 50): 50
+			// height -2 (correct: 0 or the image size): 0
+			// width -2 (correct: 0 or the image size): 0
+			// hspace -2 (correct: 0): 0
+			// vspace -2 (correct: 0): 0
 			// Test 2:
 			// name (correct: Init): Init
 			// type (correct: Image/gif): Image/gif
@@ -481,6 +489,14 @@
 			document.getElementById("t11002").firstChild.data += img1.useMap;
 			document.getElementById("t11102").firstChild.data += img1.vspace;
 			document.getElementById("t11202").firstChild.data += img1.width;
+			img1.width = -2;
+			document.getElementById("t11302").firstChild.data += img1.width;
+			img1.height = -2;
+			document.getElementById("t11402").firstChild.data += img1.height;
+			img1.hspace = -2;
+			document.getElementById("t11502").firstChild.data += img1.hspace;
+			img1.vspace = -2;
+			document.getElementById("t11602").firstChild.data += img1.vspace;
 			
 			var param1 = document.getElementsByTagName("param").item(0);
 			var param2 = document.getElementsByTagName("param").item(1);

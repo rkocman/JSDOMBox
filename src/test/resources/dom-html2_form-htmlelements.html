@@ -88,6 +88,8 @@
 		<span id="t426">remove after (correct: 1 3): </span><br>
 		<span id="t427">add null (correct: 1 3 4): </span><br>
 		<span id="t428">add 1 (correct: 1 2 3 4): </span><br>
+		<span id="t429">tabIndex -2 (correct: -2): </span><br>
+		<span id="t430">size -2 (correct: 0): </span><br>
 		<br>
 		
 		<strong>Test 5 - HTMLInputElement:</strong><br>
@@ -130,6 +132,7 @@
 		<span id="t537">value (correct: nothing): </span><br>
 		<span id="t538">value2 (correct: BTN1): </span><br>
 		<span id="t539">value new (correct: BTN2): </span><br>
+		<span id="t540">size -2 (correct: 20): </span><br>
 		<br>
 		
 		<strong>Test 6 - HTMLTextAreaElement:</strong><br>
@@ -155,6 +158,8 @@
 		<span id="t620">tabIndex new (correct: 10): </span><br>
 		<span id="t621">type (correct: textarea): </span><br>
 		<span id="t622">value (correct: nothing): </span><br>
+		<span id="t623">cols -2 (correct: 20): </span><br>
+		<span id="t624">rows -2 (correct: 2): </span><br>
 		<br>
 		
 		<strong>Test 7 - HTMLButtonElement:</strong><br>
@@ -330,6 +335,8 @@
 			// remove after (correct: 1 3): 1 3
 			// add null (correct: 1 3 4): 1 3 4
 			// add 1 (correct: 1 2 3 4): 1 2 3 4
+			// tabIndex -2 (correct: -2): -2
+			// size -2 (correct: 0): 0
 			// Test 5:
 			// defaultValue (correct: D1): D1
 			// defaultValue new (correct: D2): D2
@@ -370,6 +377,7 @@
 			// value (correct: nothing):
 			// value2 (correct: BTN1): BTN1
 			// value new (correct: BTN2): BTN2
+			// size -2 (correct: 20): 20
 			// Test 6:
 			// defaultValue (correct: Text1): Text1
 			// defaultValue new (correct: Text2): Text2
@@ -393,6 +401,8 @@
 			// tabIndex new (correct: 10): 10
 			// type (correct: textarea): textarea
 			// value (correct: nothing): 
+			// cols -2 (correct: 20): 20
+			// rows -2 (correct: 2): 2
 			// Test 7:
 			// form (correct: FORM): FORM
 			// accessKey (correct: A): A
@@ -547,6 +557,10 @@
 			opt2.value = "2";
 			s3.add(opt2, s3.options.item(1));
 			printOptions(s3, "t428");
+			s3.tabIndex = -2;
+			document.getElementById("t429").firstChild.data += s3.tabIndex;
+			s3.size = -2;
+			document.getElementById("t430").firstChild.data += s3.size;
 			
 			var in1 = document.getElementById("IN1");
 			var in2 = document.getElementById("IN2");
@@ -612,6 +626,8 @@
 			in3.focus();
 			in3.select();
 			in3.click();
+			in1.size = -2;
+			document.getElementById("t540").firstChild.data += in1.size;
 			
 			var ta1 = document.getElementById("TA1");
 			var ta2 = document.getElementById("TA2");
@@ -649,6 +665,10 @@
 			ta1.blur();
 			ta1.focus();
 			ta1.select();
+			ta1.cols = -2;
+			document.getElementById("t623").firstChild.data += ta1.cols;
+			ta1.rows = -2;
+			document.getElementById("t624").firstChild.data += ta1.rows;
 			
 			var bt1 = document.getElementById("BT1");
 			var bt2 = document.getElementById("BT2");

@@ -115,7 +115,7 @@ public class HTMLSelectElement extends HTMLElement
 	public int getSize()
 	{
 		String attr = jsaf.innerNameFormat("size");
-		return getIntegerAttribute(attr, 0);
+		return getUnsignedAttribute(attr, 0);
 	}
 	public void setSize(int size)
 	{
