@@ -109,10 +109,34 @@
 		<span id="t321">deleteCell -1 (correct: 1 0 1 1 0): </span><br>
 		<span id="t322">deleteCell 2 (correct: 1 0 1 0): </span><br>
 		<br>
+		
+		<strong>Test 4 - HTMLTableColElement:</strong><br>
+		<span id="t41">align (correct: Left2): </span><br>
+		<span id="t42">align new (correct: Right): </span><br>
+		<span id="t43">ch (correct: CHAR1): </span><br>
+		<span id="t44">ch new (correct: CHAR2): </span><br>
+		<span id="t45">chOff (correct: CHOFF1): </span><br>
+		<span id="t46">chOff new (correct: CHOFF2): </span><br>
+		<span id="t47">span 3 (correct: 3): </span><br>
+		<span id="t48">span empty (correct: 1): </span><br>
+		<span id="t49">span -2 (correct: 1): </span><br>
+		<span id="t410">span new 2 (correct: 2): </span><br>
+		<span id="t411">span new -2 (correct: -2): </span><br>
+		<span id="t412">vAlign (correct: Top1): </span><br>
+		<span id="t413">vAlign new (correct: Top2): </span><br>
+		<span id="t414">width (correct: 10W): </span><br>
+		<span id="t415">width new (correct: 20W): </span><br>
+		<br>
 	
 		<h2>Test content</h2>
 		
 		<table>
+			<col ID="COL1" align="Left2" char="CHAR1" 
+				charOff="CHOFF1" span=" 3" valign="Top1" width="10W">
+			<colgroup ID="COL2">
+		    	<col ID="COL3" span="-2">
+		    	<col>
+		  	</colgroup>
 			<tr>
 				<th>
 					<table><tr><td></td></tr></table>
@@ -134,6 +158,11 @@
 		</table>
 		
 		<table>
+			<col>
+			<colgroup>
+		    	<col>
+		    	<col>
+		  	</colgroup>
 			<tfoot id="TS3">
 				<tr><td>
 					<table><tr><td></td></tr></table>
@@ -271,6 +300,22 @@
 			// deleteCell 6 (correct: 1 0 1 1 0 0): 1 0 1 1 0 0
 			// deleteCell -1 (correct: 1 0 1 1 0): 1 0 1 1 0
 			// deleteCell 2 (correct: 1 0 1 0): 1 0 1 0
+			// Test 4:
+			// align (correct: Left2): Left2
+			// align new (correct: Right): Right
+			// ch (correct: CHAR1): CHAR1
+			// ch new (correct: CHAR2): CHAR2
+			// chOff (correct: CHOFF1): CHOFF1
+			// chOff new (correct: CHOFF2): CHOFF2
+			// span 3 (correct: 3): 3
+			// span empty (correct: 1): 1
+			// span -2 (correct: 1): 1
+			// span new 2 (correct: 2): 2
+			// span new -2 (correct: -2): -2
+			// vAlign (correct: Top1): Top1
+			// vAlign new (correct: Top2): Top2
+			// width (correct: 10W): 10W
+			// width new (correct: 20W): 20W
 			
 			var tc1 = document.getElementById("TC1");
 			var tc2 = document.getElementById("TC2");
@@ -466,6 +511,32 @@
 			printRows(ts1, "t321");
 			ts1.deleteRow(2);
 			printRows(ts1, "t322");
+			
+			var c1 = document.getElementById("COL1");
+			var c2 = document.getElementById("COL2");
+			var c3 = document.getElementById("COL3");
+			document.getElementById("t41").firstChild.data += c1.align;
+			c2.align = "Right";
+			document.getElementById("t42").firstChild.data += c2.align;
+			document.getElementById("t43").firstChild.data += c1.ch;
+			c2.ch = "CHAR2";
+			document.getElementById("t44").firstChild.data += c2.ch;
+			document.getElementById("t45").firstChild.data += c1.chOff;
+			c2.chOff = "CHOFF2";
+			document.getElementById("t46").firstChild.data += c2.chOff;
+			document.getElementById("t47").firstChild.data += c1.span;
+			document.getElementById("t48").firstChild.data += c2.span;
+			document.getElementById("t49").firstChild.data += c3.span;
+			c3.span = 2;
+			document.getElementById("t410").firstChild.data += c3.span;
+			c3.span = "-2";
+			document.getElementById("t411").firstChild.data += c3.getAttribute("span");
+			document.getElementById("t412").firstChild.data += c1.vAlign;
+			c2.vAlign = "Top2";
+			document.getElementById("t413").firstChild.data += c2.vAlign;
+			document.getElementById("t414").firstChild.data += c1.width;
+			c2.width = "20W";
+			document.getElementById("t415").firstChild.data += c2.width;
 		</script>
 	</body>
 </html>
