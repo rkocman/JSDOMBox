@@ -134,6 +134,62 @@
 		<span id="t51">align (correct: Left2): </span><br>
 		<span id="t52">align new (correct: Right2): </span><br>
 		<br>
+		
+		<strong>Test 6 - HTMLTableElement:</strong><br>
+		<span id="t61">caption (correct: CTest1): </span><br>
+		<span id="t62">caption null (correct: null): </span><br>
+		<span id="t63">caption set invalid (correct: ERROR): </span><br>
+		<span id="t64">caption set (correct: CTest2 CTest3 or CTest3): </span><br>
+		<span id="t65">caption (correct: CTest2 or CTest3): </span><br>
+		<span id="t66">tHead (correct: THead1): </span><br>
+		<span id="t67">tHead null (correct: null): </span><br>
+		<span id="t68">tHead set invalid (correct: ERROR): </span><br>
+		<span id="t69">tHead set (correct: THead3): </span><br>
+		<span id="t610">tFoot (correct: tFoot1): </span><br>
+		<span id="t611">tFoot null (correct: null): </span><br>
+		<span id="t612">tFoot set invalid (correct: ERROR): </span><br>
+		<span id="t613">tFoot set (correct: TFoot2 or tFoot3): </span><br>
+		<span id="t614">rows (correct: TTR3 TTR2 TTR1): </span><br>
+		<span id="t615">tBodies (correct: -TB1 -TB2 -TB3 -TB4 -): </span><br>
+		<span id="t616">tBodies2 (correct: -): </span><br>
+		<span id="t617">align (correct: Left2): </span><br>
+		<span id="t618">align new (correct: Right): </span><br>
+		<span id="t619">bgColor (correct: Red): </span><br>
+		<span id="t620">bgColor new (correct: Green): </span><br>
+		<span id="t621">border (correct: 1B): </span><br>
+		<span id="t622">border new (correct: 2B): </span><br>
+		<span id="t623">cellPadding (correct: 1CP): </span><br>
+		<span id="t624">cellPadding new (correct: 2CP): </span><br>
+		<span id="t625">cellSpacing (correct: 1CS): </span><br>
+		<span id="t626">cellSpacing new (correct: 2CS): </span><br>
+		<span id="t627">frame (correct: 1F): </span><br>
+		<span id="t628">frame new (correct: 2F): </span><br>
+		<span id="t629">rules (correct: 1R): </span><br>
+		<span id="t630">rules (correct: 2R): </span><br>
+		<span id="t631">summary (correct: 1S): </span><br>
+		<span id="t632">summary new (correct: 2S): </span><br>
+		<span id="t633">width (correct: 1W): </span><br>
+		<span id="t634">width (correct: 2W): </span><br>
+		<span id="t635">createTHead (correct: TH1): </span><br>
+		<span id="t636">createTHead2 (correct: THEAD): </span><br>
+		<span id="t637">deleteTHead (correct: null): </span><br>
+		<span id="t638">createTFoot (correct: TF1): </span><br>
+		<span id="t639">createTFoot2 (correct: TFOOT): </span><br>
+		<span id="t640">deleteTFoot (correct: null): </span><br>
+		<span id="t641">createCaption (correct: C1): </span><br>
+		<span id="t642">createCaption2 (correct: CAPTION): </span><br>
+		<span id="t643">deleteCaption (correct: null): </span><br>
+		<span id="t644">insertRow -2 (correct: ERROR): </span><br>
+		<span id="t645">insertRow -1 (correct: TBODY.tr2 TFOOT.tr1 TFOOT.tr3): </span><br>
+		<span id="t646">insertRow 0 (correct: TBODY.tr4 TBODY.tr2 TFOOT.tr1 TFOOT.tr3): </span><br>
+		<span id="t647">insertRow 4 (correct: TBODY.tr4 TBODY.tr2 TFOOT.tr1 TFOOT.tr3 TFOOT.tr5): </span><br>
+		<span id="t648">insertRow 6 (correct: ERROR): </span><br>
+		<span id="t649">insertRow -1 empty (correct: 1 TBODY.tr1): </span><br>
+		<span id="t650">insertRow 0 empty (correct: 1 TBODY.tr1): </span><br>
+		<span id="t651">deleteRow -2 (correct: ERROR): </span><br>
+		<span id="t652">deleteRow -1 (correct: TBODY.tr4 TBODY.tr2 TFOOT.tr1 TFOOT.tr3): </span><br>
+		<span id="t653">deleteRow 1 (correct: TBODY.tr4 TFOOT.tr1 TFOOT.tr3): </span><br>
+		<span id="t654">deleteRow 3 (correct: ERROR): </span><br>
 	
 		<h2>Test content</h2>
 		
@@ -164,7 +220,7 @@
 			</tr>
 		</table>
 		
-		<table>
+		<table id="T1">
 			<col>
 			<colgroup>
 		    	<col>
@@ -212,6 +268,69 @@
 			</tr>
 			<tr><th></th></tr>
 			<caption id="CAP1" align="Left2">Test Caption</caption>
+		</table>
+		
+		<table id="T2"><caption id="CTest1">
+			Test1
+		</caption><caption id="CTest2">
+			Test2
+		</caption></table>
+		
+		<table id="T3">
+			<col>
+			<tBody id="TBody1"><tr><td>
+				<table>
+					<caption id="CWrong">CWrong</caption>
+					<tHead id="THeadWrong"></tHead>
+				</table>
+			</td></tr></tBody>
+			<tBody id="TBody2"></tBody>
+			<tHead id="THead1"></tHead>
+			<tHead id="THead2"></tHead>
+			<tFoot id="TFoot1"></tFoot>
+			<tFoot id="TFoot2"></tFoot>
+		</table>
+		
+		<table id="T4" align="Left2" bgColor="Red" border="1B" cellpadding="1CP"
+			cellSpacing="1CS" frame="1F" rules="1R" summary="1S" width="1W">
+		<tFoot><tr id="TTR1"></tr></tFoot>
+		<tBody><tr id="TTR2"></tr></tBody>
+		<tHead><tr id="TTR3"></tr></tHead>
+		</table>
+		
+		<table id="T5">
+		<tBody id="TB1"><tr></tr></tBody>
+		<tFoot><tr></tr></tFoot>
+		<tBody id="TB2"><tr></tr></tBody>
+		<tHead><tr></tr></tHead>
+		<tBody id="TB3"><tr></tr></tBody>
+		<tBody id="TB4"><tr><td>
+			<table>
+				<tBody id="TB5"><tr><td>
+			</table>
+		</td></tr></tBody>
+		<tr><td></td></tr>
+		</table>
+		
+		<table id="T6">
+			<tHead id="TH1"></tHead>
+			<tFoot id="TF1"></tFoot>
+			<caption id="C1"></caption>
+		</table>
+		<table id="T7">
+		</table>
+		
+		<table id="T8">
+			<tFoot><tr id="tr1"></tr></tFoot>
+			<tBody>
+				<tr id="tr2"></tr>
+			</tBody>
+		</table>
+		<table id="T9">
+		</table>
+		<table id="T10">
+			<tbody>
+			</tbody>
 		</table>
 	
 		<script>
@@ -329,6 +448,61 @@
 			// Test 5:
 			// align (correct: Left2): Left2
 			// align new (correct: Right2): Right2
+			// Test 6:
+			// caption (correct: CTest1): CTest1
+			// caption null (correct: null): null
+			// caption set invalid (correct: ERROR): ERROR
+			// caption set (correct: CTest2 CTest3 or CTest3): CTest2 CTest3
+			// caption (correct: CTest2 or CTest3): CTest2
+			// tHead (correct: THead1): THead1
+			// tHead null (correct: null): null
+			// tHead set invalid (correct: ERROR): ERROR
+			// tHead set (correct: THead3): THead3
+			// tFoot (correct: tFoot1): TFoot1
+			// tFoot null (correct: null): null
+			// tFoot set invalid (correct: ERROR): ERROR
+			// tFoot set (correct: TFoot2 or tFoot3): TFoot2
+			// rows (correct: TTR3 TTR2 TTR1): TTR3 TTR2 TTR1
+			// tBodies (correct: -TB1 -TB2 -TB3 -TB4 -): -TB1 -TB2 -TB3 -TB4 -
+			// tBodies2 (correct: -): -
+			// align (correct: Left2): Left2
+			// align new (correct: Right): Right
+			// bgColor (correct: Red): Red
+			// bgColor new (correct: Green): Green
+			// border (correct: 1B): 1B
+			// border new (correct: 2B): 2B
+			// cellPadding (correct: 1CP): 1CP
+			// cellPadding new (correct: 2CP): 2CP
+			// cellSpacing (correct: 1CS): 1CS
+			// cellSpacing new (correct: 2CS): 2CS
+			// frame (correct: 1F): 1F
+			// frame new (correct: 2F): 2F
+			// rules (correct: 1R): 1R
+			// rules (correct: 2R): 2R
+			// summary (correct: 1S): 1S
+			// summary new (correct: 2S): 2S
+			// width (correct: 1W): 1W
+			// width (correct: 2W): 2W
+			// createTHead (correct: TH1): TH1
+			// createTHead2 (correct: THEAD): THEAD
+			// deleteTHead (correct: null): null
+			// createTFoot (correct: TF1): TF1
+			// createTFoot2 (correct: TFOOT): TFOOT
+			// deleteTFoot (correct: null): null
+			// createCaption (correct: C1): C1
+			// createCaption2 (correct: CAPTION): CAPTION
+			// deleteCaption (correct: null): null
+			// insertRow -2 (correct: ERROR): ERROR
+			// insertRow -1 (correct: TBODY.tr2 TFOOT.tr1 TFOOT.tr3): TBODY.tr2 TFOOT.tr1 TFOOT.tr3
+			// insertRow 0 (correct: TBODY.tr4 TBODY.tr2 TFOOT.tr1 TFOOT.tr3): TBODY.tr4 TBODY.tr2 TFOOT.tr1 TFOOT.tr3
+			// insertRow 4 (correct: TBODY.tr4 TBODY.tr2 TFOOT.tr1 TFOOT.tr3 TFOOT.tr5): TBODY.tr4 TBODY.tr2 TFOOT.tr1 TFOOT.tr3 TFOOT.tr5
+			// insertRow 6 (correct: ERROR): ERROR
+			// insertRow -1 empty (correct: 1 TBODY.tr1): 1 TBODY.tr1
+			// insertRow 0 empty (correct: 1 TBODY.tr1): 1 TBODY.tr1
+			// deleteRow -2 (correct: ERROR): ERROR
+			// deleteRow -1 (correct: TBODY.tr4 TBODY.tr2 TFOOT.tr1 TFOOT.tr3): TBODY.tr4 TBODY.tr2 TFOOT.tr1 TFOOT.tr3
+			// deleteRow 1 (correct: TBODY.tr4 TFOOT.tr1 TFOOT.tr3): TBODY.tr4 TFOOT.tr1 TFOOT.tr3
+			// deleteRow 3 (correct: ERROR): ERROR
 			
 			var tc1 = document.getElementById("TC1");
 			var tc2 = document.getElementById("TC2");
@@ -561,6 +735,156 @@
 			document.getElementById("t51").firstChild.data += cap1.align;
 			cap1.align = "Right2";
 			document.getElementById("t52").firstChild.data += cap1.align;
+			
+			var t1 = document.getElementById("T1");
+			var t2 = document.getElementById("T2");
+			var t3 = document.getElementById("T3");
+			var t4 = document.getElementById("T4");
+			var t5 = document.getElementById("T5");
+			var t6 = document.getElementById("T6");
+			var t7 = document.getElementById("T7");
+			var t8 = document.getElementById("T8");
+			var t9 = document.getElementById("T9");
+			var t10 = document.getElementById("T10");
+			document.getElementById("t61").firstChild.data += t2.caption.id;
+			document.getElementById("t62").firstChild.data += t3.caption;
+			var newWrong = document.createElement("a");
+			var newCaption = document.createElement("caption");
+			newCaption.id = "CTest3";
+			try{
+				t2.caption = newWrong;
+				document.getElementById("t63").firstChild.data += "OK";
+			} catch (e) {
+				document.getElementById("t63").firstChild.data += "ERROR";
+			}
+			t2.caption = newCaption;
+			for (var i = 0; i < t2.childNodes.length; i++) {
+				document.getElementById("t64").firstChild.data += " " + 
+					t2.childNodes.item(i).id;
+			}
+			document.getElementById("t65").firstChild.data += t2.caption.id;
+			document.getElementById("t66").firstChild.data += t3.tHead.id;
+			document.getElementById("t67").firstChild.data += t2.tHead;
+			var newTHead = document.createElement("tHead");
+			newTHead.id = "THead3";
+			try{
+				t3.tHead = newWrong;
+				document.getElementById("t68").firstChild.data += "OK";
+			} catch (e) {
+				document.getElementById("t68").firstChild.data += "ERROR";
+			}
+			t3.tHead = newTHead;
+			document.getElementById("t69").firstChild.data += t3.tHead.id;
+			document.getElementById("t610").firstChild.data += t3.tFoot.id;
+			document.getElementById("t611").firstChild.data += t2.tFoot;
+			var newTFoot = document.createElement("tFoot");
+			newTFoot.id = "TFoot3";
+			try{
+				t3.tFoot = newTHead;
+				document.getElementById("t612").firstChild.data += "OK";
+			} catch (e) {
+				document.getElementById("t612").firstChild.data += "ERROR";
+			}
+			t3.tFoot = newTFoot;
+			document.getElementById("t613").firstChild.data += t3.tFoot.id;
+			for(var i = 0; i < t4.rows.length; i++) {
+				document.getElementById("t614").firstChild.data += " " +
+					t4.rows.item(i).id;
+			}
+			for(var i = 0; i < t5.tBodies.length; i++) {
+				document.getElementById("t615").firstChild.data += " " +
+					"-" + t5.tBodies.item(i).id;
+			}
+			for(var i = 0; i < t4.tBodies.length; i++) {
+				document.getElementById("t616").firstChild.data += " " +
+					"-" + t4.tBodies.item(i).id;
+			}
+			document.getElementById("t617").firstChild.data += t4.align;
+			t5.align = "Right";
+			document.getElementById("t618").firstChild.data += t5.align;
+			document.getElementById("t619").firstChild.data += t4.bgColor;
+			t5.bgColor = "Green";
+			document.getElementById("t620").firstChild.data += t5.bgColor;
+			document.getElementById("t621").firstChild.data += t4.border;
+			t5.border = "2B";
+			document.getElementById("t622").firstChild.data += t5.border;
+			document.getElementById("t623").firstChild.data += t4.cellPadding;
+			t5.cellPadding = "2CP";
+			document.getElementById("t624").firstChild.data += t5.cellPadding;
+			document.getElementById("t625").firstChild.data += t4.cellSpacing;
+			t5.cellSpacing = "2CS";
+			document.getElementById("t626").firstChild.data += t5.cellSpacing;
+			document.getElementById("t627").firstChild.data += t4.frame;
+			t5.frame = "2F";
+			document.getElementById("t628").firstChild.data += t5.frame;
+			document.getElementById("t629").firstChild.data += t4.rules;
+			t5.rules = "2R";
+			document.getElementById("t630").firstChild.data += t5.rules;
+			document.getElementById("t631").firstChild.data += t4.summary;
+			t5.summary = "2S";
+			document.getElementById("t632").firstChild.data += t5.summary;
+			document.getElementById("t633").firstChild.data += t4.width;
+			t5.width = "2W";
+			document.getElementById("t634").firstChild.data += t5.width;
+			document.getElementById("t635").firstChild.data += t6.createTHead().id;
+			document.getElementById("t636").firstChild.data += t7.createTHead().tagName;
+			t7.deleteTHead();
+			document.getElementById("t637").firstChild.data += t7.tHead;
+			document.getElementById("t638").firstChild.data += t6.createTFoot().id;
+			document.getElementById("t639").firstChild.data += t7.createTFoot().tagName;
+			t7.deleteTFoot();
+			document.getElementById("t640").firstChild.data += t7.tFoot;
+			document.getElementById("t641").firstChild.data += t6.createCaption().id;
+			document.getElementById("t642").firstChild.data += t7.createCaption().tagName;
+			t7.deleteCaption();
+			document.getElementById("t643").firstChild.data += t7.caption;
+			function printRows2(table, to) {
+				for (var i = 0; i < table.rows.length; i++) {
+					document.getElementById(to).firstChild.data += 
+						" " + table.rows.item(i).parentNode.tagName +
+						"." + table.rows.item(i).id;
+				}
+			}
+			try {
+				t8.insertRow(-2);
+				document.getElementById("t644").firstChild.data += "OK";
+			} catch(e) {
+				document.getElementById("t644").firstChild.data += "ERROR";
+			}
+			t8.insertRow(-1).id = "tr3";
+			printRows2(t8, "t645");
+			t8.insertRow(0).id = "tr4";
+			printRows2(t8, "t646");
+			t8.insertRow(4).id = "tr5";
+			printRows2(t8, "t647");
+			try {
+				t8.insertRow(6);
+				document.getElementById("t648").firstChild.data += "OK";
+			} catch(e) {
+				document.getElementById("t648").firstChild.data += "ERROR";
+			}
+			t9.insertRow(-1).id = "tr1";
+			document.getElementById("t649").firstChild.data += t9.tBodies.length;
+			printRows2(t9, "t649");
+			t10.insertRow(0).id = "tr1";
+			document.getElementById("t650").firstChild.data += t10.tBodies.length;
+			printRows2(t10, "t650");
+			try {
+				t8.deleteRow(-2);
+				document.getElementById("t651").firstChild.data += "OK";
+			} catch(e) {
+				document.getElementById("t651").firstChild.data += "ERROR";
+			}
+			t8.deleteRow(-1);
+			printRows2(t8, "t652");
+			t8.deleteRow(1);
+			printRows2(t8, "t653");
+			try {
+				t8.deleteRow(3);
+				document.getElementById("t654").firstChild.data += "OK";
+			} catch(e) {
+				document.getElementById("t654").firstChild.data += "ERROR";
+			}
 		</script>
 	</body>
 </html>

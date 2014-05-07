@@ -11,7 +11,7 @@ import org.w3c.dom.Node;
  */
 public class HTMLTraversal
 {
-	/** current position for the getNthTagInNode */
+	/** current position for the getNthTagIn(Node|Table) */
 	protected static int position;
 	
 	/** current index for the getIndexInParentTag */
@@ -115,6 +115,54 @@ public class HTMLTraversal
 		
 		return null;
 	}
+	/**
+	 * Gets the n-th specified tag in the table
+	 * @param dom DOM tree
+	 * @param tags Array of relevant HTML tags
+	 * @param skippedTags Array of HTML tags that should be skipped
+	 * @param n Index of the tag (zero-based)
+	 * @param jsaf JSAdapterFactory for the name format
+	 * @return Node or null
+	 */
+	public static Node getNthTagInTable(Node dom, String[] tags, String[] skippedTags, int n,
+			JSAdapterFactory jsaf)
+	{
+		String thead = jsaf.innerNameFormat("thead");
+		String tbody = jsaf.innerNameFormat("tbody");
+		String tfoot = jsaf.innerNameFormat("tfoot");
+		String[] theadArray = new String[] {thead};
+		String[] tbodyArray = new String[] {tbody};
+		String[] tfootArray = new String[] {tfoot};
+		
+		if (n < 0) return null;
+		position = 0;
+		
+		// All thead sections
+		for (int i = 0; i < dom.getChildNodes().getLength(); i++) {
+			Node node = dom.getChildNodes().item(i);
+			if (!isSearchedTag(node, theadArray)) continue;
+			Node result = getNthTag(node, tags, skippedTags, n);
+			if (result != null) return result;
+		}
+		
+		// All tbody sections
+		for (int i = 0; i < dom.getChildNodes().getLength(); i++) {
+			Node node = dom.getChildNodes().item(i);
+			if (!isSearchedTag(node, tbodyArray)) continue;
+			Node result = getNthTag(node, tags, skippedTags, n);
+			if (result != null) return result;
+		}
+		
+		// All tfoot sections
+		for (int i = 0; i < dom.getChildNodes().getLength(); i++) {
+			Node node = dom.getChildNodes().item(i);
+			if (!isSearchedTag(node, tfootArray)) continue;
+			Node result = getNthTag(node, tags, skippedTags, n);
+			if (result != null) return result;
+		}
+		
+		return null;
+	}
 	
 	
 	/**
@@ -166,6 +214,81 @@ public class HTMLTraversal
 			Node result = getNamedTag(node, tags, skippedTags, name, attr);
 			if (result != null)
 				return result;
+		}
+		
+		return null;
+	}
+	/**
+	 * Gets the specified named tag in the table
+	 * @param dom DOM tree
+	 * @param tags Array of relevant HTML tags
+	 * @param skippedTags Array of HTML tags that should be skipped
+	 * @param name Name of the tag
+	 * @param jsaf JSAdapterFactory for the name format
+	 * @return Node or null
+	 */
+	public static Node getNamedTagInTable(Node dom, String[] tags, String[] skippedTags, 
+			String name, JSAdapterFactory jsaf)
+	{
+		String thead = jsaf.innerNameFormat("thead");
+		String tbody = jsaf.innerNameFormat("tbody");
+		String tfoot = jsaf.innerNameFormat("tfoot");
+		String[] theadArray = new String[] {thead};
+		String[] tbodyArray = new String[] {tbody};
+		String[] tfootArray = new String[] {tfoot};
+		
+		// Search for the attribute id
+		String attrid = jsaf.innerNameFormat("id");
+		
+		// All thead sections
+		for (int i = 0; i < dom.getChildNodes().getLength(); i++) {
+			Node node = dom.getChildNodes().item(i);
+			if (!isSearchedTag(node, theadArray)) continue;
+			Node result = getNamedTag(node, tags, skippedTags, name, attrid);
+			if (result != null) return result;
+		}
+		
+		// All tbody sections
+		for (int i = 0; i < dom.getChildNodes().getLength(); i++) {
+			Node node = dom.getChildNodes().item(i);
+			if (!isSearchedTag(node, tbodyArray)) continue;
+			Node result = getNamedTag(node, tags, skippedTags, name, attrid);
+			if (result != null) return result;
+		}
+		
+		// All tfoot sections
+		for (int i = 0; i < dom.getChildNodes().getLength(); i++) {
+			Node node = dom.getChildNodes().item(i);
+			if (!isSearchedTag(node, tfootArray)) continue;
+			Node result = getNamedTag(node, tags, skippedTags, name, attrid);
+			if (result != null) return result;
+		}
+		
+		// Search for the attribute name
+		String attrname = jsaf.innerNameFormat("name");
+		
+		// All thead sections
+		for (int i = 0; i < dom.getChildNodes().getLength(); i++) {
+			Node node = dom.getChildNodes().item(i);
+			if (!isSearchedTag(node, theadArray)) continue;
+			Node result = getNamedTag(node, tags, skippedTags, name, attrname);
+			if (result != null) return result;
+		}
+		
+		// All tbody sections
+		for (int i = 0; i < dom.getChildNodes().getLength(); i++) {
+			Node node = dom.getChildNodes().item(i);
+			if (!isSearchedTag(node, tbodyArray)) continue;
+			Node result = getNamedTag(node, tags, skippedTags, name, attrname);
+			if (result != null) return result;
+		}
+		
+		// All tfoot sections
+		for (int i = 0; i < dom.getChildNodes().getLength(); i++) {
+			Node node = dom.getChildNodes().item(i);
+			if (!isSearchedTag(node, tfootArray)) continue;
+			Node result = getNamedTag(node, tags, skippedTags, name, attrname);
+			if (result != null) return result;
 		}
 		
 		return null;
