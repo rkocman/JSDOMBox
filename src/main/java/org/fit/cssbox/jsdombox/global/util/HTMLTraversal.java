@@ -34,39 +34,72 @@ public class HTMLTraversal
 		
 		return false;
 	}
-	
+	/**
+	 * Checks if this is a searched tag
+	 * @param node Tested Node
+	 * @param tags Array of relevant HTML tags
+	 * @param requiredAttr Required attribute in the tag (or null)
+	 * @param hasName Required name value in the tag (this override tags) (or null)
+	 * @param jsaf JSAdapterFactory for the name format
+	 * @return true|false
+	 */
+	protected static boolean isSearchedTag(Node node, String[] tags, 
+			String requiredAttr, String hasName, JSAdapterFactory jsaf)
+	{
+		if (requiredAttr != null) {
+			if (node.getAttributes() == null) return false;
+			if (node.getAttributes().getNamedItem(requiredAttr) == null)
+				return false;
+		}
+		
+		if (hasName != null) {
+			String name = jsaf.innerNameFormat("name");
+			if (node.getAttributes() == null) return false;
+			Attr attr = (Attr) node.getAttributes().getNamedItem(name);
+			if (attr != null && attr.getValue().equals(hasName)) 
+				return true;
+			return false;
+		}
+		
+		return isSearchedTag(node, tags);
+	}
 	
 	/**
 	 * Counts specified tags in the DOM Node
 	 * @param dom DOM tree
 	 * @param tags Array of relevant HTML tags
 	 * @param skippedTags Array of HTML tags that should be skipped
+	 * @param requiredAttr Required attribute in the tags (or null)
+	 * @param hasName Required name value in the tags (this override tags) (or null)
+	 * @param jsaf JSAdapterFactory for the name format
 	 * @return Count of tags
 	 */
-	public static int getCountOfTagsInNode(Node dom, String[] tags, String[] skippedTags)
+	public static int getCountOfTagsInNode(Node dom, String[] tags, String[] skippedTags, 
+			String requiredAttr, String hasName, JSAdapterFactory jsaf)
 	{
 		int count = 0;
 		
 		for (int i = 0; i < dom.getChildNodes().getLength(); i++) {
 			Node node = dom.getChildNodes().item(i);
-			count += getCountOfTags(node, tags, skippedTags);
+			count += getCountOfTags(node, tags, skippedTags, requiredAttr, hasName, jsaf);
 		}
 		
 		return count;
 	}
-	protected static int getCountOfTags(Node dom, String[] tags, String[] skippedTags)
+	protected static int getCountOfTags(Node dom, String[] tags, String[] skippedTags,
+			String requiredAttr, String hasName, JSAdapterFactory jsaf)
 	{
 		int count = 0;
 		
 		if (isSearchedTag(dom, skippedTags))
 			return count;
 		
-		if (isSearchedTag(dom, tags))
+		if (isSearchedTag(dom, tags, requiredAttr, hasName, jsaf))
 			count++;
 		
 		for (int i = 0; i < dom.getChildNodes().getLength(); i++) {
 			Node node = dom.getChildNodes().item(i);
-			count += getCountOfTags(node, tags, skippedTags);
+			count += getCountOfTags(node, tags, skippedTags, requiredAttr, hasName, jsaf);
 		}
 		
 		return count;
@@ -79,28 +112,33 @@ public class HTMLTraversal
 	 * @param tags Array of relevant HTML tags
 	 * @param skippedTags Array of HTML tags that should be skipped
 	 * @param n Index of the tag (zero-based)
+	 * @param requiredAttr Required attribute in the tags (or null)
+	 * @param hasName Required name value in the tags (this override tags) (or null)
+	 * @param jsaf JSAdapterFactory for the name format
 	 * @return Node or null
 	 */
-	public static Node getNthTagInNode(Node dom, String[] tags, String[] skippedTags, int n)
+	public static Node getNthTagInNode(Node dom, String[] tags, String[] skippedTags, int n,
+			String requiredAttr, String hasName, JSAdapterFactory jsaf)
 	{
 		if (n < 0) return null;
 		position = 0;
 		
 		for (int i = 0; i < dom.getChildNodes().getLength(); i++) {
 			Node node = dom.getChildNodes().item(i);
-			Node result = getNthTag(node, tags, skippedTags, n);
+			Node result = getNthTag(node, tags, skippedTags, n, requiredAttr, hasName, jsaf);
 			if (result != null)
 				return result;
 		}
 		
 		return null;
 	}
-	protected static Node getNthTag(Node dom, String[] tags, String[] skippedTags, int n) 
+	protected static Node getNthTag(Node dom, String[] tags, String[] skippedTags, int n,
+			String requiredAttr, String hasName, JSAdapterFactory jsaf) 
 	{
 		if (isSearchedTag(dom, skippedTags))
 			return null;
 		
-		if (isSearchedTag(dom, tags)) {
+		if (isSearchedTag(dom, tags, requiredAttr, hasName, jsaf)) {
 			if (position == n)
 				return dom;
 			position++;
@@ -108,7 +146,7 @@ public class HTMLTraversal
 		
 		for (int i = 0; i < dom.getChildNodes().getLength(); i++) {
 			Node node = dom.getChildNodes().item(i);
-			Node result = getNthTag(node, tags, skippedTags, n);
+			Node result = getNthTag(node, tags, skippedTags, n, requiredAttr, hasName, jsaf);
 			if (result != null)
 				return result;
 		}
@@ -121,11 +159,13 @@ public class HTMLTraversal
 	 * @param tags Array of relevant HTML tags
 	 * @param skippedTags Array of HTML tags that should be skipped
 	 * @param n Index of the tag (zero-based)
+	 * @param requiredAttr Required attribute in the tags (or null)
+	 * @param hasName Required name value in the tags (this override tags) (or null)
 	 * @param jsaf JSAdapterFactory for the name format
 	 * @return Node or null
 	 */
 	public static Node getNthTagInTable(Node dom, String[] tags, String[] skippedTags, int n,
-			JSAdapterFactory jsaf)
+			String requiredAttr, String hasName, JSAdapterFactory jsaf)
 	{
 		String thead = jsaf.innerNameFormat("thead");
 		String tbody = jsaf.innerNameFormat("tbody");
@@ -141,7 +181,7 @@ public class HTMLTraversal
 		for (int i = 0; i < dom.getChildNodes().getLength(); i++) {
 			Node node = dom.getChildNodes().item(i);
 			if (!isSearchedTag(node, theadArray)) continue;
-			Node result = getNthTag(node, tags, skippedTags, n);
+			Node result = getNthTag(node, tags, skippedTags, n, requiredAttr, hasName, jsaf);
 			if (result != null) return result;
 		}
 		
@@ -149,7 +189,7 @@ public class HTMLTraversal
 		for (int i = 0; i < dom.getChildNodes().getLength(); i++) {
 			Node node = dom.getChildNodes().item(i);
 			if (!isSearchedTag(node, tbodyArray)) continue;
-			Node result = getNthTag(node, tags, skippedTags, n);
+			Node result = getNthTag(node, tags, skippedTags, n, requiredAttr, hasName, jsaf);
 			if (result != null) return result;
 		}
 		
@@ -157,7 +197,7 @@ public class HTMLTraversal
 		for (int i = 0; i < dom.getChildNodes().getLength(); i++) {
 			Node node = dom.getChildNodes().item(i);
 			if (!isSearchedTag(node, tfootArray)) continue;
-			Node result = getNthTag(node, tags, skippedTags, n);
+			Node result = getNthTag(node, tags, skippedTags, n, requiredAttr, hasName, jsaf);
 			if (result != null) return result;
 		}
 		
@@ -171,17 +211,19 @@ public class HTMLTraversal
 	 * @param tags Array of relevant HTML tags
 	 * @param skippedTags Array of HTML tags that should be skipped
 	 * @param name Name of the tag
+	 * @param requiredAttr Required attribute in the tags (or null)
+	 * @param hasName Required name value in the tags (this override tags) (or null)
 	 * @param jsaf JSAdapterFactory for the name format
 	 * @return Node or null
 	 */
 	public static Node getNamedTagInNode(Node dom, String[] tags, String[] skippedTags, 
-			String name, JSAdapterFactory jsaf)
+			String name, String requiredAttr, String hasName, JSAdapterFactory jsaf)
 	{
 		// Search for the attribute id
 		String attrid = jsaf.innerNameFormat("id");
 		for (int i = 0; i < dom.getChildNodes().getLength(); i++) {
 			Node node = dom.getChildNodes().item(i);
-			Node result = getNamedTag(node, tags, skippedTags, name, attrid);
+			Node result = getNamedTag(node, tags, skippedTags, name, attrid, requiredAttr, hasName, jsaf);
 			if (result != null)
 				return result;
 		}
@@ -190,7 +232,7 @@ public class HTMLTraversal
 		String attrname = jsaf.innerNameFormat("name");
 		for (int i = 0; i < dom.getChildNodes().getLength(); i++) {
 			Node node = dom.getChildNodes().item(i);
-			Node result = getNamedTag(node, tags, skippedTags, name, attrname);
+			Node result = getNamedTag(node, tags, skippedTags, name, attrname, requiredAttr, hasName, jsaf);
 			if (result != null)
 				return result;
 		}
@@ -198,12 +240,12 @@ public class HTMLTraversal
 		return null;
 	}
 	protected static Node getNamedTag(Node dom, String[] tags, String[] skippedTags,
-			String name, String attr)
+			String name, String attr, String requiredAttr, String hasName, JSAdapterFactory jsaf)
 	{
 		if (isSearchedTag(dom, skippedTags))
 			return null;
 		
-		if (isSearchedTag(dom, tags) && dom.hasAttributes()) {
+		if (isSearchedTag(dom, tags, requiredAttr, hasName, jsaf) && dom.hasAttributes()) {
 			Attr attribute = (Attr) dom.getAttributes().getNamedItem(attr);
 			if (attribute != null && attribute.getValue().equals(name)) 
 				return dom;
@@ -211,7 +253,7 @@ public class HTMLTraversal
 		
 		for (int i = 0; i < dom.getChildNodes().getLength(); i++) {
 			Node node = dom.getChildNodes().item(i);
-			Node result = getNamedTag(node, tags, skippedTags, name, attr);
+			Node result = getNamedTag(node, tags, skippedTags, name, attr, requiredAttr, hasName, jsaf);
 			if (result != null)
 				return result;
 		}
@@ -224,11 +266,13 @@ public class HTMLTraversal
 	 * @param tags Array of relevant HTML tags
 	 * @param skippedTags Array of HTML tags that should be skipped
 	 * @param name Name of the tag
+	 * @param requiredAttr Required attribute in the tags (or null)
+	 * @param hasName Required name value in the tags (this override tags) (or null)
 	 * @param jsaf JSAdapterFactory for the name format
 	 * @return Node or null
 	 */
 	public static Node getNamedTagInTable(Node dom, String[] tags, String[] skippedTags, 
-			String name, JSAdapterFactory jsaf)
+			String name, String requiredAttr, String hasName, JSAdapterFactory jsaf)
 	{
 		String thead = jsaf.innerNameFormat("thead");
 		String tbody = jsaf.innerNameFormat("tbody");
@@ -244,7 +288,7 @@ public class HTMLTraversal
 		for (int i = 0; i < dom.getChildNodes().getLength(); i++) {
 			Node node = dom.getChildNodes().item(i);
 			if (!isSearchedTag(node, theadArray)) continue;
-			Node result = getNamedTag(node, tags, skippedTags, name, attrid);
+			Node result = getNamedTag(node, tags, skippedTags, name, attrid, requiredAttr, hasName, jsaf);
 			if (result != null) return result;
 		}
 		
@@ -252,7 +296,7 @@ public class HTMLTraversal
 		for (int i = 0; i < dom.getChildNodes().getLength(); i++) {
 			Node node = dom.getChildNodes().item(i);
 			if (!isSearchedTag(node, tbodyArray)) continue;
-			Node result = getNamedTag(node, tags, skippedTags, name, attrid);
+			Node result = getNamedTag(node, tags, skippedTags, name, attrid, requiredAttr, hasName, jsaf);
 			if (result != null) return result;
 		}
 		
@@ -260,7 +304,7 @@ public class HTMLTraversal
 		for (int i = 0; i < dom.getChildNodes().getLength(); i++) {
 			Node node = dom.getChildNodes().item(i);
 			if (!isSearchedTag(node, tfootArray)) continue;
-			Node result = getNamedTag(node, tags, skippedTags, name, attrid);
+			Node result = getNamedTag(node, tags, skippedTags, name, attrid, requiredAttr, hasName, jsaf);
 			if (result != null) return result;
 		}
 		
@@ -271,7 +315,7 @@ public class HTMLTraversal
 		for (int i = 0; i < dom.getChildNodes().getLength(); i++) {
 			Node node = dom.getChildNodes().item(i);
 			if (!isSearchedTag(node, theadArray)) continue;
-			Node result = getNamedTag(node, tags, skippedTags, name, attrname);
+			Node result = getNamedTag(node, tags, skippedTags, name, attrname, requiredAttr, hasName, jsaf);
 			if (result != null) return result;
 		}
 		
@@ -279,7 +323,7 @@ public class HTMLTraversal
 		for (int i = 0; i < dom.getChildNodes().getLength(); i++) {
 			Node node = dom.getChildNodes().item(i);
 			if (!isSearchedTag(node, tbodyArray)) continue;
-			Node result = getNamedTag(node, tags, skippedTags, name, attrname);
+			Node result = getNamedTag(node, tags, skippedTags, name, attrname, requiredAttr, hasName, jsaf);
 			if (result != null) return result;
 		}
 		
@@ -287,7 +331,7 @@ public class HTMLTraversal
 		for (int i = 0; i < dom.getChildNodes().getLength(); i++) {
 			Node node = dom.getChildNodes().item(i);
 			if (!isSearchedTag(node, tfootArray)) continue;
-			Node result = getNamedTag(node, tags, skippedTags, name, attrname);
+			Node result = getNamedTag(node, tags, skippedTags, name, attrname, requiredAttr, hasName, jsaf);
 			if (result != null) return result;
 		}
 		

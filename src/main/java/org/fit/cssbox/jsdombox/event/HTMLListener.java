@@ -180,4 +180,37 @@ public interface HTMLListener
 	 */
 	public void textarea_select(Node node);
 	
+	
+	/**
+	 * Gets the title of the document
+	 * @param node Source Node of the HTML Document
+	 * @return Current title
+	 */
+	public String document_getTitle(Node node);
+	/**
+	 * Sets the title of the document
+	 * @param node Source Node of the HTML Document
+	 * @param title New title
+	 */
+	public void document_setTitle(Node node, String title);
+	/**
+	 * Gets the URI of the page that linked to this document
+	 * @param node Source Node of the HTML Document
+	 * @return URI of the page that linked to this documnet
+	 */
+	public String document_getReferrer(Node node);
+	/**
+	 * Gets the cookies of the document
+	 * @param node Source Node of the HTML Document
+	 * @return Cookie string
+	 */
+	public String document_getCookie(Node node);
+	/**
+	 * Sets the cookies of the document
+	 * @param node Source Node of the HTML Document
+	 * @param cookie Cookie string
+	 * @return Is cookie string valid? true/false
+	 */
+	public boolean document_setCookie(Node node, String cookie);
+	
 }

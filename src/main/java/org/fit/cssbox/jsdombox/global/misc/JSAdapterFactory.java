@@ -6,6 +6,7 @@
 package org.fit.cssbox.jsdombox.global.misc;
 
 import org.fit.cssbox.jsdombox.event.HTMLListener;
+import org.fit.cssbox.jsdombox.event.ParserListener;
 import org.fit.cssbox.jsdombox.global.util.HTMLURI;
 
 /**
@@ -19,6 +20,11 @@ public abstract class JSAdapterFactory
 	 * Interface for the HTML events
 	 */
 	public HTMLListener htmlEvent;
+	
+	/**
+	 * Interface for the parser events
+	 */
+	public ParserListener parserEvent;
 	
 	/**
 	 * Class for manipulation with the HTML URIs

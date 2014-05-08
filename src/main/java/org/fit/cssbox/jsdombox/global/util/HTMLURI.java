@@ -115,4 +115,27 @@ public class HTMLURI
 		}
 	}
 	
+	/**
+	 * Gets the server domain name of the document
+	 * @return Domain name 
+	 */
+	public String getDocumentDomain()
+	{
+		try {
+			URI uri = documentBasePath.toURI();
+			return (uri.getHost() != null)? uri.getHost() : ""; 
+		} catch (URISyntaxException e) {
+			return null;
+		} 
+	}
+	
+	/**
+	 * Gets the URL of the document
+	 * @return URL 
+	 */
+	public String getDocumentURL()
+	{
+		return encodeUrl(documentBasePath);
+	}
+	
 }

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>DOM Level 2 HTML - HTMLDocument</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<style>
+			html {
+				font-family: Arial, sans-serif;
+				font-size: 14px;
+			}
+		</style>
+	</head>
+	<body>
+	
+		<strong>Test 1 - HTMLDocument:</strong><br>
+		<span id="t11">title (correct: OK): </span><br>
+		<span id="t12">title new (correct: OK): </span><br>
+		<span id="t13">referrer (correct: OK): </span><br>
+		<span id="t14">domain (correct: nothing): </span><br>
+		<span id="t15">URL (correct: absolute path): </span><br>
+		<span id="t16">body (correct: BODY): </span><br>
+		<span id="t17">images (correct: 1): </span><br>
+		<span id="t18">applets (correct: 1): </span><br>
+		<span id="t19">links (correct: 2): </span><br>
+		<span id="t20">links2 (correct: AREA): </span><br>
+		<span id="t21">links3 (correct: A): </span><br>
+		<span id="t22">forms (correct: 3): </span><br>
+		<span id="t23">forms2 (correct: f2): </span><br>
+		<span id="t24">forms3 (correct: f3): </span><br>
+		<span id="t25">anchors (correct: 3): </span><br>
+		<span id="t26">cookie (correct: OK): </span><br>
+		<span id="t27">cookie new (correct: OK): </span><br>
+		<span id="t28">open (correct: OK): </span><br>
+		<span id="t29">write (correct: OK): </span><br>
+		<span id="t30">writeln (correct: OK): </span><br>
+		<span id="t31">close (correct: OK): </span><br>
+		<span id="t32">getElementsByName (correct: 4): </span><br>
+		
+		<h2>Test content</h2>
+		
+		<img>
+		<object></object>
+		<applet></applet>
+		<area>
+		<area href="">
+		<a name="anchor1" href=""></a>
+		<a></a>
+		<a name="anchor2"></a>
+		<a name="anchor3"></a>
+		
+		<form id="f1"></form>
+		<form id="f2"></form>
+		<form name="f3"></form>
+		
+		<div name="samename"></div>
+		<div name="samename"></div>
+		<div name=""></div>
+		<span name="samename"></span>
+		<div name="samename"></div>
+		
+		<script>
+			// Desired result:
+			// Test 1:
+			// title (correct: OK): OK
+			// title new (correct: OK): OK
+			// referrer (correct: OK): OK
+			// domain (correct: nothing):
+			// URL (correct: absolute path): absolute path
+			// body (correct: BODY): BODY
+			// images (correct: 1): 1
+			// applets (correct: 1): 1
+			// links (correct: 2): 2
+			// links2 (correct: AREA): AREA
+			// links3 (correct: A): A
+			// forms (correct: 3): 3
+			// forms2 (correct: f2): f2
+			// forms3 (correct: f3): f3
+			// anchors (correct: 3): 3
+			// cookie (correct: OK): OK
+			// cookie new (correct: OK): OK
+			// open (correct: OK): OK
+			// write (correct: OK): OK
+			// writeln (correct: OK): OK
+			// close (correct: OK): OK
+			// getElementsByName (correct: 4): 4
+			
+			try {
+				document.title;
+				document.getElementById("t11").firstChild.data += "OK";
+			} catch(e) {
+				document.getElementById("t11").firstChild.data += "ERROR";
+			}
+			try {
+				document.title = "NEW";
+				document.getElementById("t12").firstChild.data += "OK";
+			} catch(e) {
+				document.getElementById("t12").firstChild.data += "ERROR";
+			}
+			try {
+				document.referrer;
+				document.getElementById("t13").firstChild.data += "OK";
+			} catch(e) {
+				document.getElementById("t13").firstChild.data += "ERROR";
+			}
+			document.getElementById("t14").firstChild.data += document.domain;
+			document.getElementById("t15").firstChild.data += document.URL;
+			document.getElementById("t16").firstChild.data += document.body.tagName;
+			document.getElementById("t17").firstChild.data += document.images.length;
+			document.getElementById("t18").firstChild.data += document.applets.length;
+			document.getElementById("t19").firstChild.data += document.links.length;
+			document.getElementById("t20").firstChild.data += document.links.item(0).tagName;
+			document.getElementById("t21").firstChild.data += document.links.item(1).tagName;
+			document.getElementById("t22").firstChild.data += document.forms.length;
+			document.getElementById("t23").firstChild.data += document.forms.namedItem("f2").id;
+			document.getElementById("t24").firstChild.data += document.forms.namedItem("f3").name;
+			document.getElementById("t25").firstChild.data += document.anchors.length;
+			try {
+				document.cookie;
+				document.getElementById("t26").firstChild.data += "OK";
+			} catch(e) {
+				document.getElementById("t26").firstChild.data += "ERROR";
+			}
+			try {
+				document.cookie = "";
+				document.getElementById("t27").firstChild.data += "OK";
+			} catch(e) {
+				document.getElementById("t27").firstChild.data += "ERROR";
+			}
+			try {
+				document.open();
+				document.getElementById("t28").firstChild.data += "OK";
+			} catch(e) {
+				document.getElementById("t28").firstChild.data += "ERROR";
+			}
+			try {
+				document.write("write");
+				document.getElementById("t29").firstChild.data += "OK";
+			} catch(e) {
+				document.getElementById("t29").firstChild.data += "ERROR";
+			}
+			try {
+				document.writeln("writeln");
+				document.getElementById("t30").firstChild.data += "OK";
+			} catch(e) {
+				document.getElementById("t30").firstChild.data += "ERROR";
+			}
+			try {
+				document.close();
+				document.getElementById("t31").firstChild.data += "OK";
+			} catch(e) {
+				document.getElementById("t31").firstChild.data += "ERROR";
+			}
+			document.getElementById("t32").firstChild.data += 
+				document.getElementsByName("samename").length;
+		</script>
+	</body>
+</html>

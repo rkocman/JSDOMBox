@@ -8,6 +8,7 @@ package org.fit.cssbox.jsdombox.global.misc;
 import java.net.URL;
 
 import org.fit.cssbox.jsdombox.event.HTMLListener;
+import org.fit.cssbox.jsdombox.event.ParserListener;
 import org.fit.cssbox.jsdombox.global.core.*;
 import org.fit.cssbox.jsdombox.global.html.*;
 import org.fit.cssbox.jsdombox.global.util.HTMLURI;
@@ -24,10 +25,11 @@ public class DefaultCSSBoxFactory extends JSAdapterFactory
 	
 	public DefaultCSSBoxFactory(
 			JSAnalyzer jsa, org.w3c.dom.Document doc, URL basePath,
-			HTMLListener htmlListener
+			HTMLListener htmlListener,  ParserListener parserListener
 	) {
 		this.jsa = jsa;
 		this.htmlEvent = htmlListener;
+		this.parserEvent = parserListener;
 		this.htmlUri = new HTMLURI(this, doc, basePath);
 	}
 
@@ -56,6 +58,9 @@ public class DefaultCSSBoxFactory extends JSAdapterFactory
 		
 		
 		// HTML Interfaces
+		
+		if (source instanceof org.w3c.dom.Document)
+			return new HTMLDocument((org.w3c.dom.Document) source, this);
 		
 		if (source instanceof org.w3c.dom.Element) {
 			switch (((org.w3c.dom.Element) source).getTagName()) {		

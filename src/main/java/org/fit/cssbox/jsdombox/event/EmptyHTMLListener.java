@@ -49,4 +49,10 @@ public class EmptyHTMLListener implements HTMLListener
 	public void textarea_focus(Node node) {}
 	public void textarea_select(Node node) {}
 	
+	public String document_getTitle(Node node) {return "";}
+	public void document_setTitle(Node node, String title) {}
+	public String document_getReferrer(Node node) {return "";}
+	public String document_getCookie(Node node) {return "";}
+	public boolean document_setCookie(Node node, String cookie) {return true;}
+	
 }

@@ -36,7 +36,7 @@ public class HTMLOptionsCollection extends JSAdapter
 	
 	public int getLength()
 	{
-		return HTMLTraversal.getCountOfTagsInNode(source, tags, skippedTags);
+		return HTMLTraversal.getCountOfTagsInNode(source, tags, skippedTags, null, null, jsaf);
 	}
 	public void setLength(int length)
 	{
@@ -46,14 +46,14 @@ public class HTMLOptionsCollection extends JSAdapter
 	
 	public JSAdapter item(int index)
 	{
-		Object result = HTMLTraversal.getNthTagInNode(source, tags, skippedTags, index); 
+		Object result = HTMLTraversal.getNthTagInNode(source, tags, skippedTags, index, null, null, jsaf); 
 		return jsaf.create(result, JSAdapterType.NODE);
 	}
 	// TODO square bracket access
 	
 	public JSAdapter namedItem(String name)
 	{
-		Object result = HTMLTraversal.getNamedTagInNode(source, tags, skippedTags, name, jsaf);
+		Object result = HTMLTraversal.getNamedTagInNode(source, tags, skippedTags, name, null, null, jsaf);
 		return jsaf.create(result, JSAdapterType.NODE);
 	}
 	// TODO square bracket access
