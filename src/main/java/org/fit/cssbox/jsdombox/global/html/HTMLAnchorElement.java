@@ -53,7 +53,7 @@ public class HTMLAnchorElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("coords");
 		source.setAttribute(attr, coords);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public String getHref()
@@ -66,7 +66,7 @@ public class HTMLAnchorElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("href");
 		source.setAttribute(attr, href);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public String getHreflang()
@@ -122,7 +122,7 @@ public class HTMLAnchorElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("shape");
 		source.setAttribute(attr, shape);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public int getTabIndex()

@@ -44,7 +44,7 @@ public class Attr extends Node
 	public void setValue(String value)
 	{
 		source.setValue(value);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	

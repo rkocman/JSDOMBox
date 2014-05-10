@@ -32,7 +32,7 @@ public class CharacterData extends Node
 	public void setData(String data)
 	{
 		source.setData(data);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public int getLength()
@@ -48,25 +48,25 @@ public class CharacterData extends Node
 	public void appendData(String arg)
 	{
 		source.appendData(arg);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public void insertData(int offset, String arg)
 	{
 		source.insertData(offset, arg);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public void deleteData(int offset, int count)
 	{
 		source.deleteData(offset, count);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public void replaceData(int offset, int count, String arg)
 	{
 		source.replaceData(offset, count, arg);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	

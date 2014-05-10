@@ -7,6 +7,11 @@ package org.fit.cssbox.jsdombox.event;
 
 import org.w3c.dom.Node;
 
+/**
+ * Empty implementation of the ParserListener 
+ * 
+ * @author Radim Kocman
+ */
 public class EmptyParserListener implements ParserListener
 {
 	public void document_open(Node node) {}

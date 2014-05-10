@@ -57,7 +57,7 @@ public class HTMLTextAreaElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("cols");
 		setIntegerAttribute(attr, cols);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public boolean getDisabled()
@@ -69,7 +69,7 @@ public class HTMLTextAreaElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("disabled");
 		setBooleanAttribute(attr, disabled);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public String getName()
@@ -103,7 +103,7 @@ public class HTMLTextAreaElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("rows");
 		setIntegerAttribute(attr, rows);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public int getTabIndex()

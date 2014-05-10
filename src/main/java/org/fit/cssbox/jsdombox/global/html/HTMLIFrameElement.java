@@ -32,7 +32,7 @@ public class HTMLIFrameElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("align");
 		source.setAttribute(attr, align);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public String getFrameBorder()
@@ -44,7 +44,7 @@ public class HTMLIFrameElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("frameborder");
 		source.setAttribute(attr, frameBorder);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public String getHeight()
@@ -56,7 +56,7 @@ public class HTMLIFrameElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("height");
 		source.setAttribute(attr, height);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public String getLongDesc()
@@ -80,7 +80,7 @@ public class HTMLIFrameElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("marginheight");
 		source.setAttribute(attr, marginHeight);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public String getMarginWidth()
@@ -92,7 +92,7 @@ public class HTMLIFrameElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("marginwidth");
 		source.setAttribute(attr, marginWidth);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public String getName()
@@ -115,7 +115,7 @@ public class HTMLIFrameElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("scrolling");
 		source.setAttribute(attr, scrolling);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public String getSrc()
@@ -139,7 +139,7 @@ public class HTMLIFrameElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("width");
 		source.setAttribute(attr, width);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public JSAdapter getContentDocument()

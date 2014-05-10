@@ -86,7 +86,7 @@ public class HTMLSelectElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("disabled");
 		setBooleanAttribute(attr, disabled);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public boolean getMultiple()
@@ -98,7 +98,7 @@ public class HTMLSelectElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("multiple");
 		setBooleanAttribute(attr, multiple);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public String getName()
@@ -121,7 +121,7 @@ public class HTMLSelectElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("size");
 		setIntegerAttribute(attr, size);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public int getTabIndex()

@@ -29,7 +29,7 @@ public class HTMLLinkElement extends HTMLElement
 	public void setDisabled(boolean disabled)
 	{
 		jsaf.htmlEvent.link_setDisabled(source, disabled);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public String getCharset()
@@ -53,7 +53,7 @@ public class HTMLLinkElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("href");
 		source.setAttribute(attr, href);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public String getHreflang()
@@ -76,7 +76,7 @@ public class HTMLLinkElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("media");
 		source.setAttribute(attr, media);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public String getRel()
@@ -88,7 +88,7 @@ public class HTMLLinkElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("rel");
 		source.setAttribute(attr, rel);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public String getRev()
@@ -100,7 +100,7 @@ public class HTMLLinkElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("rev");
 		source.setAttribute(attr, rev);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public String getTarget()
@@ -112,7 +112,7 @@ public class HTMLLinkElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("target");
 		source.setAttribute(attr, target);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public String getType()
@@ -124,7 +124,7 @@ public class HTMLLinkElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("type");
 		source.setAttribute(attr, type);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 }

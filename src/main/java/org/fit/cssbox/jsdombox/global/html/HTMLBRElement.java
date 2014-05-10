@@ -31,7 +31,7 @@ public class HTMLBRElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("clear");
 		source.setAttribute(attr, clear);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 }

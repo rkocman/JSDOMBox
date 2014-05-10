@@ -122,28 +122,28 @@ public class Node extends JSAdapter
 	public JSAdapter insertBefore(Node newChild, Node refChild)
 	{
 		Object result = source.insertBefore(getSource(newChild), getSource(refChild));
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 		return jsaf.create(result, JSAdapterType.NODE);
 	}
 	
 	public JSAdapter replaceChild(Node newChild, Node oldChild)
 	{
 		Object result = source.replaceChild(getSource(newChild), getSource(oldChild));
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 		return jsaf.create(result, JSAdapterType.NODE);
 	}
 	
 	public JSAdapter removeChild(Node oldChild)
 	{
 		Object result = source.removeChild(getSource(oldChild));
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 		return jsaf.create(result, JSAdapterType.NODE);
 	}
 	
 	public JSAdapter appendChild(Node newChild)
 	{
 		Object result = source.appendChild(getSource(newChild));
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 		return jsaf.create(result, JSAdapterType.NODE);
 	}
 	

@@ -44,7 +44,7 @@ public class HTMLTableSectionElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("align");
 		source.setAttribute(attr, align);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public String getCh()
@@ -56,7 +56,7 @@ public class HTMLTableSectionElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("char");
 		source.setAttribute(attr, ch);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public String getChOff()
@@ -68,7 +68,7 @@ public class HTMLTableSectionElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("charoff");
 		source.setAttribute(attr, chOff);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public String getvAlign()
@@ -80,7 +80,7 @@ public class HTMLTableSectionElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("valign");
 		source.setAttribute(attr, vAlign);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public JSAdapter getRows()

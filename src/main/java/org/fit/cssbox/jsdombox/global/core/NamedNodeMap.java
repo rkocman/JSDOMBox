@@ -49,7 +49,7 @@ public class NamedNodeMap extends JSAdapter
 	public JSAdapter setNamedItem(Node arg)
 	{
 		Object result = source.setNamedItem(getSource(arg));
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 		return jsaf.create(result, JSAdapterType.NODE);
 	}
 	
@@ -57,7 +57,7 @@ public class NamedNodeMap extends JSAdapter
 	{
 		String convName = jsaf.innerNameFormat(name);
 		Object result = source.removeNamedItem(convName);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 		return jsaf.create(result, JSAdapterType.NODE);
 	}
 	

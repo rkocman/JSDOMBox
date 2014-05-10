@@ -31,7 +31,7 @@ public class HTMLOListElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("compact");
 		setBooleanAttribute(attr, compact);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public int getStart()
@@ -43,7 +43,7 @@ public class HTMLOListElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("start");
 		setIntegerAttribute(attr, start);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public String getType()
@@ -55,7 +55,7 @@ public class HTMLOListElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("type");
 		source.setAttribute(attr, type);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 }

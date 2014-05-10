@@ -131,7 +131,7 @@ public class HTMLTableElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("align");
 		source.setAttribute(attr, align);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public String getBgColor()
@@ -143,7 +143,7 @@ public class HTMLTableElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("bgcolor");
 		source.setAttribute(attr, bgColor);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public String getBorder()
@@ -155,7 +155,7 @@ public class HTMLTableElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("border");
 		source.setAttribute(attr, border);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public String getCellPadding()
@@ -167,7 +167,7 @@ public class HTMLTableElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("cellpadding");
 		source.setAttribute(attr, cellPadding);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public String getCellSpacing()
@@ -179,7 +179,7 @@ public class HTMLTableElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("cellspacing");
 		source.setAttribute(attr, cellPadding);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public String getFrame()
@@ -191,7 +191,7 @@ public class HTMLTableElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("frame");
 		source.setAttribute(attr, frame);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public String getRules()
@@ -203,7 +203,7 @@ public class HTMLTableElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("rules");
 		source.setAttribute(attr, rules);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public String getSummary()
@@ -226,7 +226,7 @@ public class HTMLTableElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("width");
 		source.setAttribute(attr, width);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public JSAdapter createTHead()

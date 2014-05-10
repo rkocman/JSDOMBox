@@ -48,7 +48,7 @@ public class HTMLButtonElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("disabled");
 		setBooleanAttribute(attr, disabled);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public String getName()

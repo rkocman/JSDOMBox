@@ -42,7 +42,7 @@ public class HTMLImageElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("align");
 		source.setAttribute(attr, align);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public String getAlt()
@@ -65,7 +65,7 @@ public class HTMLImageElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("border");
 		source.setAttribute(attr, border);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public int getHeight()
@@ -77,7 +77,7 @@ public class HTMLImageElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("height");
 		setIntegerAttribute(attr, height);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public int getHspace()
@@ -89,7 +89,7 @@ public class HTMLImageElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("hspace");
 		setIntegerAttribute(attr, hspace);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public boolean getIsMap()
@@ -101,7 +101,7 @@ public class HTMLImageElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("ismap");
 		setBooleanAttribute(attr, isMap);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public String getLongDesc()
@@ -137,7 +137,7 @@ public class HTMLImageElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("usemap");
 		source.setAttribute(attr, useMap);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public int getVspace()
@@ -149,7 +149,7 @@ public class HTMLImageElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("vspace");
 		setIntegerAttribute(attr, vspace);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public int getWidth()
@@ -161,7 +161,7 @@ public class HTMLImageElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("width");
 		setIntegerAttribute(attr, width);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 }

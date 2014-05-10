@@ -31,7 +31,7 @@ public class HTMLUListElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("compact");
 		setBooleanAttribute(attr, compact);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public String getType()
@@ -43,7 +43,7 @@ public class HTMLUListElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("type");
 		source.setAttribute(attr, type);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 }

@@ -31,7 +31,7 @@ public class HTMLAppletElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("align");
 		source.setAttribute(attr, align);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public String getAlt()
@@ -88,7 +88,7 @@ public class HTMLAppletElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("height");
 		source.setAttribute(attr, height);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public int getHspace()
@@ -100,7 +100,7 @@ public class HTMLAppletElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("hspace");
 		setIntegerAttribute(attr, hspace);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public String getName()
@@ -135,7 +135,7 @@ public class HTMLAppletElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("vspace");
 		setIntegerAttribute(attr, vspace);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public String getWidth()
@@ -147,7 +147,7 @@ public class HTMLAppletElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("width");
 		source.setAttribute(attr, width);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 }

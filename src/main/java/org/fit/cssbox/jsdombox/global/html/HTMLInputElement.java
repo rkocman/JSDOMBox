@@ -81,7 +81,7 @@ public class HTMLInputElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("align");
 		source.setAttribute(attr, align);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public String getAlt()
@@ -113,7 +113,7 @@ public class HTMLInputElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("disabled");
 		setBooleanAttribute(attr, disabled);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public int getMaxLength()
@@ -158,7 +158,7 @@ public class HTMLInputElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("size");
 		setIntegerAttribute(attr, size);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public String getSrc()
@@ -204,7 +204,7 @@ public class HTMLInputElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("type");
 		source.setAttribute(attr, type);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public String getUseMap()

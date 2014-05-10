@@ -49,7 +49,7 @@ public class HTMLObjectElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("align");
 		source.setAttribute(attr, align);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public String getArchive()
@@ -72,7 +72,7 @@ public class HTMLObjectElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("border");
 		source.setAttribute(attr, border);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public String getCodeBase()
@@ -130,7 +130,7 @@ public class HTMLObjectElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("height");
 		source.setAttribute(attr, height);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public int getHspace()
@@ -142,7 +142,7 @@ public class HTMLObjectElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("hspace");
 		setIntegerAttribute(attr, hspace);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public String getName()
@@ -209,7 +209,7 @@ public class HTMLObjectElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("vspace");
 		setIntegerAttribute(attr, vspace);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public String getWidth()

@@ -7,12 +7,12 @@ package org.fit.cssbox.jsdombox.global.misc;
 
 import java.net.URL;
 
+import org.fit.cssbox.jsdombox.event.CSSListener;
 import org.fit.cssbox.jsdombox.event.HTMLListener;
 import org.fit.cssbox.jsdombox.event.ParserListener;
 import org.fit.cssbox.jsdombox.global.core.*;
 import org.fit.cssbox.jsdombox.global.html.*;
 import org.fit.cssbox.jsdombox.global.util.HTMLURI;
-import org.fit.cssbox.jsdombox.js.JSAnalyzer;
 
 /**
  * Default JS Adapter Factory for the CSSBox DOM
@@ -20,15 +20,13 @@ import org.fit.cssbox.jsdombox.js.JSAnalyzer;
  * @author Radim Kocman
  */
 public class DefaultCSSBoxFactory extends JSAdapterFactory
-{
-	protected JSAnalyzer jsa;
-	
+{	
 	public DefaultCSSBoxFactory(
-			JSAnalyzer jsa, org.w3c.dom.Document doc, URL basePath,
-			HTMLListener htmlListener,  ParserListener parserListener
+			org.w3c.dom.Document doc, URL basePath, HTMLListener htmlListener, 
+			CSSListener cssListener, ParserListener parserListener
 	) {
-		this.jsa = jsa;
 		this.htmlEvent = htmlListener;
+		this.cssEvent = cssListener;
 		this.parserEvent = parserListener;
 		this.htmlUri = new HTMLURI(this, doc, basePath);
 	}
@@ -54,7 +52,6 @@ public class DefaultCSSBoxFactory extends JSAdapterFactory
 		// Interface NamedNodeMap
 		if (type == JSAdapterType.NAMED_NODE_MAP)
 			return new NamedNodeMap((org.w3c.dom.NamedNodeMap) source, this);
-		
 		
 		
 		// HTML Interfaces
@@ -229,7 +226,6 @@ public class DefaultCSSBoxFactory extends JSAdapterFactory
 		}
 		
 		
-		
 		// Core interfaces
 		
 		// Interface DOMImplementation
@@ -258,7 +254,6 @@ public class DefaultCSSBoxFactory extends JSAdapterFactory
 			return new Node((org.w3c.dom.Node) source, this);
 		
 		
-		
 		// Fall-back to the Base Adapter
 		System.err.println("*** JavaScript Adapter Factory fall-back");
 		return new JSAdapter(source, this);
@@ -270,15 +265,6 @@ public class DefaultCSSBoxFactory extends JSAdapterFactory
 	public String innerNameFormat(String name)
 	{
 		return name.toLowerCase();
-	}
-	
-
-	/**
-	 * Recomputes CSS in the CSSBox
-	 */
-	public void recomputeStyles()
-	{
-		jsa.recomputeStyles();
 	}
 
 }

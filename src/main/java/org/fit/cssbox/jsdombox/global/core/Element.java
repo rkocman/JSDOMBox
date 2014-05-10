@@ -43,14 +43,14 @@ public class Element extends Node
 	{
 		String convName = jsaf.innerNameFormat(name);
 		source.setAttribute(convName, value);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public void removeAttribute(String name)
 	{
 		String convName = jsaf.innerNameFormat(name);
 		source.removeAttribute(convName);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public JSAdapter getAttributeNode(String name)
@@ -63,14 +63,14 @@ public class Element extends Node
 	public JSAdapter setAttributeNode(Attr newAttr)
 	{
 		Object result = source.setAttributeNode((org.w3c.dom.Attr) getSource(newAttr));
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 		return jsaf.create(result, JSAdapterType.ATTR);
 	}
 	
 	public JSAdapter removeAttributeNode(Attr oldAttr)
 	{
 		Object result = source.removeAttributeNode((org.w3c.dom.Attr) getSource(oldAttr));
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 		return jsaf.create(result, JSAdapterType.ATTR);
 	}
 	

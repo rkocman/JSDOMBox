@@ -15,6 +15,8 @@ import javax.script.ScriptEngineManager;
 import javax.script.SimpleBindings;
 
 import org.fit.cssbox.css.DOMAnalyzer;
+import org.fit.cssbox.jsdombox.event.CSSListener;
+import org.fit.cssbox.jsdombox.event.EmptyCSSListener;
 import org.fit.cssbox.jsdombox.event.EmptyParserListener;
 import org.fit.cssbox.jsdombox.event.HTMLListener;
 import org.fit.cssbox.jsdombox.event.ParserListener;
@@ -59,9 +61,10 @@ public class JSAnalyzer
 		
 		// JS Interface
 		HTMLListener htmlListener = new TestHTMLListener();
+		CSSListener cssListener = new EmptyCSSListener();
 		ParserListener parserListener = new EmptyParserListener();
-		JSAdapterFactory af = new DefaultCSSBoxFactory(this, doc, basePath, 
-				htmlListener, parserListener);
+		JSAdapterFactory af = new DefaultCSSBoxFactory(doc, basePath, 
+				htmlListener, cssListener, parserListener);
 		window = new Window();
 		document = (Document) af.create(doc, JSAdapterType.DOCUMENT);
 		window.document = document;
@@ -79,16 +82,6 @@ public class JSAnalyzer
 		for (String script : scripts) {
 			execute(script);
 		}
-	}
-	
-	/**
-	 * Recomputes CSS in the CSSBox
-	 */
-	public void recomputeStyles()
-	{
-		// TODO not working
-		
-		da.recomputeStyles();
 	}
 	
 	/**

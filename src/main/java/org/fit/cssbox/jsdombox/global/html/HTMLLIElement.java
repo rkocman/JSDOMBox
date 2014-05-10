@@ -31,7 +31,7 @@ public class HTMLLIElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("type");
 		source.setAttribute(attr, type);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public int getValue()
@@ -43,7 +43,7 @@ public class HTMLLIElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("value");
 		setIntegerAttribute(attr, value);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 }

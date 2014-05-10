@@ -31,7 +31,7 @@ public class HTMLBodyElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("alink");
 		source.setAttribute(attr, aLink);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public String getBackground()
@@ -43,7 +43,7 @@ public class HTMLBodyElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("background");
 		source.setAttribute(attr, background);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public String getBgColor()
@@ -55,7 +55,7 @@ public class HTMLBodyElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("bgcolor");
 		source.setAttribute(attr, bgColor);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public String getLink()
@@ -67,7 +67,7 @@ public class HTMLBodyElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("link");
 		source.setAttribute(attr, link);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public String getText()
@@ -79,7 +79,7 @@ public class HTMLBodyElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("text");
 		source.setAttribute(attr, text);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public String getvLink()
@@ -91,7 +91,7 @@ public class HTMLBodyElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("vlink");
 		source.setAttribute(attr, vLink);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 }

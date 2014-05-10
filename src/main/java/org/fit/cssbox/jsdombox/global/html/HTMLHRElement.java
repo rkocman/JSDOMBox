@@ -31,7 +31,7 @@ public class HTMLHRElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("align");
 		source.setAttribute(attr, align);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public boolean getNoShade()
@@ -43,7 +43,7 @@ public class HTMLHRElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("noshade");
 		setBooleanAttribute(attr, noShade);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public String getSize()
@@ -55,7 +55,7 @@ public class HTMLHRElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("size");
 		source.setAttribute(attr, size);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public String getWidth()
@@ -67,7 +67,7 @@ public class HTMLHRElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("width");
 		source.setAttribute(attr, width);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 }

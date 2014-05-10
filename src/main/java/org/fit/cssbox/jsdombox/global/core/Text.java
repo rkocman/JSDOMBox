@@ -30,6 +30,7 @@ public class Text extends CharacterData
 	public JSAdapter splitText(int offset)
 	{
 		Object result = source.splitText(offset);
+		jsaf.cssEvent.recomputeStyles(source);
 		return jsaf.create(result, JSAdapterType.TEXT);
 	}
 	

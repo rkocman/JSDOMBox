@@ -55,7 +55,7 @@ public class HTMLTableCellElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("align");
 		source.setAttribute(attr, align);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public String getAxis()
@@ -78,7 +78,7 @@ public class HTMLTableCellElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("bgcolor");
 		source.setAttribute(attr, bgColor);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public String getCh()
@@ -90,7 +90,7 @@ public class HTMLTableCellElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("char");
 		source.setAttribute(attr, ch);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public String getChOff()
@@ -102,7 +102,7 @@ public class HTMLTableCellElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("charoff");
 		source.setAttribute(attr, chOff);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public int getColSpan()
@@ -114,7 +114,7 @@ public class HTMLTableCellElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("colspan");
 		setIntegerAttribute(attr, colSpan);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public String getHeaders()
@@ -137,7 +137,7 @@ public class HTMLTableCellElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("height");
 		source.setAttribute(attr, height);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public boolean getNoWrap()
@@ -149,7 +149,7 @@ public class HTMLTableCellElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("nowrap");
 		setBooleanAttribute(attr, noWrap);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public int getRowSpan()
@@ -161,7 +161,7 @@ public class HTMLTableCellElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("rowspan");
 		setIntegerAttribute(attr, rowSpan);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public String getScope()
@@ -184,7 +184,7 @@ public class HTMLTableCellElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("valign");
 		source.setAttribute(attr, vAlign);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public String getWidth()
@@ -196,7 +196,7 @@ public class HTMLTableCellElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("width");
 		source.setAttribute(attr, width);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 }

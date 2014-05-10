@@ -31,7 +31,7 @@ public class HTMLDListElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("compact");
 		setBooleanAttribute(attr, compact);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 }

@@ -99,7 +99,7 @@ public class HTMLElement extends Element
 	{
 		String attr = jsaf.innerNameFormat("id");
 		source.setAttribute(attr, id);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public String getTitle()
@@ -137,7 +137,7 @@ public class HTMLElement extends Element
 	{
 		String attr = jsaf.innerNameFormat("dir");
 		source.setAttribute(attr, dir);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public String getClassName()
@@ -149,7 +149,7 @@ public class HTMLElement extends Element
 	{
 		String attr = jsaf.innerNameFormat("class");
 		source.setAttribute(attr, className);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 }

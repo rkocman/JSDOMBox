@@ -29,7 +29,7 @@ public class HTMLStyleElement extends HTMLElement
 	public void setDisabled(boolean disabled)
 	{
 		jsaf.htmlEvent.style_setDisabled(source, disabled);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public String getMedia()
@@ -41,7 +41,7 @@ public class HTMLStyleElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("media");
 		source.setAttribute(attr, media);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public String getType()
@@ -53,7 +53,7 @@ public class HTMLStyleElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("type");
 		source.setAttribute(attr, type);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 }

@@ -32,7 +32,7 @@ public class HTMLFontElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("color");
 		source.setAttribute(attr, color);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public String getFace()
@@ -44,7 +44,7 @@ public class HTMLFontElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("face");
 		source.setAttribute(attr, face);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 	public String getSize()
@@ -56,7 +56,7 @@ public class HTMLFontElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("size");
 		source.setAttribute(attr, size);
-		jsaf.recomputeStyles();
+		jsaf.cssEvent.recomputeStyles(source);
 	}
 	
 }
