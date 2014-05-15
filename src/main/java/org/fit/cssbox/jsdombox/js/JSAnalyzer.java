@@ -17,10 +17,10 @@ import javax.script.SimpleBindings;
 import org.fit.cssbox.css.DOMAnalyzer;
 import org.fit.cssbox.jsdombox.event.CSSListener;
 import org.fit.cssbox.jsdombox.event.EmptyCSSListener;
+import org.fit.cssbox.jsdombox.event.EmptyHTMLListener;
 import org.fit.cssbox.jsdombox.event.EmptyParserListener;
 import org.fit.cssbox.jsdombox.event.HTMLListener;
 import org.fit.cssbox.jsdombox.event.ParserListener;
-import org.fit.cssbox.jsdombox.event.TestHTMLListener;
 import org.fit.cssbox.jsdombox.global.core.Document;
 import org.fit.cssbox.jsdombox.global.misc.*;
 import org.w3c.dom.Element;
@@ -36,13 +36,27 @@ public class JSAnalyzer
 	protected DOMAnalyzer da;
 	protected org.w3c.dom.Document doc;
 	protected URL basePath;
+	
+	// JavaScript
+	protected ScriptEngineManager manager;
 	protected ScriptEngine engine;
 	
+	// Interfaces
+	protected HTMLListener htmlListener;
+	protected CSSListener cssListener;
+	protected ParserListener parserListener;
+	
 	// Global objects
-	protected Window window;
+	protected JSAdapterFactory jsaf;
 	protected Document document;
+	protected Window window;
 	protected PrototypeDOMException pDOMException;
 	protected PrototypeNode pNode;
+	
+	
+	//////////////
+	// Settings //
+	//////////////
 	
 	/**
 	 * Creates a new JS analyzer
@@ -55,23 +69,77 @@ public class JSAnalyzer
 		this.doc = doc;
 		this.basePath = basePath;
 		
-		// JS Engine
-		ScriptEngineManager manager = new ScriptEngineManager();
-		engine = manager.getEngineByName("js");
+		// JavaScript
+		manager = new ScriptEngineManager();
+		engine = manager.getEngineByName("rhino");
 		
-		// JS Interface
-		HTMLListener htmlListener = new TestHTMLListener();
-		CSSListener cssListener = new EmptyCSSListener();
-		ParserListener parserListener = new EmptyParserListener();
-		JSAdapterFactory af = new DefaultCSSBoxFactory(doc, basePath, 
+		// Interfaces
+		htmlListener = new EmptyHTMLListener();
+		cssListener = new EmptyCSSListener();
+		parserListener = new EmptyParserListener();
+		
+		// Global objects
+		jsaf = new DefaultCSSBoxFactory(doc, basePath, 
 				htmlListener, cssListener, parserListener);
+		document = (Document) jsaf.create(doc, JSAdapterType.DOCUMENT);
 		window = new Window();
-		document = (Document) af.create(doc, JSAdapterType.DOCUMENT);
 		window.document = document;
 		pDOMException = new PrototypeDOMException();
 		pNode = new PrototypeNode();
 	}
+	
+	/**
+	 * Sets a new HTMLListener
+	 */
+	public void setHTMLListener(HTMLListener htmlListener)
+	{
+		this.htmlListener = htmlListener;
+		jsaf.htmlEvent = htmlListener;
+	}
+	
+	/**
+	 * Sets a new CSSListener
+	 */
+	public void setCSSListener(CSSListener cssListener)
+	{
+		this.cssListener = cssListener;
+		jsaf.cssEvent = cssListener;
+	}
+	
+	/**
+	 * Sets a new ParserListener
+	 */
+	public void setParserListener(ParserListener parserListener)
+	{
+		this.parserListener = parserListener;
+		jsaf.parserEvent = parserListener;
+	}
+	
+	/**
+	 * Sets a new JavaScript engine
+	 * @param engineName Engine name used in the ScriptEngineManager
+	 */
+	public void setJSEngine(String engineName)
+	{
+		engine = manager.getEngineByName(engineName);
+	}
+	
+	/**
+	 * Sets a new JSAdapterFactory 
+	 * (this also overrides the current listeners)
+	 */
+	public void setJSAdapterFactory(JSAdapterFactory jsaf)
+	{
+		this.jsaf = jsaf;
+		document = (Document) jsaf.create(doc, JSAdapterType.DOCUMENT);
+		window.document = document;
+	}
 
+	
+	////////////////
+	// JavaScript //
+	////////////////
+	
 	/**
 	 * Run all JS scripts in the document
 	 */
@@ -91,8 +159,10 @@ public class JSAnalyzer
 	 */
 	private List<String> getScripts(Element doc)
 	{
-		// TODO proper algorithm required
-		
+		/*
+		 * This is just a basic algorithm
+		 * All <script> tags are considered to be JS
+		 */
 		List<String> list = new ArrayList<String>();
 		
 		NodeList nl = doc.getElementsByTagName("script");
@@ -104,7 +174,7 @@ public class JSAnalyzer
 	}
 	
 	/**
-	 * Execute script with a default Java engine
+	 * Execute the script
 	 * @param script JavaScript code
 	 */
 	private void execute(String script)
@@ -112,20 +182,16 @@ public class JSAnalyzer
 		try {
 			
 			SimpleBindings bindings = new SimpleBindings();
-			bindings.put("window", window);
 			bindings.put("document", document);
+			bindings.put("window", window);
 			bindings.put("DOMException", pDOMException);
 			bindings.put("Node", pNode);
 			engine.setBindings(bindings, ScriptContext.ENGINE_SCOPE);
-			
-			// TODO security problems
 			
 			Object result = engine.eval(script);
 			System.out.println(result);
 			
 		} catch (Exception e) {
-			// TODO recovery is necessary
-			
 			System.err.println("*** JavaScript Error: " + e.getMessage());
             e.printStackTrace();
 		}
