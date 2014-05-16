@@ -108,7 +108,7 @@ public class SimpleExample extends javax.swing.JFrame
             da.getStyleSheets();
 			
 			// 4 (new) - Execute JavaScript
-            JSAnalyzer jsa = new JSAnalyzer(da, doc, docSource.getURL());
+            JSAnalyzer jsa = new JSAnalyzer(da, docSource.getURL());
             jsa.run();
             
             // 3 (bypass) - Recompute styles

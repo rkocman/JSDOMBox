@@ -21,6 +21,14 @@ import org.fit.cssbox.jsdombox.global.util.HTMLURI;
  */
 public class DefaultCSSBoxFactory extends JSAdapterFactory
 {	
+	/**
+	 * Creates a new DefaultCSSBoxFactory
+	 * @param doc Current document
+	 * @param basePath The base URL of the document
+	 * @param htmlListener Currently used implementation of the HTMLListener
+	 * @param cssListener Currently used implementation of the CSSListener
+	 * @param parserListener Currently used implementation of the ParserListener
+	 */
 	public DefaultCSSBoxFactory(
 			org.w3c.dom.Document doc, URL basePath, HTMLListener htmlListener, 
 			CSSListener cssListener, ParserListener parserListener

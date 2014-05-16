@@ -15,12 +15,7 @@ import javax.script.ScriptEngineManager;
 import javax.script.SimpleBindings;
 
 import org.fit.cssbox.css.DOMAnalyzer;
-import org.fit.cssbox.jsdombox.event.CSSListener;
-import org.fit.cssbox.jsdombox.event.EmptyCSSListener;
-import org.fit.cssbox.jsdombox.event.EmptyHTMLListener;
-import org.fit.cssbox.jsdombox.event.EmptyParserListener;
-import org.fit.cssbox.jsdombox.event.HTMLListener;
-import org.fit.cssbox.jsdombox.event.ParserListener;
+import org.fit.cssbox.jsdombox.event.*;
 import org.fit.cssbox.jsdombox.global.core.Document;
 import org.fit.cssbox.jsdombox.global.misc.*;
 import org.w3c.dom.Element;
@@ -55,13 +50,13 @@ public class JSAnalyzer
 	
 	/**
 	 * Creates a new JS analyzer
-	 * @param da  Initialized CSSBox analyzer 
-	 * @param doc The document to be analyzed
+	 * @param da Initialized CSSBox analyzer 
+	 * @param basePath The base URL of the document
 	 */
-	public JSAnalyzer(DOMAnalyzer da, org.w3c.dom.Document doc, URL basePath)
+	public JSAnalyzer(DOMAnalyzer da, URL basePath)
 	{
 		this.da = da;
-		this.doc = doc;
+		this.doc = da.getRoot().getOwnerDocument();
 		this.basePath = basePath;
 		
 		// JavaScript
