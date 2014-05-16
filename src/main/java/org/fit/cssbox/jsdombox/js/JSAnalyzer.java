@@ -41,11 +41,6 @@ public class JSAnalyzer
 	protected ScriptEngineManager manager;
 	protected ScriptEngine engine;
 	
-	// Interfaces
-	protected HTMLListener htmlListener;
-	protected CSSListener cssListener;
-	protected ParserListener parserListener;
-	
 	// Global objects
 	protected JSAdapterFactory jsaf;
 	protected Document document;
@@ -73,12 +68,10 @@ public class JSAnalyzer
 		manager = new ScriptEngineManager();
 		engine = manager.getEngineByName("rhino");
 		
-		// Interfaces
-		htmlListener = new EmptyHTMLListener();
-		cssListener = new EmptyCSSListener();
-		parserListener = new EmptyParserListener();
-		
 		// Global objects
+		HTMLListener htmlListener = new EmptyHTMLListener();
+		CSSListener cssListener = new EmptyCSSListener();
+		ParserListener parserListener = new EmptyParserListener();
 		jsaf = new DefaultCSSBoxFactory(doc, basePath, 
 				htmlListener, cssListener, parserListener);
 		document = (Document) jsaf.create(doc, JSAdapterType.DOCUMENT);
@@ -93,7 +86,6 @@ public class JSAnalyzer
 	 */
 	public void setHTMLListener(HTMLListener htmlListener)
 	{
-		this.htmlListener = htmlListener;
 		jsaf.htmlEvent = htmlListener;
 	}
 	
@@ -102,7 +94,6 @@ public class JSAnalyzer
 	 */
 	public void setCSSListener(CSSListener cssListener)
 	{
-		this.cssListener = cssListener;
 		jsaf.cssEvent = cssListener;
 	}
 	
@@ -111,7 +102,6 @@ public class JSAnalyzer
 	 */
 	public void setParserListener(ParserListener parserListener)
 	{
-		this.parserListener = parserListener;
 		jsaf.parserEvent = parserListener;
 	}
 	
