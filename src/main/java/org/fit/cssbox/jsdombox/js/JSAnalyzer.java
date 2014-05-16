@@ -129,11 +129,19 @@ public class JSAnalyzer
 	 * Run all JS scripts in the document
 	 */
 	public void run()
-	{
+	{	
+		SimpleBindings bindings = new SimpleBindings();
+		bindings.put("document", document);
+		bindings.put("window", window);
+		bindings.put("DOMException", pDOMException);
+		bindings.put("Node", pNode);
+		engine.setBindings(bindings, ScriptContext.ENGINE_SCOPE);
+		
 		Element doc = da.getRoot();
 		List<String> scripts = getScripts(doc);
 		for (String script : scripts) {
-			execute(script);
+			if (execute(script) == false)
+				return;
 		}
 	}
 	
@@ -162,24 +170,19 @@ public class JSAnalyzer
 	/**
 	 * Execute the script
 	 * @param script JavaScript code
+	 * @return Without errors? true|false
 	 */
-	private void execute(String script)
+	private boolean execute(String script)
 	{
 		try {
 			
-			SimpleBindings bindings = new SimpleBindings();
-			bindings.put("document", document);
-			bindings.put("window", window);
-			bindings.put("DOMException", pDOMException);
-			bindings.put("Node", pNode);
-			engine.setBindings(bindings, ScriptContext.ENGINE_SCOPE);
-			
-			Object result = engine.eval(script);
-			System.out.println(result);
+			engine.eval(script);
+			return true;
 			
 		} catch (Exception e) {
 			System.err.println("*** JavaScript Error: " + e.getMessage());
             e.printStackTrace();
+            return false;
 		}
 	}
 	
