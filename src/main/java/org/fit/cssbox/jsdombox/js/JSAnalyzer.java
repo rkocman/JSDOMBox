@@ -51,7 +51,7 @@ public class JSAnalyzer
 	/**
 	 * Creates a new JS analyzer
 	 * @param da Initialized CSSBox analyzer 
-	 * @param basePath The base URL of the document
+	 * @param basePath The URL of the document
 	 */
 	public JSAnalyzer(DOMAnalyzer da, URL basePath)
 	{

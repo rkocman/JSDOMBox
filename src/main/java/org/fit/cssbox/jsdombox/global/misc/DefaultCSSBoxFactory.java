@@ -24,7 +24,7 @@ public class DefaultCSSBoxFactory extends JSAdapterFactory
 	/**
 	 * Creates a new DefaultCSSBoxFactory
 	 * @param doc Current document
-	 * @param basePath The base URL of the document
+	 * @param basePath The URL of the document
 	 * @param htmlListener Currently used implementation of the HTMLListener
 	 * @param cssListener Currently used implementation of the CSSListener
 	 * @param parserListener Currently used implementation of the ParserListener

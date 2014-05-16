@@ -31,7 +31,7 @@ public class HTMLURI
 	 * Creates a new HTMLURI
 	 * @param jsaf Currently used implementation of the JSAdapterFactory 
 	 * @param doc Current document
-	 * @param basePath The base URL of the document
+	 * @param basePath The URL of the document
 	 */
 	public HTMLURI(JSAdapterFactory jsaf, org.w3c.dom.Document doc, URL basePath)
 	{
