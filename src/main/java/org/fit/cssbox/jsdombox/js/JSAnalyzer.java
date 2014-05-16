@@ -147,6 +147,7 @@ public class JSAnalyzer
 		/*
 		 * This is just a basic algorithm
 		 * All <script> tags are considered to be JS
+		 * and external scripts are not supported
 		 */
 		List<String> list = new ArrayList<String>();
 		
