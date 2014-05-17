@@ -22,10 +22,10 @@ import org.w3c.dom.Element;
  */
 public class HTMLURI
 {
-	private JSAdapterFactory jsaf;
-	private org.w3c.dom.Document doc; // DOM of the parsed document
-	private URL documentBasePath; // Base path of the parsed document
-	private URL htmlBasePath; // HTML base path with the tag <base>
+	protected JSAdapterFactory jsaf;
+	protected org.w3c.dom.Document doc; // DOM of the parsed document
+	protected URL documentBasePath; // Base path of the parsed document
+	protected URL htmlBasePath; // HTML base path with the tag <base>
 	
 	/**
 	 * Creates a new HTMLURI

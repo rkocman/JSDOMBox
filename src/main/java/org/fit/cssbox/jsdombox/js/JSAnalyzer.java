@@ -150,7 +150,7 @@ public class JSAnalyzer
 	 * @param doc The document to be analyzed
 	 * @return List of scripts
 	 */
-	private List<String> getScripts(Element doc)
+	protected List<String> getScripts(Element doc)
 	{
 		/*
 		 * This is just a basic algorithm
@@ -172,7 +172,7 @@ public class JSAnalyzer
 	 * @param script JavaScript code
 	 * @return Without errors? true|false
 	 */
-	private boolean execute(String script)
+	protected boolean execute(String script)
 	{
 		try {
 			
