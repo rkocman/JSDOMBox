@@ -26,7 +26,7 @@ public class HTMLQuoteElement extends HTMLElement
 	{
 		String attr = jsaf.innerNameFormat("cite");
 		String path = source.getAttribute(attr);
-		return jsaf.htmlUri.getAbsolutePath(path);
+		return jsaf.htmlUri.getAbsolutePath(path, true, true);
 	}
 	public void setCite(String cite)
 	{
