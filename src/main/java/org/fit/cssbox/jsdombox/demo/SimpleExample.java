@@ -85,7 +85,8 @@ public class SimpleExample extends javax.swing.JFrame
 			//document += "dom-html2_frame-htmlelements.html";
 			//document += "dom-html2_form-htmlelements.html";
 			//document += "dom-html2_table-htmlelements.html";
-			document += "dom-html2_htmldocument.html";
+			//document += "dom-html2_htmldocument.html";
+			document += "dom-html2_speed-test.html";
 			
 			// 1 - Get input document
 			String basePath = new File(document).getAbsolutePath();

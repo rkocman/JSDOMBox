@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>DOM Level 2 HTML - Speed test</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<style>
+			html {
+				font-family: Arial, sans-serif;
+				font-size: 14px;
+			}
+		</style>
+	</head>
+	<body>
+	
+		<strong>Test 1 - 100 000 iterations:</strong><br>
+		<span id="t11">result [ms]: </span><br>
+		<br>
+		
+		<strong>Test 2 - 10 000 iterations + DOM r/w:</strong><br>
+		<span id="t21">result [ms]: </span><br>
+		<span id="t22">counter (correct: 10000): </span><span id="t23">0</span><br>
+		<br>
+		
+		<strong>Test 3 - New HTML table content 39x100:</strong><br>
+		<span id="t31">result [ms]: </span><br>
+		<br>
+		
+		<strong>Test 4 - HTMLCollection table iterations:</strong><br>
+		<span id="t41">result [ms]: </span><br>
+		<span id="t42">counter (correct: 1950): </span><span id="t43">0</span><br>
+		<br>
+		
+		<strong>Test 5 - 1 000 iterations + relative URI r/w:</strong><br>
+		<span id="t51">result [ms]: </span><br>
+		<span id="t52">URI: <a href="./test"></a> </span><span id="t53">empty</span><br>
+		<br>
+		
+		<h2>HTML table</h2>
+		<table></table>
+		
+		<script>
+			// Test 1:
+			// This test runs a loop with 100 000 iterations
+			// and counts some basic expression.
+			
+			var start = new Date();
+			for (var i = 0; i < 100000; i++) {
+				var result = 1 + 2 / 3 * 4 % 5;
+			}
+			var stop = new Date();
+			
+			document.getElementById("t11").firstChild.data += stop.getTime() - start.getTime(); 
+		</script>
+		
+		<script>
+			// Test 2:
+			// This test runs a loop with 10 000 iterations
+			// and creates a counter in DOM.
+			
+			var start = new Date();
+			for (var i = 0; i < 10000; i++) {
+				var counter = document.getElementById("t23").firstChild.data;
+				document.getElementById("t23").firstChild.data = parseInt(counter)+1;
+			}
+			var stop = new Date();
+			
+			document.getElementById("t21").firstChild.data += stop.getTime() - start.getTime();
+		</script>
+		
+		<script>
+			// Test 3:
+			// This test creates a new content for HTML table
+			// with size 39x100.
+			
+			var start = new Date();
+			var content = 1;
+			var table = document.getElementsByTagName("Table").item(0);
+			for (var i = 0; i < 100; i++) {
+				var row = table.insertRow(-1);
+				for (var j = 0; j < 39; j++) {
+					var cell = row.insertCell(-1);
+					var text = document.createTextNode(content);
+					content = (content+1)%2;
+					cell.appendChild(text);
+				}
+			}
+			var stop = new Date();
+			
+			document.getElementById("t31").firstChild.data += stop.getTime() - start.getTime();
+		</script>
+		
+		<script>
+			// Test 4:
+			// This creates a counter around HTMLCollection
+			// returned by HTML table.
+			
+			var start = new Date();
+			var counter = 0;
+			var rows = document.getElementsByTagName("Table").item(0).rows;
+			for (var i = 0; i < rows.length; i++) {
+				var cells = rows.item(i).cells;
+				for (var j = 0; j < cells.length; j++) {
+					var content = cells.item(j).firstChild.data;
+					counter += parseInt(content);
+				}
+			}
+			document.getElementById("t43").firstChild.data = counter;
+			var stop = new Date();
+			
+			document.getElementById("t41").firstChild.data += stop.getTime() - start.getTime();
+		</script>
+		
+		<script>
+			// Test 5:
+			// This test runs a loop with 1 000 iterations
+			// and reads and writes relative URI attribute.
+			
+			var start = new Date();
+			var link = document.links.item(0);
+			for (var i = 0; i < 1000; i++) {
+				document.getElementById("t53").firstChild.data = link.href;
+				link.href = "./test" + i;
+			}
+			var stop = new Date();
+			
+			document.getElementById("t51").firstChild.data += stop.getTime() - start.getTime();
+		</script>
+	</body>
+</html>
