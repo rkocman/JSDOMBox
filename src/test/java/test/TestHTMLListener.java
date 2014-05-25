@@ -3,8 +3,9 @@
  * Copyright (c) Radim Kocman
  */
 
-package org.fit.cssbox.jsdombox.event;
+package test;
 
+import org.fit.cssbox.jsdombox.event.EmptyHTMLListener;
 import org.w3c.dom.Node;
 
 /**

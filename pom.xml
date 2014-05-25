@@ -10,5 +10,13 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>JSDOMBox</name>
   <description>JSDOMBox is an experimental extension for CSSBox.
-It adds the ability to execute JavaScript and dynamically manipulate with DOM content.</description>
+It adds the ability to execute JavaScript and dynamically manipulate with the DOM content.</description>
+
+  <dependencies>
+  	<dependency>
+	  <groupId>net.sf.cssbox</groupId>
+	  <artifactId>jstyleparser</artifactId>
+	  <version>1.16</version>
+	</dependency>
+  </dependencies>
 </project>

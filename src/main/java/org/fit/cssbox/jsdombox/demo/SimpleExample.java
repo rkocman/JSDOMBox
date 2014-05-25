@@ -21,7 +21,7 @@ import org.fit.cssbox.layout.BrowserCanvas;
 import org.w3c.dom.Document;
 
 /**
- * An example of using JSDOMBox for the HTML page rendering and display.
+ * An example of using JSDOMBox for the HTML page rendering and display
  * 
  * @author Radim Kocman
  */
@@ -48,6 +48,7 @@ public class SimpleExample extends javax.swing.JFrame
 	private void initComponents()
 	{
 		documentScroll = new javax.swing.JScrollPane();
+		documentScroll.getVerticalScrollBar().setUnitIncrement(16);
 		browserCanvas = new BrowserCanvas(da.getRoot(), da, new java.awt.Dimension(1000, 750), url);
 		getContentPane().setLayout(new java.awt.GridLayout(1, 0));
 		
@@ -60,7 +61,7 @@ public class SimpleExample extends javax.swing.JFrame
 	}
 
 	/**
-     * @param args the command line arguments
+     * Step by step JSDOMBox example
      */
 	public static void main(String[] args)
 	{
@@ -69,24 +70,24 @@ public class SimpleExample extends javax.swing.JFrame
 			String document = "src/test/resources/";
 			
 			// 0 - Document
+			document += "dom-core1_hello-world.html";
 			//document += "dom-core1_basic-usage.html";
 			//document += "dom-core1_attribute-style.html";
 			//document += "dom-core1_document-structure.html";
 			//document += "dom-core2_constants.html";
 			//document += "dom-core2_table-structure.html";
-			//document += "dom-core2_square-bracket-notation.html"; // (not working)
 			//document += "dom-html2_name-size.html";
+			//document += "dom-html2_htmldocument.html";
 			//document += "dom-html2_htmlelement.html";
+			//document += "dom-html2_uri-format.html";
 			//document += "dom-html2_global-htmlelements.html";
 			//document += "dom-html2_list-htmlelements.html";
-			//document += "dom-html2_content-htmlelements.html";
-			//document += "dom-html2_uri-format.html";
-			//document += "dom-html2_content2-htmlelements.html";
 			//document += "dom-html2_frame-htmlelements.html";
 			//document += "dom-html2_form-htmlelements.html";
 			//document += "dom-html2_table-htmlelements.html";
-			//document += "dom-html2_htmldocument.html";
-			document += "dom-html2_speed-test.html";
+			//document += "dom-html2_content-htmlelements.html";
+			//document += "dom-html2_content2-htmlelements.html";
+			//document += "dom-html2_speed-test.html";
 			
 			// 1 - Get input document
 			String basePath = new File(document).getAbsolutePath();
@@ -112,7 +113,7 @@ public class SimpleExample extends javax.swing.JFrame
             JSAnalyzer jsa = new JSAnalyzer(da, docSource.getURL());
             jsa.run();
             
-            // 3 (bypass) - Recompute styles
+            // 5 (bypass) - Recompute styles
             da = new DOMAnalyzer(doc, docSource.getURL());
 			if (encoding == null)
                 encoding = da.getCharacterEncoding();
@@ -123,13 +124,13 @@ public class SimpleExample extends javax.swing.JFrame
             da.addStyleSheet(null, CSSNorm.formsStyleSheet(), DOMAnalyzer.Origin.AGENT);
             da.getStyleSheets();
 			
-			// 5 - Display result
+			// 6 - Display result
             SimpleExample test = new SimpleExample(da, docSource.getURL());
             test.setSize(1020, 800);
             test.setLocationRelativeTo(null);
             test.setVisible(true);
 			
-			System.out.println("--OK--");
+			//System.out.println("--OK--");
 			
 		} catch (Exception e) {
 			System.err.println("*** Error: " + e.getMessage());

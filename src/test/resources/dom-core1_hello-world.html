@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>DOM Level 1 Core - Hello world!</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	</head>
+	<body>
+		<h1 style="color:red;">Hello static world!</h1>
+		
+		<script>
+			// Desired result:
+			// Hello dynamic world! (in green color)
+			
+			var h1 = window.document.getElementsByTagName("H1").item(0);
+			h1.firstChild.data = "Hello dynamic world!";
+			h1.attributes.getNamedItem("sTyle").value = "color:green;"
+		</script>
+	</body>
+</html>
