@@ -1,13 +1,14 @@
 JSDOMBox
 ========
 JSDOMBox is an experimental extension for the CSSBox.
+
 It adds the ability to execute JavaScript and dynamically manipulate with the DOM content.
 
 **Project status:** DOM Level 2 HTML Supported (Experimental JavaScript execution)
-**Integrated development environment (IDE):** Eclipse (Kepler Service Release 2)
-**Origin:** Master's thesis
 
-All the source code of the JSDOMBox itself is licensed under the GNU Lesser General Public License (LGPL), version 3. A copy of the LGPL can be found in the LICENSE file.
+**Integrated development environment (IDE):** Eclipse (Kepler Service Release 2)
+
+**Origin:** Master's thesis
 
 
 ### Dependencies
@@ -22,10 +23,11 @@ All the source code of the JSDOMBox itself is licensed under the GNU Lesser Gene
 4. Clone and build [jStyleParser](https://github.com/radkovo/jStyleParser)
 5. Clone and build [CSSBox](https://github.com/radkovo/CSSBox)
 6. Clone and build JSDOMBox
-7. ???
-8. PROFIT
 
 ### Demos
 This package contains two GUI applications:
-- `org.fit.vutbr.jsdombox.demo.SimpleExample` - An example of using JSDOMBox for the HTML page rendering and display  
+- `org.fit.vutbr.jsdombox.demo.SimpleExample` - Basic usage example  
 - `test.JSDOMBoxTestSuite` - Test suite application for the JSDOMBox (Use arrow keys for easier navigation)
+
+## License
+All the source code of the JSDOMBox itself is licensed under the GNU Lesser General Public License (LGPL), version 3. A copy of the LGPL can be found in the LICENSE file.
