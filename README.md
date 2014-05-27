@@ -4,7 +4,7 @@ JSDOMBox is an experimental extension for the CSSBox.
 It adds the ability to execute JavaScript and dynamically manipulate with the DOM content.
 
 **Project status:** DOM Level 2 HTML Supported (Experimental JavaScript execution)  
-**Integrated development environment (IDE):** Eclipse (Kepler Service Release 2)  
+**Development suite:** Eclipse (Kepler Service Release 2)  
 **Origin:** Master's thesis
 
 
